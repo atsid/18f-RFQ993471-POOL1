@@ -38,4 +38,3 @@ After running `grunt build` and `jekyll build`, you will have a `_site` folder t
 
 ## Disclaimer
 
-Testing.
