@@ -1,0 +1,555 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+
+        <title>Content with sidebar - USPTO UI Design Library</title>
+
+        <meta name="description" content="">
+        <meta name="keywords" contnet="">
+
+        <meta name="viewport" content="width=device-width">
+        <meta name="theme-color" content="#004c97">
+
+        <meta property="og:title" content="Content with sidebar">
+        <meta property="og:description" content="">
+
+        <link rel="shortcut icon" href="/designpatterns/generated/favicon.ico">
+
+        <!--[if lt IE 9]>
+            <script src="/designpatterns/generated/vendor/html5shiv/html5shiv.min.js"></script>
+        <![endif]-->
+
+        <link href="/designpatterns/generated/styles/vendor.css" rel="stylesheet"/>
+        <link href="/designpatterns/generated/styles/main.css" rel="stylesheet"/>
+
+    </head>
+    <body>
+    <!--[if lt IE 9]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+<div style="background: #fff;">
+    <style>
+/* Fluid and fixed width content sizing and media queries. Matches Bootstrap 3.0 breakpoints */
+
+.uspto-container {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 768px) {
+    .uspto-container {
+        width: 720px;
+    }
+}
+@media (min-width: 992px) {
+    .uspto-container {
+        width: 940px;
+    }
+}
+@media (min-width: 1200px) {
+    .uspto-container {
+        width: 1140px;
+    }
+}
+
+.uspto-container--fluid {
+    width: 100%;
+}
+
+.uspto-container:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+
+/* USPTO logo */
+
+.uspto-logo-svg {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEIAAAAXCAYAAAC/F5msAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAllJREFUeNrsWO1RwkAQTRj/mw5MB14HHBWIFRA7gAqIFYAVgBUEKghUAB0kVhCsIG703bied/lgEgfG7MxO4D52995ldx+4eZ4Lx3EiUt+5fNm5rjsqPlDceVs2SWcu2UuuBISugPi0O7giELoUOegx+JIeCMiNZXxGeiSdkAaG+RGeC1KhzW1It6QpvnukQ9jx2Lo16Sv2z0lfULgcpOtcS9sZm+cx6DGeYHvL/D9YzvEtuVkk5kLTJNsba1NBiR+vKMxsbYhxgc5l2hPpMRnW8BgPpL5lnSTNLOfN2wRiwQ4cwWmGNQHpSjMTMjs+5mM8PTbOJa64QL/C3vgvgCjdYxAOxKHkwHFNIFZsLimxl5iC6aJYnposRlroqSHVLZLsa5raqxQwUALJUmbTpFieIxMQniU5LYraGON3OKiw7PMs40IrjlWSVtjzsea9ayCKOvBGzyWBcUTX+VGsQOW9jjuhuAQeUbQ8VSBj1Itp8ZoTODu0wK4lbZNHnJXvPCe15z3pE4Gx5kWtwsexoU+/Agjl57bJGyFKCsv6DOBU+/qVFkij1PDjStka1gRiCHs7Qxwp/PDLqUWoeLsZo70lvCcbWlvA+jdvUZEiTFhjap8CtjJtvafFlWlEKma+MsYXBOwkmj3ZlEdYWSJngQyIzMb8tMNmBmbplzDLlSGuaQWz9Gr6rw1EjkAkM7RQ5AmqE6EIty5xmxJv1MpGqBj1Vft87Imr4oLqthMUaP4WhGUgFOK2/AdHE3mmvA0BdNz/DO//j7g8IE49DE46ANv7z2AUZ3/8EGAA+vX0k8tdeekAAAAASUVORK5CYII=);
+
+    background: none, url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB2aWV3Qm94PSIwIDAgMTY5LjUgNTkuMSIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTY5LjUgNTkuMSIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTE0Mi42LDE4LjdjLTEuOSwwLTMuNSwwLjYtNC43LDEuOWMtMiwyLTIuMiw1LjQtMi4yLDguOWMwLDMuNSwwLjMsNi45LDIuMiw4LjljMS4yLDEuMiwyLjgsMS45LDQuNywxLjkKCQljMS45LDAsMy42LTAuNyw0LjgtMS45YzItMiwyLjItNS40LDIuMi04LjljMC0zLjUtMC4zLTYuOS0yLjItOC45QzE0Ni4yLDE5LjMsMTQ0LjUsMTguNywxNDIuNiwxOC43eiIvPgoJPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTkxLjMsNDAuM2M1LjksMCw2LjctNS4xLDYuNy0xMC44YzAtNS44LTAuOC0xMC44LTYuNy0xMC44Yy02LDAtNi44LDUtNi44LDEwLjgKCQlDODQuNSwzNS4yLDg1LjMsNDAuMyw5MS4zLDQwLjN6Ii8+Cgk8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMTYyLjksMGgtNDQuMnYxMy4yaDYuM3Y1aC02LjN2MTguMmMwLDIuNCwxLjIsMy44LDMuNiwzLjhoMi43djUuNmgtMy45Yy02LjEsMC04LjktNC40LTguOS05VjE4LjJoLTMuNwoJCXYtNWgzLjdWMEg2LjdDMywwLDAsMywwLDYuN3Y0NS44YzAsMy43LDMsNi43LDYuNyw2LjdINzhWMTMuMmg2LjR2My41YzIuNC0zLDUuMS0zLjksOC42LTMuOWMzLjMsMCw2LjIsMS4xLDgsMi45CgkJYzMuMSwzLjIsMy43LDguNCwzLjcsMTMuN2MwLDUuMy0wLjUsMTAuNi0zLjcsMTMuOGMtMS44LDEuOC00LjYsMi45LTcuOSwyLjljLTMuNSwwLTYuMi0wLjgtOC41LTMuN3YxNi43aDc4LjQKCQljMy43LDAsNi43LTMsNi43LTYuN1Y2LjdDMTY5LjUsMywxNjYuNSwwLDE2Mi45LDB6IE0zOS43LDQ1LjhoLTYuNHYtMy4zYy0yLjIsMi40LTUuNCwzLjctOC43LDMuN2MtMy4zLDAtNi4xLTEuMS04LTMKCQljLTIuNS0yLjQtMy4zLTUuNS0zLjMtOS4yVjEzLjJoNi41djE5LjhjMCw1LjEsMi45LDcuMyw2LjUsNy4zYzMuNywwLDYuNy0yLjIsNi43LTcuM1YxMy4yaDYuNVY0NS44eiBNNTguNyw0Ni4xCgkJYy01LjMsMC05LjgtMC45LTEzLjctNC43bDQuMy00LjNjMi42LDIuNyw2LjIsMy40LDkuNCwzLjRjNCwwLDcuMS0xLjQsNy4xLTQuNWMwLTIuMi0xLjItMy41LTQuNC0zLjlsLTUuMi0wLjQKCQljLTYuMi0wLjYtOS42LTMuMy05LjYtOWMwLTYuNCw1LjUtOS45LDEyLjMtOS45YzQuOSwwLDksMSwxMi4xLDMuN2wtNC4xLDQuMmMtMi4xLTEuNy00LjktMi40LTgtMi40Yy00LDAtNS45LDEuNy01LjksNC4yCgkJYzAsMi4yLDEuMywzLjQsNC41LDMuN2w0LjYsMC40YzYuNywwLjYsMTAuMywzLjUsMTAuMyw5LjJDNzIuMiw0Mi42LDY2LjUsNDYuMSw1OC43LDQ2LjF6IE0xNTIuMyw0Mi4zYy0yLjEsMi4yLTUuMywzLjktOS44LDMuOQoJCWMtNC40LDAtNy42LTEuNy05LjctMy45Yy0zLjEtMy4yLTMuOS03LjMtMy45LTEyLjhjMC01LjUsMC44LTkuNiwzLjktMTIuOGMyLjEtMi4yLDUuMy0zLjksOS43LTMuOWM0LjQsMCw3LjYsMS43LDkuOCwzLjkKCQljMy4xLDMuMiwzLjksNy4zLDMuOSwxMi44QzE1Ni4yLDM1LDE1NS40LDM5LjEsMTUyLjMsNDIuM3oiLz4KPC9nPgo8L3N2Zz4=);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 2.868020305em;
+    height: 1em;
+}
+
+
+/* reset */
+.uspto-header {
+    font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+}
+
+
+
+
+
+
+
+/* Top header */
+
+.uspto-header__top {
+    background-color: #323232;
+    padding: 8px 0;
+}
+
+.uspto-header__top__logo {
+    height: 23px;
+    width: 66px;
+    float: left;
+    margin-left: 8px;
+}
+
+.uspto-header__top__links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    float: right;
+    font-size: 13px;
+    line-height: 23px;
+    margin-right: 8px;
+}
+
+.uspto-header__top__links > li {
+    display: inline-block;
+    margin-left: 14px;
+}
+
+.uspto-header__top__links > li > a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.uspto-header__top__links > li > a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+/* Middle header */
+
+.uspto-header__middle {
+    background-color: #f0f0f0;
+}
+
+.uspto-header__middle__title {
+    margin: 0 0 0 8px;
+    padding: 0;
+    font-size: 30px;
+    line-height: 50px;
+    font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    color: #222;
+}
+
+
+
+
+
+
+/* Bottom header */
+
+.uspto-header__bottom {
+    background-color: #004c97;
+}
+
+.uspto-header__bottom__links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1;
+    clear: both;
+}
+.uspto-header__bottom__links > li {
+    display: block;
+}
+
+.uspto-header__bottom__links > li > a {
+    color: #fff;
+    font-weight: 600;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 8px;
+    text-decoration: none;
+    display: block;
+}
+
+.uspto-header__bottom__links > li > a:hover {
+    background: #004487;
+}
+
+.uspto-caret, .uspto-caret--down {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px solid;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+
+
+
+/* Toggle button for bottom header nav */
+.uspto-header__bottom__toggle-collapse {
+    display: block;
+    position: relative;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 15px;
+}
+
+.uspto-header__bottom__toggle-collapse.uspto--toggled {
+    border-bottom: 1px solid #004487;
+}
+
+.uspto-header__bottom__toggle-collapse:before {
+    content: "";
+    position: absolute;
+    top: 14px;
+    right: 9px;
+    height: 6px;
+    width: 13px;
+    border-bottom: 2px solid;
+    border-top: 2px solid;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.uspto-header__bottom__toggle-collapse:after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: 9px;
+    width: 13px;
+    border-bottom: 2px solid;
+}
+
+.uspto-header__bottom__toggle-collapse:hover {
+    background: #004487;
+    color: #fff;
+}
+.uspto-header__bottom__toggle-collapse:focus {
+    color: #fff;
+}
+
+
+.uspto-header__bottom__collapsible {
+    display: none;
+    overflow: hidden;
+}
+.uspto-header__bottom__collapsible.uspto--toggled {
+    display: block;
+}
+
+/* Non-mobile  */
+@media (min-width: 768px) {
+    .uspto-header__bottom__links {
+        clear: none;
+    }
+    .uspto-header__bottom__links > li {
+        display: inline-block;
+        float: left;
+    }
+
+    .uspto-header__bottom__links > li > a {
+        display: inline-block;
+    }
+
+    .uspto-header__bottom__links--left {
+        float: left;
+    }
+
+    .uspto-header__bottom__links--right {
+        float: right;
+    }
+
+    .uspto-header__bottom__toggle-collapse {
+        display: none;
+    }
+
+    .uspto-header__bottom__collapsible {
+        display: block;
+    }
+
+    .uspto-header__bottom__collapsible.uspto--toggled {
+        display: block;
+    }
+}
+
+
+
+/* Util - hide except for screen readers */
+
+.uspto-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+
+
+
+/* Ensures consistent Segoe UI font loading */
+
+@font-face {
+    font-family: "Segoe UI";
+    font-weight: 200;
+    src: local("Segoe UI Light");
+}
+@font-face {
+    font-family: "Segoe UI";
+    font-weight: 300;
+    src: local("Segoe UI Semilight");
+}
+@font-face {
+    font-family: "Segoe UI";
+    font-weight: 400;
+    src: local("Segoe UI");
+}
+@font-face {
+    font-family: "Segoe UI";
+    font-weight: 600;
+    src: local("Segoe UI Semibold");
+}
+@font-face {
+    font-family: "Segoe UI";
+    font-weight: 700;
+    src: local("Segoe UI Bold");
+}
+@font-face {
+    font-family: "Segoe UI";
+    font-style: italic;
+    font-weight: 400;
+    src: local("Segoe UI Italic");
+}
+@font-face {
+    font-family: "Segoe UI";
+    font-style: italic;
+    font-weight: 700;
+    src: local("Segoe UI Bold Italic");
+}
+</style>
+<div class="uspto-header">
+    <div class="uspto-header__top">
+        <div class="uspto-container  uspto-header">
+            <div class="uspto-header__top__logo uspto-logo-svg"></div>
+            <ul class="uspto-header__top__links">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="uspto-header__middle">
+        <div class="uspto-container ">
+            <h1 class="uspto-header__middle__title">Content with sidebar</h1>
+        </div>
+    </div>
+    <div class="uspto-header__bottom">
+        <div class="uspto-container ">
+            <a href="#" data-uspto-toggle=".uspto-header__bottom__collapsible" class="uspto-header__bottom__toggle-collapse"><span class="uspto-sr-only">Toggle menu</span></a>
+            <div class="uspto-header__bottom__collapsible">
+                <ul class="uspto-header__bottom__links uspto-header__bottom__links--left">
+                    <li><a href="#">Manage</a></li>
+                    <li><a href="#">Search</span></a></li>
+                </ul>
+                <ul class="uspto-header__bottom__links uspto-header__bottom__links--right">
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+(function () {
+
+        /* indexOf polyfill  */
+        function indexOf(collection, item) {
+            var idx = -1;
+            for (i = 0; i < collection.length; i++) {
+                if (collection[i] === item) {
+                    idx = i;
+                    break;
+                }
+            }
+            return idx;
+        }
+
+        /* Toggle the class on an element  */
+        function toggleClass(el, className) {
+            var classes = el.className.split(" "),
+                idx = indexOf(classes, className);
+            if (idx > -1) {
+                classes.splice(idx, 1);
+            } else {
+                classes.push(className);
+            }
+            el.className = classes.join(" ");
+        }
+
+        /* Request animation frame polyfill */
+        var raf = window.requestAnimationFrame ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            window.oRequestAnimationFrame ||
+            window.msRequestAnimationFrame ||
+            function(callback) {
+                window.setTimeout(callback, 16.666666667);
+            };
+
+        /* Sineout easing */
+        function lerp(v0, v1, t) {
+            t = Math.sin(t * Math.PI/2);
+            return v0 *(1 - t) + v1 * t;
+        }
+
+        /* Animate an element's property over a period of time */
+        var animationQueue = [];
+        function animate(el, prop, duration, start, end, cb) {
+            var elapsed = 0;
+            var startTime = Date.now();
+            if (indexOf(animationQueue, el) === -1) {
+                animationQueue.push(el);
+                var anim = function () {
+                    elapsed = Date.now() - startTime;
+                    var val = lerp(start, end, Math.min(elapsed / duration, 1));
+                    el.style[prop] = val + "px";
+                    if (val != end) {
+                        raf(anim);
+                    } else {
+                        animationQueue.splice(indexOf(animationQueue, el), 1);
+                        cb();
+                    }
+                };
+                raf(anim);
+            }
+        }
+
+        /* Toggle the visibility of an element */
+        function toggle(el) {
+            var height = el.offsetHeight,
+                show = height === 0,
+                target;
+            if (show) {
+                el.style.height = "auto";
+                el.style.display = "block";
+                target = el.offsetHeight;
+                el.style.height = "0";
+            } else {
+                target = 0;
+            }
+            animate(el, 'height', 150, height, target, function () {
+                el.style.height = "";
+                el.style.display = "";
+                toggleClass(el, 'uspto--toggled');
+            });
+        }
+
+        /* addEventListener polyfill */
+        function addEventListener(el, evt, cb) {
+            if (el.addEventListener) {
+                el.addEventListener(evt, cb, false);
+            } else {
+                el.attachEvent("on" + evt, cb);
+            }
+        }
+
+        /* Add toggle functionality for an element and a target */
+        function setToggleHandler(toggleEl, targetEl) {
+            addEventListener(toggleEl, 'click', function() {
+                toggle(targetEl);
+                toggleClass(toggleEl, 'uspto--toggled');
+                return false;
+            });
+        }
+
+        /* Find all toggles via [data-uspto-toggle] attr and wire them up */
+        var toggles = document.querySelectorAll("[data-uspto-toggle]");
+        for (var i = 0; i < toggles.length; i += 1) {
+            var toggleEl = toggles[i];
+            var targetSelector = toggleEl.getAttribute('data-uspto-toggle');
+            var targetEl = document.querySelector(targetSelector);
+            setToggleHandler(toggleEl, targetEl);
+        }
+
+    })();
+</script>
+
+    <div class="container" style="display: table;">
+        <div class="padding-top-4 padding-right-4" style="display: table-cell;">
+            <div class="prose">
+    <h1 class="margin-top-0">Search for patents</h1>
+    <h3 class="text-muted normal margin-top-2">Two-day event to include discussions among USPTO leadership and experts from industry, academia, and the public</h3>
+    <h6 class="text-muted">Jul 14, 2015</h6>
+    <hr>
+    <p>Inventors are encouraged to search the USPTO's patent database to see if a patent has already been filed or granted that is similar to your patent. Patents may be searched in the USPTO Patent Full-Text and Image Database (PatFT). The USPTO houses full text for patents issued from 1976 to the present and PDF images for all patents from 1790 to the present.</p>
+    <p>All sequences (SEQ ID NOs.) and tables for listed patents or publications are available for viewing, without downloading, by accessing the proper document detail page and then submitting a SEQ ID NO or a mega table ID number.</p>
+    <h3>Global Patent Search Network (GPSN)</h3>
+    <p>Global Patent Search Network (GPSN) enables users to search the full text of multiple international patent collections. The initial collection available will be Chinese patent documentation from the State Intellectual Property Office (SIPO) of the People's Republic of China. Users can search published applications, granted patents and utility models from1985 to 2012. The data available includes full text Chinese patents, English machine translations and full document images. This collection will be periodically updated to include additional years of coverage.</p>
+    <h4>Searching full text patents (since 1976)</h4>
+    <p>Customize a search on all or a selected group of elements (fields) of a patent.
+        <ul class="list-unstyled">
+            <li><a href="">Quick search</a></li>
+            <li><a href="">Advanced search</a></li>
+            <li><a href="">Patent number search</a></li>
+        </ul>
+    </p>
+    <h3>Patent Application Information Retrieval (PAIR)</h3>
+    <p>The Patent Application Information Retrieval (PAIR) system provides IP customers a safe, simple, and secure way to retrieve and download information regarding patent application status.
+    <ul class="list-unstyled">
+        <li><a href="">Visit PAIR</a></li>
+    </ul></p>
+    <p>To make it easier for any inventor to pursue patent protection in both the U.S. and Australia, USPTO Deputy Director Michelle K. Lee (right) and IP Australia Director General Patricia Kelly (left) signed Wednesday a Memorandum of Understanding strengthening their already solid partnership.</p>
+</div>
+
+        </div>
+        <div class="padding-left-4" style="display: table-cell; width: 250px;" >
+            <h3>Help center</h3>
+            <h6 class="text-uppercase text-muted">Resources</h6>
+            <ul class="list-unstyled">
+                <li><a href="">Search existing trademarks</a></li>
+                <li><a href="">Instructional videos</a></li>
+            </ul>
+            <h6 class="text-uppercase text-muted">Faq</h6>
+            <ul class="list-unstyled">
+                <li><a href="">What is a mark?</a></li>
+                <li><a href="">Can I change my mark later?</a></li>
+            </ul>
+            <h3>Related articles</h3>
+            <ul class="list-unstyled">
+                <li><a href="">Searching for trademarks</a></li>
+                <li><a href="">How to file a patent</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <script src="/designpatterns/generated/scripts/vendor.js"></script>
+        <script src="/designpatterns/generated/scripts/plugins.js"></script>
+
+        <script src="//components.uspto.gov/js/ais/2-4-pattern-library.js"></script>
+
+        <script src="/designpatterns/generated/scripts/main.js"></script>
+
+    </body>
+</html>
+

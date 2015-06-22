@@ -1,0 +1,62 @@
+---
+title: "About"
+layout: general
+---
+<div class="pl-hero">
+    <div class="container">
+        <h1 class="text-center"><b>18F</b> Pool 1 - Research Team</h1>
+        <h3 class="text-center">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</h3>
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <div style="margin-top: 30px; margin-bottom: 15px;">
+                    <a href="{{site.versions[0].url}}/index.html" class="btn btn-lg btn-default">View Library</a>
+                    <a href="{{site.versions[0].url}}/resources.html" class="btn btn-lg btn-primary">Download </a>
+                    <div class="small" style="opacity: .5; margin-top: 30px; color: #fff;">Current version: {{site.version}}</div>
+                    <div class="small" style="color: #fff;">
+                        <span style="opacity: .5;">Other versions:</span>
+                            {% for v in site.versions %}
+                                {% if v.name != site.version %}
+                                    <a href="{{v.url}}" style="color: #fff;">{{v.name}}</a> &nbsp;
+                                {% endif %}
+                            {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pl-hero-background"></div>
+</div>
+<div class="pl-about">
+    <div class="container panel-body">
+        <div class="row">
+            <div class="col-sm-6 pl-padded-col">
+                <h3>What is this?</h3>
+                <p>An open source UI style guide, pattern library, and Bootstrap theme. Our docs are packed full of usability guidelines, examples, and source code.</p>
+            </div>
+            <div class="col-sm-6 pl-padded-col">
+                <h3>How can I use it?</h3>
+                <p>Once downloaded from the link above or via Bower, you can use either the minified CSS build or the source LESS files in your own build system.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 pl-padded-col">
+                <h3>Who is it for?</h3>
+                <p>This is intended for designers and developers working on USPTO related projects. But, since it's open source, anyone can take advantage of it. If it's useful to you, use it.</p>
+            </div>
+            <div class="col-sm-6 pl-padded-col">
+                <h3>Why did we make it?</h3>
+                <p>We have a lot of web projects at the USPTO. These design guidelines and resources aim to create a unified experience across all projects at the USPTO, both internal and external.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 pl-padded-col">
+                <h3>Not using Bootstrap?</h3>
+                <p>That's fine! A lot of our projects use Bootstrap, but not all of them. The usability guidelines and some resources (like LESS variables or icons) could still be useful.</p>
+            </div>
+            <div class="col-sm-6 pl-padded-col">
+                <h3>Want to contribute?</h3>
+                <p>We want your help! Visit our <a href="{{site.repository.url}}">Github repository</a> for contribution guidelines. If you have improvements or bug fixes, let us know!</p>
+            </div>
+        </div>
+    </div>
+</div>
