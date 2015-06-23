@@ -1,0 +1,3 @@
+[submodule "designpatterns"]
+	path = designpatterns
+	url = https://github.com/USPTO/designpatterns.git
