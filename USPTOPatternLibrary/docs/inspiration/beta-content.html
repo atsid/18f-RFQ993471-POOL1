@@ -1,0 +1,48 @@
+---
+title: "Beta content"
+layout: null
+hidden: true
+---
+{% include header.html %}
+<div style="background: #fff;">
+    {% include universalHeader.html title="Patents" containerClass="container"%}
+    <div class="keyline-bottom">
+        <div class="container">
+            <div class="row">
+                <ol style="margin: 4px 0;" class="breadcrumb">
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">Patents</a></li>
+                  <li><a href="#">Application process</a></li>
+                  <li class="active">Search for patents</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="pull-left" style="width: 280px;">
+            <ul style="margin-left: -10px; font-weight: 600; line-height: 1.8;" class="nav nav-stacked" role="tab-list">
+                <li role="presentation" class="category">Patents</li>
+                <li role="presentation"><a role="tab" href="#">Application process</a>
+                    <ul style="font-weight: 400;" class="nav nav-stacked">
+                        <li role="presentation"><a style="color: #444;" role="tab" href="#">Search for patents</a></li>
+                        <li role="presentation"><a role="tab" href="#">Accessing published application</a></li>
+                        <li role="presentation"><a role="tab" href="#">Authority files</a></li>
+                        <li role="presentation"><a role="tab" href="#">Filing year by application serial number</a></li>
+                        <li role="presentation"><a role="tab" href="#">Understanding patent classifications</a></li>
+                        <li role="presentation"><a role="tab" href="#">Withdrawn patent numbers</a></li>
+                    </ul>
+                </li>
+                <li role="presentation"><a role="tab" href="#">Learn about patent classification</a></li>
+                <li role="presentation"><a role="tab" href="#">Filing online</a></li>
+                <li role="presentation"><a role="tab" href="#">Checking application status</a></li>
+                <li role="presentation"><a role="tab" href="#">Responding to office actions</a></li>
+                <li role="presentation"><a role="tab" href="#">Appealing patent decisions</a></li>
+                <li role="presentation"><a role="tab" href="#">Petitions</a></li>
+            </ul>
+        </div>
+        <div class="padding-4 keyline-left" style="margin-left: 280px;">
+            {% include content.html %}
+        </div>
+    </div>
+</div>
+{% include footer.html %}
