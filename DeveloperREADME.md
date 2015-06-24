@@ -12,3 +12,4 @@ The app uses a simple Node.js Express static server to host the content. To get 
 `npm start` will run a gulp task to serve up the static content at http://localhost:8000.
 It will also automatically open your browser to this page, and watch for file changes to automatically refresh.
 This behavior is configurable in Gulpfile.js.
+
