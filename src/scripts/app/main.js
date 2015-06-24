@@ -1,3 +1,4 @@
+'use strict';
 /**
  * This is the main app entry point.
  */
@@ -17,7 +18,7 @@ define([
 
             console.log('initializing app into [' + containerId + ']');
 
-            $(containerId).html('<p>Welcome to the app!</p>');
+            $(containerId).html(config.message);
 
         }
 

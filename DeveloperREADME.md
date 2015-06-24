@@ -9,6 +9,6 @@ The app uses a simple Node.js Express static server to host the content. To get 
 1. Run code quality checks: `npm test`
 1. Start the app: `npm start`
 
-This will run a gulp task to serve up the static content at localhost:8000.
+`npm start` will run a gulp task to serve up the static content at http://localhost:8000.
 It will also automatically open your browser to this page, and watch for file changes to automatically refresh.
-This is configurable in Gulpfile.js.
+This behavior is configurable in Gulpfile.js.

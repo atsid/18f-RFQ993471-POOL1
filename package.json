@@ -10,10 +10,12 @@
   "author": "ATS",
   "dependencies": {},
   "scripts": {
+    "test": "node_modules/.bin/gulp lint",
     "start": "node_modules/.bin/gulp serve"
   },
   "devDependencies": {
     "gulp": "~3.8.10",
-    "gulp-server-livereload": "1.4.0"
+    "gulp-server-livereload": "1.4.0",
+    "gulp-jshint": "^1.9.2"
   }
 }

@@ -11,7 +11,7 @@ requirejs.config({
     },
     'config': {
         'app/main': {
-            name: '18F Pool 1'
+            message: '<p>Welcome to the app!</p>'
         }
     }
 });

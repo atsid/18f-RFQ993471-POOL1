@@ -20,7 +20,6 @@
   "validthis": true,
   "globals": {
     "console": true,
-    "d3": true,
     "angular": false,
     // Angular Mocks
     "inject": false,
@@ -32,6 +31,10 @@
     "beforeEach": false,
     "after": false,
     "afterEach": false,
-    "expect": false
+    "expect": false,
+    //requirejs
+    "requirejs": true,
+    "define": true,
+    "require": true
   }
 }
