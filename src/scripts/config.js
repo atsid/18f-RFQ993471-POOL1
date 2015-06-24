@@ -3,7 +3,7 @@
 console.log('loading requirejs config');
 
 requirejs.config({
-    'baseUrl': 'scripts/lib',
+    'baseUrl': 'src/scripts/lib',
     'paths': {
         'app': '../app',
         'jquery': 'http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min',
