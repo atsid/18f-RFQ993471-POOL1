@@ -39,7 +39,7 @@ gulp.task('serve', function() {
  * Push the site content to public gh-pages.
  */
 gulp.task('deploy', function() {
-    return gulp.src(config.src.all + '/**/*')
+    return gulp.src(config.src.allFiles)
         .pipe(ghPages());
 });
 
