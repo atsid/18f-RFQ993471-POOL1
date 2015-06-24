@@ -12,7 +12,7 @@
   "scripts": {
     "test": "node_modules/.bin/gulp lint",
     "start": "node_modules/.bin/gulp serve",
-    "postinstall": "node_modules/.bin/bower install && cd bower_components/USPTOPatternLibrary && npm install && node_modules/.bin/bower install && node_modules/.bin/grunt build"
+    "postinstall": "node_modules/.bin/bower install && cd bower_components/USPTOPatternLibrary && npm install && node_modules/.bin/bower install"
   },
   "devDependencies": {
     "bower": "1.4.1",
