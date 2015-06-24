@@ -1,0 +1,19 @@
+{
+  "name": "18f-RFQ993471-POOL1",
+  "version": "0.0.1",
+  "private": true,
+  "license": "Apache",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atsid/18f-RFQ993471-POOL1.git"
+  },
+  "author": "ATS",
+  "dependencies": {},
+  "scripts": {
+    "start": "node_modules/.bin/gulp serve"
+  },
+  "devDependencies": {
+    "gulp": "~3.8.10",
+    "gulp-server-livereload": "1.4.0"
+  }
+}

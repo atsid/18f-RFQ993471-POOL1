@@ -1,4 +1,5 @@
 tags
 *.un~
 *.swp
-
+.idea
+node_modules
