@@ -1,0 +1,38 @@
+@import "../../designpatterns/usptostrap/less/usptostrap.less";
+
+@container-max-width: 114rem;
+@to-be-completed: #97B8D4;
+
+html{
+    font-size: 62.5%;
+}
+body{
+    font-size: 1.6rem; 
+}
+header{
+    width: 100%;
+    .nav-tabs{
+        border-bottom:0;
+        li{
+            &.active{
+                a{
+                    border:0;
+                }
+            }
+        }
+    }
+}
+
+.container{
+    margin:0 auto;
+    max-width: @container-max-width;
+}
+
+section{
+    padding:4px;
+    > div{
+        border:1px solid rgba(0,0,0,0.5);
+        border-radius:5px;
+        height:30rem;
+    }
+}
