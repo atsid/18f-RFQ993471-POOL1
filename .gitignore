@@ -1,4 +1,6 @@
 tags
 *.un~
 *.swp
-
+.idea
+node_modules
+npm-debug.log
