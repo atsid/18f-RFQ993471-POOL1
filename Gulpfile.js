@@ -3,9 +3,13 @@
 var gulp = require('gulp');
 var server = require('gulp-server-livereload');
 var jshint = require('gulp-jshint');
+var ghPages = require('gulp-gh-pages');
+
 var config = {
     src: {
         all: './src',
+        allFiles: './src/**/*',
+        empty: './src/404.html',
         scripts: './src/scripts/app/**/*.js'
     }
 };
@@ -29,6 +33,22 @@ gulp.task('serve', function() {
             defaultFile: 'index.html',
             open: true
         }));
+});
+
+/*
+ * Push the site content to public gh-pages.
+ */
+gulp.task('deploy', function() {
+    return gulp.src(config.src.allFiles)
+        .pipe(ghPages());
+});
+
+/*
+ * Remove the public content - basically just push a dummy file so there's nothing useful to see.
+ */
+gulp.task('undeploy', function() {
+    return gulp.src(config.src.empty)
+        .pipe(ghPages());
 });
 
 gulp.task('default', ['lint', 'serve']);
