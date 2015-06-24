@@ -1,0 +1,8 @@
+{
+  "name": "18f-RFQ993471-POOL1",
+  "version": "0.0.1",
+  "dependencies": {},
+  "devDependencies": {
+    "USPTOPatternLibrary": "https://github.com/uspto/designpatterns.git#1.2.0"
+  }
+}

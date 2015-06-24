@@ -7,7 +7,7 @@ var ghPages = require('gulp-gh-pages');
 
 var config = {
     src: {
-        all: './src',
+        all: './',
         allFiles: './src/**/*',
         empty: './src/404.html',
         scripts: './src/scripts/app/**/*.js'
@@ -30,7 +30,7 @@ gulp.task('serve', function() {
     gulp.src(config.src.all)
         .pipe(server({
             livereload: true,
-            defaultFile: 'index.html',
+            defaultFile: 'src/index.html',
             open: true
         }));
 });
