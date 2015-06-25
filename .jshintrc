@@ -20,7 +20,7 @@
   "validthis": true,
   "globals": {
     "console": true,
-    "angular": false,
+    "angular": true,
     // Angular Mocks
     "inject": false,
     "module": false,

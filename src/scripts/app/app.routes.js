@@ -1,5 +1,6 @@
 angular.module('AppRouter', ['ngRoute'])
     .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+        'use strict';
 
         // home page
         $routeProvider.when('/', {
