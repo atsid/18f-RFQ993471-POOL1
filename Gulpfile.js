@@ -3,6 +3,8 @@
 var gulp = require('gulp');
 var server = require('gulp-server-livereload');
 var jshint = require('gulp-jshint');
+var rimraf = require('rimraf');
+var runSequence = require('run-sequence');
 var ghPages = require('gulp-gh-pages');
 
 var config = {
@@ -46,6 +48,13 @@ gulp.task('serve', function() {
 });
 
 /*
+ * Clean out the build directory so we don't have any excess junk
+ */
+gulp.task('clean', function (cb) {
+    rimraf(config.src.build, cb);
+});
+
+/*
  * Get all that stuff into a single point for deployment, without the extra cruft.
  */
 gulp.task('build', function () {
@@ -53,11 +62,22 @@ gulp.task('build', function () {
 });
 
 /*
- * Push the site content to public gh-pages.
+ * Push the built site content to public gh-pages.
  */
-gulp.task('deploy', ['build'], function() {
+gulp.task('ghpages', function () {
     return gulp.src(config.src.deploy)
         .pipe(ghPages());
+});
+
+/**
+ * Full deploy cycle.
+ */
+gulp.task('deploy', function (cb) {
+    runSequence(
+        'clean',
+        'build',
+        'ghpages',
+        cb);
 });
 
 /*
