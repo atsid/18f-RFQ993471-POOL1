@@ -1,0 +1,13 @@
+---
+title: "Fluid layout"
+layout: null
+hidden: true
+---
+{% include header.html %}
+<div style="background: #fff;">
+    {% include universalHeader.html title="Fluid layout" fluid="true"%}
+    <div class="container-fluid padding-top-4">
+        {% include content.html %}
+    </div>
+</div>
+{% include footer.html %}

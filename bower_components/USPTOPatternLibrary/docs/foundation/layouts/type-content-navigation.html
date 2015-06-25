@@ -1,0 +1,29 @@
+---
+title: "Content and navigation"
+layout: null
+hidden: true
+---
+{% include header.html %}
+<div style="background: #fff;">
+    {% include universalHeader.html title="Content and navigation" containerClass="container"%}
+    <div class="container">
+        <div style="width: 250px;" class="pull-left">
+            <ul class="nav nav-stacked nav-tree" role="tab-list">
+                <li role="presentation" class="category">General</li>
+                <li class="active" role="presentation"><a role="tab" href="#">Profile</a></li>
+                <li role="presentation"><a role="tab" href="#">Deployments</a></li>
+                <li role="presentation"><a role="tab" href="#">Billing</a></li>
+                <li role="presentation" class="category">System</li>
+                <li role="presentation"><a role="tab" href="#">Notifications</a></li>
+                <li role="presentation"><a role="tab" href="#">Emails</a></li>
+                <li role="presentation"><a role="tab" href="#">SSH keys</a></li>
+            </ul>
+        </div>
+        <div class="keyline-left" style="margin-left: 250px;">
+            <div class="padding-4" >
+                {% include content.html %}
+            </div>
+        </div>
+    </div>
+</div>
+{% include footer.html %}
