@@ -8,6 +8,9 @@ The app uses [gulp](http://gulpjs.com/) to do some builds and run a static serve
 1. Get dev dependencies: `npm install`
 1. Run code quality checks: `npm test`
 
+Optional: install gulp so you can execute it directly on the command line: `npm install -g gulp`.
+This is optional because `npm test` and `npm serve` will get you running, and they map to a local gulp from node_modules.
+
 # Running the App
 
 You have a couple of options to run the app after the above install completes, depending on your preferred workflow.
@@ -53,6 +56,6 @@ Gulp task listing:
 * `gulp deploy` - runs clean, build, gh-pages in order
 * `gulp undeploy` - removes gh-pages branch content
 
-For convenience, `npm test` is mapped to `gulp lint` and `npm start` is mapped to `gulp serve`.
+As noted above, for convenience, `npm test` is mapped to `gulp lint` and `npm start` is mapped to `gulp serve`.
 Within these two commands, local gulp is used so you don't need to have it installed globally.
 
