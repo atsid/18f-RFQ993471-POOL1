@@ -1,7 +1,7 @@
 'use strict';
 
 var gulp = require('gulp');
-var server = require('gulp-server-livereload');
+var webserver = require('gulp-webserver');
 var jshint = require('gulp-jshint');
 var rimraf = require('rimraf');
 var runSequence = require('run-sequence');
@@ -38,12 +38,21 @@ gulp.task('lint', function () {
 /*
  * Live-reload server to make the app available (localhost:8000) and auto-refresh when files change.
  */
-gulp.task('serve', function() {
+gulp.task('watch', function() {
     gulp.src(config.src.all)
-        .pipe(server({
+        .pipe(webserver({
             livereload: true,
             defaultFile: 'index.html',
             open: true
+        }));
+});
+
+gulp.task('serve', function() {
+    gulp.src(config.src.all)
+        .pipe(webserver({
+            livereload: false,
+            defaultFile: 'index.html',
+            open: false
         }));
 });
 
