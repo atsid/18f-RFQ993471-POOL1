@@ -8,9 +8,19 @@ var ghPages = require('gulp-gh-pages');
 var config = {
     src: {
         all: './',
-        allFiles: './src/**/*',
-        empty: './src/404.html',
-        scripts: './src/scripts/app/**/*.js'
+        //selective to only include what we actually need, since it slows down the process
+        //note .nojekyll explicitly included - this allows the designpatterns to work since they have lots of _ prefixes
+        siteFiles: [
+            'src/**/*',
+            'bower_components/USPTOPatternLibrary/bower_components/**/*',
+            'bower_components/USPTOPatternLibrary/usptostrap/**/*',
+            'index.html',
+            '.nojekyll'
+        ],
+        build: 'dist',
+        deploy: ['dist/**/*', 'dist/.nojekyll'],
+        empty: 'src/404.html',
+        scripts: 'src/scripts/app/**/*.js'
     }
 };
 
@@ -36,10 +46,17 @@ gulp.task('serve', function() {
 });
 
 /*
+ * Get all that stuff into a single point for deployment, without the extra cruft.
+ */
+gulp.task('build', function () {
+    return gulp.src(config.src.siteFiles, { 'base': '.' }).pipe(gulp.dest(config.src.build));
+});
+
+/*
  * Push the site content to public gh-pages.
  */
-gulp.task('deploy', function() {
-    return gulp.src(config.src.allFiles)
+gulp.task('deploy', ['build'], function() {
+    return gulp.src(config.src.deploy)
         .pipe(ghPages());
 });
 
