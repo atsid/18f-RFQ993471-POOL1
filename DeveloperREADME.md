@@ -5,6 +5,7 @@ This README is for developers wanting to get the project running.
 The app uses [gulp](http://gulpjs.com/) to do some builds and run a static server to host the content. To get started:
 
 1. Install [Node.js](https://nodejs.org/) if you don't already have it
+1. Clone the git repo to a user-owned directory where you have permissions
 1. Get dev dependencies: `npm install`
 1. Run code quality checks: `npm test`
 
@@ -15,16 +16,20 @@ This is optional because `npm test` and `npm serve` will get you running, and th
 
 You have a couple of options to run the app after the above install completes, depending on your preferred workflow.
 
+Note that you should double-check that you don't have any other servers running that might conflict, such as on port 8000.
+
+## Static Gulp Server
+
+You can run the app right out of the cloned codebase, with `npm start`. This will run a gulp task to serve up the static content at http://localhost:8000.
+ 
 ## Live Reload
 
-If you prefer a live-reload environment, use `npm start`.
+If you prefer a live-reload environment during development, use `gulp watch`.
+This will automatically open your browser to http://localhost:8000, and watch for file changes to automatically refresh itself.
 
-This will run a gulp task to serve up the static content at http://localhost:8000.
-It will also automatically open your browser to this page, and watch for file changes to automatically refresh itself.
+The difference between `npm start` and `gulp watch` is so you have a live-reload option if you don't mind a little system load.
 
-If you want the gulp server but not the file watcher, Gulpfile.js has options to turn off the live reload feature.
-
-## Static Server
+## Other Servers
 
 If you'd rather use a separate server such as Apache, copy the app folder into the server directory after install, and everything should load up.
 For example, if your Apache DocumentRoot is /Users/USERNAME/apache and you've cloned into a folder called "18f", copy the 18f directory into there and then navigate to http://localhost/18f.
@@ -49,7 +54,8 @@ If you need to remove the content, run `gulp undeploy` to push a dummy file to t
 Gulp task listing:
 
 * `gulp lint` - runs jshint
-* `gulp serve` - starts the live-reload server
+* `gulp serve` - starts the static server
+* `gulp watch` - starts the static server with live-reload
 * `gulp clean` - deletes the `dist` directory
 * `gulp build` - copies only relevant content to `dist` directory
 * `gulp ghpages` - pushes contents of `dist` directory to gh-pages branch
