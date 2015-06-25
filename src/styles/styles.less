@@ -8,7 +8,10 @@ html{
     font-size: 62.5%;
 }
 body{
-    font-size: 1.6rem; 
+    font-size: @font-size-normal; 
+    > .container{
+        margin-top:3rem;
+    }
 }
 .container{
     max-width: @container-max-width;
@@ -34,6 +37,17 @@ header{
         }
     }
 }
+h1, h2, h3, h4, h5, h6{
+    margin-top: @margin-base;
+}
+.scroll-table(@max-height){
+    display:block;
+    max-height:@max-height;
+    overflow:auto;
+}
+.table-wrapper{
+    .scroll-table(30rem);
+}
 #main-section{
     float:right;
     h1{
@@ -45,6 +59,7 @@ header{
     }
 }
 #search{
+    min-height:30rem;
     position:relative;
     .inner-section{
         background: @gray-lighter;
@@ -117,9 +132,6 @@ header{
 }
 section{
     padding:4px;
-    > div{
-        height:30rem;
-    }
 }
 
 #sidebar{
@@ -146,6 +158,56 @@ section{
         clear:both;
     }
 }
+
+#top-adverse-reactions{
+    border:@subtle-border;
+    padding:0;
+    h2{
+        background: @gray-lighter;
+        margin:0;
+        padding: 0 1rem;
+        line-height:4rem;
+    }
+    .image-placeholder{
+        width:80%;
+        height:26rem;
+        margin: @margin-base 10%;
+    }
+}
+.warning{
+    display:block;
+    background: lighten(red, 40%);
+    margin-bottom: @margin-large;
+    padding: @margin-base;
+}
+.alerts{
+    margin-top:3rem;
+    ul{
+        position:relative;
+        .see-all-alerts{
+            position:absolute;
+            font-size:@font-size-small;
+            right:0;
+        }
+    }
+    table{
+        border:@subtle-border;
+        border-top:0;
+        max-height: 30rem;
+        overflow:auto;
+        padding:1rem;
+        tr{
+            &:first-child{
+                td{
+                    border-top:none;
+                }
+            }
+        }
+        span:nth-child{
+            clear:both;
+        }
+    }
+}
 .date{
     font-weight:bold;
     font-style:italic;
@@ -159,4 +221,18 @@ section{
     width:30px;
     height:30px;
     float:left;
+}
+.dl-horizontal{
+    margin-bottom:0;
+    dt{
+        display:inline-block;
+        float:none;
+        width:20rem;
+        vertical-align:middle;
+    }
+    dd{
+        display:inline-block;
+        margin-left:2rem;
+        vertical-align:middle;
+    }
 }
