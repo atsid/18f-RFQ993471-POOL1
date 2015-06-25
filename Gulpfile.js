@@ -30,7 +30,7 @@ gulp.task('serve', function() {
     gulp.src(config.src.all)
         .pipe(server({
             livereload: true,
-            defaultFile: 'src/index.html',
+            defaultFile: 'index.html',
             open: true
         }));
 });
