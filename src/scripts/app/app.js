@@ -1,2 +1,5 @@
-angular.module('MedwatchApp', []);
+angular.module('MedwatchApp', [
+    'AppRouter',
+    'HomeCtrl'
+]);
 
