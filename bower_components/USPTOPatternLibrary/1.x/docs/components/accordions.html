@@ -1,0 +1,959 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+
+        <title>Accordions - USPTO UI Design Library</title>
+
+        <meta name="description" content="">
+        <meta name="keywords" contnet="">
+
+        <meta name="viewport" content="width=device-width">
+        <meta name="theme-color" content="#004c97">
+
+        <meta property="og:title" content="Accordions">
+        <meta property="og:description" content="">
+
+        <link rel="shortcut icon" href="/designpatterns/1.x/generated/favicon.ico">
+
+        <!--[if lt IE 9]>
+            <script src="/designpatterns/1.x/generated/vendor/html5shiv/html5shiv.min.js"></script>
+        <![endif]-->
+
+        <link href="/designpatterns/1.x/generated/styles/vendor.css" rel="stylesheet"/>
+        <link href="/designpatterns/1.x/generated/styles/main.css" rel="stylesheet"/>
+
+    </head>
+    <body>
+    <!--[if lt IE 9]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <header class="pl-header navbar navbar-fixed-top navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="/designpatterns/index.html" class="navbar-brand"><strong>USPTO</strong> <span class="light">Design</span></a>
+                <button type="button" class="nav-collapse btn btn-link"><i class="icon icon-inverse icon-bars"></i></button>
+                <button data-toggle="collapse" data-target="#pl-navbar-collapse" type="button" class="btn navbar-toggle collapsed"><i class="icon icon-inverse icon-angle-down"></i></button>
+            </div>
+            <div class="navbar-collapse collapse" id="pl-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li  >
+                        <a href="/designpatterns/index.html">About</a>
+                    </li>
+                    <li  >
+                        <a href="/designpatterns/1.x/docs/index.html">Library</a>
+                    </li>
+                    <li  >
+                        <a href="/designpatterns/1.x/docs/resources.html">Resources</a>
+                    </li>
+                    <li  >
+                        <a href="/designpatterns/1.x/docs/changelog.html">Changelog</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="https://github.com/uspto/designpatterns" title="View on Github" ><i class="icon icon-inverse icon-github"></i> &nbsp; View on Github</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="pl-container">
+        <nav class="pl-sidebar">
+            <ul class="nav nav-stacked">
+                
+                    <li class="category">foundation</li>
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            
+                                
+                                    <li  >
+                                        <a  href="/designpatterns/1.x/docs/foundation/colors.html"> Colors </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            
+                                
+                                    <li  >
+                                        <a  href="/designpatterns/1.x/docs/foundation/grid.html"> Grid </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                                
+                                    <li  >
+                                        <a  href="/designpatterns/1.x/docs/foundation/icons.html"> Icons </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            
+                                
+                                    <li  >
+                                        <a  href="/designpatterns/1.x/docs/foundation/layouts.html"> Layouts </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                                
+                                    <li  >
+                                        <a  href="/designpatterns/1.x/docs/foundation/typography.html"> Typography </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            
+                        
+                    
+                
+                    <li class="category">components</li>
+                    
+                        
+                            
+                                
+                                    <li  class="active"  >
+                                        <a  href="/designpatterns/1.x/docs/components/accordions.html"> Accordions </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                    <li  >
+                                        <a  href="/designpatterns/1.x/docs/components/alerts.html"> Alerts and notifications </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            
+                                
+                                    <li  >
+                                        <a  href="/designpatterns/1.x/docs/components/breadcrumbs.html"> Breadcrumbs </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                    <li  >
+                                        <a  href="/designpatterns/1.x/docs/components/buttons.html"> Buttons </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            
+                                
+                                    <li  >
+                                        <a  href="/designpatterns/1.x/docs/components/dialogs.html"> Dialogs </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            
+                                
+                                    <li  >
+                                        <a  href="/designpatterns/1.x/docs/components/formControls.html"> Form controls </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                    <li  >
+                                        <a  href="/designpatterns/1.x/docs/components/forms.html"> Forms </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            
+                                
+                                    <li  >
+                                        <a  href="/designpatterns/1.x/docs/components/labelsAndBadges.html"> Labels and badges </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            
+                                
+                                    <li  >
+                                        <a  href="/designpatterns/1.x/docs/components/menus.html"> Menus </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                    <li  >
+                                        <a  href="/designpatterns/1.x/docs/components/metadata.html"> Metadata </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                    <li  >
+                                        <a  href="/designpatterns/1.x/docs/components/pagination.html"> Pagination </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                    
+                        
+                            
+                                
+                                    <li  >
+                                        <a  href="/designpatterns/1.x/docs/components/popovers.html"> Popovers </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                    
+                        
+                            
+                                
+                                    <li  >
+                                        <a  href="/designpatterns/1.x/docs/components/progressBars.html"> Progress and loading </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            
+                                
+                                    <li  >
+                                        <a  href="/designpatterns/1.x/docs/components/tables.html"> Tables </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                    <li  >
+                                        <a  href="/designpatterns/1.x/docs/components/tabs.html"> Tabs </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                    <li  >
+                                        <a  href="/designpatterns/1.x/docs/components/tooltips.html"> Tooltips </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                
+                    <li class="category">patterns</li>
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            
+                                
+                                    <li  >
+                                        <a  href="/designpatterns/1.x/docs/patterns/dataFormats.html"> Data formats </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                    
+                        
+                            
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                    <li  >
+                                        <a  href="/designpatterns/1.x/docs/patterns/filters.html"> Filters </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            
+                                
+                                    <li  >
+                                        <a  href="/designpatterns/1.x/docs/patterns/help.html"> Help </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                    <li  >
+                                        <a  href="/designpatterns/1.x/docs/patterns/settings.html"> Settings </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            
+                                
+                                    <li  >
+                                        <a  href="/designpatterns/1.x/docs/patterns/wizards.html"> Wizards </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                    
+                
+                    <li class="category">inspiration</li>
+                    
+                        
+                    
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            
+                                
+                                    <li  >
+                                        <a  target="_blank"  href="/designpatterns/1.x/docs/inspiration/gadgets.html"> Gadgets </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            
+                                
+                                    <li  >
+                                        <a  target="_blank"  href="/designpatterns/1.x/docs/inspiration/master-detail.html"> Master detail </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            
+                                
+                                    <li  >
+                                        <a  target="_blank"  href="/designpatterns/1.x/docs/inspiration/payments.html"> Payments </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            
+                                
+                                    <li  >
+                                        <a  target="_blank"  href="/designpatterns/1.x/docs/inspiration/results.html"> Search results </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            
+                                
+                                    <li  >
+                                        <a  target="_blank"  href="/designpatterns/1.x/docs/inspiration/usersApp.html"> User details </a>
+                                    </li>
+                                
+                            
+                        
+                    
+                        
+                    
+                        
+                    
+                
+            </ul>
+        </nav>
+        <section class="pl-content">
+            
+            <div class="pl-pattern">
+  <h3>Accordions</h3>
+
+  <h4 id="purpose">Purpose</h4>
+  <p>Users need to see only relevant content.</p>
+
+  <h4 id="description">Description</h4>
+  <p>Accordions provide users with the ability to expand and collapse content as needed. Accordions can simplify the interface by hiding content until it is needed.</p>
+
+  <h4 id="expandcollapse-behaviors">Expand/collapse behaviors</h4>
+
+  <p>Accordions can operate as either single-select or multi-select.</p>
+
+  <ul>
+    <li><strong>Single-select</strong> allows only one panel to be expanded at any given time. Expanding a panel collapses the previously expanded panel.</li>
+    <li><strong>Multi-select</strong> allows more than one panel to be expanded at any given time. Expanding a panel has no impact on the other panels. </li>
+  </ul>
+
+  <p> </p>
+
+</div>
+
+<div class="pl-pattern">
+  <h3 id="styles">Styles</h3>
+
+  <h4 id="standard">Standard</h4>
+
+  <p>The standard style provides more distinction between the panel and internal/surrounding content. This is useful for more complex layouts.</p>
+
+<div class="pl-preview">
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne" data-parent="#accordion" data-target="#collapseOne" aria-expanded="true" data-toggle="collapse" aria-controls="collapseOne">
+          <h4 class="panel-title">
+              <i class="icon icon-angle-right" ></i>Goods/Services
+          </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingTwo" data-parent="#accordion" data-target="#collapseTwo" aria-expanded="false" data-toggle="collapse" aria-controls="collapseTwo">
+          <h4 class="panel-title">
+              <i class="icon icon-angle-right" ></i>Mark info
+          </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingThree" data-parent="#accordion" data-target="#collapseThree" aria-expanded="false" data-toggle="collapse" aria-controls="collapseThree">
+          <h4 class="panel-title">
+              <i class="icon icon-angle-right" ></i>Owner/Assignment
+          </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Project name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Invoice</td>
+                    <td><span >Add invoice confirmation</span></td>
+                    <td><span >$4,500</span></td>
+                </tr>
+                <tr>
+                    <td>Templates</td>
+                    <td><span >Refactor templates to use the new templating library</span></td>
+                    <td><span >$9,000</span></td>
+                </tr>
+                <tr>
+                    <td>Payments</td>
+                    <td><span >Process payments using third party api</span></td>
+                    <td><span >$5,400</span></td>
+                </tr>
+                <tr>
+                    <td>Account Management</td>
+                    <td><span >Improve account management workflow</span></td>
+                    <td><span >$6,000</span></td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</div>
+
+  <div class="highlight">
+    <pre><code class="language-html" data-lang="html">// HTML</code></pre>
+  </div>
+
+  <h4 id="light">Light</h4>
+
+  <p>For simple content or layouts, the light style may work better.</p>
+
+<div class="pl-preview">
+    <div class="panel-group" id="2accordion" role="tablist" aria-multiselectable="true">
+      <div class="panel">
+        <div class="panel-heading" role="tab" id="2headingOne" data-parent="#2accordion" data-target="#2collapseOne" aria-expanded="true" data-toggle="collapse" aria-controls="2collapseOne">
+          <h4 class="panel-title">
+              <i class="icon icon-angle-right" ></i>Goods/Services
+          </h4>
+        </div>
+        <div id="2collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="2headingOne">
+          <div class="panel-body">
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-heading" role="tab" id="2headingTwo" data-parent="#2accordion" data-target="#2collapseTwo" aria-expanded="false" data-toggle="collapse" aria-controls="2collapseTwo">
+          <h4 class="panel-title">
+              <i class="icon icon-angle-right" ></i>Mark info
+          </h4>
+        </div>
+        <div id="2collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="2headingTwo">
+          <div class="panel-body">
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-heading" role="tab" id="2headingThree" data-parent="#2accordion" data-target="#2collapseThree" aria-expanded="false" data-toggle="collapse" aria-controls="2collapseThree">
+          <h4 class="panel-title">
+              <i class="icon icon-angle-right" ></i>Owner/Assignment
+          </h4>
+        </div>
+        <div id="2collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="2headingThree">
+          <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Project name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Invoice</td>
+                    <td><span >Add invoice confirmation</span></td>
+                    <td><span >$4,500</span></td>
+                </tr>
+                <tr>
+                    <td>Templates</td>
+                    <td><span >Refactor templates to use the new templating library</span></td>
+                    <td><span >$9,000</span></td>
+                </tr>
+                <tr>
+                    <td>Payments</td>
+                    <td><span >Process payments using third party api</span></td>
+                    <td><span >$5,400</span></td>
+                </tr>
+                <tr>
+                    <td>Account Management</td>
+                    <td><span >Improve account management workflow</span></td>
+                    <td><span >$6,000</span></td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</div>
+
+  <div class="highlight">
+    <pre><code class="language-html" data-lang="html">// HTML</code></pre>
+  </div>
+
+</div>
+
+        </section>
+    </div>
+
+        <script src="/designpatterns/1.x/generated/scripts/vendor.js"></script>
+        <script src="/designpatterns/1.x/generated/scripts/plugins.js"></script>
+
+        <script src="//components.uspto.gov/js/ais/2-4-pattern-library.js"></script>
+
+        <script src="/designpatterns/1.x/generated/scripts/main.js"></script>
+
+    </body>
+</html>
+

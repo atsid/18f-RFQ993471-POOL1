@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<head>
+    <title>FDA Medwatch Homepage</title>
+    
+    <!-- CSS -->
+    <!-- <link rel="stylesheet" type="text/css" href=""/> -->
+    
+    <!-- LESS -->
+    <link rel="stylesheet" type="text/less" href="src/styles/styles.less"/>
+    <script src="src/scripts/lib/less.js"></script>
+    
+    
+    <!-- Kendo UI -->
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.material.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.dataviz.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.dataviz.material.min.css" />
+    
+    <script src="http://cdn.kendostatic.com/2015.1.429/js/jquery.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2015.1.429/js/kendo.all.min.js"></script>
+    
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <ul class="nav nav-tabs nav-tabs-light" role="tablist">
+            <li class="active"><a href="#" role="tab" data-toggle="tab">Active</a></li>
+            <li><a href="#" role="tab" data-toggle="tab">Normal</a></li>
+            <li><a role="tab">Disabled</a></li>
+        </ul>
+    </div>
+</header>
+<div class="container">
+    <section id="main-section" class="col-sm-8 right">
+        <div id="search">
+            <h1>MedWatch</h1>
+            <h2>The FDA Safety Information and Adverse Events Reporting Program</h2>
+            <div class="inner-section">
+                <form>
+                    <input type="text" class="form-control" placeholder="Search for a drug or medical device"></input>
+                    <fieldset>
+                        <h6>Types of Alerts</h6>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox1" value="option1" checked>Recall
+                        </label> 
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox2" value="option2">an adverse reaction
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox2" value="option2">Label Change
+                        </label>
+                    </fieldset>
+                    <div class="form-group">
+                        <label for="dp2" class="col-sm-2 control-label">Range</label>
+                        <div class="col-sm-9">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <span class="input-icon icon icon-calendar-o"></span>
+                                    <input id="dp2" placeholder="From" data-inputmask="'mask': 'm/d/y', 'placeholder': 'mm/dd/yyyy'" type="text" class="datepicker form-control" >
+                                </div>
+                                <div class="col-sm-5">
+                                    <span class="input-icon icon icon-calendar-o"></span>
+                                    <input id="dp3" placeholder="To" data-inputmask="'mask': 'm/d/y', 'placeholder': 'mm/dd/yyyy'" type="text" class="datepicker form-control" >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dialog-bottom">
+                        <a href="#" class="more-options">More Options</a>
+                        <button type="submit">Search MedWatch</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="line-graph">
+            <div id="example">
+                <div class="demo-section k-content">
+                    <div id="chart"></div>
+                </div>
+                <script>
+                    function createChart() {
+                        $("#chart").kendoChart({
+                            title: {
+                                text: "Number of Reports by Type"
+                            },
+                            legend: {
+                                position: "bottom"
+                            },
+                            seriesDefaults: {
+                                type: "area",
+                                area: {
+                                    line: {
+                                        style: "strict"
+                                    }
+                                }
+                            },
+                            series: [{
+                                name: "Recalls",
+                                data: [13, 7, 17, 9, 9, 19, 3, 8, 9, 6, 9, 2]
+                            }, {
+                                name: "Adverse Reactions",
+                                data: [11, 12, 3, 3, 14, 13, 1, 2, 4, 2, 3, 5]
+                            }, {
+                                name: "Labeling Changes",
+                                data: [10, 10, 3, 11, 22, 13, 10, 2, 5, 5, 3, 0]
+                            }],
+                            valueAxis: {
+                                labels: {
+                                    format: "{0}"
+                                },
+                                line: {
+                                    visible: false
+                                },
+                                axisCrossingValue: -10
+                            },
+                            categoryAxis: {
+                                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                                majorGridLines: {
+                                    visible: false
+                                }
+                            },
+                            tooltip: {
+                                visible: true,
+                                format: "{0}",
+                                template: "#= series.name #: #= value #"
+                            }
+                        });
+                    }
+
+                    $(document).ready(createChart);
+                    $(document).bind("kendo:skinChange", createChart);
+                </script>
+                <style type="text/css">
+                    #chart {
+                        background: center no-repeat url('../content/shared/styles/world-map.png');
+                    }
+                </style>
+            </div>
+            
+        </div>
+    </section>
+    <section id="sidebar" class="col-sm-4">
+        <button id="report-problem">Report a Problem</button>
+        <button id="sign-up">Sign Up for Alerts</button>
+        <div id="recall-alerts">
+            <h2>Recalls</h2>
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is a recall title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is a recall title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is a recall title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is a recall title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is a recall title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is a recall title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is a recall title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is a recall title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is a recall title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is a recall title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is a recall title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is a recall title</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="an adverse reaction-alerts">
+            <h2>Adverse Reactions Reported</h2>
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is an adverse reaction title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is an adverse reaction title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is an adverse reaction title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is an adverse reaction title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is an adverse reaction title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is an adverse reaction title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is an adverse reaction title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is an adverse reaction title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is an adverse reaction title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is an adverse reaction title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is an adverse reaction title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is an adverse reaction title</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="labeling-alerts">
+            <h2>Labeling Changes</h2>
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is a labeling change title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is a labeling change title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is a labeling change title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is a labeling change title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is a labeling change title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is a labeling change title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is a labeling change title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is a labeling change title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is a labeling change title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is a labeling change title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is a labeling change title</td>
+                    </tr>
+                    <tr>
+                        <td>Jan. 1, 2015</td>
+                        <td>This is a labeling change title</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
+<footer>
+</footer>
+
+<script data-main="src/scripts/config.js" src="src/scripts/lib/require.js"></script>
+
+</body>
+</html>
