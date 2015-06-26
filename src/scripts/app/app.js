@@ -1,5 +1,6 @@
 angular.module('MedwatchApp', [
     'AppRouter',
-    'HomeCtrl'
+    'HomeCtrl',
+    'RecallMap'
 ]);
 
