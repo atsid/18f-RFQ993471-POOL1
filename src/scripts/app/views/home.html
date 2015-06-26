@@ -1,4 +1,15 @@
-    <section id="main-section" class="col-sm-8 right">
+    <section id="icon-menu">
+        <button id="recall-btn">
+            <span>Recall Alerts</span>
+        </button>
+        <button id="adverse-reaction-btn">
+            <span>Adverse Reaction Alerts</span>
+        </button>
+        <button id="labeling-changes-btn">
+            <span>Labeling Change News</span>
+        </button>
+    </section>    
+    <section id="main-section">
         <div id="search">
             <h1>MedWatch</h1>
             <h2>The FDA Safety Information and Adverse Events Reporting Program</h2>
@@ -46,8 +57,8 @@
         </style>
         <recallmap id="recall-map"></recallmap>
     </section> <!-- end #main-section -->
-    <section id="sidebar" class="col-sm-4">
-        <button id="report-problem">Report a Problem</button>
+    <section id="newsfeed">
+        <h2>Recall Alerts</h2>
         <div id="recall-alerts">
             <div class-"article">
                 <div class="image-placeholder"></div>
@@ -98,3 +109,10 @@
         </div>
     </section> <!-- end #sidebar -->
 
+    <script>
+        var showDrawer = function(){
+            $('#newsfeed').toggleClass('open');
+        };
+        $('#icon-menu button').click(showDrawer);
+    </script>
+    

@@ -33,7 +33,7 @@
 <body>
 
 <header>
-    <div class="container">
+    <div id="top-ribbon">
         <a href="#"><img src="src/assets/img/logo.png" alt="MedWatch Logo"/></a>
         <ul class="nav nav-tabs nav-tabs-light" role="tablist">
             <li class="active"><a href="#" role="tab" data-toggle="tab">Active</a></li>
@@ -41,10 +41,29 @@
             <li><a role="tab">Disabled</a></li>
         </ul>
     </div>
+    <div id="sub-ribbon">
+        <div id="search">
+            <form>
+                <input type="text" class="form-control search-box" placeholder="Enter a Drug Name or Zip Code"></input>
+                <div class="form-group date-picker">
+                    <label for="dp2" class="control-label">Date Range</label>
+                    <div>
+                        <span class="input-icon icon icon-calendar-o"></span>
+                        <input id="dp2" placeholder="From" data-inputmask="'mask': 'm/d/y', 'placeholder': 'mm/dd/yyyy'" type="text" class="datepicker form-control" >
+                    </div>
+                    <div>
+                        <span class="input-icon icon icon-calendar-o"></span>
+                        <input id="dp3" placeholder="To" data-inputmask="'mask': 'm/d/y', 'placeholder': 'mm/dd/yyyy'" type="text" class="datepicker form-control" >
+                    </div>
+                </div>
+                <button type="submit">Search</button>
+            </form>
+        </div> <!-- end div.inner-section -->
+    </div>
 </header>
 
 <!-- This is where our views are injected into the DOM. -->
-<div class="container" ng-view>
+<div ng-view>
 </div>
 
 </body>
