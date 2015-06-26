@@ -6,12 +6,25 @@
 
 html{
     font-size: 62.5%;
+    width:100%;
+    height:100%;
 }
 body{
     font-size: @font-size-normal; 
+    height:100%;
+    width:100%;
+    overflow:hidden;
     > .container{
         margin-top:3rem;
     }
+}
+#recall-map{
+    position:absolute !important; // Yeah, Brian.  I know this sucks.
+    height:100%;
+    width:100%;
+    display:block;
+    top:0;
+    left:0;
 }
 .container{
     max-width: @container-max-width;
