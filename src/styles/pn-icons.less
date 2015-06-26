@@ -1,0 +1,341 @@
+
+
+/**                        Pn-Icons.less
+=====================================================================
+
+This is the global icon font used within the TMNG UI Toolkit.  If you choose not to include this file (usually imported into tmngui-toolkit.less), you will need to define the icons listed at the top of the tmngui-toolkit.less file.
+*/
+
+/*  We use the Unicode Private Use Area (PUA) to ensure screen
+    readers do not read off random characters that represent icons */
+
+@font-face {
+  font-family: 'tmng-icon-font';
+  src: url('../fonts/tmng/tmng-icon-font.eot');
+  src: url('../fonts/tmng/tmng-icon-font.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/tmng/tmng-icon-font.woff') format('woff'),
+    url('../fonts/tmng/tmng-icon-font.ttf') format('truetype'),
+    url('../fonts/tmng/tmng-icon-font.svg#iconfont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Ribbon and Banner Icons --> e000 - e100
+
+.icon-home:before { content: "\e000"; }
+.icon-warning:before { content: "\e001"; }
+.icon-warning-full:before { content: "\e002"; }
+.icon-bell:before { content: "\e003"; }
+.icon-cog:before { content: "\e004"; }
+.icon-font:before { content: "\e005"; }
+.icon-exit:before { content: "\e006"; }
+.icon-thumbs-up:before { content: "\e007"; }
+.icon-thumbs-down:before { content: "\e008"; }
+.icon-question:before { content: "\e009"; }
+.icon-note:before { content: "\e00a"; }
+.icon-print:before { content: "\e00b"; }
+.icon-aau:before { content: "\e00c"; }
+
+
+// Toolbox Icons --> e100 - e200
+
+.icon-user:before { content: "\e100"; }
+.icon-box:before { content: "\e101"; }
+.icon-graduation:before { content: "\e102"; }
+.icon-suitcase:before { content: "\e103"; }
+.icon-bars:before { content: "\e104"; }
+.icon-search:before { content: "\e105"; }
+.icon-clipboard:before { content: "\e106"; }
+.icon-circle:before { content: "\e107"; }
+
+
+// Docket Icons --> e200 - e300
+
+.icon-ellipsis:before { content: "\e200"; }
+.icon-move:before { content: "\e201"; }
+.icon-amendment:before { content: "\e202";}
+.icon-snowflake:before { content: "\e203";}
+.icon-star-open:before { content: "\e204";}
+
+
+// Editor Icons --> e300 - e400
+
+.icon-image:before { content: "\e300"; }
+.icon-undo:before { content: "\e301"; }
+.icon-redo:before { content: "\e302"; }
+.icon-bold:before { content: "\e303"; }
+.icon-italic:before { content: "\e304"; }
+.icon-underline:before { content: "\e305"; }
+.icon-text-height:before { content: "\e306"; }
+.icon-align-left:before { content: "\e307"; }
+.icon-align-center:before { content: "\e308"; }
+.icon-align-right:before { content: "\e309"; }
+.icon-align-justify:before { content: "\e30a"; }
+.icon-list-ul:before { content: "\e30b"; }
+.icon-list-ol:before { content: "\e30c"; }
+.icon-insert-template:before { content: "\e30d"; }
+.icon-indent-increase:before { content: "\e30e"; }
+.icon-indent-decrease:before { content: "\e30f"; }
+.icon-alarm:before { content: "\e310"; }
+.icon-eye:before { content: "\e311"; }
+.icon-eye-blocked:before { content: "\e312"; }
+.icon-chat:before { content: "\e313"; }
+.icon-track-changes:before { content: "\e314"; }
+
+
+// Trademark Viewer Icons --> e400 - e500
+
+.icon-external-link:before { content: "\e400"; }
+
+
+// Gadget Icons --> e500 - e600
+
+.icon-folder:before { content: "\e500"; }
+.icon-th-large:before { content: "\e501"; }
+.icon-globe:before { content: "\e502"; }
+.icon-lexis-nexis:before { content: "\e503"; }
+.icon-clock:before { content: "\e504"; }
+.icon-images:before { content: "\e505"; }
+.icon-hamburger:before { content: "\e506"; }
+.icon-camera:before { content: "\e507"; }
+.icon-trash:before { content: "\e508"; }
+.icon-pencil:before { content: "\e509"; }
+.icon-refresh:before { content: "\e50a"; }
+.icon-fire:before { content: "\e50b"; }
+.icon-screen:before { content: "\e50c"; }
+.icon-plus:before { content: "\e50d"; }
+.icon-blocked:before { content: "\e50e"; }
+.icon-image-alt:before { content: "\e50f"; }
+.icon-image-above:before { content: "\e510"};
+.icon-image-below:before { content: "\e511"; }
+.icon-inverse:before { content: "\e512"; }
+.icon-color-dropper:before { content: "\e513"; }
+.icon-color-palette:before { content: "\e514"; }
+.icon-clipboard-check:before { content: "\e515";}
+
+
+// Dialog Icons --> e600 - e700
+
+.icon-attachment:before { content: "\e600"; }
+
+
+// General Application Icons --> e700 - e800
+
+.icon-close:before { content: "\e700"; }
+.icon-spinner:before { content: "\e701"; }
+.icon-info-full:before { content: "\e702"; }
+.icon-pushpin:before { content: "\e703"; }
+.icon-delete:before { content: "\e704"; }
+.icon-download:before { content: "\e705"; }
+.icon-upload:before { content: "\e706"; }
+.icon-accept:before { content: "\e707"; }
+
+
+// Arrows --> e800 - e900
+
+.icon-caret-left:before { content: "\e800"; }
+.icon-caret-right:before { content: "\e801"; }
+.icon-caret-down:before { content: "\e802"; }
+.icon-caret-up:before { content: "\e803"; }
+.icon-arrow-left:before { content: "\e804"; }
+.icon-arrow-right:before { content: "\e805"; }
+.icon-arrow-left-thin:before { content: "\e806"; }
+.icon-arrow-up-circle:before { content: "\e807"; }
+.icon-arrow-first:before { content: "\e808"; }
+.icon-arrow-previous:before { content: "\e809"; }
+.icon-arrow-next:before { content: "\e810"; }
+.icon-arrow-last:before { content: "\e811"; }
+
+
+// Pattern Library --> e900 - ea00
+
+.icon-compass:before { content: "\e900"; }
+.icon-leaf:before { content: "\e901"; }
+.icon-cogs:before { content: "\e902"; }
+.icon-archive:before { content: "\e903"; }
+.icon-feather:before { content: "\e904"; }
+.icon-graph:before { content: "\e905"; }
+.icon-browser:before { content: "\e906"; }
+.icon-users:before { content: "\e907"; }
+.icon-history:before { content: "\e908"; }
+.icon-copy:before { content: "\e909"; }
+.icon-link:before { content: "\e90a"; }
+.icon-info:before { content: "\e90b"; }
+.icon-tools:before { content: "\e90c"; }
+.icon-list:before { content: "\e90d"; }
+.icon-flow-cascade:before { content: "\e90e"; }
+.icon-document:before { content: "\e90f"; }
+.icon-pictures:before { content: "\e910"; }
+.icon-pilcrow:before { content: "\e911"; }
+.icon-stack:before { content: "\e912"; }
+.icon-books:before { content: "\e913"; }
+.icon-tags:before { content: "\e914"; }
+.icon-file-alt:before { content: "\e915"; }
+.icon-gauge:before { content: "\e916"; }
+.icon-logout:before { content: "\e917"; }
+.icon-bug:before { content: "\e918"; }
+.icon-binoculars:before { content: "\e919"; }
+.icon-group:before { content: "\e91a"; }
+.icon-docs:before { content: "\e91b"; }
+.icon-inbox:before { content: "\e91c"; }
+.icon-code:before { content: "\e91d"; }
+
+// Ribbon and Banner Icons --> e000 - e100
+
+@icon-home: "\e000";
+@icon-warning:  "\e001";
+@icon-warning-full:  "\e002";
+@icon-bell:  "\e003";
+@icon-cog:  "\e004";
+@icon-font:  "\e005";
+@icon-exit:  "\e006";
+@icon-thumbs-up:  "\e007";
+@icon-thumbs-down:  "\e008";
+@icon-question:  "\e009";
+@icon-note:  "\e00a";
+@icon-print:  "\e00b";
+@icon-aau: "\e00c";
+
+
+// Toolbox Icons --> e100 - e200
+
+@icon-user:  "\e100"; 
+@icon-box:  "\e101";
+@icon-graduation:  "\e102";
+@icon-suitcase:  "\e103";
+@icon-bars:  "\e104";
+@icon-search:  "\e105";
+@icon-clipboard:  "\e106";
+@icon-circle:  "\e107";
+
+
+// Docket Icons --> e200 - e300
+
+@icon-ellipsis:  "\e200";
+@icon-move:  "\e201";
+@icon-amendment: "\e202";
+@icon-snowflake: "\e203";
+@icon-star-open: "\e204";
+
+
+// Editor Icons --> e300 - e400
+
+@icon-image:  "\e300";
+@icon-undo:  "\e301";
+@icon-redo:  "\e302";
+@icon-bold:  "\e303";
+@icon-italic:  "\e304";
+@icon-underline:  "\e305";
+@icon-text-height:  "\e306";
+@icon-align-left:  "\e307";
+@icon-align-center:  "\e308";
+@icon-align-right:  "\e309";
+@icon-align-justify:  "\e30a";
+@icon-list-ul:  "\e30b";
+@icon-list-ol:  "\e30c";
+@icon-insert-template:  "\e30d";
+@icon-indent-increase:  "\e30e";
+@icon-indent-decrease:  "\e30f";
+@icon-alarm:  "\e310";
+@icon-eye:  "\e311";
+@icon-eye-blocked:  "\e312";
+@icon-chat:  "\e313";
+@icon-track-changes: "\e314";
+
+
+// Trademark Viewer Icons --> e400 - e500
+
+@icon-external-link:  "\e400";
+
+
+// Gadget Icons --> e500 - e600
+
+@icon-folder:  "\e500";
+@icon-th-large:  "\e501";
+@icon-globe:  "\e502";
+@icon-lexis-nexis:  "\e503";
+@icon-clock:  "\e504";
+@icon-images:  "\e505";
+@icon-hamburger:  "\e506";
+@icon-camera:  "\e507";
+@icon-trash:  "\e508";
+@icon-pencil:  "\e509";
+@icon-refresh:  "\e50a";
+@icon-fire:  "\e50b";
+@icon-screen:  "\e50c";
+@icon-plus:  "\e50d";
+@icon-blocked:  "\e50e";
+@icon-image-alt: "\e50f";
+@icon-image-above: "\e510";
+@icon-image-below: "\e511";
+@icon-inverse:"\e512";
+@icon-color-dropper:"\e513";
+@icon-color-palette:"\e514";
+@icon-clipboard-check:"\e515";
+
+
+// Dialog Icons --> e600 - e700
+
+@icon-attachment:  "\e600";
+
+
+// General Application Icons --> e700 - e800
+
+@icon-close:  "\e700";
+@icon-spinner:  "\e701";
+@icon-info-full:  "\e702";
+@icon-pushpin:  "\e703";
+@icon-delete:  "\e704";
+@icon-download:  "\e705";
+@icon-upload:  "\e706";
+@icon-accept: "\e707"; 
+
+
+// Arrows --> e800 - e900
+
+@icon-caret-left:  "\e800";
+@icon-caret-right:  "\e801";
+@icon-caret-down:  "\e802";
+@icon-caret-up:  "\e803";
+@icon-arrow-left:  "\e804";
+@icon-arrow-right:  "\e805";
+@icon-arrow-left-thin:  "\e806";
+@icon-arrow-up-circle:  "\e807";
+@icon-arrow-first:  "\e808";
+@icon-arrow-previous:  "\e809";
+@icon-arrow-next:  "\e810";
+@icon-arrow-last:  "\e811";
+
+
+// Pattern Library --> e900 - ea00
+
+@icon-compass:  "\e900";
+@icon-leaf:  "\e901";
+@icon-cogs:  "\e902";
+@icon-archive:  "\e903";
+@icon-feather:  "\e904";
+@icon-graph:  "\e905";
+@icon-browser:  "\e906";
+@icon-users:  "\e907";
+@icon-history:  "\e908";
+@icon-copy:  "\e909";
+@icon-link:  "\e90a";
+@icon-info:  "\e90b";
+@icon-tools:  "\e90c";
+@icon-list:  "\e90d";
+@icon-flow-cascade:  "\e90e";
+@icon-document:  "\e90f";
+@icon-pictures:  "\e910";
+@icon-pilcrow:  "\e911";
+@icon-stack:  "\e912";
+@icon-books:  "\e913";
+@icon-tags:  "\e914";
+@icon-file-alt:  "\e915";
+@icon-gauge:  "\e916";
+@icon-logout:  "\e917";
+@icon-bug:  "\e918";
+@icon-binoculars:  "\e919";
+@icon-group:  "\e91a";
+@icon-docs:  "\e91b";
+@icon-inbox:  "\e91c";
+@icon-code:  "\e91d";
