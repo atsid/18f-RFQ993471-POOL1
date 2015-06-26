@@ -7,3 +7,5 @@ npm-debug.log
 .publish
 dist
 bower_components
+.DS_Store
+
