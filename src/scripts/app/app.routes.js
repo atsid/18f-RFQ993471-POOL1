@@ -7,6 +7,9 @@ angular.module('AppRouter', ['ngRoute'])
             templateUrl: 'src/scripts/app/views/home.html',
             controller: 'HomeController',
             controllerAs: 'home'
+        })
+        .otherwise({
+            redirectTo: '/'
         });
 
         $locationProvider.html5Mode(true);
