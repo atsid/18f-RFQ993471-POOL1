@@ -1,5 +1,5 @@
 angular.module('RecallMap', [])
-    .directive('recallmap', ['$window', function($window) {
+    .directive('recallMap', ['$window', function($window) {
         'use strict';
 
         return {

@@ -1,16 +1,6 @@
-    <section id="icon-menu">
-        <button id="recall-btn">
-            <span>Recall Alerts</span>
-        </button>
-        <button id="adverse-reaction-btn">
-            <span>Adverse Reaction Alerts</span>
-        </button>
-        <button id="labeling-changes-btn">
-            <span>Labeling Change News</span>
-        </button>
-    </section>
+    <icon-menu></icon-menu>
     <section id="main-section">
-        <div id="search">
+        <div id="search-section">
             <h1>MedWatch</h1>
             <h2>The FDA Safety Information and Adverse Events Reporting Program</h2>
             <div class="inner-section">
@@ -50,7 +40,7 @@
                 </form>
             </div>
         </div> <!-- end div.inner-section -->
-        <recallmap id="recall-map"></recallmap>
+        <recall-map id="recall-map"></recall-map>
     </section> <!-- end #main-section -->
     <section id="newsfeed">
         <h2>Recall Alerts</h2>
@@ -102,12 +92,5 @@
         <div id="labeling-alerts" class="hidden">
             
         </div>
-    </section> <!-- end #sidebar -->
+    </section> <!-- end #newsfeed -->
 
-    <script>
-        var showDrawer = function(){
-            $('#newsfeed').toggleClass('open');
-        };
-        $('#icon-menu button').click(showDrawer);
-    </script>
-    
