@@ -1,5 +1,6 @@
 {
   "globalstrict": true,
+  "browser": true,
   "bitwise": true,
   "camelcase": true,
   "curly": true,
@@ -35,6 +36,8 @@
     //requirejs
     "requirejs": true,
     "define": true,
-    "require": true
+    "require": true,
+    // Google Maps
+    "google": true
   }
 }

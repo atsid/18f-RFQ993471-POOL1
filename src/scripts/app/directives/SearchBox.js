@@ -9,7 +9,7 @@ angular.module('SearchBox', [])
                 $scope.submitSearch = function() {
                     // DO A BARREL ROLL!
                     console.log('Search submitted!');
-                }
+                };
             }]
         };
     });

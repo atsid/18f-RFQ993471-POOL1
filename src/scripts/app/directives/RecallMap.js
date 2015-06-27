@@ -12,8 +12,6 @@ angular.module('RecallMap', [])
                 }
                 var radius = 50; // default is 50 miles
 
-                $window.navigator.geolocation.getCurrentPosition(showMap, showMapWithoutLocation);
-
                 function showMap(position, zoom) {
                     scope.$apply(function() {
                         var mapOptions = {
@@ -44,6 +42,8 @@ angular.module('RecallMap', [])
                     // set position with center of entire US in focus
                     showMap({ coords: { latitude: 37.09024, longitude: -100.712891 } }, 5);
                 }
+
+                $window.navigator.geolocation.getCurrentPosition(showMap, showMapWithoutLocation);
             }
         };
     }]);

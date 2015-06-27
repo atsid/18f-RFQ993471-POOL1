@@ -4,7 +4,7 @@ angular.module('AppRouter', ['ui.router'])
             'use strict';
 
             // default route
-            $urlRouterProvider.otherwise("/");
+            $urlRouterProvider.otherwise('/');
 
             // -- BEGIN "containing" index state --
             $stateProvider.state('indexState', {
