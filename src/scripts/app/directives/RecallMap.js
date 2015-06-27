@@ -10,28 +10,39 @@ angular.module('RecallMap', [])
                 if (!('geolocation' in $window.navigator)) {
                     return elem.children().removeClass('hidden');
                 }
+                var radius = 50; // default is 50 miles
 
                 $window.navigator.geolocation.getCurrentPosition(showMap, showMapWithoutLocation);
 
-                function showMap(position) {
+                function showMap(position, zoom) {
                     scope.$apply(function() {
                         var mapOptions = {
-                            zoom: 15,
                             center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
                         };
                         var map = new google.maps.Map(document.getElementById(attrs.id), mapOptions);
-                        var marker = new google.maps.Marker({
-                            position: mapOptions.center,
-                            map: map,
-                            title: 'You are here'
+                        var circle = new google.maps.Circle({ // circle is used for setting the zoom level
+                            center: mapOptions.center,
+                            radius: radius * 1609.344, // radius in miles
+                            visible: false
                         });
-                        marker.setMap(map);
+                        var marker;
+
+                        if (!zoom) {
+                            marker = new google.maps.Marker({
+                                position: mapOptions.center,
+                                map: map,
+                                title: 'You are here'
+                            });
+                            map.fitBounds(circle.getBounds());
+                        } else {
+                            map.setZoom(zoom);
+                        }
                     });
                 }
 
                 function showMapWithoutLocation() {
-                    // set position with center of US in focus
-                    showMap({ coords: { latitude: 37.09024, longitude: -100.712891 } });
+                    // set position with center of entire US in focus
+                    showMap({ coords: { latitude: 37.09024, longitude: -100.712891 } }, 5);
                 }
             }
         };
