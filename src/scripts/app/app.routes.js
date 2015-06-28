@@ -7,7 +7,7 @@ angular.module('AppRouter', ['ui.router'])
             $urlRouterProvider.otherwise('/');
 
             // -- BEGIN "containing" index state --
-            $stateProvider.state('indexState', {
+            $stateProvider.state('initialLoad', {
                 url: '/',
                 templateUrl: 'src/scripts/app/views/home.html',
                 controller: 'HomeController',

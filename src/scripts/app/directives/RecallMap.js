@@ -8,12 +8,15 @@ angular.module('RecallMap', [])
             replace: true,
             controller: ['$scope', 'EventBusService', function($scope, EventBusService) {
                 EventBusService.subscribe($scope, 'updateMapMarkers', function(data) {
-                    var marker = new google.maps.Marker({
-                        position: new google.maps.LatLng(data.lat, data.lng),
-                        animation: google.maps.Animation.DROP,
-                        map: $scope.map
-                    });
-                    marker.setMap($scope.map);
+                    var marker;
+                    if (data.latLng) {
+                        marker = new google.maps.Marker({
+                            position: data.latLng,
+                            animation: google.maps.Animation.DROP,
+                            map: $scope.map
+                        });
+                        marker.setMap($scope.map);
+                    }
                 });
             }],
             link: function(scope, elem, attrs) {
