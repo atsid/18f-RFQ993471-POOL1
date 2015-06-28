@@ -8,7 +8,7 @@ angular.module('RecallMap', [])
             replace: true,
             controller: ['$scope', 'EventBusService', function($scope, EventBusService) {
                 EventBusService.subscribe($scope, 'updateMapMarkers', function(data) {
-                    var marker;
+                    var marker, infoWindow, infoWindowContent, searchTermRegExp;
                     if (data.latLng) {
                         marker = new google.maps.Marker({
                             position: data.latLng,
@@ -16,6 +16,38 @@ angular.module('RecallMap', [])
                             map: $scope.map
                         });
                         marker.setMap($scope.map);
+
+                        // Construct the inner HTML for the infoWindow.
+                        infoWindowContent = '<article id="recall-notice-' + data.id + '">';
+                        // The data here isn't great, so often the "recall_name" field is null.
+                        if (data.recall_name !== null) {
+                            infoWindowContent += '<h1>' + data.recall_name + '</h1>' +
+                                '<span class="recall-notice-subtitle">' + data.recalling_firm + '</span>';
+                        } else {
+                            infoWindowContent += '<h1>' + data.recalling_firm + '</h1>' +
+                                '<span class="recall-notice-subtitle">' + data.city + ', ' + data.state + '</span>';
+                        }
+                        infoWindowContent +=
+                            '<div class="recall-notice-details">' +
+                                '<h2>Affected Products:</h2>' +
+                                '<span class="recall-notice-lot-numbers">' + data.code_info + '</span>' +
+                                '<p class="recall-notice-product-description">' + data.product_description + '</p>' +
+                                '<h2>Reason for Recall:</h2>' +
+                                '<p class="recall-notice-reason-for-recall">' + data.reason_for_recall + '</p>' +
+                            '</div>' +
+                        '</article>';
+
+                        if (data.search_term) {
+                            // Highlight the search term wherever it occurs in the notice.
+                            searchTermRegExp = new RegExp('(' + data.search_term + ')', 'ig');
+                            infoWindowContent = infoWindowContent.replace(searchTermRegExp, '<b>$1</b>');
+                        }
+
+                        // Create the infoWindow and set it to open when the marker is clicked.
+                        infoWindow = new google.maps.InfoWindow({ content: infoWindowContent });
+                        google.maps.event.addListener(marker, 'click', function() {
+                            infoWindow.open($scope.map, marker);
+                        });
                     }
                 });
             }],

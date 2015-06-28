@@ -37,8 +37,10 @@ angular.module('SearchBox', ['Search'])
                             }
 
                             // TODO: Only works for enforcements right now. Abstract for more general use.
-                            filteredResults = data.results.map(function(result) {
+                            filteredResults = data.results.map(function(result, idx) {
                                 return {
+                                    id: idx,
+                                    search_term: $scope.term,
                                     city: result.city,
                                     state: result.state,
                                     product_description: result.product_description,
