@@ -6,6 +6,16 @@ angular.module('RecallMap', [])
             restrict: 'E',
             template: '<div><div class="hidden">Sorry, but your browser does not support geolocation features.</div></div>',
             replace: true,
+            controller: ['$scope', 'EventBusService', function($scope, EventBusService) {
+                EventBusService.subscribe($scope, 'updateMapMarkers', function(data) {
+                    var marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(data.lat, data.lng),
+                        animation: google.maps.Animation.DROP,
+                        map: $scope.map
+                    });
+                    marker.setMap($scope.map);
+                });
+            }],
             link: function(scope, elem, attrs) {
                 if (!('geolocation' in $window.navigator)) {
                     return elem.children().removeClass('hidden');
@@ -35,6 +45,7 @@ angular.module('RecallMap', [])
                         } else {
                             map.setZoom(zoom);
                         }
+                        scope.map = map;
                     });
                 }
 
