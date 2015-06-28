@@ -6,7 +6,7 @@ angular.module('IconMenu', [])
             replace: true,
             templateUrl: 'src/scripts/app/views/icon-menu.html',
             controller: ['$scope', function($scope) {
-                $scope.toggleDrawer = function($event) {
+                $scope.toggleDrawer = function() {
                     // Later, we'll do different things based on $event.target, possibly calling
                     // methods of NewsfeedController.
                     angular.element('#newsfeed').toggleClass('open');

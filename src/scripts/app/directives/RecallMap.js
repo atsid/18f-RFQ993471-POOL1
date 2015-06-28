@@ -56,6 +56,7 @@ angular.module('RecallMap', [])
                     return elem.children().removeClass('hidden');
                 }
                 var radius = 50; // default is 50 miles
+                // TODO: Loading indicator.
 
                 function showMap(position, zoom) {
                     scope.$apply(function() {
@@ -68,14 +69,16 @@ angular.module('RecallMap', [])
                             radius: radius * 1609.344, // radius in miles
                             visible: false
                         });
-                        var marker;
+                        //var marker;
 
                         if (!zoom) {
+                            /* A 'You are here' marker seems unnecessary. Uncomment this if it's wanted.
                             marker = new google.maps.Marker({
                                 position: mapOptions.center,
                                 map: map,
                                 title: 'You are here'
                             });
+                            */
                             map.fitBounds(circle.getBounds());
                         } else {
                             map.setZoom(zoom);

@@ -5,10 +5,10 @@ angular.module('SearchBox', ['Search'])
             restrict: 'E',
             replace: true,
             templateUrl: 'src/scripts/app/views/search-box.html',
-            controller: ['$scope', 'SearchService', '$q', 'EventBusService',
-                function($scope, SearchService, $q, EventBusService) {
+            controller: ['$scope', 'SearchService', 'EventBusService',
+                function($scope, SearchService, EventBusService) {
                     $scope.submitSearch = function() {
-                        SearchService.searchDrugs('enforcement', $scope.term).success(function(data) {
+                        SearchService.searchDrugs({ type: 'enforcement', term: $scope.term }).success(function(data) {
                             var filteredResults, geocoder, numRecordsToLocate, numRecordsLocated;
 
                             if (!data || !data.results) {

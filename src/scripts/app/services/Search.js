@@ -9,8 +9,12 @@ angular.module('Search', [])
             baseUrl = 'https://api.fda.gov/';
 
         // TODO: Refactor
-        function searchDrugs(type, term, limit, skip) {
+        function searchDrugs(options, searchIsAlreadySpecified) {
             var search, fieldPrefix, fullUrl;
+            var type = options.type,
+                term = options.term,
+                limit = options.limit,
+                skip = options.skip;
 
             if (type !== 'event' && type !== 'label' && type !== 'enforcement') {
                 // TODO: Do something here.
@@ -28,11 +32,18 @@ angular.module('Search', [])
                     break;
             }
 
-            search = fieldPrefix + 'brand_name:' + term + '+OR+' + fieldPrefix + 'substance_name:' + term +
-                     '+OR+' + fieldPrefix + 'manufacturer_name:' + term + '+OR+' + fieldPrefix + 'generic_name:' + term;
+            // `searchIsAlreadySpecified` is a flag set to true when and only when the search should
+            // not have any prefixes added, but should instead simply be "passed through"
+            if (!searchIsAlreadySpecified) {
+                search = fieldPrefix + 'brand_name:' + term + '+OR+' + fieldPrefix + 'substance_name:' + term +
+                         '+OR+' + fieldPrefix + 'manufacturer_name:' + term + '+OR+' + fieldPrefix + 'generic_name:' + term;
+            } else {
+                search = term;
+            }
+
             limit = limit || 20;
 
-            if (type === 'enforcement') {
+            if (type === 'enforcement' && !searchIsAlreadySpecified) {
                 search += '+OR+product_description:' + term;
             }
 

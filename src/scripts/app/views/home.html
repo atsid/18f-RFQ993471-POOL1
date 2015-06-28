@@ -42,47 +42,18 @@
         </div> <!-- end div.inner-section -->
         <recall-map id="recall-map"></recall-map>
     </section> <!-- end #main-section -->
-    <section id="newsfeed">
+    <section id="newsfeed" ng-controller="NewsfeedController">
         <h2>Recall Alerts</h2>
         <div id="recall-alerts">
-            <div class-"article">
+            <div class="article" ng-repeat="alert in alerts.event" ng-switch="alert.serious">
                 <div class="image-placeholder"></div>
-                <h3>Headline</h3>
+                <h3 ng-switch-when="1">Serious Reaction<span ng-if="alert.resultingIn">&nbsp;{{alert.resultingIn}}</span></h3>
+                <h3 ng-switch-when="2">Non-serious Reaction</h3>
                 <p>
-                    <span class="date">January 1, 2015</span>
-                    <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
-                </p>
-            </div>
-            <div class-"article">
-                <div class="image-placeholder"></div>
-                <h3>Headline</h3>
-                <p>
-                    <span class="date">January 1, 2015</span>
-                    <span>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </span>
-                </p>
-            </div>
-            <div class-"article">
-                <div class="image-placeholder"></div>
-                <h3>Headline</h3>
-                <p>
-                    <span class="date">January 1, 2015</span>
-                    <span>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</span>
-                </p>
-            </div>
-            <div class-"article">
-                <div class="image-placeholder"></div>
-                <h3>Headline</h3>
-                <p>
-                    <span class="date">January 1, 2015</span>
-                    <span>This book is a treatise on the theory of ethics, very popular during the Renaissance.</span>
-                </p>
-            </div>
-            <div class-"article">
-                <div class="image-placeholder"></div>
-                <h3>Headline</h3>
-                <p>
-                    <span class="date">January 1, 2015</span>
-                    <span>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span>
+                    <span class="date">{{alert.receiptdate | date : 'longDate'}}</span>
+                    <div>
+                        A patient taking <span class="drug-names" ng-repeat-start="drug in alert.patient.drug">{{drug.medicinalproduct}}</span><span ng-repeat-end>{{$last ? ' ' : ', '}}</span>reported <span class="reactions" ng-repeat-start="reaction in alert.patient.reaction">{{reaction.reactionmeddrapt}}</span><span ng-repeat-end>{{$last ? '.' : ', '}}</span>
+                    </div>
                 </p>
             </div>
         </div>
