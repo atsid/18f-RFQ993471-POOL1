@@ -2,7 +2,7 @@
   "globalstrict": true,
   "browser": true,
   "bitwise": true,
-  "camelcase": true,
+  "camelcase": false, // causes too many problems with openFDA fields and Google Maps
   "curly": true,
   "eqeqeq": true,
   "immed": true,
