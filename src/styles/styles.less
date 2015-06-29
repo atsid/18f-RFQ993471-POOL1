@@ -21,6 +21,16 @@ body{
         margin-top:3rem;
     }
 }
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .subhead, .title, .headline, .display1, .display2, .display3 {
+        color: @brand-primary-color;
+}
+h1 {
+    font-weight: 300;
+    letter-spacing: -0.1rem;
+}
+h5 {
+    font-weight: 700;
+}
 button {
     .btn;
 }
@@ -35,7 +45,7 @@ header{
     top:0;
     width: 100%;
     img{
-        height:6rem;
+        height:5rem;
         position:relative;
         left:1rem;
         top:50%;
@@ -164,7 +174,8 @@ header{
     .header-content {
         float: right;
         text-align: right;
-        margin: 1em;
+        margin: 1.8em 1em 0;
+        position: relative;
         @media screen and (max-width: 768px){
             display: none;
         }
@@ -273,7 +284,7 @@ h1, h2, h3, h4, h5, h6{
 }
 #main-section{
     h1{
-        margin:@margin-small 0;
+        margin: 0;
     }
     h2{
         font-size:1.8rem;
@@ -296,7 +307,7 @@ h1, h2, h3, h4, h5, h6{
     }
 }
 #search-overlay{
-    background:rgba(0, 0, 0, 0.5);
+    background:rgba(0, 0, 0, 0.65);
     position:absolute;
     top:14rem;
     right:0;
@@ -304,17 +315,13 @@ h1, h2, h3, h4, h5, h6{
     left:5rem;
     z-index:600;
     .inner-section{
-        background:@brand-primary-color;
-        border-radius:@border-radius-large;
-        color:white;
+        background: white;
+        border-radius:@border-radius;
         position:absolute;
         top:35%;
         width:50%;
         margin:0 25%;
-        padding:1.5rem;
-        h1{
-            color:white;
-        }
+        padding: 3rem;
         p{
             margin-bottom:2rem;
         }
@@ -585,6 +592,19 @@ The .icon mixins allows you to integrate icons easily into your application. In 
 .icon-combo(@primary-icon, @overlay-icon){
     .icon-before(@primary-icon, @position:relative, @margin:0, @size:0.9em);
     .icon-after(@overlay-icon, @position:absolute, @margin:-0.6em, @top: 0.8em, @size:0.8em);
+}
+
+
+
+// Button Tweaks
+
+.button-variant(@color; @background; @border) {
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: darken(@background, 15%);
+        border-color: darken(@border, 20%);
+    }
 }
 
 .btn-default {
