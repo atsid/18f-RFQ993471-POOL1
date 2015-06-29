@@ -130,19 +130,18 @@ body{
     max-width: @container-max-width;
 }
 header{
-    background: @primary-background-color;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
     height: 12rem;
     position:fixed;
     top:0;
     width: 100%;
-    z-index:800;
     img{
         height:6rem;
         position:relative;
         left:1rem;
         top:50%;
         margin-top:-3rem;
+        max-width:100%;
     }
     .nav-tabs.nav-tabs-light{
         border-bottom:0;
@@ -161,7 +160,12 @@ header{
         }
     }
     #top-ribbon{
+        background: @primary-background-color;
         height:9rem;
+        width:100%;
+        .mobile-menu{
+            display:none;
+        }
     }
     #sub-ribbon{
         height:5rem;
@@ -174,7 +178,7 @@ header{
             margin:0 2% 0 3%;
             height:3rem;
             top:1rem;
-            width:48%;
+            width:40%;
         }
         .date-picker{
             border-left:3px solid white;
@@ -184,6 +188,7 @@ header{
             position:relative;
             top:1rem;
             width:25%;
+            min-width:41rem;
             label{
                 .throw-off-screen;
             }
@@ -213,6 +218,52 @@ header{
                 background: darken(@accent-color-1, 10%);
             }
         }
+        @media screen and (max-width: 1200px){
+            .search-box{
+                width: 35%;
+            }
+            .date-picker{
+                min-width:35rem;
+                input{
+                    width: 14rem;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 768px){
+        img{
+            height:auto;
+            left:5%;
+            max-width:60%;
+        }
+        #top-ribbon{
+            height:100%;
+            position:absolute;
+            z-index:100;
+            .mobile-menu{
+                .icon(@icon-hamburger, @size:2, @color: white);
+                background: none;
+                border:none;
+                display:inline-block;
+                position:absolute;
+                right:5%;
+                top:50%;
+                margin-top:-1em;
+                span{
+                    .throw-off-screen;
+                }
+            }
+            
+        }
+        #sub-ribbon{
+            height:100%;
+            position:fixed;
+            top:0;
+            right:0;
+            bottom:0;
+            left:0;
+            z-index:50;
+        }
     }
 }
 h1, h2, h3, h4, h5, h6{
@@ -231,6 +282,7 @@ h1, h2, h3, h4, h5, h6{
     .scroll-table(30rem);
 }
 #icon-menu{
+    min-width:5rem;
     width:3%;
     height:100%;
     background:@gray-dark;
@@ -239,7 +291,7 @@ h1, h2, h3, h4, h5, h6{
     left:0;
     padding:0;
     padding-top:3rem;
-    top:12rem;
+    top:14rem;
     z-index:700;
     button{
         background:none;
@@ -294,6 +346,18 @@ h1, h2, h3, h4, h5, h6{
             }
         }
     }
+    @media screen and (max-width: 768px){
+        bottom:0;
+        height:7rem;
+        padding-top:0;
+        top:auto;
+        width:100%;
+        button{
+            width:33%;
+            display:inline-block;
+            float:left;
+        }
+    }
 }
 #main-section{
     h1{
@@ -312,6 +376,12 @@ h1, h2, h3, h4, h5, h6{
     left:3%;
     top:14rem;
     z-index:100;
+    @media screen and (max-width:768px){
+        left: 0;
+        right:0;
+        top:12rem;
+        width:100%;
+    }
 }
 #search-overlay{
     background:rgba(0, 0, 0, 0.5);
@@ -320,7 +390,7 @@ h1, h2, h3, h4, h5, h6{
     right:0;
     bottom:0;
     left:5rem;
-    z-index:800;
+    z-index:600;
     .inner-section{
         background:@primary-background-color;
         border-radius:@border-radius-large;
@@ -328,7 +398,7 @@ h1, h2, h3, h4, h5, h6{
         position:absolute;
         top:35%;
         width:50%;
-        margin:0 25% 0;
+        margin:0 25%;
         padding:1.5rem;
         h1{
             color:white;
@@ -368,6 +438,15 @@ h1, h2, h3, h4, h5, h6{
             right:0;
         }
     }
+    @media screen and (max-width: 768px){
+        left:0;
+        top:12rem;
+        .inner-section{
+            width:80%;
+            top:15%;
+            margin: 0 10%;
+        }
+    }
 }
 section{
     padding:4px;
@@ -383,7 +462,7 @@ section{
     width:40rem;
     position:absolute;
     transition: left 0.15s;
-    z-index:500;
+    z-index:650;
     button{
         padding: .5rem 0;
         width: 90%;
@@ -405,8 +484,17 @@ section{
         left:5rem;
         transition: left 0.15s;
     }
-    @media screen and (max-width:760px){
+    @media screen and (max-width:768px){
         clear:both;
+        width:100%;
+        transition: top 0.15s;
+        top:100%;
+        left:0;
+        &.open{
+            left:0;
+            top:9rem;
+            transition: top 0.15s;
+        }
     }
 }
 
