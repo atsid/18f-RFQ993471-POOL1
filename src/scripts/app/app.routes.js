@@ -1,20 +1,14 @@
-angular.module('AppRouter', ['ui.router'])
-    .config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
-        function($stateProvider, $urlRouterProvider, $locationProvider) {
-            'use strict';
+angular.module('AppRouter', ['ngRoute'])
+    .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+        'use strict';
 
-            // default route
-            $urlRouterProvider.otherwise('/');
+        // home page
+        $routeProvider.when('/', {
+            templateUrl: 'src/scripts/app/views/home.html',
+            controller: 'HomeController',
+            controllerAs: 'home'
+        });
 
-            // -- BEGIN "containing" index state --
-            $stateProvider.state('initialLoad', {
-                url: '/',
-                templateUrl: 'src/scripts/app/views/home.html',
-                controller: 'HomeController',
-                controllerAs: 'home'
-            });
-            // -- END initial Home Page state --
-
-            $locationProvider.html5Mode(true);
+        $locationProvider.html5Mode(true);
     }]);
 

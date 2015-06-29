@@ -1,49 +1,25 @@
 @import "../../bower_components/USPTOPatternLibrary/usptostrap/less/usptostrap.less";
-@import "pn-icons.less";
 
 @import "variables.less";
 
 
+
 html{
     font-size: 62.5%;
-    width:100%;
-    height:100%;
 }
 body{
     font-size: @font-size-normal; 
-    height:100%;
-    width:100%;
-    overflow:hidden;
     > .container{
         margin-top:3rem;
     }
-}
-button {
-    background: @swatch7;
-    padding: 0.6em 1.2em;
-    border: 1px solid rgba(0,0,0,0.1);
-    border-radius: 3px;
-    font-weight: bold;
-    font-size: @font-size-small;
 }
 .container{
     max-width: @container-max-width;
 }
 header{
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
-    color: white;
-    height: 12rem;
-    position:fixed;
-    top:0;
+    background: @header-background;
+    min-height: 3rem;
     width: 100%;
-    img{
-        height:6rem;
-        position:relative;
-        left:1rem;
-        top:50%;
-        margin-top:-3rem;
-        max-width:100%;
-    }
     .nav-tabs.nav-tabs-light{
         border-bottom:0;
         float:right;
@@ -60,132 +36,9 @@ header{
             }
         }
     }
-    #top-ribbon{
-        background: @primary-background-color;
-        height:9rem;
-        width:100%;
-        .mobile-menu{
-            display:none;
-        }
-    }
-    #sub-ribbon{
-        height:5rem;
-        background: lighten(@primary-background-color, 10%);
-        position:relative;
-        .search-box{
-            display:inline-block;
-            position:relative;
-            float:left;
-            margin:0 2% 0 3%;
-            height:3rem;
-            top:1rem;
-            width:40%;
-        }
-        .date-picker{
-            border-left:3px solid white;
-            display:inline-block;
-            height:3rem;
-            padding-left:2%;
-            position:relative;
-            top:1rem;
-            width:25%;
-            min-width:41rem;
-            label{
-                .throw-off-screen;
-            }
-            div{
-                display:inline-block;
-                margin-right:4%;
-            }
-            .input-icon + input{
-                padding-left:1rem;
-            }
-        }
-        button[type="submit"]{
-            background:@accent-color-1;
-            color:white;
-            float:right;
-            margin-right:3%;
-            position: absolute;
-            top: .5rem;
-            right: 0;
-            span{
-                .throw-off-screen;
-            }
-            &:hover{
-                background: darken(@accent-color-1, 10%);
-            }
-        }
-        @media screen and (max-width: 1200px){
-            .search-box{
-                width: 35%;
-            }
-            .date-picker{
-                min-width:35rem;
-                input{
-                    width: 14rem;
-                }
-            }
-        }
-    }
-    @media screen and (max-width: 768px){
-        img{
-            height:auto;
-            left:5%;
-            max-width:60%;
-        }
-        #top-ribbon{
-            height:100%;
-            position:absolute;
-            z-index:100;
-            .mobile-menu{
-                .icon(@icon-hamburger, @size:2, @color: white);
-                background: none;
-                border:none;
-                display:inline-block;
-                position:absolute;
-                right:5%;
-                top:50%;
-                margin-top:-1em;
-                span{
-                    .throw-off-screen;
-                }
-            }
-            
-        }
-        #sub-ribbon{
-            height:100%;
-            position:fixed;
-            top:0;
-            right:0;
-            bottom:0;
-            left:0;
-            z-index:50;
-        }
-    }
-    .header-content {
-        float: right;
-        text-align: right;
-        margin: 1em;
-        @media screen and (max-width: 768px){
-            display: none;
-        }
-        button.report-problem {
-            
-        }
-        span {
-            display: block;
-            font-size: @font-size-small;
-            margin-top: 0.5em;
-        }
-    }
 }
 h1, h2, h3, h4, h5, h6{
     margin-top: @margin-base;
-}
-.throw-off-screen{
-    position:absolute;
-    left:-9999px;
 }
 .scroll-table(@max-height){
     display:block;
@@ -195,170 +48,85 @@ h1, h2, h3, h4, h5, h6{
 .table-wrapper{
     .scroll-table(30rem);
 }
-#icon-menu{
-    min-width:5rem;
-    width:3%;
-    height:100%;
-    background:@gray-dark;
-    position:fixed;
-    bottom:0;
-    left:0;
-    padding:0;
-    padding-top:3rem;
-    top:14rem;
-    z-index:700;
-    button{
-        background:none;
-        border:0;
-        display:block;
-        height:7rem;
-        width:100%;
-        margin:0;
-        padding:0;
-        span{
-            .throw-off-screen;
-        }
-        &#recall-btn{
-            .icon(@icon-warning-full, @size:2);
-            &:before{
-                color:white;
-                width:100%;
-            }
-            &:hover{
-                &:before{
-                    color:@gray-light;
-                }
-            }
-        }
-        &#adverse-reaction-btn{
-            .icon(@icon-thumbs-down, @size:2);
-            &:before{
-                color:white;
-                width:100%;
-            }
-            &:hover{
-                &:before{
-                    color:@gray-light;
-                }
-            }
-        }
-        &#labeling-changes-btn{
-            .icon(@icon-tags, @size:2);
-            &:before{
-                color:white;
-                width:100%;
-            }
-            &:hover{
-                &:before{
-                    color:@gray-light;
-                }
-            }
-        }
-        &:hover{
-            &:before{
-                color:@gray-light;
-            }
-        }
-    }
-    @media screen and (max-width: 768px){
-        bottom:0;
-        height:7rem;
-        padding-top:0;
-        top:auto;
-        width:100%;
-        button{
-            width:33%;
-            display:inline-block;
-            float:left;
-        }
-    }
-}
 #main-section{
+    float:right;
     h1{
-        margin:@margin-small 0;
+        margin-top:1.4rem
     }
     h2{
         font-size:1.8rem;
         margin-top:.4rem;
     }
 }
-#recall-map{
-    position:absolute !important; // Yeah, Brian.  I know this sucks.
-    height:100%;
-    width:97%;
-    display:block;
-    left:3%;
-    top:14rem;
-    z-index:100;
-    @media screen and (max-width:768px){
-        left: 0;
-        right:0;
-        top:12rem;
-        width:100%;
-    }
-}
-#search-overlay{
-    background:rgba(0, 0, 0, 0.5);
-    position:absolute;
-    top:14rem;
-    right:0;
-    bottom:0;
-    left:5rem;
-    z-index:600;
+#search{
+    min-height:30rem;
+    position:relative;
     .inner-section{
-        background:@primary-background-color;
-        border-radius:@border-radius-large;
-        color:white;
-        position:absolute;
-        top:35%;
-        width:50%;
-        margin:0 25%;
-        padding:1.5rem;
-        h1{
-            color:white;
+        background: @gray-lighter;
+        border-radius: @border-radius-large;
+        height:17rem;
+        margin:0 1%;
+        position:relative;
+        top:1.4rem;
+        width:98%;
+    }
+    form{
+        padding-top:2rem;
+        width:94%;
+        margin:0 3%;
+    }
+    input{
+        &[type="text"]{
+            float:left;
+            line-height:2.2rem;
+            width:90%;
+            margin:0 5%;
         }
-        p{
-            margin-bottom:2rem;
+    }
+    fieldset{
+        text-align:center;
+        h6{
+            display:inline-block;
         }
-        input[type="text"]{
-            border-radius:@border-radius;
-            font-size:1.8rem;
-            height:4rem;
-            position:relative;
-            margin-top:1.5rem;
-            width:100%;
+        label{
+            margin-left:2rem;
+            input[type="checkbox"]{
+                margin-right:.8rem;
+            }
+            span{
+                vertical-align:middle;
+            }
         }
-        form{
-            position:relative;
+    }
+    .form-group{
+        max-width:73%;
+        margin:0 10%;
+        margin-top:1rem;
+        label{
+            text-align:right;
         }
+    }
+    button{
+        line-height:2.8rem;
+        margin:0;
     }
     .dialog-bottom{
+        position:absolute;
         bottom:0;
         left:0;
         right:0;
-        margin-top:1.5rem;
         height:5rem;
         a{
-            left:0;
-            bottom:.5rem;
-            color:white;
-            position:absolute;
+            float:left;
+            position:relative;
+            left:3rem;
+            top:1rem;
         }
         button{
-            .primary-btn;
-            padding: .4rem .8rem;
-            position:absolute;
-            bottom:0;
-            right:0;
-        }
-    }
-    @media screen and (max-width: 768px){
-        left:0;
-        top:12rem;
-        .inner-section{
-            width:80%;
-            top:15%;
-            margin: 0 10%;
+            float:right;
+            position:relative;
+            right:2.5rem;
+            top:.5rem;
         }
     }
 }
@@ -366,17 +134,9 @@ section{
     padding:4px;
 }
 
-#newsfeed{
-    background: @gray-lighter;
-    border-right: @border;
-    left:-57rem;
-    top:9rem;
-    bottom:0;
+#sidebar{
     height:100%;
-    width:40rem;
-    position:absolute;
-    transition: left 0.15s;
-    z-index:650;
+    position:relative;
     button{
         padding: .5rem 0;
         width: 90%;
@@ -394,21 +154,8 @@ section{
         padding: 0 1rem;
         line-height:4rem;
     }
-    &.open{
-        left:5rem;
-        transition: left 0.15s;
-    }
-    @media screen and (max-width:768px){
+    @media screen and (max-width:760px){
         clear:both;
-        width:100%;
-        transition: top 0.15s;
-        top:100%;
-        left:0;
-        &.open{
-            left:0;
-            top:9rem;
-            transition: top 0.15s;
-        }
     }
 }
 
@@ -488,112 +235,4 @@ section{
         margin-left:2rem;
         vertical-align:middle;
     }
-}
-
-
-//===================================================================
-/**                             Icon Mix-ins
-=====================================================================
-The .icon mixins allows you to integrate icons easily into your application. In addition, you can add either -before or -after and it will attach the styles to the corresponding pseudo-class for the element. Below are examples of the icon mix-ins and the default parameters each possesses.  NOTE: The only parameter your are REQUIRED to pass through with the mix-in is the @type (Icon type).
-*/
-
-/**.icon
-----------
-    .icon(@type, @size: 1, @color: inherit, @margin: 0.3em, @vert-align: middle, @float: none, @position: static, @top: auto);
-*/
-
-.icon(@type, @font-family:TMNG-Icon-Font, @size: 1, @color: inherit, @margin: 0.3em, @vert-align: middle, @position: static, @top: auto) {
-    &:before {
-      font-family: @font-family;
-      display: inline-block;
-      vertical-align: @vert-align;
-      margin-right: @margin;
-      content: @type;
-      font-size: @size * 1em;
-      line-height: 1em / @size;
-      color: @color;
-      position: @position;
-      top: @top;
-    }
-}
-
-/**.icon-after
-----------
-    .icon-after(@type, @size: 1, @color: inherit, @margin: 0.3em, @vert-align: middle, @float: none, @position: static, @top: auto);
-*/
-
-.icon-after(@type, @font-family:TMNG-Icon-Font, @size: 1, @color: inherit, @margin: 0.3em, @vert-align: middle, @position: static, @top: auto) {
-    &:after {
-      font-family: @font-family;
-      display: inline-block;
-      vertical-align: @vert-align;
-      margin-left: @margin;
-      content: @type;
-      font-size: @size * 1em;
-      line-height: 1em / @size;
-      color: @color;
-      position: @position;
-      top: @top;
-    }
-}
-
-/**.icon-before
-----------------
-    .icon-before(@type, @size: 1, @color: inherit, @margin: 0.3em, @vert-align: middle, @float: left, @position: static, @top: auto);
-*/
-
-.icon-before(@type, @font-family:TMNG-Icon-Font, @size: 1, @color: inherit, @margin: 0.3em, @vert-align: middle, @position: static, @top: auto) {
-    &:before {
-      font-family: @font-family;
-      display: inline-block;
-      vertical-align: @vert-align;
-      margin-left: @margin;
-      content: @type;
-      font-size: @size * 1em;
-      line-height: 1em / @size;
-      color: @color;
-      float: left;
-      position: @position;
-      top: @top;
-    }
-}
-
-/**.icon-menu
------------------
-    .icon-menu(@type, @top: auto, @left: auto, @color: inherit, @size: 1);
-*/
-
-.icon-menu (@type, @font-family:TMNG-Icon-Font, @top: auto, @left: auto, @color: inherit, @size: 1) {
-    &:before {
-      color:@color;
-      font-family: @font-family;
-      display: inline-block;
-      vertical-align: middle;
-      content: @type;
-      font-size: @size * 1em;
-      line-height: 1.2em / @size;
-      position: absolute;
-      top: auto;
-      left: @left;
-    }
-}
-
-
-/**.icon-combo
-------------------
-    With this mix-in, you can combine two icons to create a new one.  The overlay icon will appear smaller and overlay the bottom right corner of the primary icon.  
-    
-    .icon-combo(@primary-icon, @overlay-icon)
-*/
-
-.icon-combo(@primary-icon, @overlay-icon){
-    .icon-before(@primary-icon, @position:relative, @margin:0, @size:0.9em);
-    .icon-after(@overlay-icon, @position:absolute, @margin:-0.6em, @top: 0.8em, @size:0.8em);
-}
-
-.primary-btn(){
-    background:@accent-color-1;
-    border:none;
-    border-radius:@border-radius;
-    color:white;
 }

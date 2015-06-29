@@ -1,55 +1,94 @@
-    <icon-menu></icon-menu>
-    <section id="main-section">
-        <recall-map id="recall-map"></recall-map>
-        <div id="search-overlay" class="hidden">
+    <section id="main-section" class="col-sm-8 right">
+        <div id="search">
+            <h1>MedWatch</h1>
+            <h2>The FDA Safety Information and Adverse Events Reporting Program</h2>
             <div class="inner-section">
-                <h1>Stay Safe!</h1>
-                <p>Search the FDA database to find information about drug recalls, reports of adverse reactions to medications, or changes to medication labels.</p>
-                <form ng-submit="submitSearch()" novalidate>
-                    <input type="text" class="form-control" placeholder="Enter Drug Name or Zip Code"></input>
+                <form>
+                    <input type="text" class="form-control" placeholder="Search for a drug or medical device"></input>
+                    <fieldset>
+                        <h6>Types of Alerts</h6>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox1" value="option1" checked>Recalls
+                        </label> 
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox2" value="option2">Adverse Reactions
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox2" value="option2">Labeling Changes
+                        </label>
+                    </fieldset>
+                    <!-- <div class="form-group">
+                        <label for="dp2" class="col-sm-2 control-label">Range</label>
+                        <div class="col-sm-9">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <span class="input-icon icon icon-calendar-o"></span>
+                                    <input id="dp2" placeholder="From" data-inputmask="'mask': 'm/d/y', 'placeholder': 'mm/dd/yyyy'" type="text" class="datepicker form-control" >
+                                </div>
+                                <div class="col-sm-5">
+                                    <span class="input-icon icon icon-calendar-o"></span>
+                                    <input id="dp3" placeholder="To" data-inputmask="'mask': 'm/d/y', 'placeholder': 'mm/dd/yyyy'" type="text" class="datepicker form-control" >
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
                     <div class="dialog-bottom">
-                        <a href="#" class="more-options">More Options >></a>
+                        <a href="#" class="more-options">More Options</a>
                         <button type="submit">Search MedWatch</button>
                     </div>
                 </form>
             </div>
         </div> <!-- end div.inner-section -->
     </section> <!-- end #main-section -->
-    <!-- In the future, it would make sense to turn newsfeed into a directive. -->
-    <section id="newsfeed" ng-controller="NewsfeedController" ng-class="{ 'open' : newsfeedIsOpen }">
-        <h2>Recall Alerts</h2>
-        <div id="recall-alerts" ng-class="{ 'hidden': isInactive('recall') }">
-            <div class="article" ng-repeat="alert in alerts.enforcement">
+    <section id="sidebar" class="col-sm-4">
+        <button id="report-problem">Report a Problem</button>
+        <div id="recall-alerts">
+            <div class-"article">
                 <div class="image-placeholder"></div>
-                <h3>{{alert.recalling_firm}}</h3>
-                <span class="manufacturer-location">{{alert.address}}</span>
+                <h3>Headline</h3>
                 <p>
-                    <span class="date">{{alert.report_date | date : 'longDate'}}</span>
-                    <div>
-                        <h4>Affected Products:</h4>
-                        <span class="recall-codes">{{alert.code_info}}</span>
-                        <span class="product-description">{{alert.product_description}}</span>
-                        <h4>Reason for Recall:</h4>
-                        <span class="reason-for-recall">{{alert.reason_for_recall}}</span>
-                    </div>
+                    <span class="date">January 1, 2015</span>
+                    <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
+                </p>
+            </div>
+            <div class-"article">
+                <div class="image-placeholder"></div>
+                <h3>Headline</h3>
+                <p>
+                    <span class="date">January 1, 2015</span>
+                    <span>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </span>
+                </p>
+            </div>
+            <div class-"article">
+                <div class="image-placeholder"></div>
+                <h3>Headline</h3>
+                <p>
+                    <span class="date">January 1, 2015</span>
+                    <span>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</span>
+                </p>
+            </div>
+            <div class-"article">
+                <div class="image-placeholder"></div>
+                <h3>Headline</h3>
+                <p>
+                    <span class="date">January 1, 2015</span>
+                    <span>This book is a treatise on the theory of ethics, very popular during the Renaissance.</span>
+                </p>
+            </div>
+            <div class-"article">
+                <div class="image-placeholder"></div>
+                <h3>Headline</h3>
+                <p>
+                    <span class="date">January 1, 2015</span>
+                    <span>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span>
                 </p>
             </div>
         </div>
-        <div id="reaction-alerts" ng-class="{ 'hidden': isInactive('reaction') }">
-            <div class="article" ng-repeat="alert in alerts.event" ng-switch="alert.serious">
-                <div class="image-placeholder"></div>
-                <h3 ng-switch-when="1">Serious Reaction<span ng-if="alert.resultingIn">&nbsp;{{alert.resultingIn}}</span></h3>
-                <h3 ng-switch-when="2">Non-serious Reaction</h3>
-                <p>
-                    <span class="date">{{alert.receiptdate | date : 'longDate'}}</span>
-                    <div>
-                        A patient taking <span class="drug-names" ng-repeat-start="drug in alert.patient.drug">{{drug.medicinalproduct}}</span><span ng-repeat-end>{{$last ? ' ' : ', '}}</span>reported <span class="reactions" ng-repeat-start="reaction in alert.patient.reaction">{{reaction.reactionmeddrapt}}</span><span ng-repeat-end>{{$last ? '.' : ', '}}</span>
-                    </div>
-                </p>
-            </div>
-        </div>
-        <div id="labeling-alerts" ng-class="{ 'hidden': isInactive('labeling') }">
+        <div id="reaction-alerts" class="hidden">
             
         </div>
-    </section> <!-- end #newsfeed -->
+        <div id="labeling-alerts" class="hidden">
+            
+        </div>
+    </section> <!-- end #sidebar -->
 
