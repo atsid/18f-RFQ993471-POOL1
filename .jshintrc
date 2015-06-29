@@ -1,7 +1,8 @@
 {
   "globalstrict": true,
+  "browser": true,
   "bitwise": true,
-  "camelcase": true,
+  "camelcase": false, // causes too many problems with openFDA fields and Google Maps
   "curly": true,
   "eqeqeq": true,
   "immed": true,
@@ -35,6 +36,8 @@
     //requirejs
     "requirejs": true,
     "define": true,
-    "require": true
+    "require": true,
+    // Google Maps
+    "google": true
   }
 }

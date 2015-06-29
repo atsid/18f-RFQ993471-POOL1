@@ -1,0 +1,17 @@
+        <div id="search">
+            <form ng-submit="submitSearch()" novalidate>
+                <input type="text" ng-model="term" class="form-control search-box" placeholder="Enter a Drug Name or Zip Code" required></input>
+                <div class="form-group date-picker">
+                    <label for="dp2" class="control-label">Date Range</label>
+                    <div>
+                        <span class="input-icon icon icon-calendar-o"></span>
+                        <input id="dp2" placeholder="From" data-inputmask="'mask': 'm/d/y', 'placeholder': 'mm/dd/yyyy'" type="text" class="datepicker form-control" >
+                    </div>
+                    <div>
+                        <span class="input-icon icon icon-calendar-o"></span>
+                        <input id="dp3" placeholder="To" data-inputmask="'mask': 'm/d/y', 'placeholder': 'mm/dd/yyyy'" type="text" class="datepicker form-control" >
+                    </div>
+                </div>
+                <button type="submit">Search</button>
+            </form>
+        </div>
