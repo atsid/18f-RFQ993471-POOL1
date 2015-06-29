@@ -104,7 +104,12 @@ The .icon mixins allows you to integrate icons easily into your application. In 
     .icon-after(@overlay-icon, @position:absolute, @margin:-0.6em, @top: 0.8em, @size:0.8em);
 }
 
-
+.primary-btn(){
+    background:@accent-color-1;
+    border:none;
+    border-radius:@border-radius;
+    color:white;
+}
 
 
 html{
@@ -161,6 +166,53 @@ header{
     #sub-ribbon{
         height:5rem;
         background: lighten(@primary-background-color, 10%);
+        position:relative;
+        .search-box{
+            display:inline-block;
+            position:relative;
+            float:left;
+            margin:0 2% 0 3%;
+            height:3rem;
+            top:1rem;
+            width:48%;
+        }
+        .date-picker{
+            border-left:3px solid white;
+            display:inline-block;
+            height:3rem;
+            padding-left:2%;
+            position:relative;
+            top:1rem;
+            width:25%;
+            label{
+                .throw-off-screen;
+            }
+            div{
+                display:inline-block;
+                margin-right:4%;
+            }
+            .input-icon + input{
+                padding-left:1rem;
+            }
+        }
+        button[type="submit"]{
+            background:@accent-color-1;
+            border:none;
+            border-radius:@border-radius;
+            color:white;
+            float:right;
+            height:4rem;
+            margin-right:3%;
+            position:relative;
+            top:.5rem;
+            width:8%;
+            span{
+                .throw-off-screen;
+            }
+            &:hover{
+                background: darken(@accent-color-1, 10%);
+            }
+        }
     }
 }
 h1, h2, h3, h4, h5, h6{
@@ -181,7 +233,7 @@ h1, h2, h3, h4, h5, h6{
 #icon-menu{
     width:3%;
     height:100%;
-    background:@secondary-background-color;
+    background:@gray-dark;
     position:fixed;
     bottom:0;
     left:0;
@@ -206,12 +258,22 @@ h1, h2, h3, h4, h5, h6{
                 color:white;
                 width:100%;
             }
+            &:hover{
+                &:before{
+                    color:@gray-light;
+                }
+            }
         }
         &#adverse-reaction-btn{
             .icon(@icon-thumbs-down, @size:2);
             &:before{
                 color:white;
                 width:100%;
+            }
+            &:hover{
+                &:before{
+                    color:@gray-light;
+                }
             }
         }
         &#labeling-changes-btn{
@@ -220,12 +282,22 @@ h1, h2, h3, h4, h5, h6{
                 color:white;
                 width:100%;
             }
+            &:hover{
+                &:before{
+                    color:@gray-light;
+                }
+            }
+        }
+        &:hover{
+            &:before{
+                color:@gray-light;
+            }
         }
     }
 }
 #main-section{
     h1{
-        margin-top:1.4rem
+        margin:@margin-small 0;
     }
     h2{
         font-size:1.8rem;
@@ -238,62 +310,62 @@ h1, h2, h3, h4, h5, h6{
     width:97%;
     display:block;
     left:3%;
-    top:10rem;
+    top:14rem;
     z-index:100;
 }
-#search{
-    position:relative;
-    * {
-        display:inline;
-    }
-    .search-box{
-        display:inline-block;
-        position:relative;
-        left:3%;
-        height:3rem;
+#search-overlay{
+    background:rgba(0, 0, 0, 0.5);
+    position:absolute;
+    top:14rem;
+    right:0;
+    bottom:0;
+    left:5rem;
+    z-index:800;
+    .inner-section{
+        background:@primary-background-color;
+        border-radius:@border-radius-large;
+        color:white;
+        position:absolute;
+        top:35%;
         width:50%;
-    }
-    .date-picker{
-        display:inline-block;
-        position:relative;
-        left:0;
-        width:34%;
-        label{
-            .throw-off-screen;
+        margin:0 25% 0;
+        padding:1.5rem;
+        h1{
+            color:white;
         }
-        div{
-            margin:2% 0;
-            width:30%;
-            display:inline-block;
+        p{
+            margin-bottom:2rem;
         }
-        input{
-            height:3rem;
-            margin:0 2%;
+        input[type="text"]{
+            border-radius:@border-radius;
+            font-size:1.8rem;
+            height:4rem;
+            position:relative;
+            margin-top:1.5rem;
+            width:100%;
         }
-    }
-    button[type="submit"]{
-        float:right;
-        margin-right:3%;
-        position:relative;
-        width:5%;
+        form{
+            position:relative;
+        }
     }
     .dialog-bottom{
-        position:absolute;
         bottom:0;
         left:0;
         right:0;
+        margin-top:1.5rem;
         height:5rem;
         a{
-            float:left;
-            position:relative;
-            left:3rem;
-            top:1rem;
+            left:0;
+            bottom:.5rem;
+            color:white;
+            position:absolute;
         }
         button{
-            float:right;
-            position:relative;
-            right:2.5rem;
-            top:.5rem;
+            .primary-btn;
+            padding: .4rem .8rem;
+            position:absolute;
+            bottom:0;
+            right:0;
         }
     }
 }
@@ -330,7 +402,7 @@ section{
         line-height:4rem;
     }
     &.open{
-        left:7rem;
+        left:5rem;
         transition: left 0.15s;
     }
     @media screen and (max-width:760px){
