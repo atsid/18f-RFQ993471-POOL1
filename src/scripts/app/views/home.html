@@ -42,9 +42,27 @@
         </div> <!-- end div.inner-section -->
         <recall-map id="recall-map"></recall-map>
     </section> <!-- end #main-section -->
-    <section id="newsfeed" ng-controller="NewsfeedController">
+    <!-- In the future, it would make sense to turn newsfeed into a directive. -->
+    <section id="newsfeed" ng-controller="NewsfeedController" ng-class="{ 'open' : newsfeedIsOpen }">
         <h2>Recall Alerts</h2>
-        <div id="recall-alerts">
+        <div id="recall-alerts" ng-class="{ 'hidden': isInactive('recall') }">
+            <div class="article" ng-repeat="alert in alerts.enforcement">
+                <div class="image-placeholder"></div>
+                <h3>{{alert.recalling_firm}}</h3>
+                <span class="manufacturer-location">{{alert.address}}</span>
+                <p>
+                    <span class="date">{{alert.report_date | date : 'longDate'}}</span>
+                    <div>
+                        <h4>Affected Products:</h4>
+                        <span class="recall-codes">{{alert.code_info}}</span>
+                        <span class="product-description">{{alert.product_description}}</span>
+                        <h4>Reason for Recall:</h4>
+                        <span class="reason-for-recall">{{alert.reason_for_recall}}</span>
+                    </div>
+                </p>
+            </div>
+        </div>
+        <div id="reaction-alerts" ng-class="{ 'hidden': isInactive('reaction') }">
             <div class="article" ng-repeat="alert in alerts.event" ng-switch="alert.serious">
                 <div class="image-placeholder"></div>
                 <h3 ng-switch-when="1">Serious Reaction<span ng-if="alert.resultingIn">&nbsp;{{alert.resultingIn}}</span></h3>
@@ -57,10 +75,7 @@
                 </p>
             </div>
         </div>
-        <div id="reaction-alerts" class="hidden">
-            
-        </div>
-        <div id="labeling-alerts" class="hidden">
+        <div id="labeling-alerts" ng-class="{ 'hidden': isInactive('labeling') }">
             
         </div>
     </section> <!-- end #newsfeed -->
