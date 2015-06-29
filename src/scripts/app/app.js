@@ -1,5 +1,12 @@
 angular.module('MedwatchApp', [
     'AppRouter',
-    'HomeCtrl'
+    'EventBus',
+    'HeaderCtrl',
+    'HomeCtrl',
+    'NewsfeedCtrl',
+    'Search',
+    'IconMenu',
+    'SearchBox',
+    'RecallMap'
 ]);
 
