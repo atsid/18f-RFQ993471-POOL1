@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="MedwatchApp">
+<head>
+    <meta charset="utf-8" />
+    <title>FDA Medwatch Homepage</title>
+
+    <!-- base href for ngRoute -->
+    <base href="/18f-RFQ993471-POOL1/" />
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="src/css/styles.css">
+    <!-- endinject -->
+
+    <!-- External JS Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDflAEEmmtbuWX7d8GL_X9Qti5yx7YRnFk"></script>
+
+    <!-- Main Angular app JS -->
+    <script src="src/scripts/app/app.js"></script>
+    <script src="src/scripts/app/app.routes.js"></script>
+
+    <!-- Angular controllers -->
+    <script src="src/scripts/app/controllers/HeaderCtrl.js"></script>
+    <script src="src/scripts/app/controllers/HomeCtrl.js"></script>
+    <script src="src/scripts/app/controllers/NewsfeedCtrl.js"></script>
+
+    <!-- Angular directives -->
+    <script src="src/scripts/app/directives/IconMenu.js"></script>
+    <script src="src/scripts/app/directives/SearchBox.js"></script>
+    <script src="src/scripts/app/directives/RecallMap.js"></script>
+
+    <!-- Angular services -->
+    <script src="src/scripts/app/services/Search.js"></script>
+    <script src="src/scripts/app/services/EventBus.js"></script>
+</head>
+<body>
+
+<header ng-controller="HeaderController as header">
+    <div id="top-ribbon">
+        <a href="#"><img src="src/assets/img/logo.png" alt="MedWatch Logo"/></a>
+        <button class="mobile-menu"><span>Menu</span></button>
+        <div class="header-content">
+            <button class="report-problem">Report a Problem</button>
+            <span>Sign up to receive personalized alerts</span>
+        </div>
+    </div>
+    <div id="sub-ribbon">
+        <search-box></search-box>
+    </div>
+</header>
+
+<!-- This is where our main views/states are injected into the DOM. -->
+<div ui-view>
+</div>
+
+</body>
+</html>
