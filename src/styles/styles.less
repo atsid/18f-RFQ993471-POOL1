@@ -4,114 +4,6 @@
 @import  "variables.less";
 
 
-//===================================================================
-/**                             Icon Mix-ins
-=====================================================================
-The .icon mixins allows you to integrate icons easily into your application. In addition, you can add either -before or -after and it will attach the styles to the corresponding pseudo-class for the element. Below are examples of the icon mix-ins and the default parameters each possesses.  NOTE: The only parameter your are REQUIRED to pass through with the mix-in is the @type (Icon type).
-*/
-
-/**.icon
-----------
-    .icon(@type, @size: 1, @color: inherit, @margin: 0.3em, @vert-align: middle, @float: none, @position: static, @top: auto);
-*/
-
-.icon(@type, @font-family:TMNG-Icon-Font, @size: 1, @color: inherit, @margin: 0.3em, @vert-align: middle, @position: static, @top: auto) {
-    &:before {
-      font-family: @font-family;
-      display: inline-block;
-      vertical-align: @vert-align;
-      margin-right: @margin;
-      content: @type;
-      font-size: @size * 1em;
-      line-height: 1em / @size;
-      color: @color;
-      position: @position;
-      top: @top;
-    }
-}
-
-/**.icon-after
-----------
-    .icon-after(@type, @size: 1, @color: inherit, @margin: 0.3em, @vert-align: middle, @float: none, @position: static, @top: auto);
-*/
-
-.icon-after(@type, @font-family:TMNG-Icon-Font, @size: 1, @color: inherit, @margin: 0.3em, @vert-align: middle, @position: static, @top: auto) {
-    &:after {
-      font-family: @font-family;
-      display: inline-block;
-      vertical-align: @vert-align;
-      margin-left: @margin;
-      content: @type;
-      font-size: @size * 1em;
-      line-height: 1em / @size;
-      color: @color;
-      position: @position;
-      top: @top;
-    }
-}
-
-/**.icon-before
-----------------
-    .icon-before(@type, @size: 1, @color: inherit, @margin: 0.3em, @vert-align: middle, @float: left, @position: static, @top: auto);
-*/
-
-.icon-before(@type, @font-family:TMNG-Icon-Font, @size: 1, @color: inherit, @margin: 0.3em, @vert-align: middle, @position: static, @top: auto) {
-    &:before {
-      font-family: @font-family;
-      display: inline-block;
-      vertical-align: @vert-align;
-      margin-left: @margin;
-      content: @type;
-      font-size: @size * 1em;
-      line-height: 1em / @size;
-      color: @color;
-      float: left;
-      position: @position;
-      top: @top;
-    }
-}
-
-/**.icon-menu
------------------
-    .icon-menu(@type, @top: auto, @left: auto, @color: inherit, @size: 1);
-*/
-
-.icon-menu (@type, @font-family:TMNG-Icon-Font, @top: auto, @left: auto, @color: inherit, @size: 1) {
-    &:before {
-      color:@color;
-      font-family: @font-family;
-      display: inline-block;
-      vertical-align: middle;
-      content: @type;
-      font-size: @size * 1em;
-      line-height: 1.2em / @size;
-      position: absolute;
-      top: auto;
-      left: @left;
-    }
-}
-
-
-/**.icon-combo
-------------------
-    With this mix-in, you can combine two icons to create a new one.  The overlay icon will appear smaller and overlay the bottom right corner of the primary icon.  
-    
-    .icon-combo(@primary-icon, @overlay-icon)
-*/
-
-.icon-combo(@primary-icon, @overlay-icon){
-    .icon-before(@primary-icon, @position:relative, @margin:0, @size:0.9em);
-    .icon-after(@overlay-icon, @position:absolute, @margin:-0.6em, @top: 0.8em, @size:0.8em);
-}
-
-.primary-btn(){
-    background:@accent-color-1;
-    border:none;
-    border-radius:@border-radius;
-    color:white;
-}
-
-
 html{
     font-size: 62.5%;
     width:100%;
@@ -126,11 +18,20 @@ body{
         margin-top:3rem;
     }
 }
+button {
+    background: @swatch7;
+    padding: 0.6em 1.2em;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: @font-size-small;
+}
 .container{
     max-width: @container-max-width;
 }
 header{
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+    color: white;
     height: 12rem;
     position:fixed;
     top:0;
@@ -202,15 +103,12 @@ header{
         }
         button[type="submit"]{
             background:@accent-color-1;
-            border:none;
-            border-radius:@border-radius;
             color:white;
             float:right;
-            height:4rem;
             margin-right:3%;
-            position:relative;
-            top:.5rem;
-            width:8%;
+            position: absolute;
+            top: .5rem;
+            right: 0;
             span{
                 .throw-off-screen;
             }
@@ -263,6 +161,22 @@ header{
             bottom:0;
             left:0;
             z-index:50;
+        }
+    }
+    .header-content {
+        float: right;
+        text-align: right;
+        margin: 1em;
+        @media screen and (max-width: 768px){
+            display: none;
+        }
+        button.report-problem {
+            
+        }
+        span {
+            display: block;
+            font-size: @font-size-small;
+            margin-top: 0.5em;
         }
     }
 }
@@ -574,4 +488,112 @@ section{
         margin-left:2rem;
         vertical-align:middle;
     }
+}
+
+
+//===================================================================
+/**                             Icon Mix-ins
+=====================================================================
+The .icon mixins allows you to integrate icons easily into your application. In addition, you can add either -before or -after and it will attach the styles to the corresponding pseudo-class for the element. Below are examples of the icon mix-ins and the default parameters each possesses.  NOTE: The only parameter your are REQUIRED to pass through with the mix-in is the @type (Icon type).
+*/
+
+/**.icon
+----------
+    .icon(@type, @size: 1, @color: inherit, @margin: 0.3em, @vert-align: middle, @float: none, @position: static, @top: auto);
+*/
+
+.icon(@type, @font-family:TMNG-Icon-Font, @size: 1, @color: inherit, @margin: 0.3em, @vert-align: middle, @position: static, @top: auto) {
+    &:before {
+      font-family: @font-family;
+      display: inline-block;
+      vertical-align: @vert-align;
+      margin-right: @margin;
+      content: @type;
+      font-size: @size * 1em;
+      line-height: 1em / @size;
+      color: @color;
+      position: @position;
+      top: @top;
+    }
+}
+
+/**.icon-after
+----------
+    .icon-after(@type, @size: 1, @color: inherit, @margin: 0.3em, @vert-align: middle, @float: none, @position: static, @top: auto);
+*/
+
+.icon-after(@type, @font-family:TMNG-Icon-Font, @size: 1, @color: inherit, @margin: 0.3em, @vert-align: middle, @position: static, @top: auto) {
+    &:after {
+      font-family: @font-family;
+      display: inline-block;
+      vertical-align: @vert-align;
+      margin-left: @margin;
+      content: @type;
+      font-size: @size * 1em;
+      line-height: 1em / @size;
+      color: @color;
+      position: @position;
+      top: @top;
+    }
+}
+
+/**.icon-before
+----------------
+    .icon-before(@type, @size: 1, @color: inherit, @margin: 0.3em, @vert-align: middle, @float: left, @position: static, @top: auto);
+*/
+
+.icon-before(@type, @font-family:TMNG-Icon-Font, @size: 1, @color: inherit, @margin: 0.3em, @vert-align: middle, @position: static, @top: auto) {
+    &:before {
+      font-family: @font-family;
+      display: inline-block;
+      vertical-align: @vert-align;
+      margin-left: @margin;
+      content: @type;
+      font-size: @size * 1em;
+      line-height: 1em / @size;
+      color: @color;
+      float: left;
+      position: @position;
+      top: @top;
+    }
+}
+
+/**.icon-menu
+-----------------
+    .icon-menu(@type, @top: auto, @left: auto, @color: inherit, @size: 1);
+*/
+
+.icon-menu (@type, @font-family:TMNG-Icon-Font, @top: auto, @left: auto, @color: inherit, @size: 1) {
+    &:before {
+      color:@color;
+      font-family: @font-family;
+      display: inline-block;
+      vertical-align: middle;
+      content: @type;
+      font-size: @size * 1em;
+      line-height: 1.2em / @size;
+      position: absolute;
+      top: auto;
+      left: @left;
+    }
+}
+
+
+/**.icon-combo
+------------------
+    With this mix-in, you can combine two icons to create a new one.  The overlay icon will appear smaller and overlay the bottom right corner of the primary icon.  
+    
+    .icon-combo(@primary-icon, @overlay-icon)
+*/
+
+.icon-combo(@primary-icon, @overlay-icon){
+    .icon-before(@primary-icon, @position:relative, @margin:0, @size:0.9em);
+    .icon-after(@overlay-icon, @position:absolute, @margin:-0.6em, @top: 0.8em, @size:0.8em);
+}
+
+.primary-btn(){
+    background:@accent-color-1;
+    border:none;
+    border-radius:@border-radius;
+    color:white;
 }
