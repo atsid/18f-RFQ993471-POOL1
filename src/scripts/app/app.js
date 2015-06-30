@@ -9,6 +9,8 @@ angular.module('MedwatchApp', [
     'SearchBox',
     'SearchOverlay',
     'RecallMap',
-    'PieChart'
+    'PieChart',
+    'LineChart',
+    'BarChart'
 ]);
 

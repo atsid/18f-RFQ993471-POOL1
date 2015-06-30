@@ -114,7 +114,9 @@ angular.module('Search', [])
                     search = term;
                 }
 
-                limit = limit || 20;
+                if (limit !== null) {
+                    limit = limit || 20;
+                }
 
                 // This introduces a little too much fuzziness when we're trying to count, so don't add
                 // these fields then.
@@ -125,7 +127,7 @@ angular.module('Search', [])
                 }
 
                 fullUrl = baseUrl + 'drug/' + type + '.json?api_key=' + apiKey + '&search=' + search +
-                          '&limit=' + limit;
+                          (limit === null ? '' : '&limit=' + limit);
                 if (options.count) {
                     fullUrl += '&count=' + options.count;
                 }
