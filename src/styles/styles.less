@@ -23,6 +23,20 @@ body{
     > .container{
         margin-top:3rem;
     }
+    &.overlay-visible{
+        #sub-ribbon{
+            display:none;
+        }
+        #icon-menu{
+            display:none;
+        }
+        @media screen and (min-width:769px){
+            #recall-map{
+                left:0;
+                top:9rem;
+            }
+        }
+    }
     @media screen and (max-width:768px){
         &.open{
             position:relative;
@@ -206,7 +220,6 @@ header{
                     .throw-off-screen;
                 }
             }
-            
         }
         #sub-ribbon{
             display:none;
