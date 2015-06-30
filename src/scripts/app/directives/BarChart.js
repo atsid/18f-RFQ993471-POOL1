@@ -1,22 +1,21 @@
-angular.module('PieChart', ['EventBus'])
-    .directive('pieChart', ['EventBusService', 'SearchService', function(EventBusService, SearchService) {
+angular.module('BarChart', ['EventBus'])
+    .directive('barChart', ['EventBusService', 'SearchService', function(EventBusService, SearchService) {
         'use strict';
 
         return {
             restrict: 'E',
             replace: true,
-            templateUrl: 'src/scripts/app/views/pie-chart.html',
+            templateUrl: 'src/scripts/app/views/bar-chart.html',
             link: function(scope, element, attrs) {
-                scope.piePaper = Raphael('frequent-reactions-chart');
-                scope.numResults = 5;
+                scope.barPaper = Raphael('serious-nonserious-chart');
 
                 // Update the chart's data whenever the map is also updated by a new search.
                 EventBusService.subscribe(scope, 'updateMapMarkers', function(updateData) {
                     var searchObj = {
                         type: 'event',
                         term: updateData[0].search_term,
-                        limit: scope.numResults,
-                        count: 'patient.reaction.reactionmeddrapt.exact'
+                        count: 'serious',
+                        limit: null
                     };
 
                     scope.searchTerm = searchObj.term.slice(0, 1).toUpperCase() +
@@ -36,38 +35,30 @@ angular.module('PieChart', ['EventBus'])
                                 return result.count;
                             });
                             legend = results.map(function(result) {
-                                return result.term + ' - %%.%%';
+                                if (result.term === 1) {
+                                    return "Serious";
+                                }
+                                return "Non-Serious";
                             });
 
-                            scope.piePaper.clear();
-                            paper = scope.piePaper.piechart(
-                                100, // cx
-                                100, // cy
-                                100, // radius
+                            scope.barPaper.clear();
+                            paper = scope.barPaper.barchart(
+                                0, 0, // top left
+                                300, 200, // width, height
                                 values,
                                 { legend: legend }
                             );
 
                             paper.hover(
                                 function() { // mousein
-                                    this.sector.stop();
-                                    this.sector.animate({ transform: 's1.1 1.1 ' + this.cx + ' ' + this.cy }, 400, 'ease-out');
-                                    this.flag = scope.piePaper.popup((this.cx + this.mx) / 2, (this.cy + this.my) / 2, this.sector.value + ' cases');
-                                    /*
-                                    countText = scope.piePaper.text((this.cx + this.mx) / 2, (this.cy + this.my) / 2, this.sector.value.value + ' cases').attr({
-                                        'font-size': 16,
-                                        'font-weight': 'bold',
-                                        'fill': '#1c1c1c'
-                                    });
-                                    */
+                                    var value = this.bar.value;
+                                    var type = this.bar.value === values[0] ? ' serious ' : ' non-serious ';
+                                    this.flag = scope.barPaper.popup(this.bar.x, this.bar.y, value + type + 'reactions').insertBefore(this);
                                 },
                                 function() { // mouseout
-                                    this.sector.stop();
-                                    this.sector.animate({ transform: 'S1 1 ' + this.cx + ' ' + this.cy }, 400, 'ease-out');
                                     if (this.flag) {
                                         this.flag.animate({ opacity: 0 }, 300, function() { this.remove(); });
                                     }
-                                    //countText.remove();
                                 }
                             );
                         });
