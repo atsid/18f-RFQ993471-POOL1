@@ -62,8 +62,13 @@ button {
 .container{
     max-width: @container-max-width;
 }
+.form-control:focus {
+    border-color: @accent-color-1;
+}
+
+
 #mobile-menu{
-    background: darken(@brand-primary-color,8%);
+    background: darken(@brand-primary-color,6%);
     color:white;
     display:none;
     position:fixed;
@@ -131,9 +136,9 @@ header{
             display:none;
         }
     }
-    #sub-ribbon{
+    #sub-ribbon {
         height:5rem;
-        background: darken(@brand-primary-color,8%);
+        background: darken(@brand-primary-color,6%);
         position:relative;
         > * {
             opacity: .8;
@@ -161,7 +166,7 @@ header{
             position:relative;
             top:1rem;
             width:25%;
-            min-width:41rem;
+            min-width: 30rem;
             max-width: 3rem;
             label{
                 .throw-off-screen;
@@ -170,31 +175,33 @@ header{
                 display:inline-block;
                 margin-right:4%;
             }
+            input {
+                max-width: 12rem;
+                color: #222;
+            }
             .input-icon + input{
                 padding-left:1rem;
             }
         }
         button[type="submit"]{
-            background:@accent-color-1;
             margin-right:3%;
             position: absolute;
-            top: .85rem;
+            top: .95rem;
+            padding: 6px 22px;
             span{
                 .throw-off-screen;
-            }
-            &:hover{
-                background: darken(@accent-color-1, 10%);
             }
         }
         @media screen and (max-width: 1200px){
             .search-box{
                 width: 35%;
             }
-            .date-picker{
-                min-width:35rem;
-                input{
-                    width: 14rem;
-                }
+        }
+        .form-control {
+            border-color: black;
+            &:focus {
+                border-color: @accent-color-1;
+                box-shadow: 0 0 5px @accent-color-1;
             }
         }
     }
@@ -242,6 +249,13 @@ header{
             font-size: @font-size-small;
             margin-top: 0.5em;
         }
+        .report-problem {
+            border-width: 2px;
+            border-color: @btn-danger-bg;
+            &:hover {
+                border-color: lighten(@btn-danger-bg,5%);
+            }
+        }
     }
 }
 h1, h2, h3, h4, h5, h6{
@@ -263,7 +277,7 @@ h1, h2, h3, h4, h5, h6{
     min-width:5rem;
     width: 6rem;
     height:100%;
-    background: darken(@brand-primary-color,8%);
+    background: darken(@brand-primary-color,6%);
     position:absolute;
     bottom:0;
     left:0;
@@ -730,13 +744,12 @@ The .icon mixins allows you to integrate icons easily into your application. In 
 
 
 // Button Tweaks
-
 .button-variant(@color; @background; @border) {
     &:hover,
     &:focus,
     &:active {
-        background-color: darken(@background, 15%);
-        border-color: darken(@border, 20%);
+        background-color: lighten(@background, 5%);
+        border-color: lighten(@border, 5%);
     }
 }
 
