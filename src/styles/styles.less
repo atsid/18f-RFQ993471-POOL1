@@ -227,10 +227,6 @@ header{
             display:none;
         }
     }
-    @media screen and (max-width:480px){
-        height:10%;
-        position:relative;
-    }
     .header-content {
         float: right;
         text-align: right;
@@ -422,17 +418,6 @@ h1, h2, h3, h4, h5, h6{
             }
         }
     }
-    @media screen and (max-width:480px){
-        top:10%;
-        .inner-section{
-            height:100%;
-            width:100%;
-            top:0;
-            bottom:7rem;
-            left:0;
-            margin: 0;
-        }
-    }
 }
 section{
     padding:4px;
@@ -607,6 +592,33 @@ section{
 // G-Maps Styles
 .gm-style .gm-style-iw {
     font-size: @font-size-normal - 0.1;
+}
+
+@media screen and (max-width:480px){
+    body{
+        &.overlay-visible{
+            
+        }
+    }
+    header{
+        height:15%;
+        position:relative;
+    }
+    #search-overlay{
+        top:15%;
+        .inner-section{
+            height:100%;
+            width:100%;
+            top:0;
+            bottom:7rem;
+            left:0;
+            margin: 0;
+        }
+    }
+    #recall-map{
+        top:15%;
+        height:85%;
+    }
 }
 
 
