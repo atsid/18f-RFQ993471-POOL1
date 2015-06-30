@@ -39,6 +39,7 @@ angular.module('PieChart', ['EventBus'])
                                 return result.term + ' - %%.%%';
                             });
 
+                            scope.piePaper.clear();
                             paper = scope.piePaper.piechart(
                                 100, // cx
                                 100, // cy
