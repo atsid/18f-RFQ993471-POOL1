@@ -282,7 +282,7 @@ h1, h2, h3, h4, h5, h6{
                 }
             }
         }
-        &#adverse-reaction-btn{
+        &#drug-detail-btn{
             .icon(@icon-pill, @size:2);
             &:before{
                 color:white;
@@ -403,7 +403,7 @@ section{
     padding:4px;
 }
 
-#newsfeed{
+#newsfeed, #drug-detail{
     background: @gray-lighter;
     border-right: @border;
     left:-57rem;
@@ -446,6 +446,36 @@ section{
             top:9rem;
             transition: top 0.15s;
         }
+    }
+}
+#newsfeed{
+    background:white;
+    padding:1%;
+    height:98%;
+    width:98%;
+    left:-100%;
+    > div{
+        max-height:100%;
+        overflow-y:auto;
+        h1{
+            padding:0 .4rem;
+        }
+        &:nth-child(2){
+            height:100%;
+            .image-placeholder{
+                width:70%;
+                margin:3% 15%;
+                height:25%;
+            }
+        }
+    }
+    img{
+        margin:.5rem 1rem .5rem 0;
+        max-width:20rem;
+        float:left;
+    }
+    &.open{
+        left:5rem;
     }
 }
 
