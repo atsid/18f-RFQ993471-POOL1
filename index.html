@@ -39,11 +39,13 @@
     <script src="src/scripts/app/services/EventBus.js"></script>
 </head>
 <body>
-
+<div id="mobile-menu">
+    <search-box></search-box>
+</div>
 <header ng-controller="HeaderController as header">
     <div id="top-ribbon">
         <a href="#"><img src="src/assets/img/logo.png" alt="MedWatch Logo"/></a>
-        <button class="mobile-menu"><span>Menu</span></button>
+        <button class="mobile-menu-btn"><span>Menu</span></button>
         <div class="header-content">
             <button class="report-problem">Report a Problem</button>
             <span>Sign up to receive personalized alerts</span>
@@ -54,9 +56,16 @@
     </div>
 </header>
 
-<!-- This is where our main views/states are injected into the DOM. -->
-<div ui-view>
+    <!-- This is where our main views/states are injected into the DOM. -->
+    <div ui-view>
 </div>
 
+</div>
+    <script>
+    var toggleMenu = $(this).click(function(){
+        $('body').toggleClass('open');
+    });
+    $('.mobile-menu-btn').toggleMenu;
+    </script>
 </body>
 </html>
