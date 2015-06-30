@@ -23,6 +23,21 @@ body{
     > .container{
         margin-top:3rem;
     }
+    &.overlay-visible{
+        @media screen and (min-width:769px){
+            #recall-map{
+                left:0;
+                top:9rem;
+                width:100%;
+            }
+            #sub-ribbon{
+                display:none;
+            }
+            #icon-menu{
+                display:none;
+            }
+        }
+    }
     @media screen and (max-width:768px){
         &.open{
             position:relative;
@@ -47,8 +62,13 @@ button {
 .container{
     max-width: @container-max-width;
 }
+.form-control:focus {
+    border-color: @accent-color-1;
+}
+
+
 #mobile-menu{
-    background: darken(@brand-primary-color,8%);
+    background: darken(@brand-primary-color,6%);
     color:white;
     display:none;
     position:fixed;
@@ -81,16 +101,15 @@ button {
 header{
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
     color: white;
-    height: 12rem;
+    height:15%;
     position:absolute;
     top:0;
     width: 100%;
     img{
-        height:5rem;
+        height:70%;
         position:relative;
         left:1rem;
-        top:50%;
-        margin-top:-3rem;
+        top:15%;
         max-width:100%;
     }
     .nav-tabs.nav-tabs-light{
@@ -117,9 +136,9 @@ header{
             display:none;
         }
     }
-    #sub-ribbon{
+    #sub-ribbon {
         height:5rem;
-        background: darken(@brand-primary-color,8%);
+        background: darken(@brand-primary-color,6%);
         position:relative;
         > * {
             opacity: .8;
@@ -133,7 +152,7 @@ header{
             color: #222;
             position:relative;
             float:left;
-            margin: 0 2rem 0 5rem;
+            margin: 0 2rem 0 6rem;
             height:3rem;
             top:1rem;
             width:40%;
@@ -147,7 +166,8 @@ header{
             position:relative;
             top:1rem;
             width:25%;
-            min-width:41rem;
+            min-width: 30rem;
+            max-width: 3rem;
             label{
                 .throw-off-screen;
             }
@@ -155,31 +175,33 @@ header{
                 display:inline-block;
                 margin-right:4%;
             }
+            input {
+                max-width: 12rem;
+                color: #222;
+            }
             .input-icon + input{
                 padding-left:1rem;
             }
         }
         button[type="submit"]{
-            background:@accent-color-1;
             margin-right:3%;
             position: absolute;
-            top: .85rem;
+            top: .95rem;
+            padding: 6px 22px;
             span{
                 .throw-off-screen;
-            }
-            &:hover{
-                background: darken(@accent-color-1, 10%);
             }
         }
         @media screen and (max-width: 1200px){
             .search-box{
                 width: 35%;
             }
-            .date-picker{
-                min-width:35rem;
-                input{
-                    width: 14rem;
-                }
+        }
+        .form-control {
+            border-color: black;
+            &:focus {
+                border-color: @accent-color-1;
+                box-shadow: 0 0 5px @accent-color-1;
             }
         }
     }
@@ -206,21 +228,9 @@ header{
                     .throw-off-screen;
                 }
             }
-            
         }
         #sub-ribbon{
             display:none;
-            // height:100%;
-//             position:fixed;
-//             top:12rem;
-//             bottom:7rem;
-//             right:100%;
-//             transition:right 0.15s;
-//             z-index:1000;
-//             &.open{
-//                 right:0;
-//                 transition:right 0.15s;
-//             }
         }
     }
     .header-content {
@@ -238,6 +248,13 @@ header{
             display: block;
             font-size: @font-size-small;
             margin-top: 0.5em;
+        }
+        .report-problem {
+            border-width: 2px;
+            border-color: @btn-danger-bg;
+            &:hover {
+                border-color: lighten(@btn-danger-bg,5%);
+            }
         }
     }
 }
@@ -258,9 +275,9 @@ h1, h2, h3, h4, h5, h6{
 }
 #icon-menu{
     min-width:5rem;
-    width:3%;
+    width: 6rem;
     height:100%;
-    background: darken(@brand-primary-color,8%);
+    background: darken(@brand-primary-color,6%);
     position:absolute;
     bottom:0;
     left:0;
@@ -344,24 +361,25 @@ h1, h2, h3, h4, h5, h6{
         top:12rem;
         width:100%;
     }
-}
+} 
 #search-overlay{
     background:rgba(0, 0, 0, 0.65);
     position:absolute;
-    top:14rem;
+    top:9rem;
     right:0;
     bottom:0;
-    left:5rem;
-    z-index:600;
+    left:0;
+    z-index:800;
     .inner-section{
         background: white;
         border-radius:@border-radius;
         position:absolute;
-        top:35%;
-        width:50%;
-        margin:0 25%;
+        top:28%;
+        left:50%;
+        width:63rem;
+        margin:0;
+        margin-left:-33rem;
         padding: 3rem;
-        max-width: 41em;
         p{
             margin-bottom:2rem;
         }
@@ -401,8 +419,16 @@ h1, h2, h3, h4, h5, h6{
         top:12rem;
         .inner-section{
             width:80%;
-            top:15%;
-            margin: 0 10%;
+            margin:25% 10%;
+            top:0;
+            bottom:auto;
+            left:0;
+            .btn-primary{
+                .icon(@icon-search);
+                span{
+                    .throw-off-screen;
+                }
+            }
         }
     }
 }
@@ -457,8 +483,9 @@ section{
 }
 #newsfeed{
     background:white;
-    padding:1%;
-    height:98%;
+    padding:0 1%;
+    height:85%;
+    overflow:hidden;
     width:98%;
     left:-100%;
     > div{
@@ -476,9 +503,14 @@ section{
             }
         }
         #manufacturers{
+            max-height:40%;
+            overflow-y:auto;
             li{
                 list-style:none;
                 margin-top:.5rem;
+            }
+            a{
+                display:block;
             }
         }
     }
@@ -574,6 +606,38 @@ section{
 // G-Maps Styles
 .gm-style .gm-style-iw {
     font-size: @font-size-normal - 0.1;
+}
+
+@media screen and (max-width:480px){
+    body{
+        overflow:auto;
+    }
+    header{
+        top:0;
+        height:15%;
+        position:relative;
+    }
+    #search-overlay{
+        top:15%;
+        .inner-section{
+            height:100%;
+            width:100%;
+            top:0;
+            bottom:7rem;
+            left:0;
+            margin: 0;
+        }
+    }
+    #recall-map{
+        top:15%;
+        height:85%;
+    }
+    #newsfeed, #drug-detail{
+        width:100%;
+        left:0;
+        z-index:0;
+        overflow:auto; 
+    }
 }
 
 
@@ -680,18 +744,27 @@ The .icon mixins allows you to integrate icons easily into your application. In 
 
 
 // Button Tweaks
-
 .button-variant(@color; @background; @border) {
     &:hover,
     &:focus,
     &:active {
-        background-color: darken(@background, 15%);
-        border-color: darken(@border, 20%);
+        background-color: lighten(@background, 5%);
+        border-color: lighten(@border, 5%);
     }
 }
 
 .btn-default {
   .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
+}
+
+.btn-line {
+    background: transparent;
+    border: 2px solid white;
+    &:hover {
+        background: #eee;
+        color: @text-color;
+        border: 2px solid rgba(255,255,255,1);
+    }
 }
 
 

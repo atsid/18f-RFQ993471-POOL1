@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title>FDA Medwatch Homepage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- base href for ngRoute -->
     <base href="/18f-RFQ993471-POOL1/" />
@@ -56,7 +57,7 @@
         <a href="#"><img src="src/assets/img/logo.png" alt="MedWatch Logo"/></a>
         <button class="mobile-menu-btn"><span>Menu</span></button>
         <div class="header-content">
-            <button class="btn-default">Sign up for Alerts</button>
+            <button class="btn btn-line">Sign up for Alerts</button>
             <button class="report-problem btn-danger">Report a Problem</button>
         </div>
     </div>
@@ -75,6 +76,17 @@
         $('body').toggleClass('open');
     });
     $('.mobile-menu-btn').toggleMenu;
+    
+    function resizeBootstrapMap() {
+        var mapParentWidth = $('#main-section').width();
+        $('#recall-map').width(mapParentWidth);
+        $('#recall-map').height(3 * mapParentWidth / 4);
+        google.maps.event.trigger($('#recall-map"resize"'));
+        console.log(mapParentWidth);
+    }
+    $(window).resize(resizeBootstrapMap);
+    
     </script>
+    
 </body>
 </html>
