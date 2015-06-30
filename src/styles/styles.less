@@ -348,20 +348,21 @@ h1, h2, h3, h4, h5, h6{
 #search-overlay{
     background:rgba(0, 0, 0, 0.65);
     position:absolute;
-    top:14rem;
+    top:9rem;
     right:0;
     bottom:0;
-    left:5rem;
-    z-index:600;
+    left:0;
+    z-index:800;
     .inner-section{
         background: white;
         border-radius:@border-radius;
         position:absolute;
-        top:35%;
-        width:50%;
-        margin:0 25%;
+        top:28%;
+        left:50%;
+        width:80rem;
+        margin:0;
+        margin-left:-40rem;
         padding: 3rem;
-        max-width: 41em;
         p{
             margin-bottom:2rem;
         }
@@ -401,8 +402,25 @@ h1, h2, h3, h4, h5, h6{
         top:12rem;
         .inner-section{
             width:80%;
-            top:15%;
-            margin: 0 10%;
+            margin:25% 10%;
+            top:0;
+            bottom:auto;
+            left:0;
+            .btn-primary{
+                .icon(@icon-search);
+                span{
+                    .throw-off-screen;
+                }
+            }
+        }
+    }
+    @media screen and (max-width:480px){
+        .inner-section{
+            width:100%;
+            top:0;
+            bottom:7rem;
+            left:0;
+            margin: 0;
         }
     }
 }
