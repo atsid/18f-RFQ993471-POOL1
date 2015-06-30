@@ -41,6 +41,7 @@ gulp.task('lint', function () {
 gulp.task('watch', function() {
     gulp.src(config.src.all)
         .pipe(webserver({
+            path: '/18f-RFQ993471-POOL1',
             livereload: true,
             defaultFile: 'index.html',
             open: true
@@ -50,6 +51,7 @@ gulp.task('watch', function() {
 gulp.task('serve', function() {
     gulp.src(config.src.all)
         .pipe(webserver({
+            path: '/18f-RFQ993471-POOL1',
             livereload: false,
             defaultFile: 'index.html',
             open: false
