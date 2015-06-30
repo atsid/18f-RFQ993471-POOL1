@@ -121,6 +121,13 @@ header{
         height:5rem;
         background: lighten(@brand-primary-color, 5%);
         position:relative;
+        > * {
+            opacity: .8;
+            transition: all ease-in-out .2s;
+        }
+        &:hover > * {
+            opacity: 1;
+        }
         .search-box{
             display:inline-block;
             position:relative;
@@ -338,7 +345,7 @@ h1, h2, h3, h4, h5, h6{
     }
 }
 #search-overlay{
-    background:rgba(0, 0, 0, 0.75);
+    background:rgba(0, 0, 0, 0.65);
     position:absolute;
     top:14rem;
     right:0;
