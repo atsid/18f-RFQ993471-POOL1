@@ -67,7 +67,7 @@ button {
 }
 
 
-#mobile-menu{
+#mobile-menu {
     background: darken(@brand-primary-color,6%);
     color:white;
     display:none;
@@ -77,22 +77,42 @@ button {
     bottom:0;
     left:0;
     height:100%;
-    padding:10% 5% 0;
+    padding:2% 5% 0;
     width:80%;
     z-index:100;
+    h1 {
+        color: @text-color;
+        padding: 0 0 2%;
+        border-bottom: 1px solid darken(@text-color,15%);
+        font-size: @font-size-large + 1.5;
+    }
+    p {
+        color: lighten(@text-color,25%);
+    }
+    input {
+        margin-top: 5%;
+        min-height: 3rem;
+        font-size: @font-size-normal - 0.25;
+        color: #222;
+    }
+    label {
+        font-size: @font-size-small;
+    }
     .search-box{
-        margin-top:10%;
+        margin-top:5%;
     }
     .date-picker{
-        margin-top:10%;
+        margin-top:5%;
         input{
             margin-top:3%;
         }
     }
-    button[type="submit"]{
-        margin-top:10%;
-        width:100%;        
+    button {
+        margin: 2% 0;
+        width:100%;  
+        min-height: 3rem;      
     }
+
     @media screen and (max-width:768px){
         display:block;
     }
@@ -489,7 +509,7 @@ section{
     width:98%;
     left:-100%;
     > div{
-        max-height:100%;
+        height:100%;
         overflow-y:auto;
         h1{
             padding:0 .4rem;
@@ -502,15 +522,37 @@ section{
                 height:25%;
             }
         }
-        #manufacturers{
-            max-height:40%;
+        #manufacturers, #additional-info{
+            margin-bottom:3%;
+            height:45%;
             overflow-y:auto;
+            h2{
+                position:absolute;
+                width:100%;
+                z-index:600;
+            }
+            ul{
+                position:relative;
+                top:6rem;
+            }
             li{
                 list-style:none;
-                margin-top:.5rem;
+                margin:.5rem 0;
+                
             }
             a{
                 display:block;
+            }
+        }
+    }
+    #adverse-reactions{
+        .dv-chart{
+            margin:5% 0;
+            height:27%;
+            text-align:center;
+            *{
+                height:100%;
+                position:relative;
             }
         }
     }

@@ -5,9 +5,7 @@
     </section> <!-- end #main-section -->
     <!-- In the future, it would make sense to turn newsfeed into a directive. -->
     <section id="newsfeed" ng-controller="NewsfeedController" ng-class="{ 'open' : newsfeedIsOpen }">
-        <div class="col-sm-12">
-            <h1>Aspirin</h1>
-        </div>
+        <h1>Aspirin</h1>
         <div class="col-sm-5">
             <img src="src/assets/img/aspirin.jpg" alt="Aspirin bottle tipped over"/>
             <p>Lorem ipsum dolor sit amet, vestibulum integer commodo non, tempus dui lacus sapien id, non aliquam vivamus ultrices, ante massa, sit vitae nec mus aenean faucibus. Ac scelerisque tincidunt non. Ultrices eget dui blandit, nunc felis mauris vitae nisl, metus posuere libero, voluptates pharetra id vulputate. Vel eu ullamcorper accumsan integer, lacus lacus mauris non eleifend, officia volutpat vivamus penatibus, ultrices ut eos ac, eu velit leo sociosqu at mauris. Amet volutpat quis integer lobortis nisl hac, tortor est, tellus libero a. Sodales ligula adipiscing integer vel ut, amet fermentum mattis fusce vel, viverra placerat wisi, gravida tincidunt phasellus ac molestie.</p>
@@ -19,11 +17,17 @@
 Voluptatibus ut eget, egestas aliquam vel molestiae etiam orci, massa suspendisse lacinia massa volutpat et, ultrices orci vestibulum arcu aliquam. Elit pulvinar architecto error egestas, nulla lorem eleifend minus in porttitor varius, semper rhoncus duis sed torquent per aenean, pede morbi eleifend tempor et. Tortor dolor nullam amet quis, commodo tellus augue mauris pulvinar nunc at, euismod venenatis. Id aliquam vehicula ipsam sem, eu proin bibendum libero nulla, auctor non tempus odio aliquam, malesuada id in fusce est vitae, possimus nam fermentum sodales maecenas. Ut senectus felis luctus sit, lacus pharetra sit tempor massa quisque. Dictumst condimentum tortor nibh sint sociosqu lacinia, nec in. Imperdiet lectus habitant nec mauris semper, at orci netus ut ut dolor, ornare a ut ac ipsum pretium ultrices, eu feugiat convallis ad integer tempor, vel natoque viverra curabitur bibendum. Ac lorem fusce integer vel. Venenatis quam. Condimentum molestie neque fermentum aliquam suspendisse. Id adipiscing vehicula maiores porttitor tellus purus, fermentum lorem, ultricies magna eget eu mi pretium.</p>
             </div>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-3" id="adverse-reactions">
             <h2>Adverse Reactions</h2>
-            <pie-chart></pie-chart>
-            <line-chart></line-chart>
-            <bar-chart></bar-chart>
+            <div class="dv-chart">
+                <pie-chart></pie-chart>
+            </div>
+            <div class="dv-chart">
+                <line-chart></line-chart>
+            </div>
+            <div class="dv-chart">
+                <bar-chart></bar-chart>
+            </div>
         </div>
         <div class="col-sm-4">
             <div id="manufacturers">
@@ -57,12 +61,71 @@ Voluptatibus ut eget, egestas aliquam vel molestiae etiam orci, massa suspendiss
                         <a href="#">[Manufacturer's Name]</a>
                         <span>[Location]</span>
                     </li>
+                    <li>
+                        <a href="#">[Manufacturer's Name]</a>
+                        <span>[Location]</span>
+                    </li>
+                    <li>
+                        <a href="#">[Manufacturer's Name]</a>
+                        <span>[Location]</span>
+                    </li>
+                    <li>
+                        <a href="#">[Manufacturer's Name]</a>
+                        <span>[Location]</span>
+                    </li>
+                    <li>
+                        <a href="#">[Manufacturer's Name]</a>
+                        <span>[Location]</span>
+                    </li>
+                    <li>
+                        <a href="#">[Manufacturer's Name]</a>
+                        <span>[Location]</span>
+                    </li>
+                    <li>
+                        <a href="#">[Manufacturer's Name]</a>
+                        <span>[Location]</span>
+                    </li>
+                    <li>
+                        <a href="#">[Manufacturer's Name]</a>
+                        <span>[Location]</span>
+                    </li>
+                    <li>
+                        <a href="#">[Manufacturer's Name]</a>
+                        <span>[Location]</span>
+                    </li>
+                    <li>
+                        <a href="#">[Manufacturer's Name]</a>
+                        <span>[Location]</span>
+                    </li>
+                    <li>
+                        <a href="#">[Manufacturer's Name]</a>
+                        <span>[Location]</span>
+                    </li>
+                    <li>
+                        <a href="#">[Manufacturer's Name]</a>
+                        <span>[Location]</span>
+                    </li>
+                    <li>
+                        <a href="#">[Manufacturer's Name]</a>
+                        <span>[Location]</span>
+                    </li>
+                    <li>
+                        <a href="#">[Manufacturer's Name]</a>
+                        <span>[Location]</span>
+                    </li>
+                    <li>
+                        <a href="#">[Manufacturer's Name]</a>
+                        <span>[Location]</span>
+                    </li>
                 </ul>
             </div>
             <div id="additional-info">
-                <a href="#">Pediatric Applications</a>
-                <a href="#">Nursing Mothers</a>
-                <a href="#">Pregnant Women</a>
+                <h2>Additional Information</h2>
+                <ul>
+                    <li><a href="#">Pediatric Applications</a></li>
+                    <li><a href="#">Effects When Nursing</a></li>
+                    <li><a href="#">Considerations for Pregnant Women</a></li>
+                </ul>
             </div>
         </div>            
     </section> <!-- end #newsfeed -->
