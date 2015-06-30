@@ -3,6 +3,9 @@
 
 @import "variables.less";
 
+@import url(http://fonts.googleapis.com/css?family=Roboto:500,900,400italic,300,700,400);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700,800);
+
 
 html{
     font-size: 62.5%;
@@ -13,31 +16,77 @@ body{
     font-size: @font-size-normal; 
     height:100%;
     width:100%;
+    position:relative;
+    left:0;
     overflow:hidden;
+    transition:left 0.15s;
     > .container{
         margin-top:3rem;
     }
+    @media screen and (max-width:768px){
+        &.open{
+            position:relative;
+            left:80%;
+            transition:left 0.15s;
+        }
+    }
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .subhead, .title, .headline, .display1, .display2, .display3 {
+        color: @brand-primary-color;
+}
+h1 {
+    font-weight: 300;
+    letter-spacing: -0.1rem;
+}
+h5 {
+    font-weight: 700;
 }
 button {
-    background: @swatch7;
-    padding: 0.6em 1.2em;
-    border: 1px solid rgba(0,0,0,0.1);
-    border-radius: 3px;
-    font-weight: bold;
-    font-size: @font-size-small;
+    .btn;
 }
 .container{
     max-width: @container-max-width;
 }
+#mobile-menu{
+    background: @gray;
+    color:white;
+    display:none;
+    position:fixed;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    height:100%;
+    padding:10% 5% 0;
+    width:80%;
+    z-index:100;
+    .search-box{
+        margin-top:10%;
+    }
+    .date-picker{
+        margin-top:10%;
+        input{
+            margin-top:3%;
+        }
+    }
+    button[type="submit"]{
+        margin-top:10%;
+        width:100%;        
+    }
+    @media screen and (max-width:768px){
+        display:block;
+    }
+}
+    
 header{
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
     color: white;
     height: 12rem;
-    position:fixed;
+    position:absolute;
     top:0;
     width: 100%;
     img{
-        height:6rem;
+        height:5rem;
         position:relative;
         left:1rem;
         top:50%;
@@ -61,16 +110,16 @@ header{
         }
     }
     #top-ribbon{
-        background: @primary-background-color;
+        background: @brand-primary-color;
         height:9rem;
         width:100%;
-        .mobile-menu{
+        .mobile-menu-btn{
             display:none;
         }
     }
     #sub-ribbon{
         height:5rem;
-        background: lighten(@primary-background-color, 10%);
+        background: lighten(@brand-primary-color, 10%);
         position:relative;
         .search-box{
             display:inline-block;
@@ -138,7 +187,7 @@ header{
             height:100%;
             position:absolute;
             z-index:100;
-            .mobile-menu{
+            .mobile-menu-btn{
                 .icon(@icon-hamburger, @size:2, @color: white);
                 background: none;
                 border:none;
@@ -154,24 +203,30 @@ header{
             
         }
         #sub-ribbon{
-            height:100%;
-            position:fixed;
-            top:0;
-            right:0;
-            bottom:0;
-            left:0;
-            z-index:50;
+            display:none;
+            // height:100%;
+//             position:fixed;
+//             top:12rem;
+//             bottom:7rem;
+//             right:100%;
+//             transition:right 0.15s;
+//             z-index:1000;
+//             &.open{
+//                 right:0;
+//                 transition:right 0.15s;
+//             }
         }
     }
     .header-content {
         float: right;
         text-align: right;
-        margin: 1em;
+        margin: 1.8em 1em 0;
+        position: relative;
         @media screen and (max-width: 768px){
             display: none;
         }
-        button.report-problem {
-            
+        button + button {
+            margin-left: 1rem;
         }
         span {
             display: block;
@@ -200,7 +255,7 @@ h1, h2, h3, h4, h5, h6{
     width:3%;
     height:100%;
     background:@gray-dark;
-    position:fixed;
+    position:absolute;
     bottom:0;
     left:0;
     padding:0;
@@ -215,9 +270,6 @@ h1, h2, h3, h4, h5, h6{
         width:100%;
         margin:0;
         padding:0;
-        span{
-            .throw-off-screen;
-        }
         &#recall-btn{
             .icon(@icon-warning-full, @size:2);
             &:before{
@@ -231,7 +283,7 @@ h1, h2, h3, h4, h5, h6{
             }
         }
         &#adverse-reaction-btn{
-            .icon(@icon-thumbs-down, @size:2);
+            .icon(@icon-pill, @size:2);
             &:before{
                 color:white;
                 width:100%;
@@ -242,17 +294,8 @@ h1, h2, h3, h4, h5, h6{
                 }
             }
         }
-        &#labeling-changes-btn{
-            .icon(@icon-tags, @size:2);
-            &:before{
-                color:white;
-                width:100%;
-            }
-            &:hover{
-                &:before{
-                    color:@gray-light;
-                }
-            }
+        &:before{
+            font-weight:normal;
         }
         &:hover{
             &:before{
@@ -261,13 +304,13 @@ h1, h2, h3, h4, h5, h6{
         }
     }
     @media screen and (max-width: 768px){
-        bottom:0;
+        bottom:-3px;
         height:7rem;
         padding-top:0;
         top:auto;
         width:100%;
         button{
-            width:33%;
+            width:50%;
             display:inline-block;
             float:left;
         }
@@ -275,7 +318,7 @@ h1, h2, h3, h4, h5, h6{
 }
 #main-section{
     h1{
-        margin:@margin-small 0;
+        margin: 0;
     }
     h2{
         font-size:1.8rem;
@@ -298,7 +341,7 @@ h1, h2, h3, h4, h5, h6{
     }
 }
 #search-overlay{
-    background:rgba(0, 0, 0, 0.5);
+    background:rgba(0, 0, 0, 0.65);
     position:absolute;
     top:14rem;
     right:0;
@@ -306,17 +349,13 @@ h1, h2, h3, h4, h5, h6{
     left:5rem;
     z-index:600;
     .inner-section{
-        background:@primary-background-color;
-        border-radius:@border-radius-large;
-        color:white;
+        background: white;
+        border-radius:@border-radius;
         position:absolute;
         top:35%;
         width:50%;
         margin:0 25%;
-        padding:1.5rem;
-        h1{
-            color:white;
-        }
+        padding: 3rem;
         p{
             margin-bottom:2rem;
         }
@@ -345,8 +384,6 @@ h1, h2, h3, h4, h5, h6{
             position:absolute;
         }
         button{
-            .primary-btn;
-            padding: .4rem .8rem;
             position:absolute;
             bottom:0;
             right:0;
@@ -370,7 +407,7 @@ section{
     background: @gray-lighter;
     border-right: @border;
     left:-57rem;
-    top:9rem;
+    top:14rem;
     bottom:0;
     height:100%;
     width:40rem;
@@ -591,9 +628,87 @@ The .icon mixins allows you to integrate icons easily into your application. In 
     .icon-after(@overlay-icon, @position:absolute, @margin:-0.6em, @top: 0.8em, @size:0.8em);
 }
 
-.primary-btn(){
-    background:@accent-color-1;
-    border:none;
-    border-radius:@border-radius;
-    color:white;
+
+
+// Button Tweaks
+
+.button-variant(@color; @background; @border) {
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: darken(@background, 15%);
+        border-color: darken(@border, 20%);
+    }
 }
+
+.btn-default {
+  .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
+}
+
+
+
+.tooltip-body{
+    opacity:0;
+    background:@gray-dark;
+    border-radius:@border-radius-large;
+    position:absolute;
+    color: white;
+    transition: .2s opacity;
+    transition-delay:.7s;
+    font-size:@font-size-small;
+    white-space:nowrap;
+    padding:5px 15px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow:none;
+    z-index: 900;
+    pointer-events:none;  // without this, hovering on tooltip location makes tooltip appear
+    &:before{ // Styles for follow arrow
+        opacity:0;
+        position:absolute;
+        width:0;
+        height:0;
+        transition: .3s opacity;
+        transition-delay:.7s;
+        z-index: 900;
+        content:'';
+        border-left:8px solid transparent; // IE Fallback
+        border-right:8px solid transparent; // IE Fallback
+        border-left:.8rem solid transparent;
+        border-right:.8rem solid transparent;
+    }
+    > * {
+        pointer-events: auto;
+    }
+}
+.tooltip-right{
+    position:relative;
+    .tooltip-body{
+        left:1.5rem;
+        bottom:2rem;
+        margin-left:100%;
+        &:before{
+            left:1.5rem;
+            bottom:20%;
+            margin-left:-29px;
+            border-left:8px solid transparent;
+            border-left:.8rem solid transparent;
+            border-right:8px solid @gray-dark;
+            border-right:.8rem solid @gray-dark;
+            border-top:8px solid transparent;
+            border-top:.8rem solid transparent;
+            border-bottom:8px solid transparent; 
+            border-bottom:.8rem solid transparent;
+        }
+    }
+    @media screen and (min-width:769px){
+        &:hover{
+            > .tooltip-body{
+                opacity:1;
+                &:before{
+                    opacity:1;
+                }
+            }
+        }
+    }
+}
+

@@ -5,7 +5,7 @@
     <title>FDA Medwatch Homepage</title>
 
     <!-- base href for ngRoute -->
-    <base href="/" />
+    <base href="/18f-RFQ993471-POOL1/" />
 
     <!-- CSS -->
     <!-- <link rel="stylesheet" type="text/css" href=""/> -->
@@ -39,14 +39,16 @@
     <script src="src/scripts/app/services/EventBus.js"></script>
 </head>
 <body>
-
+<div id="mobile-menu">
+    <search-box></search-box>
+</div>
 <header ng-controller="HeaderController as header">
     <div id="top-ribbon">
         <a href="#"><img src="src/assets/img/logo.png" alt="MedWatch Logo"/></a>
-        <button class="mobile-menu"><span>Menu</span></button>
+        <button class="mobile-menu-btn"><span>Menu</span></button>
         <div class="header-content">
-            <button class="report-problem">Report a Problem</button>
-            <span>Sign up to receive personalized alerts</span>
+            <button class="btn-default">Sign up for Alerts</button>
+            <button class="report-problem btn-danger">Report a Problem</button>
         </div>
     </div>
     <div id="sub-ribbon">
@@ -54,9 +56,16 @@
     </div>
 </header>
 
-<!-- This is where our main views/states are injected into the DOM. -->
-<div ui-view>
+    <!-- This is where our main views/states are injected into the DOM. -->
+    <div ui-view>
 </div>
 
+</div>
+    <script>
+    var toggleMenu = $(this).click(function(){
+        $('body').toggleClass('open');
+    });
+    $('.mobile-menu-btn').toggleMenu;
+    </script>
 </body>
 </html>
