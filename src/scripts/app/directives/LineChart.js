@@ -10,7 +10,7 @@ angular.module('LineChart', ['EventBus'])
                 scope.lineChart = Raphael('reactions-over-time-chart');
                 scope.numYears = 2;
 
-                // Update the pie chart's data whenever the map is also updated by a new search.
+                // Update the chart's data whenever the map is also updated by a new search.
                 EventBusService.subscribe(scope, 'updateMapMarkers', function(updateData) {
                     var fieldPrefix = 'patient.drug.openfda.';
                     var today = new Date(Date.now()),
@@ -28,7 +28,8 @@ angular.module('LineChart', ['EventBus'])
                     var searchObj = {
                         type: 'event',
                         term: search,
-                        count: 'receivedate'
+                        count: 'receivedate',
+                        limit: null
                     };
 
                     scope.searchTerm = term.slice(0, 1).toUpperCase() +
@@ -78,21 +79,14 @@ angular.module('LineChart', ['EventBus'])
                                 }
                             );
 
+                            // TODO: Implement
                             /*
                             paper.hover(
                                 function() { // mousein
-                                    this.sector.stop();
-                                    this.sector.animate({ transform: 's1.1 1.1 ' + this.cx + ' ' + this.cy }, 400, 'ease-out');
-                                    countText = scope.piePaper.text((this.cx + this.mx) / 2, (this.cy + this.my) / 2, this.sector.value.value + ' cases').attr({
-                                        'font-size': 16,
-                                        'font-weight': 'bold',
-                                        'fill': '#1c1c1c'
-                                    });
+                                    debugger;
                                 },
                                 function() { // mouseout
-                                    this.sector.stop();
-                                    this.sector.animate({ transform: 'S1 1 ' + this.cx + ' ' + this.cy }, 400, 'ease-out');
-                                    countText.remove();
+
                                 }
                             )
                             */
