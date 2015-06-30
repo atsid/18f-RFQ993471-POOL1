@@ -36,21 +36,11 @@
                 </p>
             </div>
         </div>
-        <div id="reaction-alerts" ng-class="{ 'hidden': isInactive('reaction') }">
-            <div class="article" ng-repeat="alert in alerts.event" ng-switch="alert.serious">
-                <div class="image-placeholder"></div>
-                <h3 ng-switch-when="1">Serious Reaction<span ng-if="alert.resultingIn">&nbsp;{{alert.resultingIn}}</span></h3>
-                <h3 ng-switch-when="2">Non-serious Reaction</h3>
-                <p>
-                    <span class="date">{{alert.receiptdate | date : 'longDate'}}</span>
-                    <div>
-                        A patient taking <span class="drug-names" ng-repeat-start="drug in alert.patient.drug">{{drug.medicinalproduct}}</span><span ng-repeat-end>{{$last ? ' ' : ', '}}</span>reported <span class="reactions" ng-repeat-start="reaction in alert.patient.reaction">{{reaction.reactionmeddrapt}}</span><span ng-repeat-end>{{$last ? '.' : ', '}}</span>
-                    </div>
-                </p>
-            </div>
-        </div>
-        <div id="labeling-alerts" ng-class="{ 'hidden': isInactive('labeling') }">
-            
-        </div>
     </section> <!-- end #newsfeed -->
-
+    <section id="drug-detail" class="row">
+        <div class="sm-col-6">
+            <h1>Aspirin</h1>
+            <div class="placeholder"></div>
+            <p>Lorem ipsum dolor sit amet, vestibulum integer commodo non, tempus dui lacus sapien id, non aliquam vivamus ultrices, ante massa, sit vitae nec mus aenean faucibus. Ac scelerisque tincidunt non. Ultrices eget dui blandit, nunc felis mauris vitae nisl, metus posuere libero, voluptates pharetra id vulputate. Vel eu ullamcorper accumsan integer, lacus lacus mauris non eleifend, officia volutpat vivamus penatibus, ultrices ut eos ac, eu velit leo sociosqu at mauris. Amet volutpat quis integer lobortis nisl hac, tortor est, tellus libero a. Sodales ligula adipiscing integer vel ut, amet fermentum mattis fusce vel, viverra placerat wisi, gravida tincidunt phasellus ac molestie.</p>
+            <p>Cursus sem amet feugiat, faucibus velit dolor aliquam, cursus vel semper ut. Sit vivamus enim orci sed nibh mauris. Lobortis quisque mauris id. Nec elit posuere ipsum sollicitudin rutrum, ullamcorper sodales, quam sem nullam fugiat erat ut, mauris volutpat orci parturient rerum diam. Magna sit laoreet pellentesque, non in imperdiet non praesent gravida. Eget lectus molestie vel, sit sollicitudin auctor pellentesque massa imperdiet elementum. Interdum nostra quis ad sed, tortor in massa, sem eu metus amet mollis non, imperdiet varius in vestibulum elit. Wisi leo orci dictumst rhoncus suspendisse. Id neque non interdum sodales fermentum dolor, ipsum ante integer tortor nulla, porttitor facilisis morbi vivamus fringilla ligula sed, amet nunc scelerisque erat vestibulum at. Sem ipsum morbi donec libero nulla.</p>
+    </section>

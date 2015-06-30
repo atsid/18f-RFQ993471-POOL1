@@ -270,9 +270,6 @@ h1, h2, h3, h4, h5, h6{
         width:100%;
         margin:0;
         padding:0;
-        span{
-            .throw-off-screen;
-        }
         &#recall-btn{
             .icon(@icon-warning-full, @size:2);
             &:before{
@@ -286,7 +283,7 @@ h1, h2, h3, h4, h5, h6{
             }
         }
         &#adverse-reaction-btn{
-            .icon(@icon-thumbs-down, @size:2);
+            .icon(@icon-pill, @size:2);
             &:before{
                 color:white;
                 width:100%;
@@ -297,17 +294,8 @@ h1, h2, h3, h4, h5, h6{
                 }
             }
         }
-        &#labeling-changes-btn{
-            .icon(@icon-tags, @size:2);
-            &:before{
-                color:white;
-                width:100%;
-            }
-            &:hover{
-                &:before{
-                    color:@gray-light;
-                }
-            }
+        &:before{
+            font-weight:normal;
         }
         &:hover{
             &:before{
@@ -322,7 +310,7 @@ h1, h2, h3, h4, h5, h6{
         top:auto;
         width:100%;
         button{
-            width:33%;
+            width:50%;
             display:inline-block;
             float:left;
         }
@@ -656,3 +644,71 @@ The .icon mixins allows you to integrate icons easily into your application. In 
 .btn-default {
   .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
 }
+
+
+
+.tooltip-body{
+    opacity:0;
+    background:@gray-dark;
+    border-radius:@border-radius-large;
+    position:absolute;
+    color: white;
+    transition: .2s opacity;
+    transition-delay:.7s;
+    font-size:@font-size-small;
+    white-space:nowrap;
+    padding:5px 15px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow:none;
+    z-index: 900;
+    pointer-events:none;  // without this, hovering on tooltip location makes tooltip appear
+    &:before{ // Styles for follow arrow
+        opacity:0;
+        position:absolute;
+        width:0;
+        height:0;
+        transition: .3s opacity;
+        transition-delay:.7s;
+        z-index: 900;
+        content:'';
+        border-left:8px solid transparent; // IE Fallback
+        border-right:8px solid transparent; // IE Fallback
+        border-left:.8rem solid transparent;
+        border-right:.8rem solid transparent;
+    }
+    > * {
+        pointer-events: auto;
+    }
+}
+.tooltip-right{
+    position:relative;
+    .tooltip-body{
+        left:1.5rem;
+        bottom:2rem;
+        margin-left:100%;
+        &:before{
+            left:1.5rem;
+            bottom:20%;
+            margin-left:-29px;
+            border-left:8px solid transparent;
+            border-left:.8rem solid transparent;
+            border-right:8px solid @gray-dark;
+            border-right:.8rem solid @gray-dark;
+            border-top:8px solid transparent;
+            border-top:.8rem solid transparent;
+            border-bottom:8px solid transparent; 
+            border-bottom:.8rem solid transparent;
+        }
+    }
+    @media screen and (min-width:769px){
+        &:hover{
+            > .tooltip-body{
+                opacity:1;
+                &:before{
+                    opacity:1;
+                }
+            }
+        }
+    }
+}
+
