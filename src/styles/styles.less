@@ -82,7 +82,7 @@ button {
     z-index:100;
     h1 {
         color: @text-color;
-        padding: 2% 0;
+        padding: 0 0 2%;
         border-bottom: 1px solid darken(@text-color,15%);
         font-size: @font-size-large + 1.5;
     }
@@ -95,17 +95,20 @@ button {
         font-size: @font-size-normal - 0.25;
         color: #222;
     }
+    label {
+        font-size: @font-size-small;
+    }
     .search-box{
         margin-top:5%;
     }
     .date-picker{
-        margin-top:10%;
+        margin-top:5%;
         input{
             margin-top:3%;
         }
     }
     button {
-        margin: 5% 0;
+        margin: 2% 0;
         width:100%;  
         min-height: 3rem;      
     }
