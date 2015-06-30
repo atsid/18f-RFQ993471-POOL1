@@ -3,7 +3,7 @@ angular.module('MedwatchApp', [
     'EventBus',
     'HeaderCtrl',
     'HomeCtrl',
-    'NewsfeedCtrl',
+    'DetailsCtrl',
     'Search',
     'IconMenu',
     'SearchBox',
