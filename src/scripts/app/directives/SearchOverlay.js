@@ -30,6 +30,17 @@ angular.module('SearchOverlay', ['Search', 'EventBus'])
                                 }
                             );
                     };
-                }]
+                }
+            ],
+            link: function(scope, element) {
+                var body = element.closest('body');
+                scope.$watch('shouldHide', function(val) {
+                    if (val === true) {
+                        body.removeClass('overlay-visible');
+                    } else {
+                        body.addClass('overlay-visible');
+                    }
+                });
+            }
         };
     });
