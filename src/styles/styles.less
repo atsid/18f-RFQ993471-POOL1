@@ -68,7 +68,7 @@ button {
 
 
 #mobile-menu{
-    background: darken(@brand-primary-color,8%);
+    background: darken(@brand-primary-color,6%);
     color:white;
     display:none;
     position:fixed;
@@ -139,7 +139,7 @@ header{
     }
     #sub-ribbon {
         height:5rem;
-        background: darken(@brand-primary-color,8%);
+        background: darken(@brand-primary-color,6%);
         position:relative;
         > * {
             opacity: .8;
@@ -185,16 +185,12 @@ header{
             }
         }
         button[type="submit"]{
-            background:@accent-color-1;
             margin-right:3%;
             position: absolute;
             top: .95rem;
             padding: 6px 22px;
             span{
                 .throw-off-screen;
-            }
-            &:hover{
-                background: darken(@accent-color-1, 10%);
             }
         }
         @media screen and (max-width: 1200px){
@@ -258,7 +254,7 @@ header{
             border-width: 2px;
             border-color: @btn-danger-bg;
             &:hover {
-                border-color: darken(@btn-danger-bg,5%);
+                border-color: lighten(@btn-danger-bg,5%);
             }
         }
     }
@@ -282,7 +278,7 @@ h1, h2, h3, h4, h5, h6{
     min-width:5rem;
     width: 6rem;
     height:100%;
-    background: darken(@brand-primary-color,8%);
+    background: darken(@brand-primary-color,6%);
     position:absolute;
     bottom:0;
     left:0;
@@ -755,8 +751,8 @@ The .icon mixins allows you to integrate icons easily into your application. In 
     &:hover,
     &:focus,
     &:active {
-        background-color: darken(@background, 5%);
-        border-color: darken(@border, 10%);
+        background-color: lighten(@background, 5%);
+        border-color: lighten(@border, 5%);
     }
 }
 
