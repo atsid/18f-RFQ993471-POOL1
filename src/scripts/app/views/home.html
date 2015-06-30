@@ -4,9 +4,9 @@
         <search-overlay id="search-overlay"></search-overlay>
     </section> <!-- end #main-section -->
     <!-- In the future, it would make sense to turn newsfeed into a directive. -->
-    <section id="newsfeed" ng-controller="NewsfeedController" ng-class="{ 'open' : newsfeedIsOpen }">
+    <section id="newsfeed" ng-controller="DetailsController" ng-class="{ 'open' : detailsIsOpen }">
         <div class="col-sm-12">
-            <h1>Aspirin</h1>
+            <h1>{{ searchTerm }}</h1>
         </div>
         <div class="col-sm-5">
             <img src="src/assets/img/aspirin.jpg" alt="Aspirin bottle tipped over"/>
