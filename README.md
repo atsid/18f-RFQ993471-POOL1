@@ -27,4 +27,7 @@ At the end of [Sprint 7](https://github.com/atsid/18f-RFQ993471-POOL1/wiki/4.-Sp
 Before submission of our prototype at the end of [Sprint 8](https://github.com/atsid/18f-RFQ993471-POOL1/wiki/4.-Sprint-8-June-30,-2015) the team make sure the prototype worked on [multiple devices and was responsive](https://github.com/atsid/18f-RFQ993471-POOL1/wiki/6.-Pool-1-Attachment-E-&-Additional-Technical-Approach-Criteria-Evidence#9---created-a-prototype-that-works-on-multiple-devices-and-presents-a-responsive-design) and [created sufficient documentation to install and run the prototype on another machine](https://github.com/atsid/18f-RFQ993471-POOL1/wiki/6.-Pool-1-Attachment-E-&-Additional-Technical-Approach-Criteria-Evidence#10---provided-sufficient-documentation-to-install-and-run-their-prototype-on-another-machine) via the [DeveloperREADME](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/DeveloperREADME.md).  We also solidified our [project backlog](https://github.com/atsid/18f-RFQ993471-POOL1/wiki/5.-MEDWATCH-Project-Backlog) and ensured all of our artifacts were present in our GitHub repository or [wiki](https://github.com/atsid/18f-RFQ993471-POOL1/wiki), which we encourage you to explore. 
 
 -------
+
 For development or to run the app locally, please see the [Developer README](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/DeveloperREADME.md)
+
+Licensed under [Apache 2.0](http://opensource.org/licenses/Apache-2.0).
