@@ -37,6 +37,9 @@ gulp.task('lint', function () {
         .pipe(jshint.reporter('default'));
 });
 
+/*
+ * Less compiler - generates css in the output folder.
+ */
 gulp.task('less', function () {
     return gulp.src('src/styles/**/*.less')
         .pipe(less({
@@ -52,8 +55,9 @@ gulp.task('clean', function (cb) {
     rimraf(config.src.build, cb);
 });
 
-/**
+/*
  * Replaces development-time less compilation with compiled css for distribution.
+ * Does this by finding the special comments within index.html and replacing them with link to css.
  */
 gulp.task('inject', function () {
     var target = gulp.src('index.html');
@@ -78,6 +82,9 @@ gulp.task('site', function () {
     return gulp.src(config.src.siteFiles, { 'base': '.' }).pipe(gulp.dest(config.src.build));
 });
 
+/*
+ * Runs all the required tasks to create distributable site package in output folder.
+ */
 gulp.task('build', function (cb) {
     return runSequence(
         'less',
@@ -86,37 +93,38 @@ gulp.task('build', function (cb) {
         cb);
 });
 
+//helper for the web server task
+function serve(reload) {
+    return webserver({
+        path: '/18f-RFQ993471-POOL1',
+        livereload: reload,
+        defaultFile: 'index.html',
+        open: false
+    });
+}
+
 /*
  * Live-reload server to make the app available (localhost:8000) and auto-refresh when files change.
  */
 gulp.task('watch', function() {
     gulp.src(config.src.all)
-        .pipe(webserver({
-            path: '/18f-RFQ993471-POOL1',
-            livereload: true,
-            defaultFile: 'index.html',
-            open: false
-        }));
+        .pipe(serve(true));
 });
 
+/*
+ * Standard web server to host the app straight from source.
+ */
 gulp.task('serve', function() {
     gulp.src(config.src.all)
-        .pipe(webserver({
-            path: '/18f-RFQ993471-POOL1',
-            livereload: false,
-            defaultFile: 'index.html',
-            open: false
-        }));
+        .pipe(serve(false));
 });
 
+/*
+ * Web server to host the app, but from output folder, replicating live deploy with built resources.
+ */
 gulp.task('serve-dist', function() {
     gulp.src(config.src.build)
-        .pipe(webserver({
-            path: '/18f-RFQ993471-POOL1',
-            livereload: false,
-            defaultFile: 'index.html',
-            open: false
-        }));
+        .pipe(serve(false));
 });
 
 /*
