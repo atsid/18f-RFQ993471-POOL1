@@ -1,105 +1,66 @@
     <icon-menu></icon-menu>
     <section id="main-section">
         <recall-map id="recall-map"></recall-map>
-        <div id="search-overlay" class="hidden">
-            <div class="inner-section">
-                <h1>Welcome to <strong>Med</strong>Watch</h1>
-                <h5>The FDA's safety information and adverse events reporting system.</h5>
-                <p>Search the FDA database to find information about drug recalls, reports of adverse reactions to medications, or changes to medication labels.</p>
-                <form ng-submit="submitSearch()" novalidate>
-                    <input type="text" class="form-control" placeholder="Enter Drug Name or Zip Code"></input>
-                    <div class="dialog-bottom">
-                        <a href="#" class="more-options">More Options >></a>
-                        <button class="btn-primary" type="submit">Search MedWatch</button>
-                    </div>
-                </form>
-            </div>
-        </div> <!-- end div.inner-section -->
+        <search-overlay id="search-overlay"></search-overlay>
     </section> <!-- end #main-section -->
     <!-- In the future, it would make sense to turn newsfeed into a directive. -->
     <section id="newsfeed" ng-controller="NewsfeedController" ng-class="{ 'open' : newsfeedIsOpen }" class="row">
-        <!-- <h2>Recall Alerts</h2>
-        <div id="recall-alerts" ng-class="{ 'hidden': isInactive('recall') }">
-            <div class="article" ng-repeat="alert in alerts.enforcement">
-                <div class="image-placeholder"></div>
-                <h3>{{alert.recalling_firm}}</h3>
-                <span class="manufacturer-location">{{alert.address}}</span>
-                <p>
-                    <span class="date">{{alert.report_date | date : 'longDate'}}</span>
-                    <div>
-                        <h4>Affected Products:</h4>
-                        <span class="recall-codes">{{alert.code_info}}</span>
-                        <span class="product-description">{{alert.product_description}}</span>
-                        <h4>Reason for Recall:</h4>
-                        <span class="reason-for-recall">{{alert.reason_for_recall}}</span>
-                    </div>
-                </p>
+        <div class="col-sm-5">
+            <h1>Aspirin</h1>
+            <img src="src/assets/img/aspirin.jpg" alt="Aspirin bottle tipped over"/>
+            <p>Lorem ipsum dolor sit amet, vestibulum integer commodo non, tempus dui lacus sapien id, non aliquam vivamus ultrices, ante massa, sit vitae nec mus aenean faucibus. Ac scelerisque tincidunt non. Ultrices eget dui blandit, nunc felis mauris vitae nisl, metus posuere libero, voluptates pharetra id vulputate. Vel eu ullamcorper accumsan integer, lacus lacus mauris non eleifend, officia volutpat vivamus penatibus, ultrices ut eos ac, eu velit leo sociosqu at mauris. Amet volutpat quis integer lobortis nisl hac, tortor est, tellus libero a. Sodales ligula adipiscing integer vel ut, amet fermentum mattis fusce vel, viverra placerat wisi, gravida tincidunt phasellus ac molestie.</p>
+            <p>Cursus sem amet feugiat, faucibus velit dolor aliquam, cursus vel semper ut. Sit vivamus enim orci sed nibh mauris. Lobortis quisque mauris id. Nec elit posuere ipsum sollicitudin rutrum, ullamcorper sodales, quam sem nullam fugiat erat ut, mauris volutpat orci parturient rerum diam. Magna sit laoreet pellentesque, non in imperdiet non praesent gravida. Eget lectus molestie vel, sit sollicitudin auctor pellentesque massa imperdiet elementum. Interdum nostra quis ad sed, tortor in massa, sem eu metus amet mollis non, imperdiet varius in vestibulum elit. Wisi leo orci dictumst rhoncus suspendisse. Id neque non interdum sodales fermentum dolor, ipsum ante integer tortor nulla, porttitor facilisis morbi vivamus fringilla ligula sed, amet nunc scelerisque erat vestibulum at. Sem ipsum morbi donec libero nulla.</p>
+            <div id="current-label">
+                <h2>[Current Label]</h2>
+                <p> Viverra sit arcu faucibus class gravida egestas, morbi praesent, risus at ante porta, id orci purus gravida repellat, in sociosqu risus nulla. Enim mollis risus turpis amet nibh, scelerisque metus parturient nec sit aut aliquet, quisque phasellus ac convallis felis condimentum nunc, sollicitudin quis wisi. Pharetra sed nec eu, maecenas dolor felis arcu, semper curabitur, neque curabitur est sed assumenda vivamus. Id lectus, ac curabitur, velit aenean, elementum commodo duis sapien feugiat torquent. Dapibus dui eleifend mollis in eu sodales. Risus integer vel velit urna erat sapien, ornare curabitur. Lorem dolor aliquam adipiscing lectus sit, elementum placerat luctus sociosqu nunc a, dolores magna quam vel sed vitae sit, non nam per, sit quis pharetra in gravida mollis. Ante mauris dignissim adipiscing, in mauris tristique. Dui viverra, aliquam faucibus tempus lacus urna consectetuer, sed imperdiet consectetuer massa quis, quam nulla nec laoreet in.
+
+Voluptatibus ut eget, egestas aliquam vel molestiae etiam orci, massa suspendisse lacinia massa volutpat et, ultrices orci vestibulum arcu aliquam. Elit pulvinar architecto error egestas, nulla lorem eleifend minus in porttitor varius, semper rhoncus duis sed torquent per aenean, pede morbi eleifend tempor et. Tortor dolor nullam amet quis, commodo tellus augue mauris pulvinar nunc at, euismod venenatis. Id aliquam vehicula ipsam sem, eu proin bibendum libero nulla, auctor non tempus odio aliquam, malesuada id in fusce est vitae, possimus nam fermentum sodales maecenas. Ut senectus felis luctus sit, lacus pharetra sit tempor massa quisque. Dictumst condimentum tortor nibh sint sociosqu lacinia, nec in. Imperdiet lectus habitant nec mauris semper, at orci netus ut ut dolor, ornare a ut ac ipsum pretium ultrices, eu feugiat convallis ad integer tempor, vel natoque viverra curabitur bibendum. Ac lorem fusce integer vel. Venenatis quam. Condimentum molestie neque fermentum aliquam suspendisse. Id adipiscing vehicula maiores porttitor tellus purus, fermentum lorem, ultricies magna eget eu mi pretium.</p>
             </div>
-        </div> -->
-        
-            <!-- <section id="drug-detail" class="row"> -->
-                <div class="col-sm-5">
-                    <h1>Aspirin</h1>
-                    <img src="src/assets/img/aspirin.jpg" alt="Aspirin bottle tipped over"/>
-                    <p>Lorem ipsum dolor sit amet, vestibulum integer commodo non, tempus dui lacus sapien id, non aliquam vivamus ultrices, ante massa, sit vitae nec mus aenean faucibus. Ac scelerisque tincidunt non. Ultrices eget dui blandit, nunc felis mauris vitae nisl, metus posuere libero, voluptates pharetra id vulputate. Vel eu ullamcorper accumsan integer, lacus lacus mauris non eleifend, officia volutpat vivamus penatibus, ultrices ut eos ac, eu velit leo sociosqu at mauris. Amet volutpat quis integer lobortis nisl hac, tortor est, tellus libero a. Sodales ligula adipiscing integer vel ut, amet fermentum mattis fusce vel, viverra placerat wisi, gravida tincidunt phasellus ac molestie.</p>
-                    <p>Cursus sem amet feugiat, faucibus velit dolor aliquam, cursus vel semper ut. Sit vivamus enim orci sed nibh mauris. Lobortis quisque mauris id. Nec elit posuere ipsum sollicitudin rutrum, ullamcorper sodales, quam sem nullam fugiat erat ut, mauris volutpat orci parturient rerum diam. Magna sit laoreet pellentesque, non in imperdiet non praesent gravida. Eget lectus molestie vel, sit sollicitudin auctor pellentesque massa imperdiet elementum. Interdum nostra quis ad sed, tortor in massa, sem eu metus amet mollis non, imperdiet varius in vestibulum elit. Wisi leo orci dictumst rhoncus suspendisse. Id neque non interdum sodales fermentum dolor, ipsum ante integer tortor nulla, porttitor facilisis morbi vivamus fringilla ligula sed, amet nunc scelerisque erat vestibulum at. Sem ipsum morbi donec libero nulla.</p>
-                    <div id="current-label">
-                        <h2>[Current Label]</h2>
-                        <p> Viverra sit arcu faucibus class gravida egestas, morbi praesent, risus at ante porta, id orci purus gravida repellat, in sociosqu risus nulla. Enim mollis risus turpis amet nibh, scelerisque metus parturient nec sit aut aliquet, quisque phasellus ac convallis felis condimentum nunc, sollicitudin quis wisi. Pharetra sed nec eu, maecenas dolor felis arcu, semper curabitur, neque curabitur est sed assumenda vivamus. Id lectus, ac curabitur, velit aenean, elementum commodo duis sapien feugiat torquent. Dapibus dui eleifend mollis in eu sodales. Risus integer vel velit urna erat sapien, ornare curabitur. Lorem dolor aliquam adipiscing lectus sit, elementum placerat luctus sociosqu nunc a, dolores magna quam vel sed vitae sit, non nam per, sit quis pharetra in gravida mollis. Ante mauris dignissim adipiscing, in mauris tristique. Dui viverra, aliquam faucibus tempus lacus urna consectetuer, sed imperdiet consectetuer massa quis, quam nulla nec laoreet in.
-
-        Voluptatibus ut eget, egestas aliquam vel molestiae etiam orci, massa suspendisse lacinia massa volutpat et, ultrices orci vestibulum arcu aliquam. Elit pulvinar architecto error egestas, nulla lorem eleifend minus in porttitor varius, semper rhoncus duis sed torquent per aenean, pede morbi eleifend tempor et. Tortor dolor nullam amet quis, commodo tellus augue mauris pulvinar nunc at, euismod venenatis. Id aliquam vehicula ipsam sem, eu proin bibendum libero nulla, auctor non tempus odio aliquam, malesuada id in fusce est vitae, possimus nam fermentum sodales maecenas. Ut senectus felis luctus sit, lacus pharetra sit tempor massa quisque. Dictumst condimentum tortor nibh sint sociosqu lacinia, nec in. Imperdiet lectus habitant nec mauris semper, at orci netus ut ut dolor, ornare a ut ac ipsum pretium ultrices, eu feugiat convallis ad integer tempor, vel natoque viverra curabitur bibendum. Ac lorem fusce integer vel. Venenatis quam. Condimentum molestie neque fermentum aliquam suspendisse. Id adipiscing vehicula maiores porttitor tellus purus, fermentum lorem, ultricies magna eget eu mi pretium.</p>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <h2>Adverse Reactions</h2>
-                    <div class="image-placeholder"></div>
-                    <div class="image-placeholder"></div>
-                    <div class="image-placeholder"></div>
-                </div>
-                <div class="col-sm-4">
-                    <div id="manufacturers">
-                        <h2>Manufacturers</h2>
-                        <ul>
-                            <li>
-                                <a href="#">[Manufacturer's Name]</a>
-                                <span>[Location]</span>
-                            </li>
-                            <li>
-                                <a href="#">[Manufacturer's Name]</a>
-                                <span>[Location]</span>
-                            </li>
-                            <li>
-                                <a href="#">[Manufacturer's Name]</a>
-                                <span>[Location]</span>
-                            </li>
-                            <li>
-                                <a href="#">[Manufacturer's Name]</a>
-                                <span>[Location]</span>
-                            </li>
-                            <li>
-                                <a href="#">[Manufacturer's Name]</a>
-                                <span>[Location]</span>
-                            </li>
-                            <li>
-                                <a href="#">[Manufacturer's Name]</a>
-                                <span>[Location]</span>
-                            </li>
-                            <li>
-                                <a href="#">[Manufacturer's Name]</a>
-                                <span>[Location]</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="additional-info">
-                        <a href="#">Pediatric Applications</a>
-                        <a href="#">Nursing Mothers</a>
-                        <a href="#">Pregnant Women</a>
-                    </div>
-                </div>
-                    
-
-<!--            </section> -->
-            
-            
-            
+        </div>
+        <div class="col-sm-3">
+            <h2>Adverse Reactions</h2>
+            <div class="image-placeholder"></div>
+            <div class="image-placeholder"></div>
+            <div class="image-placeholder"></div>
+        </div>
+        <div class="col-sm-4">
+            <div id="manufacturers">
+                <h2>Manufacturers</h2>
+                <ul>
+                    <li>
+                        <a href="#">[Manufacturer's Name]</a>
+                        <span>[Location]</span>
+                    </li>
+                    <li>
+                        <a href="#">[Manufacturer's Name]</a>
+                        <span>[Location]</span>
+                    </li>
+                    <li>
+                        <a href="#">[Manufacturer's Name]</a>
+                        <span>[Location]</span>
+                    </li>
+                    <li>
+                        <a href="#">[Manufacturer's Name]</a>
+                        <span>[Location]</span>
+                    </li>
+                    <li>
+                        <a href="#">[Manufacturer's Name]</a>
+                        <span>[Location]</span>
+                    </li>
+                    <li>
+                        <a href="#">[Manufacturer's Name]</a>
+                        <span>[Location]</span>
+                    </li>
+                    <li>
+                        <a href="#">[Manufacturer's Name]</a>
+                        <span>[Location]</span>
+                    </li>
+                </ul>
+            </div>
+            <div id="additional-info">
+                <a href="#">Pediatric Applications</a>
+                <a href="#">Nursing Mothers</a>
+                <a href="#">Pregnant Women</a>
+            </div>
+        </div>            
     </section> <!-- end #newsfeed -->

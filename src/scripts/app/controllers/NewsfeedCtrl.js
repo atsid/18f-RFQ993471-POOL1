@@ -39,7 +39,7 @@ angular.module('NewsfeedCtrl', [])
             var headlines = headlineData.forEach(function(datum) {
                 var results = datum.data.results,
                     exampleResult = results[0];
-                
+
                 // Massage and set the data for binding.
                 if ('recall_number' in exampleResult) {
                     results.forEach(function(result) {
