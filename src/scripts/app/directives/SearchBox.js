@@ -8,6 +8,8 @@ angular.module('SearchBox', ['Search'])
             controller: ['$scope', 'SearchService', 'EventBusService',
                 function($scope, SearchService, EventBusService) {
 
+                    var geocoder = new google.maps.Geocoder();
+
                     $scope.submitSearch = function() {
                         $scope.term = $scope.term ? $scope.term.trim() : '';
 
