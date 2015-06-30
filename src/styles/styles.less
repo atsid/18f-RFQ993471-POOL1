@@ -67,7 +67,7 @@ button {
 }
 
 
-#mobile-menu{
+#mobile-menu {
     background: darken(@brand-primary-color,6%);
     color:white;
     display:none;
@@ -77,11 +77,26 @@ button {
     bottom:0;
     left:0;
     height:100%;
-    padding:10% 5% 0;
+    padding:2% 5% 0;
     width:80%;
     z-index:100;
+    h1 {
+        color: @text-color;
+        padding: 2% 0;
+        border-bottom: 1px solid darken(@text-color,15%);
+        font-size: @font-size-large + 1.5;
+    }
+    p {
+        color: lighten(@text-color,25%);
+    }
+    input {
+        margin-top: 5%;
+        min-height: 3rem;
+        font-size: @font-size-normal - 0.25;
+        color: #222;
+    }
     .search-box{
-        margin-top:10%;
+        margin-top:5%;
     }
     .date-picker{
         margin-top:10%;
@@ -89,10 +104,12 @@ button {
             margin-top:3%;
         }
     }
-    button[type="submit"]{
-        margin-top:10%;
-        width:100%;        
+    button {
+        margin: 5% 0;
+        width:100%;  
+        min-height: 3rem;      
     }
+
     @media screen and (max-width:768px){
         display:block;
     }
