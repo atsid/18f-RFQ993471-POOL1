@@ -87,7 +87,8 @@ angular.module('Search', [])
                 var type = options.type,
                     term = options.term,
                     limit = options.limit,
-                    skip = options.skip;
+                    skip = options.skip, // TODO: not surrently used
+                    count = options.count; // should be the whole search field
 
                 if (type !== 'event' && type !== 'label' && type !== 'enforcement') {
                     // TODO: Do something here.
@@ -115,14 +116,19 @@ angular.module('Search', [])
 
                 limit = limit || 20;
 
-                if (type === 'enforcement' && !searchIsAlreadySpecified) {
+                // This introduces a little too much fuzziness when we're trying to count, so don't add
+                // these fields then.
+                if (type === 'enforcement' && !searchIsAlreadySpecified && !options.count) {
                     search += '+OR+product_description:' + term;
-                } else if (type === 'label' && !searchIsAlreadySpecified) {
+                } else if (type === 'label' && !searchIsAlreadySpecified && !options.count) {
                     search += '+OR+spl_product_data_elements:' + term;
                 }
 
                 fullUrl = baseUrl + 'drug/' + type + '.json?api_key=' + apiKey + '&search=' + search +
                           '&limit=' + limit;
+                if (options.count) {
+                    fullUrl += '&count=' + options.count;
+                }
 
                 return $q.when($http.get(fullUrl));
             }

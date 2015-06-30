@@ -3,11 +3,12 @@ angular.module('MedwatchApp', [
     'EventBus',
     'HeaderCtrl',
     'HomeCtrl',
+    'NewsfeedCtrl',
     'Search',
     'IconMenu',
     'SearchBox',
     'SearchOverlay',
-    'RecallMap', 
-    'NewsfeedCtrl'
+    'RecallMap',
+    'PieChart'
 ]);
 
