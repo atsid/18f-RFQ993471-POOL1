@@ -77,10 +77,10 @@ angular.module('RecallMap', [])
                                 }
                                 infoWindowContent +=
                                     '<div class="recall-notice-details">' +
-                                        '<h2>Affected Products:</h2>' +
+                                        '<h5>Affected Products:</h5>' +
                                         '<span class="recall-notice-lot-numbers">' + datum.code_info + '</span>' +
                                         '<p class="recall-notice-product-description">' + datum.product_description + '</p>' +
-                                        '<h2>Reason for Recall:</h2>' +
+                                        '<h5>Reason for Recall:</h5>' +
                                         '<p class="recall-notice-reason-for-recall">' + datum.reason_for_recall + '</p>' +
                                     '</div>' +
                                 '</article>';
