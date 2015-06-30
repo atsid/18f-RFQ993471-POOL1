@@ -20,7 +20,7 @@ angular.module('SearchOverlay', ['Search', 'EventBus'])
                         SearchService.searchDrugs(searchObj)
                             .then(
                                 function(results) {
-                                    results = SearchService.massageData(results.data);
+                                    results = SearchService.massageData(results.data, searchObj.term, searchObj.type);
                                     $scope.shouldHide = true;
                                     EventBusService.publish('updateMapMarkers', results);
                                 },

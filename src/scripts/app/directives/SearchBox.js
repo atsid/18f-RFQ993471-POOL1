@@ -27,7 +27,7 @@ angular.module('SearchBox', ['Search'])
                                 SearchService.searchDrugsByLocation({ type: 'enforcement', city: city, state: state })
                                     .then(
                                         function(results) {
-                                            results = SearchService.massageData(results.data);
+                                            results = SearchService.massageData(results.data, $scope.term, 'enforcement');
                                             EventBusService.publish('updateMapMarkers', results);
                                         },
                                         function() {
@@ -41,7 +41,7 @@ angular.module('SearchBox', ['Search'])
                             SearchService.searchDrugs({ type: 'enforcement', term: $scope.term })
                                 .then(
                                     function(results) {
-                                        results = SearchService.massageData(results.data);
+                                        results = SearchService.massageData(results.data, $scope.term, 'enforcement');
                                         EventBusService.publish('updateMapMarkers', results);
                                     },
                                     function() {
