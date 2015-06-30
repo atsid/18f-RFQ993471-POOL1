@@ -7,84 +7,52 @@ angular.module('SearchBox', ['Search'])
             templateUrl: 'src/scripts/app/views/search-box.html',
             controller: ['$scope', 'SearchService', 'EventBusService',
                 function($scope, SearchService, EventBusService) {
+
+                    var geocoder = new google.maps.Geocoder();
+
                     $scope.submitSearch = function() {
-                        SearchService.searchDrugs({ type: 'enforcement', term: $scope.term }).success(function(data) {
-                            var filteredResults, geocoder, numRecordsToLocate, numRecordsLocated;
+                        $scope.term = $scope.term ? $scope.term.trim() : '';
 
-                            if (!data || !data.results) {
-                                // TODO: do something
-                            }
+                        // This RegExp could be simplified. It checks for zip codes in the following
+                        // formats: '12345', '12345-1234'
+                        if (/^\d{5}$|^\d{5}-\d{4}$/.test($scope.term)) {
+                            // Search by location.
+                            geocoder.geocode({ 'address': $scope.term }, function(results) {
+                                // TODO: Error handling.
+                                var address = results[0].formatted_address,
+                                    addressParts = address.split(', '),
+                                    city = addressParts.shift(),
+                                    state = addressParts.shift().split(' ').shift();
 
-                            geocoder = new google.maps.Geocoder();
-                            numRecordsToLocate = data.results.length;
-                            numRecordsLocated = 0;
-
-                            function publishWithDelay() {
-                                // The purpose here is to delay each marker's drop so that they
-                                // fall one after another.
-                                var item = filteredResults.shift();
-                                EventBusService.publish('updateMapMarkers', item);
-                                if (filteredResults.length) {
-                                    setTimeout(publishWithDelay, 100);
-                                }
-                            }
-
-                            function maybeDone() {
-                                numRecordsLocated++;
-                                if (numRecordsLocated >= numRecordsToLocate) {
-                                    publishWithDelay();
-                                }
-                            }
-
-                            // TODO: Only works for enforcements right now. Abstract for more general use.
-                            filteredResults = data.results.map(function(result, idx) {
-                                return {
-                                    id: idx,
-                                    search_term: $scope.term,
-                                    city: result.city,
-                                    state: result.state,
-                                    product_description: result.product_description,
-                                    reason_for_recall: result.reason_for_recall,
-                                    code_info: result.code_info,
-                                    recall_name: result.openfda.brand_name || result.openfda.substance_name ||
-                                                 result.openfda.generic_name || null,
-                                    recalling_firm: result.recalling_firm
-                                };
+                                SearchService.searchDrugsByLocation({ type: 'enforcement', city: city, state: state })
+                                    .then(
+                                        function(results) {
+                                            results = SearchService.massageData(results.data, $scope.term, 'enforcement');
+                                            EventBusService.publish('updateMapMarkers', results);
+                                        },
+                                        function() {
+                                            // TODO: Better error handling.
+                                            console.error('Error searching for drugs.');
+                                        }
+                                    );
                             });
-
-                            filteredResults.forEach(function(result) {
-                                var address;
-                                var zip = result.zip,
-                                    state = result.state,
-                                    city = result.city;
-
-                                if (zip) {
-                                    address = zip;
-                                } else if (state){
-                                    address = state;
-                                    if (city) {
-                                        address = city + ',+' + address;
+                        } else {
+                            // Search by search term.
+                            SearchService.searchDrugs({ type: 'enforcement', term: $scope.term })
+                                .then(
+                                    function(results) {
+                                        results = SearchService.massageData(results.data, $scope.term, 'enforcement');
+                                        EventBusService.publish('updateMapMarkers', results);
+                                    },
+                                    function() {
+                                        // TODO: Better error handling.
+                                        console.error('Error searching for drugs.');
                                     }
-                                }
-                                // TODO: handle 'else' case
-
-                                geocoder.geocode({ 'address': address }, function(results, status) {
-                                    var geoStatus = google.maps.GeocoderStatus;
-                                    if (status === geoStatus.OK) {
-                                        result.latLng = results[0].geometry.location;
-                                    } else if (status === geoStatus.ZERO_RESULTS) {
-                                        console.warn('Warning: Zero results for the provided address: ' + address);
-                                    } else {
-                                        console.error('Error: Geocoding service returned: ' + status);
-                                    }
-                                    maybeDone();
-                                });
-                            });
-                        });
-
-                        // TODO: Add failure handler.
+                                );
+                        }
                         console.log('Search submitted!');
-                    };
+                    }; // end $scope.submitSearch
+
                 }
             ]
         };

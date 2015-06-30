@@ -1,0 +1,18 @@
+        <div ng-class="{ 'hidden': shouldHide }">
+            <div class="inner-section">
+                <h1>Welcome to <strong>Med</strong>Watch.gov</h1>
+                <h5>The FDA's safety information and adverese events reporting program</h5>
+                <p>Search the MedWatch database to find information about drug recalls, reports of adverse reactions to medications, or changes to medication labels.</p>
+                <form ng-submit="submitSearch()" novalidate>
+                    <div class="input-group">
+                        <input type="text" ng-model="term" class="form-control" placeholder="Enter Drug Name"></input>
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="submit"><span>Search MedWatch</span></button>
+                        </span>
+                    </div>
+                    <div class="dialog-bottom">
+                        <a href="#" class="more-options">View All Alerts</a>
+                    </div>
+                </form>
+            </div> <!-- end div.inner-section -->
+        </div>

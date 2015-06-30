@@ -16,9 +16,19 @@ body{
     font-size: @font-size-normal; 
     height:100%;
     width:100%;
+    position:relative;
+    left:0;
     overflow:hidden;
+    transition:left 0.15s;
     > .container{
         margin-top:3rem;
+    }
+    @media screen and (max-width:768px){
+        &.open{
+            position:relative;
+            left:80%;
+            transition:left 0.15s;
+        }
     }
 }
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .subhead, .title, .headline, .display1, .display2, .display3 {
@@ -37,11 +47,42 @@ button {
 .container{
     max-width: @container-max-width;
 }
+#mobile-menu{
+    background: darken(@brand-primary-color,8%);
+    color:white;
+    display:none;
+    position:fixed;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    height:100%;
+    padding:10% 5% 0;
+    width:80%;
+    z-index:100;
+    .search-box{
+        margin-top:10%;
+    }
+    .date-picker{
+        margin-top:10%;
+        input{
+            margin-top:3%;
+        }
+    }
+    button[type="submit"]{
+        margin-top:10%;
+        width:100%;        
+    }
+    @media screen and (max-width:768px){
+        display:block;
+    }
+}
+    
 header{
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
     color: white;
     height: 12rem;
-    position:fixed;
+    position:absolute;
     top:0;
     width: 100%;
     img{
@@ -72,28 +113,37 @@ header{
         background: @brand-primary-color;
         height:9rem;
         width:100%;
-        .mobile-menu{
+        .mobile-menu-btn{
             display:none;
         }
     }
     #sub-ribbon{
         height:5rem;
-        background: lighten(@brand-primary-color, 10%);
+        background: darken(@brand-primary-color,8%);
         position:relative;
-        .search-box{
+        > * {
+            opacity: .8;
+            transition: all ease-in-out .2s;
+        }
+        &:hover > * {
+            opacity: 1;
+        }
+        .search-box {
             display:inline-block;
+            color: #222;
             position:relative;
             float:left;
-            margin:0 2% 0 3%;
+            margin: 0 2rem 0 5rem;
             height:3rem;
             top:1rem;
             width:40%;
+            max-width: 35rem;
         }
         .date-picker{
-            border-left:3px solid white;
+            border-left: 1px solid lighten(@brand-primary-color, 5%);
             display:inline-block;
             height:3rem;
-            padding-left:2%;
+            padding-left: 2rem;
             position:relative;
             top:1rem;
             width:25%;
@@ -111,12 +161,9 @@ header{
         }
         button[type="submit"]{
             background:@accent-color-1;
-            color:white;
-            float:right;
             margin-right:3%;
             position: absolute;
-            top: .5rem;
-            right: 0;
+            top: .85rem;
             span{
                 .throw-off-screen;
             }
@@ -146,7 +193,7 @@ header{
             height:100%;
             position:absolute;
             z-index:100;
-            .mobile-menu{
+            .mobile-menu-btn{
                 .icon(@icon-hamburger, @size:2, @color: white);
                 background: none;
                 border:none;
@@ -162,13 +209,18 @@ header{
             
         }
         #sub-ribbon{
-            height:100%;
-            position:fixed;
-            top:0;
-            right:0;
-            bottom:0;
-            left:0;
-            z-index:50;
+            display:none;
+            // height:100%;
+//             position:fixed;
+//             top:12rem;
+//             bottom:7rem;
+//             right:100%;
+//             transition:right 0.15s;
+//             z-index:1000;
+//             &.open{
+//                 right:0;
+//                 transition:right 0.15s;
+//             }
         }
     }
     .header-content {
@@ -208,8 +260,8 @@ h1, h2, h3, h4, h5, h6{
     min-width:5rem;
     width:3%;
     height:100%;
-    background:@gray-dark;
-    position:fixed;
+    background: darken(@brand-primary-color,8%);
+    position:absolute;
     bottom:0;
     left:0;
     padding:0;
@@ -224,9 +276,6 @@ h1, h2, h3, h4, h5, h6{
         width:100%;
         margin:0;
         padding:0;
-        span{
-            .throw-off-screen;
-        }
         &#recall-btn{
             .icon(@icon-warning-full, @size:2);
             &:before{
@@ -239,8 +288,8 @@ h1, h2, h3, h4, h5, h6{
                 }
             }
         }
-        &#adverse-reaction-btn{
-            .icon(@icon-thumbs-down, @size:2);
+        &#drug-detail-btn{
+            .icon(@icon-pill, @size:2);
             &:before{
                 color:white;
                 width:100%;
@@ -251,17 +300,8 @@ h1, h2, h3, h4, h5, h6{
                 }
             }
         }
-        &#labeling-changes-btn{
-            .icon(@icon-tags, @size:2);
-            &:before{
-                color:white;
-                width:100%;
-            }
-            &:hover{
-                &:before{
-                    color:@gray-light;
-                }
-            }
+        &:before{
+            font-weight:normal;
         }
         &:hover{
             &:before{
@@ -270,13 +310,13 @@ h1, h2, h3, h4, h5, h6{
         }
     }
     @media screen and (max-width: 768px){
-        bottom:0;
+        bottom:-3px;
         height:7rem;
         padding-top:0;
         top:auto;
         width:100%;
         button{
-            width:33%;
+            width:50%;
             display:inline-block;
             float:left;
         }
@@ -286,9 +326,8 @@ h1, h2, h3, h4, h5, h6{
     h1{
         margin: 0;
     }
-    h2{
-        font-size:1.8rem;
-        margin-top:.4rem;
+    h5{
+        margin: 2rem 0 1rem;
     }
 }
 #recall-map{
@@ -309,29 +348,32 @@ h1, h2, h3, h4, h5, h6{
 #search-overlay{
     background:rgba(0, 0, 0, 0.65);
     position:absolute;
-    top:14rem;
+    top:9rem;
     right:0;
     bottom:0;
-    left:5rem;
-    z-index:600;
+    left:0;
+    z-index:800;
     .inner-section{
         background: white;
         border-radius:@border-radius;
         position:absolute;
-        top:35%;
-        width:50%;
-        margin:0 25%;
+        top:28%;
+        left:50%;
+        width:80rem;
+        margin:0;
+        margin-left:-40rem;
         padding: 3rem;
         p{
             margin-bottom:2rem;
         }
         input[type="text"]{
-            border-radius:@border-radius;
-            font-size:1.8rem;
+            border-radius: @border-radius;
+            font-size: 1.8rem;
+            color: #222;
             height:4rem;
-            position:relative;
-            margin-top:1.5rem;
-            width:100%;
+        }
+        button.btn-primary {
+            height: 4rem;
         }
         form{
             position:relative;
@@ -343,11 +385,11 @@ h1, h2, h3, h4, h5, h6{
         right:0;
         margin-top:1.5rem;
         height:5rem;
-        a{
+        a {
+            font-size: @font-size-small;
             left:0;
             bottom:.5rem;
-            color:white;
-            position:absolute;
+            position: absolute;
         }
         button{
             position:absolute;
@@ -360,8 +402,25 @@ h1, h2, h3, h4, h5, h6{
         top:12rem;
         .inner-section{
             width:80%;
-            top:15%;
-            margin: 0 10%;
+            margin:25% 10%;
+            top:0;
+            bottom:auto;
+            left:0;
+            .btn-primary{
+                .icon(@icon-search);
+                span{
+                    .throw-off-screen;
+                }
+            }
+        }
+    }
+    @media screen and (max-width:480px){
+        .inner-section{
+            width:100%;
+            top:0;
+            bottom:7rem;
+            left:0;
+            margin: 0;
         }
     }
 }
@@ -369,11 +428,11 @@ section{
     padding:4px;
 }
 
-#newsfeed{
+#newsfeed, #drug-detail{
     background: @gray-lighter;
     border-right: @border;
     left:-57rem;
-    top:9rem;
+    top:14rem;
     bottom:0;
     height:100%;
     width:40rem;
@@ -412,6 +471,42 @@ section{
             top:9rem;
             transition: top 0.15s;
         }
+    }
+}
+#newsfeed{
+    background:white;
+    padding:1%;
+    height:98%;
+    width:98%;
+    left:-100%;
+    > div{
+        max-height:100%;
+        overflow-y:auto;
+        h1{
+            padding:0 .4rem;
+        }
+        &:nth-child(2){
+            height:100%;
+            .image-placeholder{
+                width:70%;
+                margin:3% 15%;
+                height:25%;
+            }
+        }
+        #manufacturers{
+            li{
+                list-style:none;
+                margin-top:.5rem;
+            }
+        }
+    }
+    img{
+        margin:.5rem 1rem .5rem 0;
+        max-width:20rem;
+        float:left;
+    }
+    &.open{
+        left:5rem;
     }
 }
 
@@ -491,6 +586,12 @@ section{
         margin-left:2rem;
         vertical-align:middle;
     }
+}
+
+
+// G-Maps Styles
+.gm-style .gm-style-iw {
+    font-size: @font-size-normal - 0.1;
 }
 
 
@@ -610,3 +711,71 @@ The .icon mixins allows you to integrate icons easily into your application. In 
 .btn-default {
   .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
 }
+
+
+
+.tooltip-body{
+    opacity:0;
+    background:@gray-dark;
+    border-radius:@border-radius-large;
+    position:absolute;
+    color: white;
+    transition: .2s opacity;
+    transition-delay:.7s;
+    font-size:@font-size-small;
+    white-space:nowrap;
+    padding:5px 15px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow:none;
+    z-index: 900;
+    pointer-events:none;  // without this, hovering on tooltip location makes tooltip appear
+    &:before{ // Styles for follow arrow
+        opacity:0;
+        position:absolute;
+        width:0;
+        height:0;
+        transition: .3s opacity;
+        transition-delay:.7s;
+        z-index: 900;
+        content:'';
+        border-left:8px solid transparent; // IE Fallback
+        border-right:8px solid transparent; // IE Fallback
+        border-left:.8rem solid transparent;
+        border-right:.8rem solid transparent;
+    }
+    > * {
+        pointer-events: auto;
+    }
+}
+.tooltip-right{
+    position:relative;
+    .tooltip-body{
+        left:1.5rem;
+        bottom:2rem;
+        margin-left:100%;
+        &:before{
+            left:1.5rem;
+            bottom:20%;
+            margin-left:-29px;
+            border-left:8px solid transparent;
+            border-left:.8rem solid transparent;
+            border-right:8px solid @gray-dark;
+            border-right:.8rem solid @gray-dark;
+            border-top:8px solid transparent;
+            border-top:.8rem solid transparent;
+            border-bottom:8px solid transparent; 
+            border-bottom:.8rem solid transparent;
+        }
+    }
+    @media screen and (min-width:769px){
+        &:hover{
+            > .tooltip-body{
+                opacity:1;
+                &:before{
+                    opacity:1;
+                }
+            }
+        }
+    }
+}
+
