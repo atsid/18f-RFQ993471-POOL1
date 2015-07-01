@@ -5,14 +5,16 @@
     </section> <!-- end #main-section -->
     <!-- In the future, it would make sense to turn newsfeed into a directive. -->
     <section id="newsfeed" ng-controller="DetailsController" ng-class="{ 'open' : detailsIsOpen }">
-        <h1>{{ searchTerm }}</h1>
-        <span>{{ product_type }}</span>
-        <span>{{ generic_name }}</span>
-        <span>Routes of administration:</span>
-        <ul>
-            <li ng-repeat="route in routes">{{ route }}</li>
-        </ul>
-        <div class="col-sm-5">
+        <div class="drug-header">
+            <h1>{{ searchTerm }}</h1>
+            <span class="text-muted">{{ product_type }}</span>
+            <span class="text-muted">{{ generic_name }}</span>
+        </div>
+        <div class="col-sm-5 bucket">
+            <span>Routes of administration:</span>
+            <ul>
+                <li ng-repeat="route in routes">{{ route }}</li>
+            </ul>
             <img src="src/assets/img/aspirin.jpg" alt="Aspirin bottle tipped over"/>
             <p ng-if="description">{{ description }}</p>
             <div id="current-label">
@@ -43,7 +45,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-3" id="adverse-reactions">
+        <div class="col-sm-3 bucket" id="adverse-reactions">
             <h2>Adverse Reactions</h2>
             <div class="dv-chart">
                 <pie-chart></pie-chart>
@@ -55,7 +57,7 @@
                 <bar-chart></bar-chart>
             </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4 bucket">
             <div id="manufacturers">
                 <h2>Manufacturers</h2>
                 <ul>
@@ -64,7 +66,7 @@
                     </li>
                 </ul>
             </div>
-            <div id="additional-info">
+            <div id="additional-info bucket">
                 <h2>Additional Information</h2>
                 <ul>
                     <li><a href="#">Pediatric Applications</a></li>
