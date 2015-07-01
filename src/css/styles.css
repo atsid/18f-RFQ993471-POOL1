@@ -10812,6 +10812,11 @@ fieldset[disabled] abutton {
   width: 100%;
   min-height: 3rem;
 }
+@media screen and (max-width: 768px) {
+  #mobile-menu.page-loaded {
+    display: block;
+  }
+}
 header {
   color: white;
   height: 14rem;
