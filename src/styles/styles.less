@@ -25,12 +25,9 @@ body{
                 top:9rem;
                 width:100%;
             }
-            #sub-ribbon{
-                display:none;
-            }
-            #icon-menu{
-                display:none;
-            }
+        }
+        #sub-ribbon, #icon-menu, #newsfeed, #drug-detail{
+            display:none !important;
         }
     }
 }
@@ -67,6 +64,7 @@ button {
         &.open{
             left:80%;
             transition:left 0.15s;
+            position:fixed;
         }
     }
 }
