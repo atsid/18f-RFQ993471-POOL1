@@ -14,25 +14,25 @@
 
 ### June 22, 2015 Focus Group
 
-[Focus Group Script](https://drive.google.com/file/d/0Bz3OHwIyS4qTaEdxZFNscXZpbTlHSXdEVC1VOFlOMkpyMEI0/view?usp=sharing)
+[Focus Group Script](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/documentation/Research/June%2022%20focus-group-script.docx)
 
-[Focus Group Video Part 1 of 5](https://drive.google.com/file/d/0Bz3OHwIyS4qTUWc0OUQ4SFd2NjA/view?usp=sharing)
+[Focus Group Video Part 1 of 5](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/documentation/Focus%20Group%20Videos/focus-group-1.mp4)
 
-[Focus Group Video Part 2 of 5](https://drive.google.com/file/d/0Bz3OHwIyS4qTSVpocmVqcVNVdXM/view?usp=sharing)
+[Focus Group Video Part 2 of 5](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/documentation/Focus%20Group%20Videos/focus-group-2.mp4)
 
-[Focus Group Video Part 3 of 5](https://drive.google.com/file/d/0Bz3OHwIyS4qTWWl5TjRPYmQzbE0/view?usp=sharing)
+[Focus Group Video Part 3 of 5](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/documentation/Focus%20Group%20Videos/focus-group-3.mp4)
 
-[Focus Group Video Part 4 of 5](https://drive.google.com/file/d/0Bz3OHwIyS4qTTVZmYUU1MmRQTjg/view?usp=sharing)
+[Focus Group Video Part 4 of 5](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/documentation/Focus%20Group%20Videos/focus-group-4.mp4)
 
-[Focus Group Video Part 5 or 5 (Audio only)](https://drive.google.com/file/d/0Bz3OHwIyS4qTN0FpRHBKdzU5Tjg/view?usp=sharing)
+[Focus Group Video Part 5 or 5 (Audio only)](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/documentation/Focus%20Group%20Videos/focus-group-5.mp3)
 
 ### June 23, 2015 User Tests
 
 >Cancelled due to development work
 
-[Drug Device Data Page Wireframe Concept](https://drive.google.com/file/d/0B1kBXbvQsBabSTUzMUNYSnRrNzg/view?usp=sharing)
+[Drug Device Data Page Wireframe Concept](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/documentation/Mock-ups/drug_device_detail_page.png)
 
-[Home Page Wireframe Concept](https://drive.google.com/file/d/0B1kBXbvQsBabM3hzZGxmOFN0cXc/view?usp=sharing)
+[Home Page Wireframe Concept](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/documentation/Mock-ups/home.png)
 
 ### June 24, 2015 User Tests
 
@@ -40,35 +40,35 @@
 
 ### June 25, 2015 User Tests
 
-[User Test Script](https://drive.google.com/file/d/0Bz3OHwIyS4qTT293djZDT3JETHAzTERCMlQ4dmtqTU5hRWNv/view?usp=sharing)
+[User Test Script](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/documentation/Research/usability-test-script-6-25-15.docx)
 
-[User Test Video 1](https://youtu.be/ea5W83zCK5o)
+[User Test Video 1](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/documentation/Research/Kyle%20Housley%20Session.mp4)
 
-[User Test Video 2](https://drive.google.com/file/d/0B3brX_zYBE8URzdLS1hORWR2Nms/view?usp=sharing)
+[User Test Video 2](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/documentation/Research/Dave%20Mather%20-%20MedWatch%20Usability%20Test%20(1).mp4)
 
-[User Test Audio 3](https://drive.google.com/file/d/0B1kBXbvQsBabbUtwSjN5cWFaUGM/view?usp=sharing) 
+[User Test Audio 3](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/documentation/Research/Camden%20Kolb.mp3) 
 
-[Mock-Up Used for User Session](https://drive.google.com/file/d/0Bz3OHwIyS4qTSHZoRDlwaXdzcG9lQlNMVkpiZFhlMTBOcDV3/view?usp=sharing)
+[Mock-Up Used for User Session](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/documentation/Mock-ups/mock-v2.jpg)
 
 ### June 26, 2015 Whiteboards - PIVOT to new Design
 
-[New Single Page Application Design 1](https://drive.google.com/file/d/0Bz3OHwIyS4qTX241YmhrQzgzU1E/view?usp=sharing)
+[New Single Page Application Design 1](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/documentation/Whiteboard%20Images/IMG_3538.JPG)
 
-[New Single Page Application Design 2](https://drive.google.com/file/d/0Bz3OHwIyS4qTV2RQdnVRdDNJaHM/view?usp=sharing)
+[New Single Page Application Design 2](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/documentation/Whiteboard%20Images/IMG_3539.JPG)
 
 ### June 28, 2015 Electronic Pillbox Concept Usability Test
 
-[Interview Script](https://docs.google.com/document/d/1DUJBMdHaLjOH4PejudAntierlz_JVEABwVofp-Jm0rY/edit?usp=sharing)
+[Interview Script](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/documentation/Research/ElectronicPillboxUsabilityTest.docx)
 
-[Interview Responses](https://docs.google.com/spreadsheets/d/1r2_B0hJoutUsHUN_kJ8LWT0_rtvk59s8BbPxBalgY08/edit?usp=sharing)
+[Interview Responses](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/documentation/Research/Pool%201%20-%20Round%204%20-%2018F%20Questionaire%20-%20Google%20Forms.pdf)
 
 [Electronic Pillbox Mobile Example](https://popapp.in/w/projects/558ecd33196190bc15f03b73/preview/558ecd64690409674f4ad3e7)
 
 ### June 29, 2015 Final User Test
 
-[User Feedback from Subject Matter Expert](https://drive.google.com/file/d/0B1kBXbvQsBabQ1ptNzR3ZUxHdjg/view?usp=sharing)
+[User Feedback from Subject Matter Expert (Audio)](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/documentation/Research/Kris%20Traider.mp3)
 
-### MEDWATCH Research
+### MEDWATCH Research (external links included)
 
 [Innovative Opportunities for Patient Safety Using Electronic Health Records (EHR) Data: Perspectives from the FDA](http://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0CC0QFjAA&url=http%3A%2F%2Fwww.connectopensource.org%2Fsites%2Fconnectopensource.org%2Ffiles%2FInnovativeOpportunites_FDA_HIMSS.ppt&ei=12KIVbrtCork-AHLp4KYDg&usg=AFQjCNHIk7cHElRSDifEn8_a0cB3X5P3Uw&bvm=bv.96339352,d.cWw)
 
@@ -84,4 +84,4 @@
 
 ### Open.FDA.gov Data Research
 
-[ATS Open FDA Data Analysis](https://docs.google.com/document/d/1OudIMvkMfBwdk8I9rSAt5FGyz2bVfhZ6LZvCzS8JvQo/edit?usp=sharing)
+[ATS Open FDA Data Analysis](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/documentation/Research/openFDADataAnalysis.docx)
