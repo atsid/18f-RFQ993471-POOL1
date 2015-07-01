@@ -282,7 +282,7 @@ header{
     @media screen and (max-width: 480px){
         #top-ribbon{
             img{
-                max-width:71%;
+                max-width: none;
                 left:4%;
                 top:28%;
             }
@@ -590,10 +590,10 @@ header{
             margin:5% 0;
             height:27%;
             text-align:center;
-            *{
-                height:100%;
-                position:relative;
-            }
+            // * {
+            //     height:100%;
+            //     position:relative;
+            // }
         }
     }
     &.open{
@@ -634,6 +634,9 @@ header{
                 top: 1rem;
             }
         }
+    }
+    #frequent-reactions-chart {
+        height: 24rem;
     }
 }
 
