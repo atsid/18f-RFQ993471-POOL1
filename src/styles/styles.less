@@ -339,18 +339,15 @@ header{
         }
         &:before{
             font-weight:normal;
-            color:white;
+            color:@accent-color-7;
             width:100%;
         }
         &:hover{
-            &:before{
-                color:@gray-light;
-            }
+            color: @accent-color-7;
         }
         &.active {
-            background: darken(@brand-primary-color,10%);
-            color: #7C96C9;
-            box-shadow: inset 4px 0 0 #7C96C9;
+            color: @accent-color-7;
+            box-shadow: inset 4px 0 0 @accent-color-7;
         }
     }
     @media screen and (max-width: 768px){
@@ -365,8 +362,7 @@ header{
             float:left;
             height: 8rem;
             &.active {
-                color: #7C96C9;
-                box-shadow: inset 0 -4px 0 #7C96C9;
+                box-shadow: inset 0 -4px 0 @accent-color-7;
             }
         }
     }
