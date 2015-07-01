@@ -252,29 +252,6 @@ th {
 /*
  * Sprite core
  */
-.icon:after,
-.nav-stacked.nav-tree > li .expander.expanded:after,
-.nav-stacked.nav-tree > li .expander.collapsed:after,
-.breadcrumb > li + li:before,
-.alert-icon-info:after,
-.alert-icon-success:after,
-.alert-icon-danger:after,
-.alert-icon-warning:after,
-.ui-datepicker .ui-datepicker-prev .ui-icon:after,
-.ui-datepicker .ui-datepicker-next .ui-icon:after {
-  content: "";
-  display: inline-block;
-  position: relative;
-  top: 2px;
-  background-repeat: no-repeat;
-  background-image: url(../images/icons/black.svg);
-}
-.icon.icon-inverse:after {
-  background-image: url(../images/icons/white.svg);
-}
-.icon-muted {
-  opacity: .5;
-}
 /*
  * FontAwesome Aliases
  */
@@ -11700,4 +11677,30 @@ fieldset[disabled] .btn-default.active,
   border-bottom: 8px solid red;
   border-top: .8rem solid transparent;
   border-bottom: .8rem solid red;
+}
+.tooltip-top-left {
+  display: inline;
+  position: relative;
+}
+.tooltip-top-left .tooltip-body {
+  background: black;
+  bottom: 100%;
+  right: 1rem;
+  margin-bottom: 9px;
+}
+.tooltip-top-left .tooltip-body:before {
+  right: 1rem;
+  bottom: -1.3rem;
+  border-bottom: 8px solid transparent;
+  border-top: 8px solid black;
+  border-bottom: .8rem solid transparent;
+  border-top: .8rem solid black;
+}
+@media screen and (min-width: 769px) {
+  .tooltip-top-left:hover > .tooltip-body {
+    opacity: 1;
+  }
+  .tooltip-top-left:hover > .tooltip-body:before {
+    opacity: 1;
+  }
 }
