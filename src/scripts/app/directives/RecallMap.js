@@ -82,6 +82,7 @@ angular.module('RecallMap', [])
                                         '<p class="recall-notice-product-description">' + datum.product_description + '</p>' +
                                         '<h5>Reason for Recall:</h5>' +
                                         '<p class="recall-notice-reason-for-recall">' + datum.reason_for_recall + '</p>' +
+                                        '<a class="see-full-report">See Full Report</a>' +
                                     '</div>' +
                                 '</article>';
 
