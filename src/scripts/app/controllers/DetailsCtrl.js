@@ -4,6 +4,7 @@ angular.module('DetailsCtrl', [])
             'use strict';
 
             $scope.detailsIsOpen = false;
+            $scope.no_results = false;
 
             $scope.toggleDetails = function() {
                 $scope.detailsIsOpen = !$scope.detailsIsOpen;
@@ -27,6 +28,7 @@ angular.module('DetailsCtrl', [])
                             var labelData = results.results,
                                 labelDatum = labelData[0]; // first one has most data on it.
 
+                            $scope.no_results = false;
                             $scope.product_type = labelDatum.openfda.product_type ? labelDatum.openfda.product_type[0] : null;
                             $scope.generic_name = labelDatum.openfda.generic_name ? labelDatum.openfda.generic_name[0] : null;
                             $scope.description = labelDatum.description ? labelDatum.description[0] : null;
@@ -57,6 +59,7 @@ angular.module('DetailsCtrl', [])
                             });
                         },
                         function(data, status) {
+                            $scope.no_results = true;
                             console.log('Search failed!');
                         }
                     );

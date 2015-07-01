@@ -5,72 +5,77 @@
     </section> <!-- end #main-section -->
     <!-- In the future, it would make sense to turn newsfeed into a directive. -->
     <section id="newsfeed" ng-controller="DetailsController" ng-class="{ 'open' : detailsIsOpen }">
-        <h1>{{ searchTerm }}</h1>
-        <span>{{ product_type }}</span>
-        <span>{{ generic_name }}</span>
-        <span>Routes of administration:</span>
-        <ul>
-            <li ng-repeat="route in routes">{{ route }}</li>
-        </ul>
-        <div class="col-sm-5">
-            <img src="src/assets/img/aspirin.jpg" alt="Aspirin bottle tipped over"/>
-            <p ng-show="description">{{ description }}</p>
-            <div id="current-label">
-                <h2>Label Information</h2>
-                <div ng-show="indications_and_usage">
-                    <h3>Indications and Usage</h3>
-                    <p>{{ indications_and_usage }}</p>
-                </div>
-                <div ng-show="contraindications">
-                    <h3>Contraindications</h3>
-                    <p>{{ contraindications }}</p>
-                </div>
-                <div ng-show="drug_interactions">
-                    <h3>Drug Interactions</h3>
-                    <p>{{ drug_interactions }}</p>
-                </div>
-                <div ng-show="dosage_and_administration">
-                    <h3>Dosage and Administration</h3>
-                    <p>{{ dosage_and_administration }}</p>
-                </div>
-                <div ng-show="warnings_table">
-                    <h3>Warnings</h3>
-                    <div ng-bind-html="warnings_table"></div>
-                </div>
-                <div ng-show="precautions">
-                    <h3>Precautions</h3>
-                    <p>{{ precautions }}</p>
-                </div>
-            </div>
+        <div ng-show="no_results" class="no-results">
+            <span class="error-msg">There are no results for {{ searchTerm }}. We recommend searching for drugs by brand name, generic name, or active ingredient.</span>
         </div>
-        <div class="col-sm-3" id="adverse-reactions">
-            <h2>Adverse Reactions</h2>
-            <div class="dv-chart">
-                <pie-chart></pie-chart>
+        <div id="details-content" ng-hide="no_results">
+            <h1>{{ searchTerm }}</h1>
+            <span>{{ product_type }}</span>
+            <span>{{ generic_name }}</span>
+            <span>Routes of administration:</span>
+            <ul>
+                <li ng-repeat="route in routes">{{ route }}</li>
+            </ul>
+            <div class="col-sm-5">
+                <img src="src/assets/img/aspirin.jpg" alt="Aspirin bottle tipped over"/>
+                <p ng-show="description">{{ description }}</p>
+                <div id="current-label">
+                    <h2>Label Information</h2>
+                    <div ng-show="indications_and_usage">
+                        <h3>Indications and Usage</h3>
+                        <p>{{ indications_and_usage }}</p>
+                    </div>
+                    <div ng-show="contraindications">
+                        <h3>Contraindications</h3>
+                        <p>{{ contraindications }}</p>
+                    </div>
+                    <div ng-show="drug_interactions">
+                        <h3>Drug Interactions</h3>
+                        <p>{{ drug_interactions }}</p>
+                    </div>
+                    <div ng-show="dosage_and_administration">
+                        <h3>Dosage and Administration</h3>
+                        <p>{{ dosage_and_administration }}</p>
+                    </div>
+                    <div ng-show="warnings_table">
+                        <h3>Warnings</h3>
+                        <div ng-bind-html="warnings_table"></div>
+                    </div>
+                    <div ng-show="precautions">
+                        <h3>Precautions</h3>
+                        <p>{{ precautions }}</p>
+                    </div>
+                </div>
             </div>
-            <div class="dv-chart">
-                <line-chart></line-chart>
+            <div class="col-sm-3" id="adverse-reactions">
+                <h2>Adverse Reactions</h2>
+                <div class="dv-chart">
+                    <pie-chart></pie-chart>
+                </div>
+                <div class="dv-chart">
+                    <line-chart></line-chart>
+                </div>
+                <div class="dv-chart">
+                    <bar-chart></bar-chart>
+                </div>
             </div>
-            <div class="dv-chart">
-                <bar-chart></bar-chart>
+            <div class="col-sm-4">
+                <div id="manufacturers">
+                    <h2>Manufacturers</h2>
+                    <ul>
+                        <li ng-repeat="manufacturer in manufacturers">
+                            <a href="#">{{ manufacturer }}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="additional-info">
+                    <h2>Additional Information</h2>
+                    <ul>
+                        <li><a href="#">Pediatric Applications</a></li>
+                        <li><a href="#">Effects When Nursing</a></li>
+                        <li><a href="#">Considerations for Pregnant Women</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="col-sm-4">
-            <div id="manufacturers">
-                <h2>Manufacturers</h2>
-                <ul>
-                    <li ng-repeat="manufacturer in manufacturers">
-                        <a href="#">{{ manufacturer }}</a>
-                    </li>
-                </ul>
-            </div>
-            <div id="additional-info">
-                <h2>Additional Information</h2>
-                <ul>
-                    <li><a href="#">Pediatric Applications</a></li>
-                    <li><a href="#">Effects When Nursing</a></li>
-                    <li><a href="#">Considerations for Pregnant Women</a></li>
-                </ul>
-            </div>
-        </div>
+        </div> <!-- end .details-content -->
     </section> <!-- end #newsfeed -->
