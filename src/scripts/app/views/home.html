@@ -6,18 +6,44 @@
     <!-- In the future, it would make sense to turn newsfeed into a directive. -->
     <section id="newsfeed" ng-controller="DetailsController" ng-class="{ 'open' : detailsIsOpen }">
         <h1>{{ searchTerm }}</h1>
-        <div class="col-sm-5 bucket">
+        <span>{{ product_type }}</span>
+        <span>{{ generic_name }}</span>
+        <span>Routes of administration:</span>
+        <ul>
+            <li ng-repeat="route in routes">{{ route }}</li>
+        </ul>
+        <div class="col-sm-5">
             <img src="src/assets/img/aspirin.jpg" alt="Aspirin bottle tipped over"/>
-            <p>Lorem ipsum dolor sit amet, vestibulum integer commodo non, tempus dui lacus sapien id, non aliquam vivamus ultrices, ante massa, sit vitae nec mus aenean faucibus. Ac scelerisque tincidunt non. Ultrices eget dui blandit, nunc felis mauris vitae nisl, metus posuere libero, voluptates pharetra id vulputate. Vel eu ullamcorper accumsan integer, lacus lacus mauris non eleifend, officia volutpat vivamus penatibus, ultrices ut eos ac, eu velit leo sociosqu at mauris. Amet volutpat quis integer lobortis nisl hac, tortor est, tellus libero a. Sodales ligula adipiscing integer vel ut, amet fermentum mattis fusce vel, viverra placerat wisi, gravida tincidunt phasellus ac molestie.</p>
-            <p>Cursus sem amet feugiat, faucibus velit dolor aliquam, cursus vel semper ut. Sit vivamus enim orci sed nibh mauris. Lobortis quisque mauris id. Nec elit posuere ipsum sollicitudin rutrum, ullamcorper sodales, quam sem nullam fugiat erat ut, mauris volutpat orci parturient rerum diam. Magna sit laoreet pellentesque, non in imperdiet non praesent gravida. Eget lectus molestie vel, sit sollicitudin auctor pellentesque massa imperdiet elementum. Interdum nostra quis ad sed, tortor in massa, sem eu metus amet mollis non, imperdiet varius in vestibulum elit. Wisi leo orci dictumst rhoncus suspendisse. Id neque non interdum sodales fermentum dolor, ipsum ante integer tortor nulla, porttitor facilisis morbi vivamus fringilla ligula sed, amet nunc scelerisque erat vestibulum at. Sem ipsum morbi donec libero nulla.</p>
+            <p ng-if="description">{{ description }}</p>
             <div id="current-label">
-                <h2>[Current Label]</h2>
-                <p> Viverra sit arcu faucibus class gravida egestas, morbi praesent, risus at ante porta, id orci purus gravida repellat, in sociosqu risus nulla. Enim mollis risus turpis amet nibh, scelerisque metus parturient nec sit aut aliquet, quisque phasellus ac convallis felis condimentum nunc, sollicitudin quis wisi. Pharetra sed nec eu, maecenas dolor felis arcu, semper curabitur, neque curabitur est sed assumenda vivamus. Id lectus, ac curabitur, velit aenean, elementum commodo duis sapien feugiat torquent. Dapibus dui eleifend mollis in eu sodales. Risus integer vel velit urna erat sapien, ornare curabitur. Lorem dolor aliquam adipiscing lectus sit, elementum placerat luctus sociosqu nunc a, dolores magna quam vel sed vitae sit, non nam per, sit quis pharetra in gravida mollis. Ante mauris dignissim adipiscing, in mauris tristique. Dui viverra, aliquam faucibus tempus lacus urna consectetuer, sed imperdiet consectetuer massa quis, quam nulla nec laoreet in.</p>
-
-                <p>Voluptatibus ut eget, egestas aliquam vel molestiae etiam orci, massa suspendisse lacinia massa volutpat et, ultrices orci vestibulum arcu aliquam. Elit pulvinar architecto error egestas, nulla lorem eleifend minus in porttitor varius, semper rhoncus duis sed torquent per aenean, pede morbi eleifend tempor et. Tortor dolor nullam amet quis, commodo tellus augue mauris pulvinar nunc at, euismod venenatis. Id aliquam vehicula ipsam sem, eu proin bibendum libero nulla, auctor non tempus odio aliquam, malesuada id in fusce est vitae, possimus nam fermentum sodales maecenas. Ut senectus felis luctus sit, lacus pharetra sit tempor massa quisque. Dictumst condimentum tortor nibh sint sociosqu lacinia, nec in. Imperdiet lectus habitant nec mauris semper, at orci netus ut ut dolor, ornare a ut ac ipsum pretium ultrices, eu feugiat convallis ad integer tempor, vel natoque viverra curabitur bibendum. Ac lorem fusce integer vel. Venenatis quam. Condimentum molestie neque fermentum aliquam suspendisse. Id adipiscing vehicula maiores porttitor tellus purus, fermentum lorem, ultricies magna eget eu mi pretium.</p>
+                <h2>Label Information</h2>
+                <div ng-if="indications_and_usage">
+                    <h3>Indications and Usage</h3>
+                    <p>{{ indications_and_usage }}</p>
+                </div>
+                <div ng-if="contraindications">
+                    <h3>Contraindications</h3>
+                    <p>{{ contraindications }}</p>
+                </div>
+                <div ng-if="drug_interactions">
+                    <h3>Drug Interactions</h3>
+                    <p>{{ drug_interactions }}</p>
+                </div>
+                <div ng-if="dosage_and_administration">
+                    <h3>Dosage and Administration</h3>
+                    <p>{{ dosage_and_administration }}</p>
+                </div>
+                <div ng-if="warnings_table">
+                    <h3>Warnings</h3>
+                    <div ng-bind-html="warnings_table"></div>
+                </div>
+                <div ng-if="precautions">
+                    <h3>Precautions</h3>
+                    <p>{{ precautions }}</p>
+                </div>
             </div>
         </div>
-        <div class="col-sm-3 bucket" id="adverse-reactions">
+        <div class="col-sm-3" id="adverse-reactions">
             <h2>Adverse Reactions</h2>
             <div class="dv-chart">
                 <pie-chart></pie-chart>
@@ -29,97 +55,16 @@
                 <bar-chart></bar-chart>
             </div>
         </div>
-        <div class="col-sm-4 bucket">
+        <div class="col-sm-4">
             <div id="manufacturers">
                 <h2>Manufacturers</h2>
                 <ul>
-                    <li>
-                        <a href="#">[Manufacturer's Name]</a>
-                        <span>[Location]</span>
-                    </li>
-                    <li>
-                        <a href="#">[Manufacturer's Name]</a>
-                        <span>[Location]</span>
-                    </li>
-                    <li>
-                        <a href="#">[Manufacturer's Name]</a>
-                        <span>[Location]</span>
-                    </li>
-                    <li>
-                        <a href="#">[Manufacturer's Name]</a>
-                        <span>[Location]</span>
-                    </li>
-                    <li>
-                        <a href="#">[Manufacturer's Name]</a>
-                        <span>[Location]</span>
-                    </li>
-                    <li>
-                        <a href="#">[Manufacturer's Name]</a>
-                        <span>[Location]</span>
-                    </li>
-                    <li>
-                        <a href="#">[Manufacturer's Name]</a>
-                        <span>[Location]</span>
-                    </li>
-                    <li>
-                        <a href="#">[Manufacturer's Name]</a>
-                        <span>[Location]</span>
-                    </li>
-                    <li>
-                        <a href="#">[Manufacturer's Name]</a>
-                        <span>[Location]</span>
-                    </li>
-                    <li>
-                        <a href="#">[Manufacturer's Name]</a>
-                        <span>[Location]</span>
-                    </li>
-                    <li>
-                        <a href="#">[Manufacturer's Name]</a>
-                        <span>[Location]</span>
-                    </li>
-                    <li>
-                        <a href="#">[Manufacturer's Name]</a>
-                        <span>[Location]</span>
-                    </li>
-                    <li>
-                        <a href="#">[Manufacturer's Name]</a>
-                        <span>[Location]</span>
-                    </li>
-                    <li>
-                        <a href="#">[Manufacturer's Name]</a>
-                        <span>[Location]</span>
-                    </li>
-                    <li>
-                        <a href="#">[Manufacturer's Name]</a>
-                        <span>[Location]</span>
-                    </li>
-                    <li>
-                        <a href="#">[Manufacturer's Name]</a>
-                        <span>[Location]</span>
-                    </li>
-                    <li>
-                        <a href="#">[Manufacturer's Name]</a>
-                        <span>[Location]</span>
-                    </li>
-                    <li>
-                        <a href="#">[Manufacturer's Name]</a>
-                        <span>[Location]</span>
-                    </li>
-                    <li>
-                        <a href="#">[Manufacturer's Name]</a>
-                        <span>[Location]</span>
-                    </li>
-                    <li>
-                        <a href="#">[Manufacturer's Name]</a>
-                        <span>[Location]</span>
-                    </li>
-                    <li>
-                        <a href="#">[Manufacturer's Name]</a>
-                        <span>[Location]</span>
+                    <li ng-repeat="manufacturer in manufacturers">
+                        <a href="#">{{ manufacturer }}</a>
                     </li>
                 </ul>
             </div>
-            <div id="additional-info" class="bucket">
+            <div id="additional-info">
                 <h2>Additional Information</h2>
                 <ul>
                     <li><a href="#">Pediatric Applications</a></li>
@@ -127,5 +72,5 @@
                     <li><a href="#">Considerations for Pregnant Women</a></li>
                 </ul>
             </div>
-        </div>            
+        </div>
     </section> <!-- end #newsfeed -->
