@@ -11408,7 +11408,7 @@ header .header-content .report-problem:hover {
   margin-bottom: 0.5rem;
 }
 #newsfeed .bucket svg {
-  padding: 1rem;
+  padding: 1rem 0;
   height: 21rem;
 }
 #newsfeed h2 {
@@ -11450,6 +11450,7 @@ header .header-content .report-problem:hover {
     transition: top 0.15s;
   }
   #newsfeed .bucket {
+    padding: 2rem;
     overflow: hidden;
     -webkit-overflow-scrolling: touch;
   }
@@ -11665,7 +11666,7 @@ fieldset[disabled] .btn-default.active,
   border-radius: 6px;
   position: absolute;
   color: white;
-  transition: .2s opacity;
+  transition: opacity 0.2s;
   transition-delay: .7s;
   font-size: 1.4rem;
   white-space: nowrap;
@@ -11715,10 +11716,12 @@ fieldset[disabled] .btn-default.active,
 }
 @media screen and (min-width: 769px) {
   .tooltip-right:hover > .tooltip-body {
-    opacity: 1;
+    opacity: 1
+                transition: opacity 0.15s;
   }
   .tooltip-right:hover > .tooltip-body:before {
     opacity: 1;
+    transition: opacity 0.15s;
   }
 }
 .tooltip-bottom-right {
@@ -11761,8 +11764,10 @@ fieldset[disabled] .btn-default.active,
 @media screen and (min-width: 769px) {
   .tooltip-top-left:hover > .tooltip-body {
     opacity: 1;
+    transition: opacity 0.15s;
   }
   .tooltip-top-left:hover > .tooltip-body:before {
     opacity: 1;
+    transition: opacity 0.15s;
   }
 }
