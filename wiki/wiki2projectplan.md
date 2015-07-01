@@ -8,7 +8,7 @@ In using both of these methodologies, we focused on the user.  Nearly everyday w
 * Analysis of the data on open.FDA.gov
 * Team expertise in the area of user experience design and development
 
-Additionally the team utilized as many of the [U.S. Digital Services Playbook](https://playbook.cio.gov/) plays as possible.  An explanation and/or demonstration of these activities can be found [HERE](https://github.com/atsid/18f-RFQ993471-POOL1/wiki/1.-U.S.-Digital-Services-Playbook-Understanding).
+Additionally the team utilized as many of the [U.S. Digital Services Playbook](https://playbook.cio.gov/) plays as possible.  An explanation and/or demonstration of these activities can be found [HERE](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/wiki/wiki9USdigitalplaybook.md).
 
 Finally, the team ensured that we stayed true to the five key principles that guide all the work that 18F does:
 

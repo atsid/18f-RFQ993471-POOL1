@@ -20,15 +20,15 @@
 |----|----|
 |June 19, 2015|Sent out internal ATS survey to determine who would be interested in participating in focus groups or user tests|
 |June 19, 2015|Developed a questionnaire, interview script, and plan to receive feedback from internal and external sources to help set the path for prototype design|
-|June 20-21, 2015|Conducted Interviews.  Feedback on internal interviews is located [HERE](https://github.com/atsid/18f-RFQ993471-POOL1/wiki/2.-UXD-Research-&-Data-Research-Documentation#initial-internal-ats-user-interview-documentation), external [HERE](https://github.com/atsid/18f-RFQ993471-POOL1/wiki/2.-UXD-Research-&-Data-Research-Documentation#initial-external-ats-user-interview-documentation)|
-|June 22, 2015|Conducted Focus Group after Sprint 1.  Feedback on Focus Group is located [HERE](https://github.com/atsid/18f-RFQ993471-POOL1/wiki/2.-UXD-Research-&-Data-Research-Documentation#june-22-2015-focus-group-documentation)|
+|June 20-21, 2015|Conducted Interviews.  Feedback on internal interviews is located [HERE](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/wiki/wiki3UXDresearch.md#initial-internal-ats-user-interview-documentation), external [HERE](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/wiki/wiki3UXDresearch.md#initial-external-ats-user-interview-documentation)|
+|June 22, 2015|Conducted Focus Group after Sprint 1.  Feedback on Focus Group is located [HERE](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/wiki/wiki3UXDresearch.md#june-22-2015-focus-group)|
 |June 23, 2015|User/usability testing canceled due to development work|
 |June 24, 2015|User/usability testing canceled due to development work|
-|June 25, 2015|Conducted user/usability testing after Sprint 4, results located [HERE](https://github.com/atsid/18f-RFQ993471-POOL1/wiki/2.-UXD-Research-&-Data-Research-Documentation#june-25-2015-user-tests)|
-|June 29, 2015|Conducted user/usability testing after Sprint 7, results located [HERE](https://github.com/atsid/18f-RFQ993471-POOL1/wiki/2.-UXD-Research,-UXD-Wireframes-&-Data-Research-Documentation#june-29-2015-final-user-test)|
+|June 25, 2015|Conducted user/usability testing after Sprint 4, results located [HERE](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/wiki/wiki3UXDresearch.md#june-25-2015-user-tests)|
+|June 29, 2015|Conducted user/usability testing after Sprint 7, results located [HERE](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/wiki/wiki3UXDresearch.md#june-29-2015-final-user-test)|
 
 #####4 - Used at least three "human-centered design" techniques or tools
-> **Evidence** - As demonstrated in our [Lean Start-Up](https://github.com/atsid/18f-RFQ993471-POOL1/wiki/1.-Project-Plan#lean-start-up-project-aspects) part of our project plan we utilized user interviews, focus groups, testing, and heuristic reviews of our prototype by subject matter experts.  A detailed repository of all of our research is located on our [UXD Research, UXD Wireframes & Data Research Documentation](https://github.com/atsid/18f-RFQ993471-POOL1/wiki/2.-UXD-Research,-UXD-Wireframes-&-Data-Research-Documentation) wiki page.
+> **Evidence** - As demonstrated in our [Lean Start-Up](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/wiki/wiki2projectplan.md#lean-start-up-project-aspects) part of our project plan we utilized user interviews, focus groups, testing, and heuristic reviews of our prototype by subject matter experts.  A detailed repository of all of our research is located on our [UXD Research, UXD Wireframes & Data Research Documentation](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/wiki/wiki3UXDresearch.md) wiki page.
 
 #####5 - Created or used a design style guide and/or a pattern library
 > **Evidence** - We chose to utilize the USPTO pattern library (which ATS helped develop) as a foundation for many of the individual components used on the application.  In addition, we created a custom icon font for use in this application utilizing "font awesome" as a starting point for the MEDWATCH Application.
@@ -41,11 +41,11 @@
 
 >>|Date|Activity|
 |----|----|
-|June 25, 2015|Conducted user/usability testing after Sprint 4, results located [HERE](https://github.com/atsid/18f-RFQ993471-POOL1/wiki/2.-UXD-Research-&-Data-Research-Documentation#june-25-2015-user-tests)|
-|June 29, 2015|Conducted user/usability testing after Sprint 7, results located [HERE](https://github.com/atsid/18f-RFQ993471-POOL1/wiki/2.-UXD-Research,-UXD-Wireframes-&-Data-Research-Documentation#june-29-2015-final-user-test)|
+|June 25, 2015|Conducted user/usability testing after Sprint 4, results located [HERE](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/wiki/wiki3UXDresearch.md#june-25-2015-user-tests)|
+|June 29, 2015|Conducted user/usability testing after Sprint 7, results located [HERE](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/wiki/wiki3UXDresearch.md#june-29-2015-final-user-test)|
 
 #####8 - Used an iterative approach, where feedback informed subsequent work or versions of the prototype
-> **Evidence** - As demonstrated in our [project plan](https://github.com/atsid/18f-RFQ993471-POOL1/wiki/1.-Project-Plan), we focused on using a lean start-up methodology that allowed us to receive consistent feedback, design to meet that feedback, pivot to new ideas when the original ideas weren't supported by that feedback, and prioritized usability features to ensure both the pre-prototype and prototype work was customer centered.
+> **Evidence** - As demonstrated in our [project plan](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/wiki/wiki2projectplan.md), we focused on using a lean start-up methodology that allowed us to receive consistent feedback, design to meet that feedback, pivot to new ideas when the original ideas weren't supported by that feedback, and prioritized usability features to ensure both the pre-prototype and prototype work was customer centered.
 
 #####9 - Created a prototype that works on multiple devices, and presents a responsive design
 > **Evidence** - Our prototype is designed to work on all major web browsers (Chrome, Safari, Firefox, and Internet Explorer) and is designed to be responsive to the device it is being accessed on.  Our prototype can be accessed by going to this link:
