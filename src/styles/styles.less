@@ -318,9 +318,9 @@ header{
         border-radius: 0;
         box-shadow: none;
         display:block;
-        height:7rem;
+        height:5rem;
         width:100%;
-        margin:0;
+        margin:0 0 1rem;
         padding:0;
         &#recall-btn{
             .icon(@icon-warning-full, @size:2);
@@ -348,6 +348,7 @@ header{
             }
         }
         &.active {
+            background: darken(@brand-primary-color,10%);
             color: #7C96C9;
             box-shadow: inset 4px 0 0 #7C96C9;
         }

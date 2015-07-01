@@ -11025,9 +11025,9 @@ header .header-content .report-problem:hover {
   border-radius: 0;
   box-shadow: none;
   display: block;
-  height: 7rem;
+  height: 5rem;
   width: 100%;
-  margin: 0;
+  margin: 0 0 1rem;
   padding: 0;
 }
 #icon-menu button#recall-btn:before {
@@ -11099,6 +11099,7 @@ header .header-content .report-problem:hover {
   color: #aaaaaa;
 }
 #icon-menu button.active {
+  background: #00131e;
   color: #7C96C9;
   box-shadow: inset 4px 0 0 #7C96C9;
 }
