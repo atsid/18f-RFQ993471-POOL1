@@ -14,6 +14,10 @@ angular.module('DetailsCtrl', [])
                 }
             };
 
+            $scope.notYetImplemented = function() {
+                EventBusService.publish('toasterPopup');
+            };
+
             EventBusService.subscribe($scope, 'toggleDetails', $scope.toggleDetails);
             EventBusService.subscribe($scope, 'badSearch', function(term) {
                 $scope.searchTerm = term;
