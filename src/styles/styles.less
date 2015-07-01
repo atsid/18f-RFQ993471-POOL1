@@ -306,8 +306,10 @@ h1, h2, h3, h4, h5, h6{
     padding-top:3rem;
     top:14rem;
     z-index:700;
-    button{
+    button {
         background:none;
+        box-shadow: none;
+        border-radius: 0;
         border:0;
         display:block;
         height:7rem;
@@ -338,6 +340,11 @@ h1, h2, h3, h4, h5, h6{
             &:before{
                 color:@gray-light;
             }
+        }
+        &.active {
+            background: darken(@brand-primary-color,10%);
+            box-shadow: inset 4px 0 0 #7B95C9;
+            color: #7B95C9;
         }
     }
     @media screen and (max-width: 768px){
