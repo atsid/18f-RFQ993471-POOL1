@@ -131,6 +131,7 @@ angular.module('Search', [])
                 if (options.count) {
                     fullUrl += '&count=' + options.count;
                 }
+                console.log('Inside searchDrugs');
 
                 return $q.when($http.get(fullUrl));
             }

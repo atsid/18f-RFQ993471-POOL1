@@ -20,6 +20,7 @@ angular.module('DetailsCtrl', [])
                 $scope.searchTerm = term.slice(0, 1).toUpperCase() +
                                     term.slice(1).toLowerCase();
 
+                console.log($scope.searchTerm);
                 SearchService.searchDrugs(searchObj, true)
                     .then(function(results) {
                         console.log(results);
