@@ -68,7 +68,7 @@ angular.module('LineChart', ['EventBus'])
                             scope.lineChart.clear();
                             paper = scope.lineChart.linechart(
                                 10, 10, // x, y of top left
-                                300, 180, // width and height
+                                220, 180, // width and height
                                 xValues,
                                 yValues,
                                 {

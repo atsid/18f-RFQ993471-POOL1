@@ -44,7 +44,7 @@ angular.module('BarChart', ['EventBus'])
                             scope.barPaper.clear();
                             paper = scope.barPaper.barchart(
                                 0, 0, // top left
-                                300, 200, // width, height
+                                220, 200, // width, height
                                 values,
                                 { legend: legend }
                             );
