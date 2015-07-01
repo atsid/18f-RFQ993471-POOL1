@@ -13,6 +13,7 @@ angular.module('SearchBox', ['Search'])
 
                     $scope.submitSearch = function() {
                         $scope.searchTerm = $scope.searchTerm ? $scope.searchTerm.trim() : '';
+                        $scope.fixedSearchTerm = $scope.searchTerm.slice(); // updates only on submit
 
                         // This RegExp could be simplified. It checks for zip codes in the following
                         // formats: '12345', '12345-1234'

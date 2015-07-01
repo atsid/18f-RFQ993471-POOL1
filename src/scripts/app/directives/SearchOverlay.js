@@ -10,6 +10,7 @@ angular.module('SearchOverlay', ['Search', 'EventBus'])
                 function($scope, SearchService, EventBusService) {
                     $scope.submitSearch = function() {
                         $scope.searchTerm = $scope.searchTerm ? $scope.searchTerm.trim() : '';
+                        $scope.fixedSearchTerm = $scope.searchTerm.slice(); // updates only on submit
 
                         var searchObj = {
                             type: 'enforcement',
