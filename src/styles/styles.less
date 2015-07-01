@@ -604,7 +604,13 @@ header{
             bottom:8rem;
             height:auto;
             left:0;
+            overflow-y:scroll;
+             -webkit-overflow-scrolling: touch;
             transition: top 0.15s;
+        }
+        .bucket{
+            overflow:scroll;
+             -webkit-overflow-scrolling: touch;
         }
         .drug-meta {
             span {
@@ -649,6 +655,10 @@ header{
         }
         span:nth-child{
             clear:both;
+        }
+        @media screen and (max-width:768px){
+            overflow:scroll;
+             -webkit-overflow-scrolling: touch;
         }
     }
 }
