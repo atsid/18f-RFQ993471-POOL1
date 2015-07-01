@@ -31,7 +31,7 @@ body{
             }
         }
         #sub-ribbon, #icon-menu, #newsfeed, #drug-detail{
-            display:none !important;
+            display:none !important; // Hides all elements except map and header for landing page.
         }
     }
 }
@@ -383,7 +383,7 @@ header{
     }
 }
 #recall-map{
-    position:absolute;
+    position:absolute !important; // Ughhh, thank you Google Maps for forcing us to use an !important in our CSS.  
     height:100%;
     display:block;
     left:6rem;
