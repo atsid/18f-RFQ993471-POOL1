@@ -22,6 +22,7 @@ angular.module('DetailsCtrl', [])
 
                 SearchService.searchDrugs(searchObj, true)
                     .then(function(results) {
+                        console.log(results);
                         // TODO: Guarding against bad values/error checking.
                         var labelData = results.data.results,
                             labelDatum = labelData[0]; // first one has most data on it.
@@ -57,6 +58,9 @@ angular.module('DetailsCtrl', [])
                                 }
                             });
                         });
+                    },
+                    function(error) {
+                        console.log(error);
                     });
             });
         }
