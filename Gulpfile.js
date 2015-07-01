@@ -1,6 +1,9 @@
 'use strict';
 
 var gulp = require('gulp');
+var path = require('path');
+var less = require('gulp-less');
+var inject = require('gulp-inject');
 var webserver = require('gulp-webserver');
 var jshint = require('gulp-jshint');
 var rimraf = require('rimraf');
@@ -16,7 +19,6 @@ var config = {
             'src/**/*',
             'bower_components/USPTOPatternLibrary/bower_components/**/*',
             'bower_components/USPTOPatternLibrary/usptostrap/**/*',
-            'index.html',
             '.nojekyll'
         ],
         build: 'dist',
@@ -36,26 +38,14 @@ gulp.task('lint', function () {
 });
 
 /*
- * Live-reload server to make the app available (localhost:8000) and auto-refresh when files change.
+ * Less compiler - generates css in the output folder.
  */
-gulp.task('watch', function() {
-    gulp.src(config.src.all)
-        .pipe(webserver({
-            path: '/18f-RFQ993471-POOL1',
-            livereload: true,
-            defaultFile: 'index.html',
-            open: true
-        }));
-});
-
-gulp.task('serve', function() {
-    gulp.src(config.src.all)
-        .pipe(webserver({
-            path: '/18f-RFQ993471-POOL1',
-            livereload: false,
-            defaultFile: 'index.html',
-            open: false
-        }));
+gulp.task('less', function () {
+    return gulp.src('src/styles/**/*.less')
+        .pipe(less({
+            paths: [ path.join(__dirname, 'less', 'includes') ]
+        }))
+        .pipe(gulp.dest('dist/src/css'));
 });
 
 /*
@@ -66,10 +56,75 @@ gulp.task('clean', function (cb) {
 });
 
 /*
- * Get all that stuff into a single point for deployment, without the extra cruft.
+ * Replaces development-time less compilation with compiled css for distribution.
+ * Does this by finding the special comments within index.html and replacing them with link to css.
  */
-gulp.task('build', function () {
+gulp.task('inject', function () {
+    var target = gulp.src('index.html');
+    var sources = gulp.src(['dist/src/css/styles.css'], {
+        read: false
+    });
+    //transform removes our output prefix so it is correctly relative within dist/index.html
+    var transform = function (filepath) {
+        arguments[0] = filepath.replace('/dist/', '');
+        return inject.transform.apply(inject.transform, arguments);
+
+    };
+
+    return target.pipe(inject(sources, { transform: transform }))
+        .pipe(gulp.dest('dist'));
+});
+
+/*
+ * Copy static content into a single point for deployment, without the extra cruft.
+ */
+gulp.task('site', function () {
     return gulp.src(config.src.siteFiles, { 'base': '.' }).pipe(gulp.dest(config.src.build));
+});
+
+/*
+ * Runs all the required tasks to create distributable site package in output folder.
+ */
+gulp.task('build', function (cb) {
+    return runSequence(
+        'less',
+        'inject',
+        'site',
+        cb);
+});
+
+//helper for the web server task
+function serve(reload) {
+    return webserver({
+        path: '/18f-RFQ993471-POOL1',
+        livereload: reload,
+        defaultFile: 'index.html',
+        open: false
+    });
+}
+
+/*
+ * Live-reload server to make the app available (localhost:8000) and auto-refresh when files change.
+ */
+gulp.task('watch', function() {
+    gulp.src(config.src.all)
+        .pipe(serve(true));
+});
+
+/*
+ * Standard web server to host the app straight from source.
+ */
+gulp.task('serve', function() {
+    gulp.src(config.src.all)
+        .pipe(serve(false));
+});
+
+/*
+ * Web server to host the app, but from output folder, replicating live deploy with built resources.
+ */
+gulp.task('serve-dist', function() {
+    gulp.src(config.src.build)
+        .pipe(serve(false));
 });
 
 /*

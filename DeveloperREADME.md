@@ -20,12 +20,12 @@ Note that you should double-check that you don't have any other servers running 
 
 ## Static Gulp Server
 
-You can run the app right out of the cloned codebase, with `npm start`. This will run a gulp task to serve up the static content at http://localhost:8000.
+You can run the app right out of the cloned codebase, with `npm start`. This will run a gulp task to serve up the static content at http://localhost:8000/18f-RFQ993471-POOL1.
  
 ## Live Reload
 
 If you prefer a live-reload environment during development, use `gulp watch`.
-This will automatically open your browser to http://localhost:8000, and watch for file changes to automatically refresh itself.
+This will automatically open your browser to http://localhost:8000/18f-RFQ993471-POOL1, and watch for file changes to automatically refresh itself.
 
 The difference between `npm start` and `gulp watch` is so you have a live-reload option if you don't mind a little system load.
 
@@ -41,22 +41,36 @@ However, if you want to do dev and have the ability to refresh immediately, you'
 
 # Publishing
 
+## Testing Deployment
+
+If you want to run a local server that replicates the live environment, do:
+
+1. `gulp build`
+1. `gulp serve-dist`
+
+This will build and copy content to the output folder ('dist'), and start the server task pointing at that folder instead of root.
+
+## Deploy
+
 To deploy the app to public GitHub Pages, run `gulp deploy`.
 
-This will copy only the content needed for live hosting into a `dist` folder that is ready to drop into a server.
-After that, it will push the folder to the `gh-pages` branch, so it gets published.
+This runs the `gulp build` step, then pushes the content of the 'dist' folder to `gh-pages` branch for publication.
 
 If you need to remove the content, run `gulp undeploy` to push a dummy file to the gh-pages site.
 (You could delete the branch completely, but then you need to manually recreate it later).
+
 
 # Reference
 
 Gulp task listing:
 
 * `gulp lint` - runs jshint
-* `gulp serve` - starts the static server
 * `gulp watch` - starts the static server with live-reload
+* `gulp serve` - starts the static server
+* `gulp serve-dist` - starts the static server, pointed at output directory
 * `gulp clean` - deletes the `dist` directory
+* `gulp less` - builds .less files into .css
+* `gulp site` - copies static non-built site files to output directory
 * `gulp build` - copies only relevant content to `dist` directory
 * `gulp ghpages` - pushes contents of `dist` directory to gh-pages branch
 * `gulp deploy` - runs clean, build, gh-pages in order
