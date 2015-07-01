@@ -15,9 +15,9 @@
 |Drug Detail Page|Social Login|Facebook, Google, Twitter, Pinterest|
 |Drug Detail Page|Person|Name, Avatar, Medications|
 
-[June 19th Whiteboard Picture 1](https://drive.google.com/file/d/0Bz3OHwIyS4qTRHVsbE5lMGpobnc/view?usp=sharing)
+[June 19th Whiteboard Picture 1](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/documentation/Whiteboard%20Images/IMG_2169.JPG)
 
-[June 19th Whiteboard Picture 2](https://drive.google.com/file/d/0Bz3OHwIyS4qTOGpESHd5ZVRoNE0/view?usp=sharing)
+[June 19th Whiteboard Picture 2](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/documentation/Whiteboard%20Images/IMG_2170.JPG)
 
 #### Site Map for Initial Design/Development (As agreed upon on June 23, 2015)
 
@@ -25,13 +25,13 @@
      - Search Results: (Faceted Search?)
           - Detail
      - Subscribe (Modal)
-          - Customize Alerts (_Don't Build_)
+          - Customize Alerts (_didn't build due to user feedback_)
      - Report (Link to Current)
      - Browse (Detail pages from Home in Backlog)
      - Alerts
           - Detail
           - See All
 
-[Picture 1 of Sitemap on Whiteboard](https://drive.google.com/file/d/0Bz3OHwIyS4qTbElrMUdYRl93cE0/view?usp=sharing)
+[Picture 1 of Sitemap on Whiteboard](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/documentation/Whiteboard%20Images/IMG_3537.JPG)
 
-[Picture 2 of Sitemap on Whiteboard](https://drive.google.com/file/d/0Bz3OHwIyS4qTZmY3OGQzX2ItTk0/view?usp=sharing)
+[Picture 2 of Sitemap on Whiteboard](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/documentation/Whiteboard%20Images/IMG_2179.JPG)
