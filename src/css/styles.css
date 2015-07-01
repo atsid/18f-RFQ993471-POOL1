@@ -252,29 +252,6 @@ th {
 /*
  * Sprite core
  */
-.icon:after,
-.nav-stacked.nav-tree > li .expander.expanded:after,
-.nav-stacked.nav-tree > li .expander.collapsed:after,
-.breadcrumb > li + li:before,
-.alert-icon-info:after,
-.alert-icon-success:after,
-.alert-icon-danger:after,
-.alert-icon-warning:after,
-.ui-datepicker .ui-datepicker-prev .ui-icon:after,
-.ui-datepicker .ui-datepicker-next .ui-icon:after {
-  content: "";
-  display: inline-block;
-  position: relative;
-  top: 2px;
-  background-repeat: no-repeat;
-  background-image: url(../images/icons/black.svg);
-}
-.icon.icon-inverse:after {
-  background-image: url(../images/icons/white.svg);
-}
-.icon-muted {
-  opacity: .5;
-}
 /*
  * FontAwesome Aliases
  */
@@ -10878,6 +10855,12 @@ header #sub-ribbon .search-box {
   width: 40%;
   max-width: 35rem;
 }
+header #sub-ribbon .tooltip-body {
+  background: red;
+  left: 6rem;
+  max-width: 40rem;
+  white-space: normal;
+}
 header #sub-ribbon .date-picker {
   border-left: 1px solid #00436a;
   display: inline-block;
@@ -11681,23 +11664,17 @@ fieldset[disabled] .btn-default.active,
   position: relative;
 }
 .tooltip-bottom-right + .tooltip-body {
+  opacity: 1;
   top: 100%;
   left: 0%;
   margin-top: 9px;
 }
 .tooltip-bottom-right + .tooltip-body:before {
+  opacity: 1;
   left: 1rem;
   top: -1.6rem;
   border-top: 8px solid transparent;
   border-bottom: 8px solid red;
   border-top: .8rem solid transparent;
   border-bottom: .8rem solid red;
-}
-@media screen and (min-width: 769px) {
-  .tooltip-bottom-right:hover + .tooltip-body {
-    opacity: 1;
-  }
-  .tooltip-bottom-right:hover + .tooltip-body:before {
-    opacity: 1;
-  }
 }
