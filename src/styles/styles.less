@@ -41,6 +41,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .subhead, .title, .headlin
 h1 {
     font-weight: 300;
     letter-spacing: -0.1rem;
+    @media screen and (max-width:768px){
+        font-size:3rem;
+    }
 }
 h5 {
     font-weight: 700;
@@ -143,10 +146,10 @@ header{
     width: 100%;
     z-index:800;
     img{
-        height:70%;
+        height: 50%;
         position:relative;
         left:1rem;
-        top:15%;
+        top:25%;
         max-width:100%;
     }
     #top-ribbon{
@@ -252,7 +255,6 @@ header{
     }
     @media screen and (max-width: 768px){
         img{
-            height:auto;
             left:5%;
             max-width:60%;
         }
@@ -286,7 +288,7 @@ header{
             }
             .mobile-menu-btn{
                 right:1%;
-                top:42%;
+                top:47%;
             }
         }
     }
@@ -601,7 +603,13 @@ header{
             bottom:8rem;
             height:auto;
             left:0;
+            overflow-y:scroll;
+             -webkit-overflow-scrolling: touch;
             transition: top 0.15s;
+        }
+        .bucket{
+            overflow:scroll;
+             -webkit-overflow-scrolling: touch;
         }
         .drug-meta {
             span {
@@ -646,6 +654,10 @@ header{
         }
         span:nth-child{
             clear:both;
+        }
+        @media screen and (max-width:768px){
+            overflow:scroll;
+             -webkit-overflow-scrolling: touch;
         }
     }
 }
