@@ -19,10 +19,14 @@ body{
     position:relative;
     overflow:hidden;
     &.overlay-visible{
+        #recall-map{
+            bottom:0px;
+        }
         @media screen and (min-width:769px){
             #recall-map{
                 left:0;
                 top:9rem;
+                height:auto;
                 width:100%;
             }
         }
@@ -132,12 +136,12 @@ button {
 }
     
 header{
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
     color: white;
     height:14rem;
     position:relative;
     top:0;
     width: 100%;
+    z-index:800;
     img{
         height:70%;
         position:relative;
@@ -222,33 +226,6 @@ header{
             }
         }
     }
-    @media screen and (max-width: 768px){
-        img{
-            height:auto;
-            left:5%;
-            max-width:60%;
-        }
-        #top-ribbon{
-            position:absolute;
-            z-index:100;
-            .mobile-menu-btn{
-                .icon(@icon-hamburger, @size:2, @color: white);
-                background: none;
-                border:none;
-                display:inline-block;
-                position:absolute;
-                right:5%;
-                top:50%;
-                margin-top:-1em;
-                span{
-                    .throw-off-screen;
-                }
-            }
-        }
-        #sub-ribbon{
-            display:none;
-        }
-    }
     .header-content {
         float: right;
         text-align: right;
@@ -273,13 +250,49 @@ header{
             }
         }
     }
+    @media screen and (max-width: 768px){
+        img{
+            height:auto;
+            left:5%;
+            max-width:60%;
+        }
+        #top-ribbon{
+            position:absolute;
+            z-index:100;
+            .mobile-menu-btn{
+                .icon(@icon-hamburger, @size:2, @color: white);
+                background: none;
+                border:none;
+                display:inline-block;
+                position:absolute;
+                right:5%;
+                top:35%;
+                margin-top:-1em;
+                span{
+                    .throw-off-screen;
+                }
+            }
+        }
+        #sub-ribbon{
+            display:none;
+        }
+    }
+    @media screen and (max-width: 480px){
+        #top-ribbon{
+            img{
+                max-width:71%;
+                left:4%;
+                top:28%;
+            }
+            .mobile-menu-btn{
+                right:1%;
+                top:42%;
+            }
+        }
+    }
 }
 
-.view{
-
-}
 #icon-menu{
-    min-width:5rem;
     width: 6rem;
     height:100%;
     background: darken(@brand-primary-color,6%);
@@ -289,10 +302,8 @@ header{
     padding:0;
     top:14rem;
     z-index:700;
-    button {
+    button{
         background:none;
-        box-shadow: none;
-        border-radius: 0;
         border:0;
         display:block;
         height:7rem;
@@ -324,15 +335,10 @@ header{
                 color:@gray-light;
             }
         }
-        &.active {
-            background: darken(@brand-primary-color,10%);
-            box-shadow: inset 4px 0 0 #7B95C9;
-            color: #7B95C9;
-        }
     }
     @media screen and (max-width: 768px){
-        bottom:-3px;
-        height:12%;
+        bottom:0;
+        height:8rem;
         padding-top:0;
         top:auto;
         width:100%;
@@ -352,22 +358,22 @@ header{
     }
 }
 #recall-map{
-    position:absolute !important; // Yeah, Brian.  I know this sucks.
+    position:absolute;
     height:100%;
-    width:97%;
     display:block;
-    left:3%;
+    left:6rem;
+    right:0;
     top:14rem;
+    bottom:0;
     z-index:100;
     .see-full-report{
         float:right;
     }
     @media screen and (max-width:768px){
-        left: 0;
-        right:0;
-        top:13%;
-        bottom:12%;
-        height:74%;
+        left:0;
+        top:9rem;
+        bottom:8rem;
+        height:auto;
         width:100%;
     }
 } 
@@ -431,9 +437,9 @@ header{
     }
     @media screen and (max-width: 768px){
         left:0;
-        top:13%;
+        top:9rem;
         bottom:0;
-        height:87%;
+        height:auto;
         .inner-section{
             width:80%;
             margin:25% 10%;
@@ -446,6 +452,16 @@ header{
                     .throw-off-screen;
                 }
             }
+        }
+    }
+    @media screen and (max-width:480px){
+        .inner-section{
+            height:100%;
+            width:100%;
+            top:0;
+            bottom:12%;
+            left:0;
+            margin: 0;
         }
     }
 }
@@ -483,8 +499,7 @@ header{
         }
         .utility {
             position: relative;
-            top: 2rem;
-            right: 2rem;
+            top: 5rem;
             float: right;
             button{
                 background: none;
@@ -552,7 +567,6 @@ header{
     #manufacturers {
         ul {
             margin-bottom: 4rem;
-            padding: 0 4rem;
             li {
                 margin-bottom: .5rem;
             }
@@ -571,6 +585,9 @@ header{
     }
     &.open{
         left:6rem;
+        width:auto;
+        right:0;
+        overflow-y:auto;
         transition:left 0.15s;
     }
     @media screen and (max-width:768px){
@@ -580,11 +597,10 @@ header{
         top:100%;
         left:0;
         &.open{
+            top:9rem;
+            bottom:8rem;
+            height:auto;
             left:0;
-            top:15%;
-            bottom:12%;
-            max-height:73%;
-            overflow-y:auto;
             transition: top 0.15s;
         }
         .drug-meta {
@@ -592,37 +608,13 @@ header{
                 margin: 1em 1em 0 0;
             }
         }
-        .drug-header {
-            padding: 1rem 3rem 2rem;
-            .utility {
-                right: 0;
-            }
-        }
-    }
-    @media screen and (max-width:768px){
-        &.open{
-            top:13%;
-            bottom:12%;
-            max-height:74%;
+        .drug-header .utility {
+            float: left;
+            top: 1rem;
         }
     }
 }
 
-#top-adverse-reactions{
-    border:@subtle-border;
-    padding:0;
-    h2{
-        background: @gray-lighter;
-        margin:0;
-        padding: 0 1rem;
-        line-height:4rem;
-    }
-    .image-placeholder{
-        width:80%;
-        height:26rem;
-        margin: @margin-base 10%;
-    }
-}
 .warning{
     display:block;
     background: lighten(red, 40%);
@@ -662,15 +654,6 @@ header{
     font-style:italic;
     font-size:1.4rem;
 }
-.image-placeholder{
-    background:@gray-lighter;
-    border-radius:@border-radius;
-    display:block;
-    margin:3px;
-    width:30px;
-    height:30px;
-    float:left;
-}
 .dl-horizontal{
     margin-bottom:0;
     dt{
@@ -692,57 +675,6 @@ header{
     font-size: @font-size-normal - 0.1;
 }
 
-@media screen and (max-width:768px){
-    header{
-        #top-ribbon{
-            .mobile-menu-btn{
-                top:35%;
-            }
-        }
-    }
-}
-
-
-@media screen and (max-width:480px){
-    header{
-        top:0;
-        height:15%;
-        position:relative;
-        #top-ribbon{
-            img{
-                max-width:71%;
-                left:4%;
-                top:28%;
-            }
-            .mobile-menu-btn{
-                right:1%;
-                top:42%;
-            }
-        }
-    }
-    #icon-menu{
-        height:12%;
-    }
-    #search-overlay{
-        .inner-section{
-            height:100%;
-            width:100%;
-            top:0;
-            bottom:12%;
-            left:0;
-            margin: 0;
-        }
-    }
-    #recall-map{
-        top:13%;
-        bottom:12%;
-        height:74%;
-    }
-    #newsfeed, #drug-detail{
-        width:100%;
-        left:0;
-    }
-}
 
 
 //===================================================================
