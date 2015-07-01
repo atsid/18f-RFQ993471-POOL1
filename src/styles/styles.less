@@ -282,7 +282,7 @@ header{
     @media screen and (max-width: 480px){
         #top-ribbon{
             img{
-                max-width:71%;
+                max-width: none;
                 left:4%;
                 top:28%;
             }
@@ -354,6 +354,11 @@ header{
             width:20%;
             display:inline-block;
             float:left;
+            height: 8rem;
+            &.active {
+                color: #7C96C9;
+                box-shadow: inset 0 -4px 0 #7C96C9;
+            }
         }
     }
 }
@@ -585,10 +590,10 @@ header{
             margin:5% 0;
             height:27%;
             text-align:center;
-            *{
-                height:100%;
-                position:relative;
-            }
+            // * {
+            //     height:100%;
+            //     position:relative;
+            // }
         }
     }
     &.open{
@@ -619,13 +624,19 @@ header{
         }
         .drug-meta {
             span {
-                margin: 1em 1em 0 0;
+                margin: 0.5em 1em 0 0;
             }
         }
-        .drug-header .utility {
-            float: left;
-            top: 1rem;
+        .drug-header {
+              padding: 1rem 2rem 2rem;
+            .utility {
+                float: left;
+                top: 1rem;
+            }
         }
+    }
+    #frequent-reactions-chart {
+        height: 24rem;
     }
 }
 

@@ -10992,7 +10992,7 @@ header .header-content .report-problem:hover {
 }
 @media screen and (max-width: 480px) {
   header #top-ribbon img {
-    max-width: 71%;
+    max-width: none;
     left: 4%;
     top: 28%;
   }
@@ -11107,6 +11107,11 @@ header .header-content .report-problem:hover {
     width: 20%;
     display: inline-block;
     float: left;
+    height: 8rem;
+  }
+  #icon-menu button.active {
+    color: #7C96C9;
+    box-shadow: inset 0 -4px 0 #7c96c9;
   }
 }
 #main-section h1 {
@@ -11380,10 +11385,6 @@ header .header-content .report-problem:hover {
   height: 27%;
   text-align: center;
 }
-#newsfeed #adverse-reactions .dv-chart * {
-  height: 100%;
-  position: relative;
-}
 #newsfeed.open {
   left: 6rem;
   width: auto;
@@ -11413,12 +11414,18 @@ header .header-content .report-problem:hover {
     -webkit-overflow-scrolling: touch;
   }
   #newsfeed .drug-meta span {
-    margin: 1em 1em 0 0;
+    margin: 0.5em 1em 0 0;
+  }
+  #newsfeed .drug-header {
+    padding: 1rem 2rem 2rem;
   }
   #newsfeed .drug-header .utility {
     float: left;
     top: 1rem;
   }
+}
+#newsfeed #frequent-reactions-chart {
+  height: 24rem;
 }
 .warning {
   display: block;
