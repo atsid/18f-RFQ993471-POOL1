@@ -17,6 +17,7 @@ angular.module('MedwatchApp', [
 .controller('MasterController', ['$scope', 'EventBusService', function($scope, EventBusService) {
     var vm = this;
     vm.mobileMenuIsActive = false;
+    vm.mobileMenuPageLoaded = false;
 
     vm.toggleMobileMenu = function($event) {
         var el = angular.element($event.target);
@@ -32,5 +33,8 @@ angular.module('MedwatchApp', [
     }
 
     EventBusService.subscribe($scope, 'closeMobileMenu', vm.closeMobileMenu);
+    $scope.$on('$viewContentLoaded', function() {
+       vm.mobileMenuPageLoaded = true;
+    });
 }]);
 

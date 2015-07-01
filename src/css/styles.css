@@ -11112,7 +11112,7 @@ header .header-content .report-problem:hover {
   margin: 2rem 0 1rem;
 }
 #recall-map {
-  position: absolute;
+  position: absolute !important;
   height: 100%;
   display: block;
   left: 6rem;
@@ -11336,7 +11336,8 @@ header .header-content .report-problem:hover {
   padding: 2rem 4rem;
   line-height: 1.6;
   border-right: 1px solid #d8dfe5;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   height: 100%;
 }
 #newsfeed .bucket p {
@@ -11356,6 +11357,9 @@ header .header-content .report-problem:hover {
 }
 #newsfeed .bucket .routes ul li {
   margin-bottom: 0.5rem;
+}
+#newsfeed .bucket svg {
+  padding: 1rem;
 }
 #newsfeed h2 {
   font-weight: 300;
@@ -11396,7 +11400,7 @@ header .header-content .report-problem:hover {
     transition: top 0.15s;
   }
   #newsfeed .bucket {
-    overflow: scroll;
+    overflow: hidden;
     -webkit-overflow-scrolling: touch;
   }
   #newsfeed .drug-meta span {

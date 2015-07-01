@@ -51,7 +51,7 @@
 <body ng-controller="MasterController as master">
 
 <!-- Contains global search menu for mobile -->
-<div id="mobile-menu">
+<div id="mobile-menu" ng-class="{ 'page-loaded': master.mobileMenuPageLoaded }">
     <button class="report-problem btn-danger">Report a Problem</button>
     <h1>Search</h1>
     <search-box></search-box>
