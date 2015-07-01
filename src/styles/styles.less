@@ -354,6 +354,11 @@ header{
             width:20%;
             display:inline-block;
             float:left;
+            height: 8rem;
+            &.active {
+                color: #7C96C9;
+                box-shadow: inset 0 -4px 0 #7C96C9;
+            }
         }
     }
 }
@@ -619,12 +624,15 @@ header{
         }
         .drug-meta {
             span {
-                margin: 1em 1em 0 0;
+                margin: 0.5em 1em 0 0;
             }
         }
-        .drug-header .utility {
-            float: left;
-            top: 1rem;
+        .drug-header {
+              padding: 1rem 2rem 2rem;
+            .utility {
+                float: left;
+                top: 1rem;
+            }
         }
     }
 }
