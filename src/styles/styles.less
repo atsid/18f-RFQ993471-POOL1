@@ -460,7 +460,7 @@ section{
 }
 
 #newsfeed, #drug-detail{
-    background: @gray-lighter;
+    background: white;
     border-right: @border;
     left:-57rem;
     top:14rem;
@@ -470,23 +470,6 @@ section{
     position:absolute;
     transition: left 0.15s;
     z-index:650;
-    button{
-        padding: .5rem 0;
-        width: 90%;
-        margin:1rem 5% 0;
-        
-    }
-    > ul{
-        height:5rem;
-        margin:0;
-        padding:0;
-    }
-    h2{
-        background: @gray-lighter;
-        margin:0;
-        padding: 0 1rem;
-        line-height:4rem;
-    }
     &.open{
         left:5rem;
         transition: left 0.15s;
@@ -504,55 +487,100 @@ section{
         }
     }
 }
-#newsfeed{
-    background:@accent-color-5;
+#newsfeed {
+    background: #F2F7F9;
     padding: 0;
-    height:85%;
+    height:90%;
     overflow:hidden;
     width:98%;
     left:-100%;
-    h1 {
+    .drug-header {
+        .clearfix;
         background: white;
         border-bottom: 1px solid @accent-color-6;
         margin: 0;
-        padding: 2rem 4rem;
+        padding: 2rem 4rem 3rem;
+        div.pull-left {
+            span {
+                border-radius: 9999px;
+                padding: 0.5rem 1rem;
+                font-size: @font-size-small - 0.25;
+                background: @accent-color-5;
+                + span {
+                    margin-left: 1rem;
+                }
+            }
+        }
+        div.pull-right {
+            position: relative;
+            top: 5rem;
+            button{
+                background: none;
+                border:0;
+                padding: 10px;
+                opacity:1;
+                &.share{
+                    .icon(@icon-link, @size:2);
+                }
+                &.print{
+                    .icon(@icon-print, @size:2);
+                }
+                &:before{
+                    font-weight: normal;
+                    width:100%;
+                }
+                &:hover, &:focus, &:active{
+                    opacity:  .75;
+                    color: inherit;
+                    &:before {
+                        color: inherit;
+                    }
+                }
+                .tooltip-right .tooltip-body {
+                    left: 0;
+                }
+            }
+        }
     }
     .bucket {
         padding: 2rem 4rem;
         line-height: 1.6;
         border-right: 1px solid @accent-color-6;
-    }
-    > div{
-        height:100%;
-        overflow-y:auto;
-        &:nth-child(2){
-            height:100%;
-            .image-placeholder{
-                width:70%;
-                margin:3% 15%;
-                height:25%;
+        overflow: auto;
+        p {
+            margin-bottom: 3.5rem;
+        }
+        .routes {
+            border: 1px solid @accent-color-6;
+            border-radius: @border-radius;
+            h5 {
+                margin: 0;
+                padding: 1rem 1.5rem;
+                background: darken(@accent-color-6,2%);
+            }
+            ul {
+                margin-top: 1rem;
+                li {
+                    margin-bottom: 0.5rem;
+                }
             }
         }
-        #manufacturers, #additional-info{
-            margin-bottom:3%;
-            height:45%;
-            overflow-y:auto;
-            h2{
-                position:absolute;
-                width:100%;
-                z-index:600;
-            }
-            ul{
-                position:relative;
-                top:6rem;
-            }
-            li{
-                list-style:none;
-                margin:.5rem 0;
-                
-            }
-            a{
-                display:block;
+    }
+    h2 {
+        font-weight: 300;
+        font-size: 3rem;
+        margin: 1rem 0 2rem;
+    }
+    #current-label {
+        h2 {
+            margin-top: 4rem;
+        }
+    }
+    #manufacturers {
+        ul {
+            margin-bottom: 4rem;
+            li {
+                margin-bottom: .5rem;
             }
         }
     }
@@ -567,11 +595,7 @@ section{
             }
         }
     }
-    img{
-        margin:.5rem 1rem .5rem 0;
-        max-width:20rem;
-        float:left;
-    }
+
     &.open{
         left:5rem;
     }
