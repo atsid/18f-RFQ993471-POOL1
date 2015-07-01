@@ -13,6 +13,7 @@ angular.module('IconMenu', [])
                     $scope.activeButton = angular.element($event.target).attr('id');
                     EventBusService.publish('toggleDetails', value);
                 };
+                $scope.activeButton = 'recall-btn'; //default
             }]
         };
     });

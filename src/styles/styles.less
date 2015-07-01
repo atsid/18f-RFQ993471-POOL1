@@ -307,6 +307,8 @@ header{
     button{
         background:none;
         border:0;
+        border-radius: 0;
+        box-shadow: none;
         display:block;
         height:7rem;
         width:100%;
@@ -336,6 +338,10 @@ header{
             &:before{
                 color:@gray-light;
             }
+        }
+        &.active {
+            color: #7C96C9;
+            box-shadow: inset 4px 0 0 #7C96C9;
         }
     }
     @media screen and (max-width: 768px){
