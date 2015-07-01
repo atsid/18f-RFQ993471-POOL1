@@ -252,6 +252,29 @@ th {
 /*
  * Sprite core
  */
+.icon:after,
+.nav-stacked.nav-tree > li .expander.expanded:after,
+.nav-stacked.nav-tree > li .expander.collapsed:after,
+.breadcrumb > li + li:before,
+.alert-icon-info:after,
+.alert-icon-success:after,
+.alert-icon-danger:after,
+.alert-icon-warning:after,
+.ui-datepicker .ui-datepicker-prev .ui-icon:after,
+.ui-datepicker .ui-datepicker-next .ui-icon:after {
+  content: "";
+  display: inline-block;
+  position: relative;
+  top: 2px;
+  background-repeat: no-repeat;
+  background-image: url(../images/icons/black.svg);
+}
+.icon.icon-inverse:after {
+  background-image: url(../images/icons/white.svg);
+}
+.icon-muted {
+  opacity: .5;
+}
 /*
  * FontAwesome Aliases
  */
@@ -11339,6 +11362,7 @@ header .header-content .report-problem:hover {
   overflow-y: auto;
   overflow-x: hidden;
   height: 100%;
+  min-width: 42rem;
 }
 #newsfeed .bucket p {
   margin-bottom: 3.5rem;
@@ -11360,6 +11384,7 @@ header .header-content .report-problem:hover {
 }
 #newsfeed .bucket svg {
   padding: 1rem;
+  height: 21rem;
 }
 #newsfeed h2 {
   font-weight: 300;
