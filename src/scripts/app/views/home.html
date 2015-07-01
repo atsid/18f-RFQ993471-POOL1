@@ -14,30 +14,30 @@
         </ul>
         <div class="col-sm-5">
             <img src="src/assets/img/aspirin.jpg" alt="Aspirin bottle tipped over"/>
-            <p ng-if="description">{{ description }}</p>
+            <p ng-show="description">{{ description }}</p>
             <div id="current-label">
                 <h2>Label Information</h2>
-                <div ng-if="indications_and_usage">
+                <div ng-show="indications_and_usage">
                     <h3>Indications and Usage</h3>
                     <p>{{ indications_and_usage }}</p>
                 </div>
-                <div ng-if="contraindications">
+                <div ng-show="contraindications">
                     <h3>Contraindications</h3>
                     <p>{{ contraindications }}</p>
                 </div>
-                <div ng-if="drug_interactions">
+                <div ng-show="drug_interactions">
                     <h3>Drug Interactions</h3>
                     <p>{{ drug_interactions }}</p>
                 </div>
-                <div ng-if="dosage_and_administration">
+                <div ng-show="dosage_and_administration">
                     <h3>Dosage and Administration</h3>
                     <p>{{ dosage_and_administration }}</p>
                 </div>
-                <div ng-if="warnings_table">
+                <div ng-show="warnings_table">
                     <h3>Warnings</h3>
                     <div ng-bind-html="warnings_table"></div>
                 </div>
-                <div ng-if="precautions">
+                <div ng-show="precautions">
                     <h3>Precautions</h3>
                     <p>{{ precautions }}</p>
                 </div>
