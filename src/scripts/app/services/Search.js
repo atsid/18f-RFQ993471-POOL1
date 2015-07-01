@@ -132,7 +132,15 @@ angular.module('Search', [])
                     fullUrl += '&count=' + options.count;
                 }
 
-                return $q.when($http.get(fullUrl));
+                return $q(function(resolve, reject) {
+                    $http.get(fullUrl)
+                        .success(function(results) {
+                            resolve(results);
+                        })
+                        .error(function(data, status) {
+                            reject(data, status);
+                        });
+                });
             }
 
             function searchDrugsByLocation(options) {
@@ -156,7 +164,15 @@ angular.module('Search', [])
                 fullUrl = baseUrl + 'drug/' + type + '.json?api_key=' + apiKey + '&search=' + search +
                           '&limit=' + limit;
 
-                return $q.when($http.get(fullUrl));
+                return $q(function(resolve, reject) {
+                    $http.get(fullUrl)
+                        .success(function(results) {
+                            resolve(results);
+                        })
+                        .error(function(data, status) {
+                            reject(data, status);
+                        });
+                });
             }
 
             /* TODO: Finish implementing.

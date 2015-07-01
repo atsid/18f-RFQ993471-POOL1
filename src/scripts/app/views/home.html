@@ -5,20 +5,8 @@
     </section> <!-- end #main-section -->
     <!-- In the future, it would make sense to turn newsfeed into a directive. -->
     <section id="newsfeed" ng-controller="DetailsController" ng-class="{ 'open' : detailsIsOpen }">
-        <div class="drug-header">
-            <div class=" drug-meta pull-left">
-                <h1>{{ searchTerm }}</h1>
-                <span class="text-muted">{{ product_type }}</span>
-                <span class="text-muted">{{ generic_name }}</span>
-            </div>
-            <div class="utility">
-                <button class="print tooltip-right">
-                    <span class="tooltip-body">Print Details</span>
-                </button>
-                <button  class="share tooltip-right">
-                    <span class="tooltip-body">Share</span>
-                </button>
-            </div>
+        <div ng-show="no_results" class="no-results text-center">
+            <img src="src/assets/img/detail-page-error.png" alt="Data for this search term is unavailable." />
         </div>
         <div class="row">
             <div class="col-sm-5 bucket">
@@ -89,5 +77,5 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div> <!-- end .details-content -->
     </section> <!-- end #newsfeed -->

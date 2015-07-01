@@ -26,12 +26,12 @@ angular.module('PieChart', ['EventBus'])
                         .then(function(countData) {
                             var results, values, legend, paper, countText;
 
-                            if (!countData || !countData.data || !countData.data.results) {
+                            if (!countData || !countData.results) {
                                 // TODO: Do something here.
                                 return;
                             }
 
-                            results = countData.data.results;
+                            results = countData.results;
                             values = results.map(function(result) {
                                 return result.count;
                             });
@@ -45,7 +45,7 @@ angular.module('PieChart', ['EventBus'])
                                 100, // cy
                                 100, // radius
                                 values,
-                                { legend: legend }
+                                { legend: legend, colors:['#7B95C9', '#457fea', '#E5DDC6', '#A5D842','#06b8a7']}
                             );
 
                             paper.hover(
