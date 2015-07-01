@@ -8,24 +8,10 @@
         <div ng-show="no_results" class="no-results text-center">
             <img src="src/assets/img/detail-page-error.png" alt="Data for this search term is unavailable." />
         </div>
-        <div id="details-content" ng-hide="no_results">
-            <div class="drug-header">
-                <div class=" drug-meta pull-left">
-                    <h1>{{ searchTerm }}</h1>
-                    <span class="text-muted">{{ product_type }}</span>
-                    <span class="text-muted">{{ generic_name }}</span>
-                </div>
-                <div class="utility">
-                    <button class="print tooltip-right">
-                        <span class="tooltip-body">Print Details</span>
-                    </button>
-                    <button  class="share tooltip-right">
-                        <span class="tooltip-body">Share</span>
-                    </button>
-                </div>
-            </div>
+        <div class="row">
             <div class="col-sm-5 bucket">
                 <h2>Description</h2>
+                <img src="src/assets/img/drug-placeholder.png" alt="Drug Detail Image"/>
                 <p ng-if="description">{{ description }}</p>
                 <div class="routes">
                     <h5>Routes of administration:</h5>

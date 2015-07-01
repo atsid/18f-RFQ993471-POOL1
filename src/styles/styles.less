@@ -41,12 +41,24 @@ h1 {
 h5 {
     font-weight: 700;
 }
+h1, h2, h3, h4, h5, h6{
+    margin-top: @margin-base;
+}
+.throw-off-screen{
+    position:absolute;
+    left:-9999px;
+}
+.scroll-table(@max-height){
+    display:block;
+    max-height:@max-height;
+    overflow:auto;
+}
+.table-wrapper{
+    .scroll-table(30rem);
+}
 button {
     .btn;
 }
-// .container{
-//     max-width: @container-max-width;
-// }
 .form-control:focus {
     border-color: @accent-color-1;
 }
@@ -122,7 +134,7 @@ button {
 header{
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
     color: white;
-    height:15%;
+    height:14rem;
     position:relative;
     top:0;
     width: 100%;
@@ -132,22 +144,6 @@ header{
         left:1rem;
         top:15%;
         max-width:100%;
-    }
-    .nav-tabs.nav-tabs-light{
-        border-bottom:0;
-        float:right;
-        li{
-            a{
-                color:white;
-            }
-            &.active{
-                a{
-                    border-radius:0;
-                    color:@gray;
-                    background:white;
-                }
-            }
-        }
     }
     #top-ribbon{
         background: @brand-primary-color;
@@ -233,7 +229,6 @@ header{
             max-width:60%;
         }
         #top-ribbon{
-            height:100%;
             position:absolute;
             z-index:100;
             .mobile-menu-btn{
@@ -279,20 +274,9 @@ header{
         }
     }
 }
-h1, h2, h3, h4, h5, h6{
-    margin-top: @margin-base;
-}
-.throw-off-screen{
-    position:absolute;
-    left:-9999px;
-}
-.scroll-table(@max-height){
-    display:block;
-    max-height:@max-height;
-    overflow:auto;
-}
-.table-wrapper{
-    .scroll-table(30rem);
+
+.view{
+
 }
 #icon-menu{
     min-width:5rem;
@@ -303,7 +287,6 @@ h1, h2, h3, h4, h5, h6{
     bottom:0;
     left:0;
     padding:0;
-    padding-top:3rem;
     top:14rem;
     z-index:700;
     button {
@@ -349,7 +332,7 @@ h1, h2, h3, h4, h5, h6{
     }
     @media screen and (max-width: 768px){
         bottom:-3px;
-        height:7rem;
+        height:12%;
         padding-top:0;
         top:auto;
         width:100%;
@@ -382,7 +365,9 @@ h1, h2, h3, h4, h5, h6{
     @media screen and (max-width:768px){
         left: 0;
         right:0;
-        top:12rem;
+        top:13%;
+        bottom:12%;
+        height:74%;
         width:100%;
     }
 } 
@@ -446,7 +431,9 @@ h1, h2, h3, h4, h5, h6{
     }
     @media screen and (max-width: 768px){
         left:0;
-        top:12rem;
+        top:13%;
+        bottom:0;
+        height:87%;
         .inner-section{
             width:80%;
             margin:25% 10%;
@@ -462,17 +449,21 @@ h1, h2, h3, h4, h5, h6{
         }
     }
 }
-section{
-    padding:4px;
-}
 
 #newsfeed {
     background: #F2F7F9;
     padding: 0;
-    height:90%;
     overflow:hidden;
     width: 100%;
     left:-100%;
+    z-index:600;
+    border-right: @border;
+    top:14rem;
+    bottom:0;
+    height:100%;
+    position:absolute;
+    transition: left 0.15s;
+    z-index:650;
     .drug-header {
         .clearfix;
         background: white;
@@ -578,24 +569,9 @@ section{
             }
         }
     }
-
     &.open{
-        left:5rem;
-    }
-}
-#newsfeed, #drug-detail{
-    border-right: @border;
-    // left:-57rem;
-    top:14rem;
-    bottom:0;
-    height:100%;
-    // width:40rem;
-    position:absolute;
-    transition: left 0.15s;
-    z-index:650;
-    &.open{
-        // left:0;
-        transition: left 0.15s;
+        left:6rem;
+        transition:left 0.15s;
     }
     @media screen and (max-width:768px){
         clear:both;
@@ -605,7 +581,10 @@ section{
         left:0;
         &.open{
             left:0;
-            top:12rem;
+            top:15%;
+            bottom:12%;
+            max-height:73%;
+            overflow-y:auto;
             transition: top 0.15s;
         }
         .drug-meta {
@@ -618,6 +597,13 @@ section{
             .utility {
                 right: 0;
             }
+        }
+    }
+    @media screen and (max-width:768px){
+        &.open{
+            top:13%;
+            bottom:12%;
+            max-height:74%;
         }
     }
 }
@@ -738,7 +724,6 @@ section{
         height:12%;
     }
     #search-overlay{
-        top:15%;
         .inner-section{
             height:100%;
             width:100%;
@@ -749,15 +734,13 @@ section{
         }
     }
     #recall-map{
-        top:15%;
+        top:13%;
         bottom:12%;
         height:74%;
     }
     #newsfeed, #drug-detail{
         width:100%;
         left:0;
-        z-index:0;
-        overflow:auto; 
     }
 }
 
