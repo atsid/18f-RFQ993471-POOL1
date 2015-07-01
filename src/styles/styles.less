@@ -17,7 +17,7 @@ body{
     height:100%;
     width:100%;
     position:relative;
-    overflow:hidden !important;
+    overflow:hidden;
     &.overlay-visible{
         @media screen and (min-width:769px){
             #recall-map{
@@ -653,10 +653,18 @@ section{
     font-size: @font-size-normal - 0.1;
 }
 
-@media screen and (max-width:480px){
-    body{
-        overflow:auto;
+@media screen and (max-width:768px){
+    header{
+        #top-ribbon{
+            .mobile-menu-btn{
+                top:35%;
+            }
+        }
     }
+}
+
+
+@media screen and (max-width:480px){
     header{
         top:0;
         height:15%;
