@@ -558,8 +558,10 @@ header{
         padding: 2rem 4rem;
         line-height: 1.6;
         border-right: 1px solid @accent-color-6;
-        overflow: auto;
+        overflow-y: auto;
+        overflow-x: hidden;
         height: 100%;
+        // min-width: 42rem;
         p {
             margin-bottom: 3.5rem;
         }
@@ -577,6 +579,9 @@ header{
                     margin-bottom: 0.5rem;
                 }
             }
+        }
+        svg {
+            padding: 1rem;
         }
     }
     h2 {
@@ -620,7 +625,7 @@ header{
             transition: top 0.15s;
         }
         .bucket{
-            overflow:scroll;
+            overflow: hidden;
              -webkit-overflow-scrolling: touch;
         }
         .drug-meta {

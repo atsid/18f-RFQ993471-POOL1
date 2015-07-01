@@ -29,7 +29,7 @@ Finally, the team ensured that we stayed true to the five key principles that gu
 
 >>The team heavily relied upon the Lean Start-Up concept when it came to the "Listen to the Customer" to help influence our design and usage consideration.  In our focus group, interviews, and user feedback sessions, we used our audience/users to discuss ideas we experimented with looking for validation to search out appropriate solutions.
 
->>What became apparent in using this was that we **pivoted** numerous times as our users validated (or invalidated) the features we were thought would be useful.  One of these pivots, which was significant, was our original intention to introduce user profiles.  After strong feedback, this plan was put on the backlog, as the feedback demonstrated significant push back against providing personal information to a government agency
+>>What became apparent in using this was that we **pivoted** numerous times as our users validated (or invalidated) the features we were thought would be useful.  One of these pivots, which was significant, was our original intention to introduce user profiles.  After strong feedback, this plan was put on the backlog, as the feedback demonstrated significant push back against providing personal information to a government agency.  We also utilized a [Lean Startup Canvas](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/documentation/Research/Lean%20Startup%20Canvases.pptx)
 
 >**User Centered/Responsive Development**
 
