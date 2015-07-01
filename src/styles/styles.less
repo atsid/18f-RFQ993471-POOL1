@@ -590,17 +590,6 @@ header{
             }
         }
     }
-    #adverse-reactions{
-        .dv-chart{
-            margin:5% 0;
-            height:27%;
-            text-align:center;
-            // * {
-            //     height:100%;
-            //     position:relative;
-            // }
-        }
-    }
     &.open{
         left:6rem;
         width:auto;
@@ -640,8 +629,18 @@ header{
             }
         }
     }
-    #frequent-reactions-chart {
-        height: 24rem;
+
+    // Charts & Graphs
+    .dv-chart {
+        figure > div {
+            height: 25rem;
+        }
+    }
+
+    figcaption {
+        font-weight: 700;
+        color: @brand-primary-color;
+        margin-bottom: 1rem;
     }
 }
 
