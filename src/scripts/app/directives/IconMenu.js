@@ -6,8 +6,8 @@ angular.module('IconMenu', [])
             replace: true,
             templateUrl: 'src/scripts/app/views/icon-menu.html',
             controller: ['$scope', 'EventBusService', function($scope, EventBusService) {
-                $scope.toggleDetails = function($event) {
-                    EventBusService.publish('toggleDetails');
+                $scope.toggleDetails = function(value) {
+                    EventBusService.publish('toggleDetails', value);
                 };
             }]
         };
