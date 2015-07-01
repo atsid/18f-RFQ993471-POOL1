@@ -10,7 +10,7 @@ While we encourage you to drive deep into our plan, research, sprints, and other
 
 |Section|Description|
 |----|----|
-|[Project Plan](https://github.com/atsid/18f-RFQ993471-POOL1/wiki/1.-Project-Plan)|Reviews our use of Agile and Lean Start-up Methodologies|
+|[Project Plan](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/wiki/wiki2projectplan.md)|Reviews our use of Agile and Lean Start-up Methodologies|
 |[U.S. Digital Services Playbook Understanding](https://github.com/atsid/18f-RFQ993471-POOL1/wiki/1.-U.S.-Digital-Services-Playbook-Understanding)|Shows our understanding of the Playbook and how we used it (where we could) for this proposal|
 |[UXD Research, UXD Wireframes & Data Research Documentation](https://github.com/atsid/18f-RFQ993471-POOL1/wiki/2.-UXD-Research,-UXD-Wireframes-&-Data-Research-Documentation)|Repository of information related to all our user testing, interviews, feedback, and the research conducted by the team.  Also shows a major PIVOT that occurred after Sprint 4 into a new design|
 |[MEDWATCH Features List](https://github.com/atsid/18f-RFQ993471-POOL1/wiki/3.-MEDWATCH-Features-List)|Repository of information on the features hoped to be implemented in the prototype after initial brainstorming and interviews|
