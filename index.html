@@ -90,17 +90,6 @@
         $('.wrapper').toggleClass('open');
     });
     $('.mobile-menu-btn').toggleMenu;
-    
-    function resizeBootstrapMap() {
-        var mapParentWidth = $('#main-section').width();
-        $('#recall-map').width(mapParentWidth);
-        $('#recall-map').height(3 * mapParentWidth / 4);
-        google.maps.event.trigger($('#recall-map"resize"'));
-        console.log(mapParentWidth);
-    }
-    $(window).resize(resizeBootstrapMap);
-    
-    </script>
-    
+</script>
 </body>
 </html>

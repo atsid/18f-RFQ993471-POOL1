@@ -17,7 +17,7 @@ body{
     height:100%;
     width:100%;
     position:relative;
-    overflow:hidden;
+    overflow:hidden !important;
     &.overlay-visible{
         @media screen and (min-width:769px){
             #recall-map{
@@ -55,19 +55,15 @@ button {
 }
 
 .wrapper{
-    position:relative;
-    top:0;
-    right:0;
-    bottom:0;
-    left:0;
-    overflow-y:hidden;
-    transition:left 0.15s;
-    width:100%;
-    z-index:1000;
     @media screen and (max-width:768px){
         position:absolute;
         top:0;
+        right:0;
+        bottom:0;
         left:0;
+        transition:left 0.15s;
+        width:100%;
+        z-index:1000;
         &.open{
             left:80%;
             transition:left 0.15s;
@@ -79,7 +75,7 @@ button {
     background: darken(@brand-primary-color,6%);
     color:white;
     display:none;
-    position:fixed;
+    position:absolute;
     top:0;
     right:0;
     bottom:0;
@@ -397,6 +393,7 @@ h1, h2, h3, h4, h5, h6{
     right:0;
     bottom:0;
     left:0;
+    height:100%;
     z-index:800;
     .inner-section{
         background: white;
