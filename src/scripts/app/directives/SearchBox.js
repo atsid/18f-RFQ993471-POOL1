@@ -12,7 +12,24 @@ angular.module('SearchBox', ['Search'])
                     var geocoder = new google.maps.Geocoder();
 
                     $scope.submitSearch = function() {
+                        var searchObj = {}, fromDate, toDate, datesAreInvalid = false;
                         $scope.searchTerm = $scope.searchTerm ? $scope.searchTerm.trim() : '';
+                        $scope.fixedSearchTerm = $scope.searchTerm.slice(); // updates only on submit
+
+                        fromDate = new Date($scope.fromDate);
+                        toDate = $scope.toDate ? new Date($scope.toDate) : '';
+                        datesAreInvalid = (isNaN(fromDate.getTime()) || ((toDate !== '') && isNaN(toDate.getTime())));
+
+                        if (!datesAreInvalid) {
+                            searchObj.fromDate = '' + fromDate.getFullYear() +
+                                                 ((fromDate.getMonth() + 1) < 10 ? '0' + (fromDate.getMonth() + 1) : (fromDate.getMonth())) +
+                                                 (fromDate.getDate() < 10 ? '0' + (fromDate.getDate()) : fromDate.getDate());
+                            if (toDate) {
+                                searchObj.toDate = '' + toDate.getFullYear() +
+                                                   ((toDate.getMonth() + 1) < 10 ? '0' + (toDate.getMonth() + 1) : (toDate.getMonth())) +
+                                                   (toDate.getDate() < 10 ? '0' + (toDate.getDate()) : toDate.getDate());
+                            }
+                        }
 
                         // This RegExp could be simplified. It checks for zip codes in the following
                         // formats: '12345', '12345-1234'
@@ -25,7 +42,13 @@ angular.module('SearchBox', ['Search'])
                                     city = addressParts.shift(),
                                     state = addressParts.shift().split(' ').shift();
 
-                                SearchService.searchDrugsByLocation({ type: 'enforcement', city: city, state: state })
+                                searchObj = $.extend(searchObj, {
+                                    type: 'enforcement',
+                                    city: city,
+                                    state: state
+                                });
+
+                                SearchService.searchDrugsByLocation(searchObj)
                                     .then(
                                         function(results) {
                                             var result = SearchService.massageData(results, $scope.searchTerm, 'enforcement');
@@ -41,7 +64,12 @@ angular.module('SearchBox', ['Search'])
                             });
                         } else {
                             // Search by search term.
-                            SearchService.searchDrugs({ type: 'enforcement', term: $scope.searchTerm })
+                            searchObj = $.extend(searchObj, {
+                                type: 'enforcement',
+                                term: $scope.searchTerm
+                            });
+
+                            SearchService.searchDrugs(searchObj)
                                 .then(
                                     function(results) {
                                         var result = SearchService.massageData(results, $scope.searchTerm, 'enforcement');
