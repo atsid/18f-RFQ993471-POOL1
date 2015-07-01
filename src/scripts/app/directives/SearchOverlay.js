@@ -33,6 +33,12 @@ angular.module('SearchOverlay', ['Search', 'EventBus'])
                                 }
                             );
                     };
+
+                    EventBusService.subscribe($scope, 'closeMobileMenu', function() {
+                        // Hide the overlay on mobile even if a search was performed from the search box
+                        // rather than the search overlay, since both are available in that case.
+                        $scope.shouldHide = true;
+                    });
                 }
             ],
             link: function(scope, element) {
