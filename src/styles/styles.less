@@ -501,18 +501,26 @@ section{
     }
 }
 #newsfeed{
-    background:white;
-    padding:0 1%;
+    background:@accent-color-5;
+    padding: 0;
     height:85%;
     overflow:hidden;
     width:98%;
     left:-100%;
+    h1 {
+        background: white;
+        border-bottom: 1px solid @accent-color-6;
+        margin: 0;
+        padding: 2rem 4rem;
+    }
+    .bucket {
+        padding: 2rem 4rem;
+        line-height: 1.6;
+        border-right: 1px solid @accent-color-6;
+    }
     > div{
         height:100%;
         overflow-y:auto;
-        h1{
-            padding:0 .4rem;
-        }
         &:nth-child(2){
             height:100%;
             .image-placeholder{

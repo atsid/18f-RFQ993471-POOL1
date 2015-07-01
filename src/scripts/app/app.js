@@ -1,4 +1,5 @@
 angular.module('MedwatchApp', [
+    'ngSanitize',
     'AppRouter',
     'EventBus',
     'HeaderCtrl',
