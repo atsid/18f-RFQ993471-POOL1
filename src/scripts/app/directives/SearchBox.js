@@ -4,6 +4,7 @@ angular.module('SearchBox', ['Search'])
         return {
             restrict: 'E',
             replace: true,
+            scope: {},
             templateUrl: 'src/scripts/app/views/search-box.html',
             controller: ['$scope', 'SearchService', 'EventBusService',
                 function($scope, SearchService, EventBusService) {
@@ -11,13 +12,13 @@ angular.module('SearchBox', ['Search'])
                     var geocoder = new google.maps.Geocoder();
 
                     $scope.submitSearch = function() {
-                        $scope.term = $scope.term ? $scope.term.trim() : '';
+                        $scope.searchTerm = $scope.searchTerm ? $scope.searchTerm.trim() : '';
 
                         // This RegExp could be simplified. It checks for zip codes in the following
                         // formats: '12345', '12345-1234'
-                        if (/^\d{5}$|^\d{5}-\d{4}$/.test($scope.term)) {
+                        if (/^\d{5}$|^\d{5}-\d{4}$/.test($scope.searchTerm)) {
                             // Search by location.
-                            geocoder.geocode({ 'address': $scope.term }, function(results) {
+                            geocoder.geocode({ 'address': $scope.searchTerm }, function(results) {
                                 // TODO: Error handling.
                                 var address = results[0].formatted_address,
                                     addressParts = address.split(', '),
@@ -27,25 +28,29 @@ angular.module('SearchBox', ['Search'])
                                 SearchService.searchDrugsByLocation({ type: 'enforcement', city: city, state: state })
                                     .then(
                                         function(results) {
-                                            results = SearchService.massageData(results.data, $scope.term, 'enforcement');
-                                            EventBusService.publish('updateMapMarkers', results);
+                                            var result = SearchService.massageData(results, $scope.searchTerm, 'enforcement');
+                                            $scope.no_results = false;
+                                            EventBusService.publish('updateMapMarkers', result);
                                         },
                                         function(data, status) {
-                                            // TODO: Better error handling.
+                                            $scope.no_results = true;
+                                            EventBusService.publish('badSearch', $scope.searchTerm);
                                             console.error('Error searching for drugs.');
                                         }
                                     );
                             });
                         } else {
                             // Search by search term.
-                            SearchService.searchDrugs({ type: 'enforcement', term: $scope.term })
+                            SearchService.searchDrugs({ type: 'enforcement', term: $scope.searchTerm })
                                 .then(
                                     function(results) {
-                                        var result = SearchService.massageData(results, $scope.term, 'enforcement');
+                                        var result = SearchService.massageData(results, $scope.searchTerm, 'enforcement');
+                                        $scope.no_results = false;
                                         EventBusService.publish('updateMapMarkers', result);
                                     },
                                     function(data, status) {
-                                        // TODO: Better error handling.
+                                        $scope.no_results = true;
+                                        EventBusService.publish('badSearch', $scope.searchTerm);
                                         console.error('Error searching for drugs.');
                                     }
                                 );

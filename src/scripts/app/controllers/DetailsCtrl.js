@@ -11,6 +11,10 @@ angular.module('DetailsCtrl', [])
             };
 
             EventBusService.subscribe($scope, 'toggleDetails', $scope.toggleDetails);
+            EventBusService.subscribe($scope, 'badSearch', function(term) {
+                $scope.searchTerm = term;
+                $scope.no_results = true;
+            })
             EventBusService.subscribe($scope, 'updateMapMarkers', function(updateData) {
                 var term = updateData[0].search_term;
                 var searchObj = {

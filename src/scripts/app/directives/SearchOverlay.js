@@ -5,14 +5,15 @@ angular.module('SearchOverlay', ['Search', 'EventBus'])
             restrict: 'E',
             replace: true,
             templateUrl: 'src/scripts/app/views/search-overlay.html',
+            scope: {},
             controller: ['$scope', 'SearchService', 'EventBusService',
                 function($scope, SearchService, EventBusService) {
                     $scope.submitSearch = function() {
-                        $scope.term = $scope.term ? $scope.term.trim() : '';
+                        $scope.searchTerm = $scope.searchTerm ? $scope.searchTerm.trim() : '';
 
                         var searchObj = {
                             type: 'enforcement',
-                            term: $scope.term,
+                            term: $scope.searchTerm,
                             limit: 20,
                             skip: 0
                         };
@@ -22,10 +23,12 @@ angular.module('SearchOverlay', ['Search', 'EventBus'])
                                 function(results) {
                                     var result = SearchService.massageData(results, searchObj.term, searchObj.type);
                                     $scope.shouldHide = true;
+                                    $scope.no_results = false;
                                     EventBusService.publish('updateMapMarkers', result);
                                 },
                                 function() {
-                                    // TODO: Better error handling.
+                                    $scope.no_results = true;
+                                    EventBusService.publish('badSearch', $scope.searchTerm);
                                     console.error('Search failed.');
                                 }
                             );
