@@ -39,6 +39,9 @@ angular.module('DetailsCtrl', [])
                         $scope.routes = [];
                         $scope.manufacturers = [];
 
+                        console.log($scope.indications_and_usage);
+                        console.log($scope.generic_name);
+                        console.log($scope.contraindications);
                         labelData.forEach(function(datum) {
                             datum.openfda.route.forEach(function(route) {
                                 if ($scope.routes.indexOf(route) === -1) {
