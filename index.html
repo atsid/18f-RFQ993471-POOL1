@@ -49,7 +49,7 @@
     <script src="src/scripts/app/services/Search.js"></script>
     <script src="src/scripts/app/services/EventBus.js"></script>
 </head>
-<body>
+<body ng-controller="MasterController as master">
 
 <!-- Contains global search menu for mobile -->
 <div id="mobile-menu">
@@ -64,7 +64,7 @@
 </div>
 
 <!-- Used for mobile view.  All elements slide to reveal Menu -->
-<div class="wrapper">
+<div class="wrapper" ng-click="master.toggleMobileMenu($event)" ng-class="{ 'open': master.mobileMenuIsActive }">
     <header ng-controller="HeaderController as header">
         <div id="top-ribbon">
             <a href="#"><img src="src/assets/img/logo.png" alt="MedWatch Logo"/></a>
@@ -85,13 +85,5 @@
     <div ui-view>
     </div>
 </div>
-
-<script>
-    var toggleMenu = $(this).click(function(){
-        $('.wrapper').toggleClass('open');
-    });
-    $('.mobile-menu-btn').toggleMenu;
-    
-</script>
 </body>
 </html>
