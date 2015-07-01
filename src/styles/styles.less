@@ -79,7 +79,7 @@ button {
     bottom:0;
     left:0;
     height:100%;
-    padding:2% 5% 0;
+    padding:8% 5% 0;
     width:80%;
     z-index:0;
     h1 {
@@ -413,6 +413,14 @@ h1, h2, h3, h4, h5, h6{
         }
         form{
             position:relative;
+        }
+        .tooltip-body{
+            background:red;
+            max-width:40rem;
+            white-space:normal;
+            &:before{
+                color:red;
+            }
         }
     }
     .dialog-bottom{
@@ -902,3 +910,30 @@ The .icon mixins allows you to integrate icons easily into your application. In 
     }
 }
 
+.tooltip-bottom-right{
+    display:inline;
+    position:relative;
+    + .tooltip-body{
+        top:100%;
+        left:0%;
+        margin-top:9px;
+        &:before{
+            left:1rem;
+            top:-1.6rem;
+            border-top:8px solid transparent; // IE Fallback
+            border-bottom:8px solid red; // IE Fallback
+            border-top:.8rem solid transparent;
+            border-bottom:.8rem solid red;
+        }
+    }
+    @media screen and (min-width:769px){
+        &:hover{
+            + .tooltip-body{
+                opacity:1;
+                &:before{
+                    opacity:1;
+                }
+            }
+        }
+    }
+}
