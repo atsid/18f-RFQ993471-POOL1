@@ -10742,6 +10742,14 @@ fieldset[disabled] abutton {
 .form-control:focus {
   border-color: #06b8a7;
 }
+.wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+}
 @media screen and (max-width: 768px) {
   .wrapper {
     position: fixed;
@@ -10759,9 +10767,9 @@ fieldset[disabled] abutton {
   }
 }
 #mobile-menu {
+  display: none;
   background: #002032;
   color: white;
-  display: none;
   position: relative;
   top: 0;
   right: 0;
@@ -10803,11 +10811,6 @@ fieldset[disabled] abutton {
   margin: 2% 0;
   width: 100%;
   min-height: 3rem;
-}
-@media screen and (max-width: 768px) {
-  #mobile-menu {
-    display: block;
-  }
 }
 header {
   color: white;
