@@ -1,16 +1,16 @@
 ### Initial Internal ATS User Interview Documentation
 
-[Summary of Internal Interview Responses from June 20-22](https://drive.google.com/file/d/0Bz3OHwIyS4qTUDVRaDczRjBJYU0/view?usp=sharing)
+[Summary of Internal Interview Responses from June 20-22](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/documentation/Research/INTERNAL%20Pool%201%20-%20Round%201%20-%2018F%20Questionaire%20Response%20Summary.pdf)
 
 ### Initial External ATS User Interview Documentation
 
-[Interview Script For External Survey](https://docs.google.com/document/d/1Sn1NJfkpcTBoMBI3mWJ-KBfqWEOpifw2woO8-tHE3pQ/edit?usp=sharing)
+[Interview Script For External Survey](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/documentation/Research/18FInterviewScript.docx)
 
-[Summary of External Interview Responses from June 21-22](https://drive.google.com/file/d/0Bz3OHwIyS4qTR2tTbkVDVzRVYjQ/view?usp=sharing)
+[Summary of External Interview Responses from June 21-22](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/documentation/Research/EXTERNAL%20Pool%201%20-%20Round%201%20-%2018F%20Questionaire%20Response%20Summary.pdf)
 
 ### June 18, 2015, User Subject Matter Expert Research
 
-[Audio of Interview with Blair Eig](https://drive.google.com/file/d/0B3brX_zYBE8URFpYb1NlR1FnQUk/view?usp=sharing) - [Chief Medical Officer of Holy Cross Health](http://www.holycrosshealth.org/leadership)
+[Audio of Interview with Blair Eig](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/documentation/Research/Blair%20Eig%20-%20FDA%20Data.mp3) - [Chief Medical Officer of Holy Cross Health](http://www.holycrosshealth.org/leadership)
 
 ### June 22, 2015 Focus Group
 
