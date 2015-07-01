@@ -20,10 +20,8 @@ angular.module('DetailsCtrl', [])
                 $scope.searchTerm = term.slice(0, 1).toUpperCase() +
                                     term.slice(1).toLowerCase();
 
-                console.log($scope.searchTerm);
                 SearchService.searchDrugs(searchObj, true)
                     .then(function(results) {
-                        console.log(results);
                         // TODO: Guarding against bad values/error checking.
                         var labelData = results.data.results,
                             labelDatum = labelData[0]; // first one has most data on it.
@@ -59,9 +57,6 @@ angular.module('DetailsCtrl', [])
                                 }
                             });
                         });
-                    },
-                    function(error) {
-                        console.log(error);
                     });
             });
         }
