@@ -62,7 +62,7 @@
 
 [Interview Responses](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/documentation/Research/Pool%201%20-%20Round%204%20-%2018F%20Questionaire%20-%20Google%20Forms.pdf)
 
-[Electronic Pillbox Mobile Example](https://popapp.in/w/projects/558ecd33196190bc15f03b73/preview/558ecd64690409674f4ad3e7)
+[Electronic Pillbox Mobile Example (External link)](https://popapp.in/w/projects/558ecd33196190bc15f03b73/preview/558ecd64690409674f4ad3e7)
 
 ### June 29, 2015 Final User Test
 
