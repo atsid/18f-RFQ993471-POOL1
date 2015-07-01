@@ -14,11 +14,6 @@ angular.module('SearchBox', ['Search'])
                     $scope.submitSearch = function($event) {
                         var searchObj = {}, fromDate, toDate, datesAreInvalid = false;
 
-                        if (angular.element($event.target).closest('#mobile-menu').length) {
-                            // deactivate mobile menu on mobile search
-                            EventBusService.publish('closeMobileMenu');
-                        }
-
                         $scope.searchTerm = $scope.searchTerm ? $scope.searchTerm.trim() : '';
                         $scope.fixedSearchTerm = $scope.searchTerm.slice(); // updates only on submit
 
@@ -59,6 +54,10 @@ angular.module('SearchBox', ['Search'])
                                         function(results) {
                                             var result = SearchService.massageData(results, $scope.searchTerm, 'enforcement');
                                             $scope.no_results = false;
+                                            if (angular.element($event.target).closest('#mobile-menu').length) {
+                                                // deactivate mobile menu on mobile search
+                                                EventBusService.publish('closeMobileMenu');
+                                            }
                                             EventBusService.publish('updateMapMarkers', result);
                                         },
                                         function(data, status) {
@@ -80,6 +79,10 @@ angular.module('SearchBox', ['Search'])
                                     function(results) {
                                         var result = SearchService.massageData(results, $scope.searchTerm, 'enforcement');
                                         $scope.no_results = false;
+                                        if (angular.element($event.target).closest('#mobile-menu').length) {
+                                            // deactivate mobile menu on mobile search
+                                            EventBusService.publish('closeMobileMenu');
+                                        }
                                         EventBusService.publish('updateMapMarkers', result);
                                     },
                                     function(data, status) {

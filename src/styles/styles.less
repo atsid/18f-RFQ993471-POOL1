@@ -71,6 +71,12 @@ button {
 }
 
 .wrapper{
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    z-index:100;
     @media screen and (max-width:768px){
         position:fixed;
         top:0;
@@ -88,9 +94,9 @@ button {
 }
 
 #mobile-menu {
+    display:none;
     background: darken(@brand-primary-color,6%);
     color:white;
-    display:none;
     position:relative;
     top:0;
     right:0;
@@ -132,9 +138,10 @@ button {
         width:100%;  
         min-height: 3rem;      
     }
-
     @media screen and (max-width:768px){
-        display:block;
+        &.page-loaded{
+            display:block;
+        }
     }
 }
     
