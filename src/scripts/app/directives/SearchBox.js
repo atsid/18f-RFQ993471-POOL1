@@ -11,8 +11,14 @@ angular.module('SearchBox', ['Search'])
 
                     var geocoder = new google.maps.Geocoder();
 
-                    $scope.submitSearch = function() {
+                    $scope.submitSearch = function($event) {
                         var searchObj = {}, fromDate, toDate, datesAreInvalid = false;
+
+                        if (angular.element($event.target).closest('#mobile-menu').length) {
+                            // deactivate mobile menu on mobile search
+                            EventBusService.publish('closeMobileMenu');
+                        }
+
                         $scope.searchTerm = $scope.searchTerm ? $scope.searchTerm.trim() : '';
                         $scope.fixedSearchTerm = $scope.searchTerm.slice(); // updates only on submit
 
