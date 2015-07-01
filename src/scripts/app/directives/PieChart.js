@@ -45,7 +45,7 @@ angular.module('PieChart', ['EventBus'])
                                 100, // cy
                                 100, // radius
                                 values,
-                                { legend: legend, colors:['#FFDE7B', '#CFD0C6', '#E0DED9', '#93948C','#eeeeee']}
+                                { legend: legend, colors:['#7B95C9', '#457fea', '#E5DDC6', '#A5D842','#06b8a7']}
                             );
 
                             paper.hover(
