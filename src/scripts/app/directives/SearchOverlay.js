@@ -6,8 +6,8 @@ angular.module('SearchOverlay', ['Search', 'EventBus'])
             replace: true,
             templateUrl: 'src/scripts/app/views/search-overlay.html',
             scope: {},
-            controller: ['$scope', 'SearchService', 'EventBusService',
-                function($scope, SearchService, EventBusService) {
+            controller: ['$scope', '$timeout', 'SearchService', 'EventBusService',
+                function($scope, $timeout, SearchService, EventBusService) {
                     $scope.submitSearch = function() {
                         $scope.searchTerm = $scope.searchTerm ? $scope.searchTerm.trim() : '';
                         $scope.fixedSearchTerm = $scope.searchTerm.slice(); // updates only on submit
@@ -43,6 +43,16 @@ angular.module('SearchOverlay', ['Search', 'EventBus'])
                     $scope.notYetImplemented = function() {
                         EventBusService.publish('toasterPopup');
                     };
+
+                    // FIXME: This is a pretty hacky way of hiding the tooltip after a bit of time, but
+                    // the CSS guys didn't get a chance to get to it and we don't have much time here.
+                    $scope.$watch('no_results', function(val) {
+                        if (val === true) {
+                            $timeout(function() {
+                                $scope.no_results = false;
+                            }, 4000);
+                        }
+                    });
                 }
             ],
             link: function(scope, element) {

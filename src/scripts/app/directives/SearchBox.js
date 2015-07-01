@@ -6,8 +6,8 @@ angular.module('SearchBox', ['Search'])
             replace: true,
             scope: {},
             templateUrl: 'src/scripts/app/views/search-box.html',
-            controller: ['$scope', 'SearchService', 'EventBusService',
-                function($scope, SearchService, EventBusService) {
+            controller: ['$scope', '$timeout', 'SearchService', 'EventBusService',
+                function($scope, $timeout, SearchService, EventBusService) {
 
                     var geocoder = new google.maps.Geocoder();
 
@@ -95,6 +95,15 @@ angular.module('SearchBox', ['Search'])
                         console.log('Search submitted!');
                     }; // end $scope.submitSearch
 
+                    // FIXME: This is a pretty hacky way of hiding the tooltip after a bit of time, but
+                    // the CSS guys didn't get a chance to get to it and we don't have much time here.
+                    $scope.$watch('no_results', function(val) {
+                        if (val === true) {
+                            $timeout(function() {
+                                $scope.no_results = false;
+                            }, 4000);
+                        }
+                    });
                 }
             ]
         };
