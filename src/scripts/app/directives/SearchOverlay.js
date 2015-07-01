@@ -39,6 +39,10 @@ angular.module('SearchOverlay', ['Search', 'EventBus'])
                         // rather than the search overlay, since both are available in that case.
                         $scope.shouldHide = true;
                     });
+
+                    $scope.notYetImplemented = function() {
+                        EventBusService.publish('toasterPopup');
+                    };
                 }
             ],
             link: function(scope, element) {
