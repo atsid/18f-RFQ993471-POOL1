@@ -30,7 +30,7 @@ angular.module('SearchBox', ['Search'])
                                             results = SearchService.massageData(results.data, $scope.term, 'enforcement');
                                             EventBusService.publish('updateMapMarkers', results);
                                         },
-                                        function() {
+                                        function(data, status) {
                                             // TODO: Better error handling.
                                             console.error('Error searching for drugs.');
                                         }
@@ -41,10 +41,12 @@ angular.module('SearchBox', ['Search'])
                             SearchService.searchDrugs({ type: 'enforcement', term: $scope.term })
                                 .then(
                                     function(results) {
-                                        results = SearchService.massageData(results.data, $scope.term, 'enforcement');
-                                        EventBusService.publish('updateMapMarkers', results);
+                                        debugger;
+                                        var result = SearchService.massageData(results, $scope.term, 'enforcement');
+                                        EventBusService.publish('updateMapMarkers', result);
                                     },
-                                    function() {
+                                    function(data, status) {
+                                        debugger;
                                         // TODO: Better error handling.
                                         console.error('Error searching for drugs.');
                                     }

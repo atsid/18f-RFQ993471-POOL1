@@ -20,9 +20,9 @@ angular.module('SearchOverlay', ['Search', 'EventBus'])
                         SearchService.searchDrugs(searchObj)
                             .then(
                                 function(results) {
-                                    results = SearchService.massageData(results.data, searchObj.term, searchObj.type);
+                                    var result = SearchService.massageData(results, searchObj.term, searchObj.type);
                                     $scope.shouldHide = true;
-                                    EventBusService.publish('updateMapMarkers', results);
+                                    EventBusService.publish('updateMapMarkers', result);
                                 },
                                 function() {
                                     // TODO: Better error handling.

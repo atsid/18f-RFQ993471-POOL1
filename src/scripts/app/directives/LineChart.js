@@ -39,14 +39,14 @@ angular.module('LineChart', ['EventBus'])
                         .then(function(countData) {
                             var results, xValues, yValues, paper, countText;
 
-                            if (!countData || !countData.data || !countData.data.results) {
+                            if (!countData || !countData.results) {
                                 // TODO: Do something here.
                                 return;
                             }
 
                             // Pull out the relevant results, sorted in reverse chronological order,
                             // and take only the first 50 (so that the chart isn't a jumbled mess).
-                            results = countData.data.results.sort(function(a, b) {
+                            results = countData.results.sort(function(a, b) {
                                 var aTime = +a.time,
                                     bTime = +b.time;
                                 if (aTime < bTime) {
