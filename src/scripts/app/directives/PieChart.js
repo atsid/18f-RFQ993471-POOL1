@@ -43,7 +43,7 @@ angular.module('PieChart', ['EventBus'])
                             paper = scope.piePaper.piechart(
                                 100, // cx
                                 100, // cy
-                                100, // radius
+                                80, // radius
                                 values,
                                 { legend: legend, colors:['#7B95C9', '#457fea', '#E5DDC6', '#A5D842','#06b8a7']}
                             );
