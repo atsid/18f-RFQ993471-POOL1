@@ -6,8 +6,12 @@ angular.module('DetailsCtrl', [])
             $scope.detailsIsOpen = false;
             $scope.no_results = false;
 
-            $scope.toggleDetails = function() {
-                $scope.detailsIsOpen = !$scope.detailsIsOpen;
+            $scope.toggleDetails = function(value) {
+                if (value === 'off') {
+                    $scope.detailsIsOpen = false;
+                } else {
+                    $scope.detailsIsOpen = true;
+                }
             };
 
             EventBusService.subscribe($scope, 'toggleDetails', $scope.toggleDetails);
