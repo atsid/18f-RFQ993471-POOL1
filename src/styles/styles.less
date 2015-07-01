@@ -53,7 +53,7 @@ button {
 
 .wrapper{
     @media screen and (max-width:768px){
-        position:absolute;
+        position:fixed;
         top:0;
         right:0;
         bottom:0;
@@ -64,7 +64,6 @@ button {
         &.open{
             left:80%;
             transition:left 0.15s;
-            position:fixed;
         }
     }
 }
@@ -418,9 +417,6 @@ h1, h2, h3, h4, h5, h6{
             background:red;
             max-width:40rem;
             white-space:normal;
-            &:before{
-                color:red;
-            }
         }
     }
     .dialog-bottom{
@@ -727,20 +723,24 @@ section{
             }
         }
     }
+    #icon-menu{
+        height:12%;
+    }
     #search-overlay{
         top:15%;
         .inner-section{
             height:100%;
             width:100%;
             top:0;
-            bottom:7rem;
+            bottom:12%;
             left:0;
             margin: 0;
         }
     }
     #recall-map{
         top:15%;
-        height:85%;
+        bottom:12%;
+        height:74%;
     }
     #newsfeed, #drug-detail{
         width:100%;
