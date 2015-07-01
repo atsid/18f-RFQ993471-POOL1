@@ -252,29 +252,6 @@ th {
 /*
  * Sprite core
  */
-.icon:after,
-.nav-stacked.nav-tree > li .expander.expanded:after,
-.nav-stacked.nav-tree > li .expander.collapsed:after,
-.breadcrumb > li + li:before,
-.alert-icon-info:after,
-.alert-icon-success:after,
-.alert-icon-danger:after,
-.alert-icon-warning:after,
-.ui-datepicker .ui-datepicker-prev .ui-icon:after,
-.ui-datepicker .ui-datepicker-next .ui-icon:after {
-  content: "";
-  display: inline-block;
-  position: relative;
-  top: 2px;
-  background-repeat: no-repeat;
-  background-image: url(../images/icons/black.svg);
-}
-.icon.icon-inverse:after {
-  background-image: url(../images/icons/white.svg);
-}
-.icon-muted {
-  opacity: .5;
-}
 /*
  * FontAwesome Aliases
  */
@@ -10765,6 +10742,14 @@ fieldset[disabled] abutton {
 .form-control:focus {
   border-color: #06b8a7;
 }
+.wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+}
 @media screen and (max-width: 768px) {
   .wrapper {
     position: fixed;
@@ -10782,9 +10767,9 @@ fieldset[disabled] abutton {
   }
 }
 #mobile-menu {
+  display: none;
   background: #002032;
   color: white;
-  display: none;
   position: relative;
   top: 0;
   right: 0;
@@ -10826,11 +10811,6 @@ fieldset[disabled] abutton {
   margin: 2% 0;
   width: 100%;
   min-height: 3rem;
-}
-@media screen and (max-width: 768px) {
-  #mobile-menu {
-    display: block;
-  }
 }
 header {
   color: white;
