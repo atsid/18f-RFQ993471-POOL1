@@ -1,5 +1,5 @@
-angular.module('RecallMap', [])
-    .directive('recallMap', ['$window', function($window) {
+angular.module('RecallMap', ['EventBus'])
+    .directive('recallMap', ['$window', 'EventBusService', function($window, EventBusService) {
         'use strict';
 
         var geocoder = new google.maps.Geocoder(),
@@ -83,7 +83,7 @@ angular.module('RecallMap', [])
                                         '<p class="recall-notice-product-description">' + datum.product_description + '</p>' +
                                         '<h5>Reason for Recall:</h5>' +
                                         '<p class="recall-notice-reason-for-recall">' + datum.reason_for_recall + '</p>' +
-                                        '<a class="see-full-report">See Full Report</a>' +
+                                        '<a class="see-full-report" ng-click="notYetImplemented()">See Full Report</a>' +
                                     '</div>' +
                                 '</article>';
 
@@ -128,33 +128,18 @@ angular.module('RecallMap', [])
                         }
                     }
                     geocodeWithTimeout(dataCopy[0], 0);
-
-                    /*
-                    data.forEach(function(datum) {
-                        var timeoutId; // we use timeouts to prevent rate-limiting to some degree
-
-                        function maybeDone() {
-                            numGeocoded++;
-                            if (numGeocoded >= numToGeocode) {
-                                clearTimeout(timeoutId);
-                                continueProcessing();
-                            }
-                        }
-
-                        function geocodeWithTimeout() {
-                            geocodeDatum(datum, maybeDone);
-                            timeoutId = setTimeout(geocodeWithTimeout, 100);
-                        }
-
-                        geocodeWithTimeout();
-                    });
-                    */
                 });
 
             }], // end `controller` function
 
             link: function(scope, elem, attrs) {
                 var radius = 50; // default is 50 miles
+                var el= angular.element(elem);
+
+                el.on('click', 'a.see-full-report', function() {
+                    EventBusService.publish('toasterPopup');
+                });
+
                 // TODO: Loading indicator.
 
                 function showMap(position, zoom) {

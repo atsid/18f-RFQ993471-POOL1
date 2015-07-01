@@ -1,5 +1,6 @@
     <icon-menu></icon-menu>
     <section id="main-section">
+        <h1 class="map-title">Drug Recalls</h1>
         <recall-map id="recall-map"></recall-map>
         <search-overlay id="search-overlay"></search-overlay>
     </section> <!-- end #main-section -->
@@ -78,20 +79,19 @@
                     <h2>Manufacturers</h2>
                     <ul>
                         <li ng-repeat="manufacturer in manufacturers">
-                            <a href="#">{{ manufacturer }}</a>
+                            <a href="#" ng-click="notYetImplemented()">{{ manufacturer }}</a>
                         </li>
                     </ul>
                 </div>
                 <div id="additional-info bucket">
                     <h2>Additional Information</h2>
                     <ul>
-                        <li><a href="#">Pediatric Applications</a></li>
-                        <li><a href="#">Effects When Nursing</a></li>
-                        <li><a href="#">Considerations for Pregnant Women</a></li>
+                        <li><a href="#" ng-click="notYetImplemented()">Pediatric Applications</a></li>
+                        <li><a href="#" ng-click="notYetImplemented()">Effects When Nursing</a></li>
+                        <li><a href="#" ng-click="notYetImplemented()">Considerations for Pregnant Women</a></li>
                     </ul>
                 </div>
             </div>
         </div> <!-- end .details-content -->
     </section> <!-- end #newsfeed -->
 
-    

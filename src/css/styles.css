@@ -10642,6 +10642,9 @@ body {
 body.overlay-visible #recall-map {
   bottom: 0px;
 }
+body.overlay-visible .map-title {
+  display: none;
+}
 @media screen and (min-width: 769px) {
   body.overlay-visible #recall-map {
     left: 0;
@@ -11128,11 +11131,33 @@ header .header-content .report-problem:hover {
     box-shadow: inset 0 -4px 0 #9caccc;
   }
 }
+#main-section .map-title {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 200;
+  bottom: 10rem;
+  left: 0.6rem;
+  background: white;
+  border: 1px solid #002032;
+  border-radius: 0 1rem 1rem 0;
+  padding: 1rem 3rem;
+  padding-left: 12rem;
+}
 #main-section h1 {
   margin: 0;
 }
 #main-section h5 {
   margin: 2rem 0 1rem;
+}
+@media screen and (max-width: 768px) {
+  #main-section .map-title {
+    bottom: auto;
+    top: 10rem;
+    left: 0;
+    font-size: 2.4rem;
+    padding: .4rem 2rem;
+    padding-left: 4rem;
+  }
 }
 #recall-map {
   position: absolute !important;

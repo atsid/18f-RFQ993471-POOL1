@@ -1,6 +1,8 @@
 angular.module('MedwatchApp', [
     'ngSanitize',
     'AppRouter',
+    'ngAnimate',
+    'toaster',
     'EventBus',
     'HeaderCtrl',
     'HomeCtrl',

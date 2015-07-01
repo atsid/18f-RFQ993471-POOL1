@@ -6,13 +6,13 @@
                 <form ng-submit="submitSearch()" novalidate>
                     <div class="input-group">
                         <input type="text" ng-model="searchTerm" class="form-control tooltip-bottom-right" placeholder="Enter Drug Name"></input>
-                        <span class="tooltip-body" ng-show="no_results">There are no results for "{{fixedSearchTerm}}". We suggest using the generic name or active ingredient.</span>
+                        <span class="tooltip-body" ng-if="no_results" ng-cloak>There are no results for "{{fixedSearchTerm}}". We suggest using the generic name or active ingredient.</span>
                         <span class="input-group-btn">
                             <button class="btn btn-primary" type="submit"><span>Search MedWatch</span></button>
                         </span>
                     </div>
                     <div class="dialog-bottom">
-                        <a href="#" class="more-options">View All Alerts</a>
+                        <a href="#" class="more-options" ng-click="notYetImplemented()">View All Alerts</a>
                     </div>
                 </form>
             </div> <!-- end div.inner-section -->
