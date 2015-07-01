@@ -1,14 +1,14 @@
         <div id="search">
             <form ng-submit="submitSearch()" novalidate>
                 <input type="text" ng-model="searchTerm" class="form-control search-box tooltip-bottom-right" placeholder="Enter a Drug Name" required></input>
-                <span class="tooltip-body" ng-if="no_results">There are no results for {{fixedSearchTerm}}. We suggest using the generic name or active ingredient.</span>
+                <span class="tooltip-body" ng-if="no_results">There are no results for {{fixedSearchTerm}} in the date range (if any) supplied. We suggest using the generic name or active ingredient.</span>
                 <div class="form-group date-picker">
                     <label for="dp2" class="control-label">Date Range</label>
                     <div>
-                        <input id="dp2" placeholder="mm/dd/yyyy"  type="text" class="datepicker form-control" >
+                        <input id="dp2" placeholder="mm/dd/yyyy" ng-model="fromDate" type="text" class="datepicker form-control" >
                     </div>
                     <div>
-                        <input id="dp3" placeholder="mm/dd/yyyy"  type="text" class="datepicker form-control" >
+                        <input id="dp3" placeholder="mm/dd/yyyy" ng-model="toDate" type="text" class="datepicker form-control" >
                     </div>
                 </div>
                 <button class="btn btn-primary" type="submit">Search</button>

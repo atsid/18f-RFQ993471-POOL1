@@ -30,7 +30,6 @@ angular.module('SearchOverlay', ['Search', 'EventBus'])
                                 function() {
                                     $scope.no_results = true;
                                     EventBusService.publish('badSearch', $scope.searchTerm);
-                                    console.error('Search failed.');
                                 }
                             );
                     };

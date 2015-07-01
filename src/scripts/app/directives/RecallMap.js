@@ -43,7 +43,8 @@ angular.module('RecallMap', [])
                 EventBusService.subscribe($scope, 'updateMapMarkers', function(data) {
                     var numToGeocode = data.length,
                         numGeocoded = 0,
-                        lastOpenInfoWindow = null; // for tracking and closing open windows
+                        lastOpenInfoWindow = null, // for tracking and closing open windows
+                        dataCopy = data.slice(); // we don't want the `shift` below changing the data
 
                     // clear old markers, if any, and reset array
                     currentMapMarkers.forEach(function(mapMarker) {
@@ -53,7 +54,7 @@ angular.module('RecallMap', [])
 
                     function continueProcessing() {
                         var marker, infoWindow, infoWindowContent, searchTermRegExp;
-                        var datum = data.shift();
+                        var datum = dataCopy.shift();
 
                         if (datum) { // undefined datum means we've cleared the array.
                             if (datum.latLng) {
@@ -120,13 +121,13 @@ angular.module('RecallMap', [])
                     function geocodeWithTimeout(datum, i) {
                         i++;
                         geocodeDatum(datum, maybeDone);
-                        if (i < data.length) {
+                        if (i < dataCopy.length) {
                             setTimeout(function() {
-                                geocodeWithTimeout(data[i], i);
+                                geocodeWithTimeout(dataCopy[i], i);
                             }, 100);
                         }
                     }
-                    geocodeWithTimeout(data[0], 0);
+                    geocodeWithTimeout(dataCopy[0], 0);
 
                     /*
                     data.forEach(function(datum) {

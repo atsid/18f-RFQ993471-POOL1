@@ -83,12 +83,14 @@ angular.module('Search', [])
             }
 
             function searchDrugs(options, searchIsAlreadySpecified) {
-                var search, fieldPrefix, fullUrl;
+                var search, fieldPrefix, dateField, dateSearchPortion, today, fullUrl;
                 var type = options.type,
                     term = options.term,
                     limit = options.limit,
                     skip = options.skip, // TODO: not surrently used
-                    count = options.count; // should be the whole search field
+                    count = options.count, // should be the whole search field
+                    fromDate = options.fromDate,
+                    toDate = options.toDate;
 
                 if (type !== 'event' && type !== 'label' && type !== 'enforcement') {
                     // TODO: Do something here.
@@ -98,11 +100,37 @@ angular.module('Search', [])
                 switch (type) {
                     case 'event':
                         fieldPrefix = 'patient.drug.openfda.';
+                        dateField = 'receivedate:';
                         break;
-                    case 'label': // intentional fall-through
+                    case 'label':
+                        fieldPrefix = 'openfda.';
+                        dateField = 'effective_time:'
+                        break;
                     case 'enforcement':
                         fieldPrefix = 'openfda.';
+                        dateField = 'report_date:';
                         break;
+                }
+
+                // Handle limits.
+                if (limit !== null) {
+                    limit = limit || 20;
+                }
+
+                // Handle date ranges if supplied. Requires at least a `fromDate`.
+                // Date string format checking should be done by the caller.
+                if (fromDate) {
+                    dateSearchPortion = dateField + '[' + fromDate + '+TO+';
+                    if (!toDate) {
+                        // Use present date by default.
+                        today = new Date();
+                        dateSearchPortion += today.getFullYear() +
+                                             ((today.getMonth() + 1) < 10 ? '0' + (today.getMonth() + 1) : (today.getMonth())) +
+                                             (today.getDate() < 10 ? '0' + (today.getDate()) : today.getDate());
+                        dateSearchPortion += ']';
+                    } else {
+                        dateSearchPortion += toDate + ']';
+                    }
                 }
 
                 // `searchIsAlreadySpecified` is a flag set to true when and only when the search should
@@ -114,17 +142,15 @@ angular.module('Search', [])
                     search = term;
                 }
 
-                if (limit !== null) {
-                    limit = limit || 20;
-                }
-
                 // This introduces a little too much fuzziness when we're trying to count, so don't add
-                // these fields then.
+                // these fields then. We add them in other cases to get better results.
                 if (type === 'enforcement' && !searchIsAlreadySpecified && !options.count) {
                     search += '+OR+product_description:' + term;
                 } else if (type === 'label' && !searchIsAlreadySpecified && !options.count) {
                     search += '+OR+spl_product_data_elements:' + term;
                 }
+
+                search = '(' + search + ')' + (dateSearchPortion ? '+AND+' + dateSearchPortion : '');
 
                 fullUrl = baseUrl + 'drug/' + type + '.json?api_key=' + apiKey + '&search=' + search +
                           (limit === null ? '' : '&limit=' + limit);
@@ -143,6 +169,7 @@ angular.module('Search', [])
                 });
             }
 
+            // TODO: This is not currently in use... Might just comment it out.
             function searchDrugsByLocation(options) {
                 // NOTE: This method currently only works for 'enforcement', since that seems to be
                 // the only data with location information more specific than the country. Time constraints
