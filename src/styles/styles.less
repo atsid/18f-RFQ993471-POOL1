@@ -317,30 +317,23 @@ h1, h2, h3, h4, h5, h6{
         padding:0;
         &#recall-btn{
             .icon(@icon-warning-full, @size:2);
-            &:before{
-                color:white;
-                width:100%;
-            }
-            &:hover{
-                &:before{
-                    color:@gray-light;
-                }
-            }
         }
         &#drug-detail-btn{
             .icon(@icon-pill, @size:2);
-            &:before{
-                color:white;
-                width:100%;
-            }
-            &:hover{
-                &:before{
-                    color:@gray-light;
-                }
-            }
+        }
+        &#data-visual-btn{
+            .icon(@icon-chart, @size:2);
+        }
+        &#education-btn{
+            .icon(@icon-education, @size:2);
+        }
+        &#settings-btn{
+            .icon(@icon-cog, @size:2);
         }
         &:before{
             font-weight:normal;
+            color:white;
+            width:100%;
         }
         &:hover{
             &:before{
@@ -355,7 +348,7 @@ h1, h2, h3, h4, h5, h6{
         top:auto;
         width:100%;
         button{
-            width:50%;
+            width:20%;
             display:inline-block;
             float:left;
         }
@@ -377,6 +370,9 @@ h1, h2, h3, h4, h5, h6{
     left:3%;
     top:14rem;
     z-index:100;
+    .see-full-report{
+        float:right;
+    }
     @media screen and (max-width:768px){
         left: 0;
         right:0;
