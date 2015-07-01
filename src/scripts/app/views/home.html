@@ -6,12 +6,12 @@
     <!-- In the future, it would make sense to turn newsfeed into a directive. -->
     <section id="newsfeed" ng-controller="DetailsController" ng-class="{ 'open' : detailsIsOpen }">
         <div class="drug-header">
-            <div class="pull-left">
+            <div class=" drug-meta pull-left">
                 <h1>{{ searchTerm }}</h1>
                 <span class="text-muted">{{ product_type }}</span>
                 <span class="text-muted">{{ generic_name }}</span>
             </div>
-            <div class="pull-right">
+            <div class="utility">
                 <button class="print tooltip-right">
                     <span class="tooltip-body">Print Details</span>
                 </button>

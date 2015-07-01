@@ -459,40 +459,12 @@ section{
     padding:4px;
 }
 
-#newsfeed, #drug-detail{
-    background: white;
-    border-right: @border;
-    left:-57rem;
-    top:14rem;
-    bottom:0;
-    height:100%;
-    width:40rem;
-    position:absolute;
-    transition: left 0.15s;
-    z-index:650;
-    &.open{
-        left:5rem;
-        transition: left 0.15s;
-    }
-    @media screen and (max-width:768px){
-        clear:both;
-        width:100%;
-        transition: top 0.15s;
-        top:100%;
-        left:0;
-        &.open{
-            left:0;
-            top:9rem;
-            transition: top 0.15s;
-        }
-    }
-}
 #newsfeed {
     background: #F2F7F9;
     padding: 0;
     height:90%;
     overflow:hidden;
-    width:98%;
+    width: 100%;
     left:-100%;
     z-index:600;
     .drug-header {
@@ -501,20 +473,21 @@ section{
         border-bottom: 1px solid @accent-color-6;
         margin: 0;
         padding: 2rem 4rem 3rem;
-        div.pull-left {
+        .drug-meta {
             span {
+                display: inline-block;
                 border-radius: 9999px;
                 padding: 0.5rem 1rem;
                 font-size: @font-size-small - 0.25;
                 background: @accent-color-5;
-                + span {
-                    margin-left: 1rem;
-                }
+                white-space: pre-wrap;
+                margin-right: 1rem;
             }
         }
-        div.pull-right {
+        .utility {
             position: relative;
             top: 5rem;
+            float: right;
             button{
                 background: none;
                 border:0;
@@ -548,6 +521,7 @@ section{
         line-height: 1.6;
         border-right: 1px solid @accent-color-6;
         overflow: auto;
+        height: 100%;
         p {
             margin-bottom: 3.5rem;
         }
@@ -599,6 +573,42 @@ section{
 
     &.open{
         left:5rem;
+    }
+}
+#newsfeed, #drug-detail{
+    border-right: @border;
+    // left:-57rem;
+    top:14rem;
+    bottom:0;
+    height:100%;
+    // width:40rem;
+    position:absolute;
+    transition: left 0.15s;
+    z-index:650;
+    &.open{
+        // left:0;
+        transition: left 0.15s;
+    }
+    @media screen and (max-width:768px){
+        clear:both;
+        width:100%;
+        transition: top ease-in-out 0.15s;
+        top:100%;
+        left:0;
+        &.open{
+            left:0;
+            top:12rem;
+            transition: top 0.15s;
+        }
+        .drug-meta {
+            span {
+                margin: 1em 1em 0 0;
+            }
+        }
+        .drug-header .utility {
+            float: left;
+            top: 1rem;
+        }
     }
 }
 
