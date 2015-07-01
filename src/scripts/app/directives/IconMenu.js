@@ -6,8 +6,12 @@ angular.module('IconMenu', [])
             replace: true,
             templateUrl: 'src/scripts/app/views/icon-menu.html',
             controller: ['$scope', 'EventBusService', function($scope, EventBusService) {
-                $scope.toggleDetails = function($event) {
-                    EventBusService.publish('toggleDetails');
+                $scope.isActiveButton = function(id) {
+                    return $scope.activeButton === id;
+                }
+                $scope.toggleDetails = function($event, value) {
+                    $scope.activeButton = angular.element($event.target).attr('id');
+                    EventBusService.publish('toggleDetails', value);
                 };
             }]
         };

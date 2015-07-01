@@ -5,87 +5,91 @@
     </section> <!-- end #main-section -->
     <!-- In the future, it would make sense to turn newsfeed into a directive. -->
     <section id="newsfeed" ng-controller="DetailsController" ng-class="{ 'open' : detailsIsOpen }">
-        <div class="drug-header">
-            <div class="pull-left">
-                <h1>{{ searchTerm }}</h1>
-                <span class="text-muted">{{ product_type }}</span>
-                <span class="text-muted">{{ generic_name }}</span>
-            </div>
-            <div class="pull-right">
-                <button class="print tooltip-right">
-                    <span class="tooltip-body">Print Details</span>
-                </button>
-                <button  class="share tooltip-right">
-                    <span class="tooltip-body">Share</span>
-                </button>
-            </div>
+        <div ng-show="no_results" class="no-results text-center">
+            <img src="src/assets/img/detail-page-error.png" alt="Data for this search term is unavailable." />
         </div>
-        <div class="col-sm-5 bucket">
-            <h2>Description</h2>
-            <img src="src/assets/img/drug-placeholder.png" alt="Drug Detail Image"/>
-            <p ng-if="description">{{ description }}</p>
-            <div class="routes">
-                <h5>Routes of administration:</h5>
-                <ul>
-                    <li ng-repeat="route in routes">{{ route }}</li>
-                </ul>
-            </div>
-            <div id="current-label">
-                <h2>Label Information</h2>
-                <div ng-if="indications_and_usage">
-                    <h5>Indications and Usage</h5>
-                    <p>{{ indications_and_usage }}</p>
+        <div id="details-content" ng-hide="no_results">
+            <div class="drug-header">
+                <div class=" drug-meta pull-left">
+                    <h1>{{ searchTerm }}</h1>
+                    <span class="text-muted">{{ product_type }}</span>
+                    <span class="text-muted">{{ generic_name }}</span>
                 </div>
-                <div ng-if="contraindications">
-                    <h5>Contraindications</h5>
-                    <p>{{ contraindications }}</p>
-                </div>
-                <div ng-if="drug_interactions">
-                    <h5>Drug Interactions</h5>
-                    <p>{{ drug_interactions }}</p>
-                </div>
-                <div ng-if="dosage_and_administration">
-                    <h5>Dosage and Administration</h5>
-                    <p>{{ dosage_and_administration }}</p>
-                </div>
-                <div ng-if="warnings_table">
-                    <h5>Warnings</h5>
-                    <div ng-bind-html="warnings_table"></div>
-                </div>
-                <div ng-if="precautions">
-                    <h5>Precautions</h5>
-                    <p>{{ precautions }}</p>
+                <div class="utility">
+                    <button class="print tooltip-right">
+                        <span class="tooltip-body">Print Details</span>
+                    </button>
+                    <button  class="share tooltip-right">
+                        <span class="tooltip-body">Share</span>
+                    </button>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-3 bucket" id="adverse-reactions">
-            <h2>Adverse Reactions</h2>
-            <div class="dv-chart">
-                <pie-chart></pie-chart>
+            <div class="col-sm-5 bucket">
+                <h2>Description</h2>
+                <p ng-if="description">{{ description }}</p>
+                <div class="routes">
+                    <h5>Routes of administration:</h5>
+                    <ul>
+                        <li ng-repeat="route in routes">{{ route }}</li>
+                    </ul>
+                </div>
+                <div id="current-label">
+                    <h2>Label Information</h2>
+                    <div ng-if="indications_and_usage">
+                        <h5>Indications and Usage</h5>
+                        <p>{{ indications_and_usage }}</p>
+                    </div>
+                    <div ng-if="contraindications">
+                        <h5>Contraindications</h5>
+                        <p>{{ contraindications }}</p>
+                    </div>
+                    <div ng-if="drug_interactions">
+                        <h5>Drug Interactions</h5>
+                        <p>{{ drug_interactions }}</p>
+                    </div>
+                    <div ng-if="dosage_and_administration">
+                        <h5>Dosage and Administration</h5>
+                        <p>{{ dosage_and_administration }}</p>
+                    </div>
+                    <div ng-if="warnings_table">
+                        <h5>Warnings</h5>
+                        <div ng-bind-html="warnings_table"></div>
+                    </div>
+                    <div ng-if="precautions">
+                        <h5>Precautions</h5>
+                        <p>{{ precautions }}</p>
+                    </div>
+                </div>
             </div>
-            <div class="dv-chart">
-                <line-chart></line-chart>
+            <div class="col-sm-3 bucket" id="adverse-reactions">
+                <h2>Adverse Reactions</h2>
+                <div class="dv-chart">
+                    <pie-chart></pie-chart>
+                </div>
+                <div class="dv-chart">
+                    <line-chart></line-chart>
+                </div>
+                <div class="dv-chart">
+                    <bar-chart></bar-chart>
+                </div>
             </div>
-            <div class="dv-chart">
-                <bar-chart></bar-chart>
+            <div class="col-sm-4 bucket">
+                <div id="manufacturers">
+                    <h2>Manufacturers</h2>
+                    <ul>
+                        <li ng-repeat="manufacturer in manufacturers">
+                            <a href="#">{{ manufacturer }}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="additional-info bucket">
+                    <h2>Additional Information</h2>
+                    <ul>
+                        <li><a href="#">Pediatric Applications</a></li>
+                        <li><a href="#">Effects When Nursing</a></li>
+                        <li><a href="#">Considerations for Pregnant Women</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="col-sm-4 bucket">
-            <div id="manufacturers">
-                <h2>Manufacturers</h2>
-                <ul>
-                    <li ng-repeat="manufacturer in manufacturers">
-                        <a href="#">{{ manufacturer }}</a>
-                    </li>
-                </ul>
-            </div>
-            <div id="additional-info bucket">
-                <h2>Additional Information</h2>
-                <ul>
-                    <li><a href="#">Pediatric Applications</a></li>
-                    <li><a href="#">Effects When Nursing</a></li>
-                    <li><a href="#">Considerations for Pregnant Women</a></li>
-                </ul>
-            </div>
-        </div>
+        </div> <!-- end .details-content -->
     </section> <!-- end #newsfeed -->

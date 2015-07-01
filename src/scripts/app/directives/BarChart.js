@@ -25,12 +25,12 @@ angular.module('BarChart', ['EventBus'])
                         .then(function(countData) {
                             var results, values, legend, paper, countText;
 
-                            if (!countData || !countData.data || !countData.data.results) {
+                            if (!countData || !countData.results) {
                                 // TODO: Do something here.
                                 return;
                             }
 
-                            results = countData.data.results;
+                            results = countData.results;
                             values = results.map(function(result) {
                                 return result.count;
                             });

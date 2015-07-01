@@ -1,8 +1,8 @@
     <section id="icon-menu">
-        <button id="recall-btn" class="tooltip-right" ng-click="toggleDetails()">
+        <button id="recall-btn" class="tooltip-right" ng-class="{ 'active': isActiveButton('recall-btn') }" ng-click="toggleDetails($event, 'off')">
             <span class="tooltip-body">Recall Map</span>
         </button>
-        <button id="drug-detail-btn" class="tooltip-right">
+        <button id="drug-detail-btn" class="tooltip-right" ng-class="{ 'active': isActiveButton('drug-detail-btn') }" ng-click="toggleDetails($event, 'on')">
             <span class="tooltip-body">Drug Details</span>
         </button>
         <button id="data-visual-btn" class="tooltip-right" disabled>
