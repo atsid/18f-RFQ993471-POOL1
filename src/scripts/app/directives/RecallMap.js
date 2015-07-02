@@ -56,6 +56,8 @@ angular.module('RecallMap', ['EventBus'])
                         var marker, infoWindow, infoWindowContent, searchTermRegExp;
                         var datum = dataCopy.shift();
 
+                        google.maps.event.trigger($scope.map, 'resize');
+
                         if (datum) { // undefined datum means we've cleared the array.
                             if (datum.latLng) {
                                 marker = new google.maps.Marker({
