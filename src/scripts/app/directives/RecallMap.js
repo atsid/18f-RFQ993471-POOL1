@@ -1,5 +1,5 @@
 angular.module('RecallMap', ['EventBus'])
-    .directive('recallMap', ['$window', 'EventBusService', function($window, EventBusService) {
+    .directive('recallMap', ['$window', '$timeout', 'EventBusService', function($window, $timeout, EventBusService) {
         'use strict';
 
         var geocoder = new google.maps.Geocoder(),
@@ -142,151 +142,128 @@ angular.module('RecallMap', ['EventBus'])
 
                 // TODO: Loading indicator.
 
-                function showMap(position, zoom) {
+                function showMap() {
                     // scope.$apply(function() {
                         var mapOptions = {
-                            center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
-                  
-                    // Map Styles
-                        styles: [
-                                            {
-                                                "featureType": "administrative.country",
-                                                "elementType": "all",
-                                                "stylers": [
-                                                    {
-                                                        "visibility": "on"
-                                                    },
-                                                    {
-                                                        "color": "#14c7c7"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "featureType": "administrative.country",
-                                                "elementType": "geometry",
-                                                "stylers": [
-                                                    {
-                                                        "visibility": "on"
-                                                    },
-                                                    {
-                                                        "color": "#617995"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "featureType": "administrative.country",
-                                                "elementType": "labels.text",
-                                                "stylers": [
-                                                    {
-                                                        "color": "#212f4f"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "featureType": "administrative.country",
-                                                "elementType": "labels.text.stroke",
-                                                "stylers": [
-                                                    {
-                                                        "visibility": "off"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "featureType": "landscape.natural.landcover",
-                                                "elementType": "geometry",
-                                                "stylers": [
-                                                    {
-                                                        "hue": "#ff0000"
-                                                    },
-                                                    {
-                                                        "lightness": "25"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "featureType": "landscape.natural.landcover",
-                                                "elementType": "geometry.fill",
-                                                "stylers": [
-                                                    {
-                                                        "hue": "#00ffd5"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "featureType": "landscape.natural.landcover",
-                                                "elementType": "labels.text.stroke",
-                                                "stylers": [
-                                                    {
-                                                        "visibility": "simplified"
-                                                    },
-                                                    {
-                                                        "hue": "#ff0000"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "featureType": "landscape.natural.terrain",
-                                                "elementType": "geometry.fill",
-                                                "stylers": [
-                                                    {
-                                                        "visibility": "on"
-                                                    },
-                                                    {
-                                                        "color": "#baca7c"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "featureType": "water",
-                                                "elementType": "all",
-                                                "stylers": [
-                                                    {
-                                                        "visibility": "on"
-                                                    },
-                                                    {
-                                                        "color": "#87a6bc"
-                                                    }
-                                                ]
-                                            }
-                                        ]
+                            styles: [
+                                {
+                                    "featureType": "administrative.country",
+                                    "elementType": "all",
+                                    "stylers": [
+                                        {
+                                            "visibility": "on"
+                                        },
+                                        {
+                                            "color": "#14c7c7"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "featureType": "administrative.country",
+                                    "elementType": "geometry",
+                                    "stylers": [
+                                        {
+                                            "visibility": "on"
+                                        },
+                                        {
+                                            "color": "#617995"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "featureType": "administrative.country",
+                                    "elementType": "labels.text",
+                                    "stylers": [
+                                        {
+                                            "color": "#212f4f"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "featureType": "administrative.country",
+                                    "elementType": "labels.text.stroke",
+                                    "stylers": [
+                                        {
+                                            "visibility": "off"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "featureType": "landscape.natural.landcover",
+                                    "elementType": "geometry",
+                                    "stylers": [
+                                        {
+                                            "hue": "#ff0000"
+                                        },
+                                        {
+                                            "lightness": "25"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "featureType": "landscape.natural.landcover",
+                                    "elementType": "geometry.fill",
+                                    "stylers": [
+                                        {
+                                            "hue": "#00ffd5"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "featureType": "landscape.natural.landcover",
+                                    "elementType": "labels.text.stroke",
+                                    "stylers": [
+                                        {
+                                            "visibility": "simplified"
+                                        },
+                                        {
+                                            "hue": "#ff0000"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "featureType": "landscape.natural.terrain",
+                                    "elementType": "geometry.fill",
+                                    "stylers": [
+                                        {
+                                            "visibility": "on"
+                                        },
+                                        {
+                                            "color": "#baca7c"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "featureType": "water",
+                                    "elementType": "all",
+                                    "stylers": [
+                                        {
+                                            "visibility": "on"
+                                        },
+                                        {
+                                            "color": "#87a6bc"
+                                        }
+                                    ]
+                                }
+                            ]
                         };
-
-
                         var map = new google.maps.Map(document.getElementById(attrs.id), mapOptions);
-                        var circle = new google.maps.Circle({ // circle is used for setting the zoom level
-                            center: mapOptions.center,
-                            radius: radius * 1609.344, // radius in miles
-                            visible: false
-                        });
-                        //var marker;
+                        // bounds approximate the center of the US with entire map in view
+                        var bounds = new google.maps.LatLngBounds(
+                            new google.maps.LatLng(22.49225744817961, -137.6269535),
+                            new google.maps.LatLng(49.33944109801259, -63.79882850000001)
+                        );
 
-                        if (!zoom) {
-                            /* A 'You are here' marker seems unnecessary. Uncomment this if it's wanted.
-                            marker = new google.maps.Marker({
-                                position: mapOptions.center,
-                                map: map,
-                                title: 'You are here'
-                            });
-                            */
-                            map.fitBounds(circle.getBounds());
-                        } else {
-                            map.setZoom(zoom);
-                        }
                         scope.map = map;
+                        map.fitBounds(bounds);
+                        // `fitBounds` is behaving weirdly, making the next hack necessary
+                        $timeout(function() {
+                            map.setZoom(map.getZoom() + 1);
+                        }, 100);
                     // });
                 }
 
-                function showMapWithoutLocation() {
-                    // set position with center of entire US in focus
-                    showMap({ coords: { latitude: 37.09024, longitude: -100.712891 } }, 5);
-                }
-
-                // See comment below this one.
-                showMapWithoutLocation();
-
-                // Uncomment to detect the user's location and use that. We are currently just showing
-                // the whole US because the recent data is too sparse.
-                // $window.navigator.geolocation.getCurrentPosition(showMap, showMapWithoutLocation);
+                showMap();
             }
         };
     }]);
