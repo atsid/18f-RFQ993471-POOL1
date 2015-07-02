@@ -54,19 +54,22 @@ gulp.task('less', function () {
 });
 
 /*
- * Minifies local JS into one file, places it in the output folder, and changes
- * the reference in dist/index.html
- * NOTE: Should be run after the 'inject' task, so that index.html is there for
- * `htmlreplace`.
- * I suppose this could be divided into two distinct tasks...
+ * Minifies local JS into one file and places it in the output folder.
  */
 gulp.task('minify-js', function() {
-    gulp.src(config.src.scripts)
+    return gulp.src(config.src.scripts)
         .pipe(concat('app.js'))
         .pipe(streamify(uglify()))
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('dist/src/scripts'));
+});
 
+/*
+ * Replaces local script tags in dist/index.html with single reference to app.min.js.
+ * Should be run after the 'inject' task, so that index.html is in the right location.
+ * We might be able to do this using 'inject', but I didn't have time to look into it.
+ */
+gulp.task('replace-js', function() {
     return gulp.src('dist/index.html')
         .pipe(htmlreplace({
             js: 'src/scripts/app.min.js'
@@ -116,6 +119,7 @@ gulp.task('build', function (cb) {
         'less',
         'inject',
         'minify-js',
+        'replace-js',
         'site',
         cb);
 });
