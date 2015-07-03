@@ -28,7 +28,7 @@
 |June 29, 2015|Conducted user/usability testing after Sprint 7, results located [HERE](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/wiki/wiki3UXDresearch.md#june-29-2015-final-user-test)|
 
 #####4 - Used at least three "human-centered design" techniques or tools
-> **Evidence** - As demonstrated in our [Lean Start-Up](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/wiki/wiki2projectplan.md#lean-start-up-project-aspects) part of our project plan we utilized user interviews, focus groups, testing, and heuristic reviews of our prototype by subject matter experts.  A detailed repository of all of our research is located on our [UXD Research, UXD Wireframes & Data Research Documentation](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/wiki/wiki3UXDresearch.md) wiki page.
+> **Evidence** - As demonstrated in our [Lean Start-Up](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/wiki/wiki2projectplan.md#lean-start-up-project-aspects) part of our project plan we utilized user interviews, focus groups, testing, and heuristic reviews of our prototype by subject matter experts.  A detailed repository of all of our research is located on our [UXD Research, UXD Wireframes & Data Research Documentation](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/wiki/wiki3UXDresearch.md) wiki repository folder.
 
 #####5 - Created or used a design style guide and/or a pattern library
 > **Evidence** - We chose to utilize the USPTO pattern library (which ATS helped develop) as a foundation for many of the individual components used on the application.  In addition, we created a custom icon font for use in this application utilizing "font awesome" as a starting point for the MEDWATCH Application.
