@@ -51,7 +51,7 @@
 > **Evidence** - Our prototype is designed to work on all major web browsers (Chrome, Safari, Firefox, and Internet Explorer) and is designed to be responsive to the device it is being accessed on.  
 
 #####10 - Provided sufficient documentation to install and run their prototype on another machine 
-> **Evidence** - Information on how a developer can install and run their prototype on another machine can be found in the [DeveloperREADME.md](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/DeveloperREADME.md).
+> **Evidence** - Information on how a developer can install and run the prototype on another machine can be found in the [DeveloperREADME.md](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/DeveloperREADME.md).
 
 #####11 - Prototype and underlying platforms used to create and run the prototype are openly licensed and free of charge 
 > **Evidence** - Our prototype uses only openly licensed and sourced platforms that can be used free of charge.  The listing of our platforms used can be found in our response to question 6.  As well, by using Github Pages, we made sure our prototype is easily accessible.
