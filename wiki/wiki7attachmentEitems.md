@@ -6,11 +6,11 @@
 
 >>|Name|Category Name|
 |----|----|
-|Rick Lee|Product Manager|
+|Rick Lee|Product Manager/Interaction Designer|
 |Pete Oliver-Krueger|Front End Web Designer|
-|Terese Villia|Writer/Content Designer/Content Strategist & Interaction Designer/User Researcher/Usability testing|
+|Terese Villia|Interaction Designer|
 |Brian Ingles|Visual Designer|
-|Derek Gesin|Interaction Designer/User Researcher/Usability Tester|
+|Derek Gesin|Interaction Designer/Visual Designer|
 |Jason Rodgers|Front End Web Designer|
 
 #####3 - Understand what people need, by including people in the prototype design process
