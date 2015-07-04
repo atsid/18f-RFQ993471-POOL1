@@ -8,16 +8,24 @@ angular.module('SearchOverlay', ['Search', 'EventBus'])
             scope: {},
             controller: ['$scope', '$timeout', 'SearchService', 'EventBusService',
                 function($scope, $timeout, SearchService, EventBusService) {
-                    $scope.submitSearch = function() {
+                    $scope.submitSearch = function($event) {
                         $scope.searchTerm = $scope.searchTerm ? $scope.searchTerm.trim() : '';
                         $scope.fixedSearchTerm = $scope.searchTerm.slice(); // updates only on submit
 
+                        var el = angular.element($event.target);
                         var searchObj = {
                             type: 'enforcement',
                             term: $scope.searchTerm,
                             limit: 20,
                             skip: 0
                         };
+
+                        if (el.closest('.inner-section').css('height') === '100%' &&
+                            el.closest('.inner-section').css('width') === '100%') {
+                            // seems we're on mobile. hide the keyboard after searching so that the user
+                            // can see what happened with the search.
+                            el.find('input:focus').blur();
+                        }
 
                         SearchService.searchDrugs(searchObj)
                             .then(
