@@ -1,5 +1,5 @@
 angular.module('RecallMap', ['EventBus'])
-    .directive('recallMap', ['$window', '$timeout', 'EventBusService', function($window, $timeout, EventBusService) {
+    .directive('recallMap', ['$window', 'EventBusService', function($window, EventBusService) {
         'use strict';
 
         var geocoder = new google.maps.Geocoder(),
@@ -255,17 +255,12 @@ angular.module('RecallMap', ['EventBus'])
                         );
 
                         scope.map = map;
-                        map.fitBounds(bounds);
-                        // `fitBounds` is behaving weirdly, making the $timeout that follows necessary
-                        // to set the zoom correctly.
-                        // The difference in timeout delay for mobile is here because it is a hack that
-                        // seems to get the map working reliably in mobile browsers, such as Chrome on
-                        // Android. I made it up, but it seems to work. The shorter delay for non-mobile
-                        // prevents the map from visibly zooming, which is kind of a cool effect but
-                        // something that might ultimately distract the user.
-                        $timeout(function() {
+                        // `fitBounds` is behaving weirdly, making it necessary to increase the zoom
+                        // a bit after it sets the bounds.
+                        google.maps.event.addListenerOnce(map, 'bounds_changed', function() {
                             map.setZoom(map.getZoom() + 1);
-                        }, angular.element('#mobile-menu').css('display') === 'block' ? 1000 : 100);
+                        });
+                        map.fitBounds(bounds);
                     // });
                 }
 
