@@ -264,6 +264,7 @@ angular.module('RecallMap', ['EventBus'])
                         $timeout(function() {
                             map.setZoom(map.getZoom() + 1);
                         }, angular.element('#mobile-menu').css('display') === 'block' ? 1000 : 200);
+                        console.log(angular.element('#mobile-menu').css('display'));
                     // });
                 }
 
