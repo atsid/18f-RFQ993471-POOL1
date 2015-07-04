@@ -1,5 +1,5 @@
 angular.module('RecallMap', ['EventBus'])
-    .directive('recallMap', ['$window', '$timeout', 'EventBusService', function($window, $timeout, EventBusService) {
+    .directive('recallMap', ['$window', 'EventBusService', function($window, EventBusService) {
         'use strict';
 
         var geocoder = new google.maps.Geocoder(),
@@ -261,11 +261,6 @@ angular.module('RecallMap', ['EventBus'])
                             map.setZoom(map.getZoom() + 1);
                         });
                         map.fitBounds(bounds);
-                        /*
-                        $timeout(function() {
-                            map.setZoom(map.getZoom() + 1);
-                        }, angular.element('#mobile-menu').css('display') === 'block' ? 1000 : 100);
-                        */
                     // });
                 }
 
