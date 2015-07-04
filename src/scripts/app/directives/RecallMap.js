@@ -259,7 +259,7 @@ angular.module('RecallMap', ['EventBus'])
                         // `fitBounds` is behaving weirdly, making the next hack necessary
                         $timeout(function() {
                             map.setZoom(map.getZoom() + 1);
-                        }, 100);
+                        }, 1000);
                     // });
                 }
 
