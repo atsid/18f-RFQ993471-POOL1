@@ -260,11 +260,12 @@ angular.module('RecallMap', ['EventBus'])
                         // to set the zoom correctly.
                         // The difference in timeout delay for mobile is here because it is a hack that
                         // seems to get the map working reliably in mobile browsers, such as Chrome on
-                        // Android. I made it up, but it seems to work.
+                        // Android. I made it up, but it seems to work. The shorter delay for non-mobile
+                        // prevents the map from visibly zooming, which is kind of a cool effect but
+                        // something that might ultimately distract the user.
                         $timeout(function() {
                             map.setZoom(map.getZoom() + 1);
-                        }, angular.element('#mobile-menu').css('display') === 'block' ? 1000 : 200);
-                        console.log(angular.element('#mobile-menu').css('display'));
+                        }, angular.element('#mobile-menu').css('display') === 'block' ? 1000 : 100);
                     // });
                 }
 
