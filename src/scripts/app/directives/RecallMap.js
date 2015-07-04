@@ -263,7 +263,7 @@ angular.module('RecallMap', ['EventBus'])
                         // NOTE: This also seems to help the map display more reliably on Android.
                         $timeout(function() {
                             map.setZoom(map.getZoom() + 1);
-                        }, 400);
+                        }, 1000);
                     // });
                 }
 
