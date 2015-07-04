@@ -48,7 +48,7 @@
 > **Evidence** - As demonstrated in our [project plan](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/wiki/wiki2projectplan.md), we focused on using a lean start-up methodology that allowed us to receive consistent feedback, design to meet that feedback, pivot to new ideas when the original ideas weren't supported by that feedback, and prioritized usability features to ensure both the pre-prototype and prototype work was customer centered.
 
 #####9 - Created a prototype that works on multiple devices, and presents a responsive design
-> **Evidence** - Our prototype is designed to work on all major web browsers (Chrome, Safari, Firefox, and Internet Explorer) and is designed to be responsive to the device it is being accessed on.  
+> **Evidence** - Our prototype is designed to work on all major web browswers (Chrome, Safari, Firefox, and Internet Explorer 11) and is designed to be responsive to the device it is being accessed on.  Currently we've successfully used our application on these devices: Iphone 5 and 6, Ipad and Ipad Mini, and most Android devices.  
 
 #####10 - Provided sufficient documentation to install and run their prototype on another machine 
 > **Evidence** - Information on how a developer can install and run the prototype on another machine can be found in the [DeveloperREADME.md](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/DeveloperREADME.md).
