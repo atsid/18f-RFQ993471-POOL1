@@ -107,6 +107,9 @@ angular.module('RecallMap', ['EventBus'])
                             } else {
                                 continueProcessing();
                             }
+                        } else {
+                            // necessary for refreshing the map in some mobile browsers, e.g., Android's
+                            $scope.map.setZoom($scope.map.getZoom());
                         }
                     }
 
