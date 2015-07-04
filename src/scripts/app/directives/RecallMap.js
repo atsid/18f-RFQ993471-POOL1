@@ -257,9 +257,10 @@ angular.module('RecallMap', ['EventBus'])
                         scope.map = map;
                         map.fitBounds(bounds);
                         // `fitBounds` is behaving weirdly, making the next hack necessary
+                        // NOTE: This also seems to help the map display more reliably on Android.
                         $timeout(function() {
                             map.setZoom(map.getZoom() + 1);
-                        }, 1000);
+                        }, 400);
                     // });
                 }
 
