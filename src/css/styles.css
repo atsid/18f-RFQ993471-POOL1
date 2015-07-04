@@ -10815,6 +10815,9 @@ fieldset[disabled] abutton {
 #mobile-menu p {
   color: #879eb5;
 }
+#mobile-menu form {
+  position: relative;
+}
 #mobile-menu input {
   margin-top: 5%;
   min-height: 3rem;
@@ -10826,6 +10829,14 @@ fieldset[disabled] abutton {
 }
 #mobile-menu .search-box {
   margin-top: 5%;
+}
+#mobile-menu .tooltip-body {
+  background: red;
+  position: absolute;
+  top: 103%;
+  width: 100%;
+  max-width: 100%;
+  white-space: normal;
 }
 #mobile-menu .date-picker {
   margin-top: 5%;
