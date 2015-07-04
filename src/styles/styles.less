@@ -159,7 +159,12 @@ button {
         }
     }
 }
-    
+
+div:not(.no-enter)#toast-container > div.ng-enter,
+div:not(.no-leave)#toast-container > div.ng-leave {
+    transition: 500ms cubic-bezier(0.250, 0.650, 0.750, 0.750) all;
+}
+
 header{
     color: white;
     height:14rem;
