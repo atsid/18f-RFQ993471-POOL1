@@ -11423,6 +11423,11 @@ header .header-content .report-problem:hover {
   padding: 1rem 0;
   height: 21rem;
 }
+@media screen and (max-width: 480px) {
+  #newsfeed .bucket {
+    min-width: 0;
+  }
+}
 #newsfeed h2 {
   font-weight: 300;
   font-size: 3rem;
