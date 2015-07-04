@@ -10841,6 +10841,7 @@ fieldset[disabled] abutton {
 @media screen and (max-width: 768px) {
   #mobile-menu.page-loaded {
     display: block;
+    overflow: scroll;
   }
 }
 header {
