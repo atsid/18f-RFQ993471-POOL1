@@ -256,11 +256,16 @@ angular.module('RecallMap', ['EventBus'])
 
                         scope.map = map;
                         map.fitBounds(bounds);
-                        // `fitBounds` is behaving weirdly, making the next hack necessary
-                        // NOTE: This also seems to help the map display more reliably on Android.
+                        // `fitBounds` is behaving weirdly, making the $timeout that follows necessary
+                        // to set the zoom correctly.
+                        // The difference in timeout delay for mobile is here because it is a hack that
+                        // seems to get the map working reliably in mobile browsers, such as Chrome on
+                        // Android. I made it up, but it seems to work. The shorter delay for non-mobile
+                        // prevents the map from visibly zooming, which is kind of a cool effect but
+                        // something that might ultimately distract the user.
                         $timeout(function() {
                             map.setZoom(map.getZoom() + 1);
-                        }, 200);
+                        }, angular.element('#mobile-menu').css('display') === 'block' ? 1000 : 100);
                     // });
                 }
 
