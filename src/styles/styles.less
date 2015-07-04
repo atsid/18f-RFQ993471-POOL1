@@ -118,6 +118,9 @@ button {
     p {
         color: lighten(@text-color,25%);
     }
+    form {
+        position: relative;
+    }
     input {
         margin-top: 5%;
         min-height: 3rem;
@@ -129,6 +132,14 @@ button {
     }
     .search-box{
         margin-top:5%;
+    }
+    .tooltip-body {
+        background: red;
+        position: absolute; // form parent container is position: relative
+        top: 103%;
+        width: 100%;
+        max-width: 100%;
+        white-space: normal; // text in tooltip wasn't wrapping on mobile without this
     }
     .date-picker{
         margin-top:5%;
