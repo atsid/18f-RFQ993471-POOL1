@@ -6,13 +6,15 @@ angular.module('SearchBox', ['Search'])
             replace: true,
             scope: {},
             templateUrl: 'src/scripts/app/views/search-box.html',
-            controller: ['$scope', 'SearchService', 'EventBusService',
-                function($scope, SearchService, EventBusService) {
+            controller: ['$scope', '$timeout', 'SearchService', 'EventBusService',
+                function($scope, $timeout, SearchService, EventBusService) {
 
                     var geocoder = new google.maps.Geocoder();
 
                     $scope.submitSearch = function($event) {
                         var searchObj = {}, fromDate, toDate, datesAreInvalid = false;
+                        var el = angular.element($event.target),
+                            isMobileSearch = el.closest('#mobile-menu').length > 0;
 
                         $scope.searchTerm = $scope.searchTerm ? $scope.searchTerm.trim() : '';
                         $scope.fixedSearchTerm = $scope.searchTerm.slice(); // updates only on submit
@@ -30,6 +32,12 @@ angular.module('SearchBox', ['Search'])
                                                    ((toDate.getMonth() + 1) < 10 ? '0' + (toDate.getMonth() + 1) : (toDate.getMonth())) +
                                                    (toDate.getDate() < 10 ? '0' + (toDate.getDate()) : toDate.getDate());
                             }
+                        }
+
+                        if (isMobileSearch) {
+                            // hide the mobile keyboard when search is submitted so that user can
+                            // see what happened
+                            el.find('input:focus').blur();
                         }
 
                         // This RegExp could be simplified. It checks for zip codes in the following
@@ -54,7 +62,7 @@ angular.module('SearchBox', ['Search'])
                                         function(results) {
                                             var result = SearchService.massageData(results, $scope.searchTerm, 'enforcement');
                                             $scope.no_results = false;
-                                            if (angular.element($event.target).closest('#mobile-menu').length) {
+                                            if (isMobileSearch) {
                                                 // deactivate mobile menu on mobile search
                                                 EventBusService.publish('closeMobileMenu');
                                             }
@@ -79,7 +87,7 @@ angular.module('SearchBox', ['Search'])
                                     function(results) {
                                         var result = SearchService.massageData(results, $scope.searchTerm, 'enforcement');
                                         $scope.no_results = false;
-                                        if (angular.element($event.target).closest('#mobile-menu').length) {
+                                        if (isMobileSearch) {
                                             // deactivate mobile menu on mobile search
                                             EventBusService.publish('closeMobileMenu');
                                         }
@@ -95,6 +103,15 @@ angular.module('SearchBox', ['Search'])
                         console.log('Search submitted!');
                     }; // end $scope.submitSearch
 
+                    // FIXME: This is a pretty hacky way of hiding the tooltip after a bit of time, but
+                    // the CSS guys didn't get a chance to get to it and we don't have much time here.
+                    $scope.$watch('no_results', function(val) {
+                        if (val === true) {
+                            $timeout(function() {
+                                $scope.no_results = false;
+                            }, 4000);
+                        }
+                    });
                 }
             ]
         };

@@ -6,11 +6,11 @@
 
 >>|Name|Category Name|
 |----|----|
-|Rick Lee|Product Manager|
+|Rick Lee|Product Manager/Interaction Designer/User Researcher/Usability Tester|
 |Pete Oliver-Krueger|Front End Web Designer|
-|Terese Villia|Writer/Content Designer/Content Strategist & Interaction Designer/User Researcher/Usability testing|
+|Terese Villia|Interaction Designer/User Researcher/Usability Tester|
 |Brian Ingles|Visual Designer|
-|Derek Gesin|Interaction Designer/User Researcher/Usability Tester|
+|Derek Gesin|Visual Designer/Interaction Designer/User Researcher/Usability Tester|
 |Jason Rodgers|Front End Web Designer|
 
 #####3 - Understand what people need, by including people in the prototype design process
@@ -28,13 +28,13 @@
 |June 29, 2015|Conducted user/usability testing after Sprint 7, results located [HERE](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/wiki/wiki3UXDresearch.md#june-29-2015-final-user-test)|
 
 #####4 - Used at least three "human-centered design" techniques or tools
-> **Evidence** - As demonstrated in our [Lean Start-Up](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/wiki/wiki2projectplan.md#lean-start-up-project-aspects) part of our project plan we utilized user interviews, focus groups, testing, and heuristic reviews of our prototype by subject matter experts.  A detailed repository of all of our research is located on our [UXD Research, UXD Wireframes & Data Research Documentation](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/wiki/wiki3UXDresearch.md) wiki page.
+> **Evidence** - As demonstrated in our [Lean Start-Up](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/wiki/wiki2projectplan.md#lean-start-up-project-aspects) part of our project plan we utilized user interviews, focus groups, testing, and heuristic reviews of our prototype by subject matter experts.  A detailed repository of all of our research is located on our [UXD Research, UXD Wireframes & Data Research Documentation](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/wiki/wiki3UXDresearch.md) wiki repository folder.
 
 #####5 - Created or used a design style guide and/or a pattern library
-> **Evidence** - We chose to utilize the USPTO pattern library (which ATS helped develop) as a foundation for many of the individual components used on the application.  In addition, we created a custom icon font for use in this application utilizing "font awesome" as a starting point for the MEDWATCH Application.
+> **Evidence** - We chose to utilize the USPTO pattern library (which ATS helped develop) as a foundation for many of the individual components used on the application.  In addition, we created custom icons and symbols as a starting point in the design for the MEDWATCH Application.
 
 #####6 - Used at least three modern and open-source frontend or client-side web technologies
-> **Evidence** The modern and open-source frontend development tools we used included AngularJS ([license](https://github.com/angular/angular.js/blob/master/LICENSE)), JQuery ([license](https://jquery.org/license/)), Bootstrap ([license](http://getbootstrap.com/getting-started/#license-faqs)), Angular-UI ([license](https://github.com/angular-ui/bootstrap/blob/master/LICENSE)), Angular UI-Router ([license](https://github.com/angular-ui/ui-router/blob/master/LICENSE)), RaphaelJS ([license](http://raphaeljs.com/license.html)), Less.js ([license](https://github.com/less/less.js/blob/master/LICENSE)), HTML5, CSS3, Snazzy Maps ([license](https://snazzymaps.com/about)) and Google Maps Javascript API ([Usage Limits](https://developers.google.com/maps/documentation/javascript/usage)).
+> **Evidence** The modern and open-source frontend development tools we used included AngularJS ([license](https://github.com/angular/angular.js/blob/master/LICENSE)), JQuery ([license](https://jquery.org/license/)), Bootstrap ([license](http://getbootstrap.com/getting-started/#license-faqs)), Angular-UI ([license](https://github.com/angular-ui/bootstrap/blob/master/LICENSE)), Angular UI-Router ([license](https://github.com/angular-ui/ui-router/blob/master/LICENSE)), RaphaelJS ([license](http://raphaeljs.com/license.html)), Less.js ([license](https://github.com/less/less.js/blob/master/LICENSE)), HTML5, CSS3, Snazzy Maps ([license](https://snazzymaps.com/about)), AngularJS-Toaster ([license](https://github.com/jirikavi/AngularJS-Toaster#license)) and Google Maps Javascript API ([Usage Limits](https://developers.google.com/maps/documentation/javascript/usage)).
 
 #####7 - Performed usability tests with people
 > **Evidence** - The team performed two user/usability tests during the process.  The first usability test focused upon created wireframes and data interactions.  The second, and final, usability test was the final test before prototype finalization and submission.  Both of these tests occurred at the end of a day long sprint.  
@@ -48,10 +48,10 @@
 > **Evidence** - As demonstrated in our [project plan](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/wiki/wiki2projectplan.md), we focused on using a lean start-up methodology that allowed us to receive consistent feedback, design to meet that feedback, pivot to new ideas when the original ideas weren't supported by that feedback, and prioritized usability features to ensure both the pre-prototype and prototype work was customer centered.
 
 #####9 - Created a prototype that works on multiple devices, and presents a responsive design
-> **Evidence** - Our prototype is designed to work on all major web browsers (Chrome, Safari, Firefox, and Internet Explorer) and is designed to be responsive to the device it is being accessed on.  Our prototype can be accessed by going to this link:
+> **Evidence** - Our prototype is designed to work on all major web browswers (Chrome, Safari, Firefox, and Internet Explorer 11) and is designed to be responsive to the device it is being accessed on.  Currently we've successfully used our application on these devices: Iphone 5 and 6, Ipad and Ipad Mini, and most Android devices.  
 
 #####10 - Provided sufficient documentation to install and run their prototype on another machine 
-> **Evidence** - Information on how a developer can install and run their prototype on another machine can be found in the [DeveloperREADME.md](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/DeveloperREADME.md).
+> **Evidence** - Information on how a developer can install and run the prototype on another machine can be found in the [DeveloperREADME.md](https://github.com/atsid/18f-RFQ993471-POOL1/blob/master/DeveloperREADME.md).
 
 #####11 - Prototype and underlying platforms used to create and run the prototype are openly licensed and free of charge 
 > **Evidence** - Our prototype uses only openly licensed and sourced platforms that can be used free of charge.  The listing of our platforms used can be found in our response to question 6.  As well, by using Github Pages, we made sure our prototype is easily accessible.

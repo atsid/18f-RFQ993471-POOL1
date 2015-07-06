@@ -153,6 +153,9 @@ button {
     p {
         color: lighten(@text-color,25%);
     }
+    form {
+        position: relative;
+    }
     input {
         margin-top: 5%;
         min-height: 3rem;
@@ -164,6 +167,14 @@ button {
     }
     .search-box{
         margin-top:5%;
+    }
+    .tooltip-body {
+        background: red;
+        position: absolute; // form parent container is position: relative
+        top: 103%;
+        width: 100%;
+        max-width: 100%;
+        white-space: normal; // text in tooltip wasn't wrapping on mobile without this
     }
     .date-picker{
         margin-top:5%;
@@ -179,10 +190,16 @@ button {
     @media screen and (max-width:768px){
         &.page-loaded{
             display:block;
+            overflow: scroll;
         }
     }
 }
-    
+
+div:not(.no-enter)#toast-container > div.ng-enter,
+div:not(.no-leave)#toast-container > div.ng-leave {
+    transition: 500ms cubic-bezier(0.250, 0.650, 0.750, 0.750) all;
+}
+
 header{
     color: white;
     height:14rem;
@@ -641,8 +658,11 @@ header{
             }
         }
         svg {
-            padding: 1rem;
+            padding: 1rem 0;
             height: 21rem;
+        }
+        @media screen and (max-width:480px){
+            min-width: 0;
         }
     }
     h2 {
@@ -686,6 +706,7 @@ header{
             transition: top 0.15s;
         }
         .bucket{
+            padding: 2rem;
             overflow: hidden;
              -webkit-overflow-scrolling: touch;
         }
@@ -709,7 +730,6 @@ header{
             height: 25rem;
         }
     }
-
     figcaption {
         font-weight: 700;
         color: @brand-primary-color;

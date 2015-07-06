@@ -6,6 +6,11 @@ var less = require('gulp-less');
 var inject = require('gulp-inject');
 var webserver = require('gulp-webserver');
 var jshint = require('gulp-jshint');
+var concat = require('gulp-concat');
+var streamify = require('gulp-streamify');
+var uglify = require('gulp-uglify');
+var rename = require('gulp-rename');
+var htmlreplace = require('gulp-html-replace');
 var rimraf = require('rimraf');
 var runSequence = require('run-sequence');
 var ghPages = require('gulp-gh-pages');
@@ -49,6 +54,30 @@ gulp.task('less', function () {
 });
 
 /*
+ * Minifies local JS into one file and places it in the output folder.
+ */
+gulp.task('minify-js', function() {
+    return gulp.src(config.src.scripts)
+        .pipe(concat('app.js'))
+        .pipe(streamify(uglify()))
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(gulp.dest('dist/src/scripts'));
+});
+
+/*
+ * Replaces local script tags in dist/index.html with single reference to app.min.js.
+ * Should be run after the 'inject' task, so that index.html is in the right location.
+ * We might be able to do this using 'inject', but I didn't have time to look into it.
+ */
+gulp.task('replace-js', function() {
+    return gulp.src('dist/index.html')
+        .pipe(htmlreplace({
+            js: 'src/scripts/app.min.js'
+        }))
+        .pipe(gulp.dest(config.src.build));
+});
+
+/*
  * Clean out the build directory so we don't have any excess junk
  */
 gulp.task('clean', function (cb) {
@@ -89,6 +118,8 @@ gulp.task('build', function (cb) {
     return runSequence(
         'less',
         'inject',
+        'minify-js',
+        'replace-js',
         'site',
         cb);
 });
