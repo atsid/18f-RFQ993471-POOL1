@@ -72,7 +72,42 @@ button {
 .form-control:focus {
     border-color: @accent-color-1;
 }
-
+.loading-spinner{
+    background: rgba(0, 51, 81, 0.6);
+    border:1px solid darken(@brand-primary-color,6%);
+    border-radius:2rem;
+    box-shadow:0px 2px 4px rgba(0, 0, 0, 0.5);
+    color:white;
+    font-size:150%;
+    top:50%;
+    left:50%;
+    margin:-5%;
+    height:20%;
+    width:10%;
+    padding: 1rem;
+    position:fixed;
+    text-align:center;
+    z-index:900;
+    span{
+        .icon(@icon-spinner, @margin:.6rem, @size: 1.4);
+        display:block;
+        &:before{
+            .icon-spin;
+            display:block;
+            margin:30% 0 10% 0;
+        }
+    }
+    @media screen and (max-width:768px){
+        margin:-18%;
+        height:22%;
+        width:36%;
+    }
+    @media screen and (max-width:480px){
+        margin:-30%;
+        height:30%;
+        width:60%;
+    }
+}
 .wrapper{
     position:absolute;
     top:0;
@@ -171,7 +206,7 @@ header{
     position:relative;
     top:0;
     width: 100%;
-    z-index:800;
+    z-index:1000;
     img{
         height: 50%;
         position:relative;
@@ -452,7 +487,7 @@ header{
     bottom:0;
     left:0;
     height:100%;
-    z-index:800;
+    z-index:1000;
     .inner-section{
         background: white;
         border-radius:@border-radius;
@@ -794,80 +829,44 @@ The .icon mixins allows you to integrate icons easily into your application. In 
     }
 }
 
-/**.icon-after
-----------
-    .icon-after(@type, @size: 1, @color: inherit, @margin: 0.3em, @vert-align: middle, @float: none, @position: static, @top: auto);
-*/
-
-.icon-after(@type, @font-family:TMNG-Icon-Font, @size: 1, @color: inherit, @margin: 0.3em, @vert-align: middle, @position: static, @top: auto) {
-    &:after {
-      font-family: @font-family;
-      display: inline-block;
-      vertical-align: @vert-align;
-      margin-left: @margin;
-      content: @type;
-      font-size: @size * 1em;
-      line-height: 1em / @size;
-      color: @color;
-      position: @position;
-      top: @top;
+.icon-spin {
+    display: inline-block;
+    -moz-animation: spin 2s infinite linear;
+    -o-animation: spin 2s infinite linear;
+    -webkit-animation: spin 2s infinite linear;
+    animation: spin 2s infinite linear;
+    span {
+        .throw-off-screen;
     }
 }
-
-/**.icon-before
-----------------
-    .icon-before(@type, @size: 1, @color: inherit, @margin: 0.3em, @vert-align: middle, @float: left, @position: static, @top: auto);
-*/
-
-.icon-before(@type, @font-family:TMNG-Icon-Font, @size: 1, @color: inherit, @margin: 0.3em, @vert-align: middle, @position: static, @top: auto) {
-    &:before {
-      font-family: @font-family;
-      display: inline-block;
-      vertical-align: @vert-align;
-      margin-left: @margin;
-      content: @type;
-      font-size: @size * 1em;
-      line-height: 1em / @size;
-      color: @color;
-      float: left;
-      position: @position;
-      top: @top;
+@-moz-keyframes spin {
+    0% { -moz-transform: rotate(0deg); }
+    100% { -moz-transform: rotate(359deg); }
+}
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(359deg); }
+}
+@-o-keyframes spin {
+    0% { -o-transform: rotate(0deg); }
+    100% { -o-transform: rotate(359deg); }
+}
+@-ms-keyframes spin {
+    0% { -ms-transform: rotate(0deg); }
+    100% { -ms-transform: rotate(359deg); }
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(359deg); }
+}
+@-moz-document url-prefix() {
+    .icon-spin {
+        height: .9em;
+    }
+    .btn .icon-spin {
+        height: auto;
     }
 }
-
-/**.icon-menu
------------------
-    .icon-menu(@type, @top: auto, @left: auto, @color: inherit, @size: 1);
-*/
-
-.icon-menu (@type, @font-family:TMNG-Icon-Font, @top: auto, @left: auto, @color: inherit, @size: 1) {
-    &:before {
-      color:@color;
-      font-family: @font-family;
-      display: inline-block;
-      vertical-align: middle;
-      content: @type;
-      font-size: @size * 1em;
-      line-height: 1.2em / @size;
-      position: absolute;
-      top: auto;
-      left: @left;
-    }
-}
-
-
-/**.icon-combo
-------------------
-    With this mix-in, you can combine two icons to create a new one.  The overlay icon will appear smaller and overlay the bottom right corner of the primary icon.  
-    
-    .icon-combo(@primary-icon, @overlay-icon)
-*/
-
-.icon-combo(@primary-icon, @overlay-icon){
-    .icon-before(@primary-icon, @position:relative, @margin:0, @size:0.9em);
-    .icon-after(@overlay-icon, @position:absolute, @margin:-0.6em, @top: 0.8em, @size:0.8em);
-}
-
 
 
 // Button Tweaks
