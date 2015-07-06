@@ -1,6 +1,6 @@
         <div id="search">
-            <form ng-submit="submitSearch($event)" novalidate>
-                <input type="search" ng-model="searchTerm" class="form-control search-box tooltip-bottom-right" placeholder="Enter a Drug Name" required></input>
+            <form ng-submit="submitSearch($event)" novalidate action=".">
+                <input type="search" name="search" id="search-box" ng-model="searchTerm" class="form-control search-box tooltip-bottom-right" placeholder="Enter a Drug Name" required></input>
                 <span class="tooltip-body" ng-if="no_results">There are no results for {{fixedSearchTerm}} in the date range (if any) supplied. We suggest using the generic name or active ingredient.</span>
                 <div class="form-group date-picker">
                     <label for="dp2" class="control-label">Date Range</label>
