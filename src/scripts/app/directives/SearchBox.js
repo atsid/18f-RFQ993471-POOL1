@@ -19,6 +19,8 @@ angular.module('SearchBox', ['Search'])
                         $scope.searchTerm = $scope.searchTerm ? $scope.searchTerm.trim() : '';
                         $scope.fixedSearchTerm = $scope.searchTerm.slice(); // updates only on submit
 
+                        EventBusService.publish('toggleLoadingSpinner', true);
+
                         fromDate = new Date($scope.fromDate);
                         toDate = $scope.toDate ? new Date($scope.toDate) : '';
                         datesAreInvalid = (isNaN(fromDate.getTime()) || ((toDate !== '') && isNaN(toDate.getTime())));
@@ -71,6 +73,7 @@ angular.module('SearchBox', ['Search'])
                                         function(data, status) {
                                             $scope.no_results = true;
                                             EventBusService.publish('badSearch', $scope.searchTerm);
+                                            EventBusService.publish('toggleLoadingSpinner', false);
                                             console.error('Error searching for drugs.');
                                         }
                                     );
@@ -96,6 +99,7 @@ angular.module('SearchBox', ['Search'])
                                     function(data, status) {
                                         $scope.no_results = true;
                                         EventBusService.publish('badSearch', $scope.searchTerm);
+                                        EventBusService.publish('toggleLoadingSpinner', false);
                                         console.error('Error searching for drugs.');
                                     }
                                 );

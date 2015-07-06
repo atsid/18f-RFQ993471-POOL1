@@ -1,5 +1,5 @@
 angular.module('RecallMap', ['EventBus'])
-    .directive('recallMap', ['$window', 'EventBusService', function($window, EventBusService) {
+    .directive('recallMap', ['$window', '$timeout', 'EventBusService', function($window, $timeout, EventBusService) {
         'use strict';
 
         var geocoder = new google.maps.Geocoder(),
@@ -103,7 +103,7 @@ angular.module('RecallMap', ['EventBus'])
                                     lastOpenInfoWindow = infoWindow;
                                 });
 
-                                setTimeout(continueProcessing, 100); // delay results in animation
+                                $timeout(continueProcessing, 100); // delay results in animation
                             } else {
                                 continueProcessing();
                             }
@@ -113,6 +113,7 @@ angular.module('RecallMap', ['EventBus'])
                     function maybeDone() {
                         numGeocoded++;
                         if (numGeocoded >= numToGeocode) {
+                            EventBusService.publish('toggleLoadingSpinner', false);
                             continueProcessing();
                         }
                     }
@@ -122,7 +123,7 @@ angular.module('RecallMap', ['EventBus'])
                         i++;
                         geocodeDatum(datum, maybeDone);
                         if (i < dataCopy.length) {
-                            setTimeout(function() {
+                            $timeout(function() {
                                 geocodeWithTimeout(dataCopy[i], i);
                             }, 100);
                         }

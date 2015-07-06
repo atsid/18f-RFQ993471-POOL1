@@ -12,6 +12,8 @@ angular.module('SearchOverlay', ['Search', 'EventBus'])
                         $scope.searchTerm = $scope.searchTerm ? $scope.searchTerm.trim() : '';
                         $scope.fixedSearchTerm = $scope.searchTerm.slice(); // updates only on submit
 
+                        EventBusService.publish('toggleLoadingSpinner', true);
+
                         var el = angular.element($event.target);
                         var searchObj = {
                             type: 'enforcement',
@@ -38,6 +40,7 @@ angular.module('SearchOverlay', ['Search', 'EventBus'])
                                 function() {
                                     $scope.no_results = true;
                                     EventBusService.publish('badSearch', $scope.searchTerm);
+                                    EventBusService.publish('toggleLoadingSpinner', false);
                                 }
                             );
                     };
