@@ -11280,7 +11280,7 @@ header .header-content .report-problem:hover {
 #search-overlay .inner-section p {
   margin-bottom: 2rem;
 }
-#search-overlay .inner-section input[type="text"] {
+#search-overlay .inner-section input[type="search"] {
   border-radius: 3px;
   font-size: 1.8rem;
   color: #222;
