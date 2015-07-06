@@ -26,7 +26,7 @@ angular.module('SearchOverlay', ['Search', 'EventBus'])
                             el.closest('.inner-section').css('width') === '100%') {
                             // seems we're on mobile. hide the keyboard after searching so that the user
                             // can see what happened with the search.
-                            el.find('input:focus').blur();
+                            document.activeElement.blur();
                         }
 
                         SearchService.searchDrugs(searchObj)
