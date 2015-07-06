@@ -6,8 +6,8 @@ angular.module('BarChart', ['EventBus'])
             restrict: 'E',
             replace: true,
             templateUrl: 'src/scripts/app/views/bar-chart.html',
-            link: function(scope, element, attrs) {
-                scope.barPaper = Raphael('serious-nonserious-chart');
+            link: function(scope) {
+                scope.barPaper = new Raphael('serious-nonserious-chart');
 
                 // Update the chart's data whenever the map is also updated by a new search.
                 EventBusService.subscribe(scope, 'updateMapMarkers', function(updateData) {
@@ -23,7 +23,7 @@ angular.module('BarChart', ['EventBus'])
 
                     SearchService.searchDrugs(searchObj)
                         .then(function(countData) {
-                            var results, values, legend, paper, countText;
+                            var results, values, legend, paper;
 
                             if (!countData || !countData.results) {
                                 // TODO: Do something here.

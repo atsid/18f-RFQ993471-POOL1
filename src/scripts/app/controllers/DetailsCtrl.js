@@ -19,10 +19,12 @@ angular.module('DetailsCtrl', [])
             };
 
             EventBusService.subscribe($scope, 'toggleDetails', $scope.toggleDetails);
+
             EventBusService.subscribe($scope, 'badSearch', function(term) {
                 $scope.searchTerm = term;
                 $scope.no_results = true;
-            })
+            });
+
             EventBusService.subscribe($scope, 'updateMapMarkers', function(updateData) {
                 var term = updateData[0].search_term;
                 var searchObj = {
@@ -70,7 +72,7 @@ angular.module('DetailsCtrl', [])
                                 });
                             });
                         },
-                        function(data, status) {
+                        function() {
                             $scope.no_results = true;
                             console.log('Search failed!');
                         }

@@ -134,14 +134,11 @@ angular.module('RecallMap', ['EventBus'])
             }], // end `controller` function
 
             link: function(scope, elem, attrs) {
-                var radius = 50; // default is 50 miles
-                var el= angular.element(elem);
+                var el = angular.element(elem);
 
                 el.on('click', 'a.see-full-report', function() {
                     EventBusService.publish('toasterPopup');
                 });
-
-                // TODO: Loading indicator.
 
                 function showMap() {
                     // scope.$apply(function() {

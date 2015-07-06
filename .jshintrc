@@ -10,7 +10,7 @@
   "latedef": true,
   "newcap": true,
   "noarg": true,
-  "quotmark": "single",
+  "quotmark": false,
   "regexp": true,
   "undef": true,
   "unused": true,
@@ -38,6 +38,10 @@
     "define": true,
     "require": true,
     // Google Maps
-    "google": true
+    "google": true,
+    // RaphaelJS
+    "Raphael": true,
+    // jQuery
+    "$": true
   }
 }

@@ -6,8 +6,8 @@ angular.module('LineChart', ['EventBus'])
             restrict: 'E',
             replace: true,
             templateUrl: 'src/scripts/app/views/line-chart.html',
-            link: function(scope, element, attrs) {
-                scope.lineChart = Raphael('reactions-over-time-chart');
+            link: function(scope) {
+                scope.lineChart = new Raphael('reactions-over-time-chart');
                 scope.numYears = 2;
 
                 // Update the chart's data whenever the map is also updated by a new search.
@@ -37,7 +37,7 @@ angular.module('LineChart', ['EventBus'])
 
                     SearchService.searchDrugs(searchObj, true)
                         .then(function(countData) {
-                            var results, xValues, yValues, paper, countText;
+                            var results, xValues, yValues, paper;
 
                             if (!countData || !countData.results) {
                                 // TODO: Do something here.

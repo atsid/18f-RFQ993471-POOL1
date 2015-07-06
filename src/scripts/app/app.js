@@ -17,6 +17,8 @@ angular.module('MedwatchApp', [
     'BarChart'
 ])
 .controller('MasterController', ['$scope', 'EventBusService', function($scope, EventBusService) {
+    'use strict';
+
     var vm = this;
     vm.mobileMenuIsActive = false;
     vm.mobileMenuPageLoaded = false;
@@ -32,7 +34,7 @@ angular.module('MedwatchApp', [
 
     vm.closeMobileMenu = function() {
         vm.mobileMenuIsActive = false;
-    }
+    };
 
     EventBusService.subscribe($scope, 'closeMobileMenu', vm.closeMobileMenu);
     $scope.$on('$viewContentLoaded', function() {

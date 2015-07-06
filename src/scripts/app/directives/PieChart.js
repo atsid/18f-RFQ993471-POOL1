@@ -6,8 +6,8 @@ angular.module('PieChart', ['EventBus'])
             restrict: 'E',
             replace: true,
             templateUrl: 'src/scripts/app/views/pie-chart.html',
-            link: function(scope, element, attrs) {
-                scope.piePaper = Raphael('frequent-reactions-chart');
+            link: function(scope) {
+                scope.piePaper = new Raphael('frequent-reactions-chart');
                 scope.numResults = 5;
 
                 // Update the chart's data whenever the map is also updated by a new search.
@@ -24,7 +24,7 @@ angular.module('PieChart', ['EventBus'])
 
                     SearchService.searchDrugs(searchObj)
                         .then(function(countData) {
-                            var results, values, legend, paper, countText;
+                            var results, values, legend, paper;
 
                             if (!countData || !countData.results) {
                                 // TODO: Do something here.

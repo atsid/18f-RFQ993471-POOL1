@@ -70,7 +70,7 @@ angular.module('SearchBox', ['Search'])
                                             }
                                             EventBusService.publish('updateMapMarkers', result);
                                         },
-                                        function(data, status) {
+                                        function() {
                                             $scope.no_results = true;
                                             EventBusService.publish('badSearch', $scope.searchTerm);
                                             EventBusService.publish('toggleLoadingSpinner', false);
@@ -96,7 +96,7 @@ angular.module('SearchBox', ['Search'])
                                         }
                                         EventBusService.publish('updateMapMarkers', result);
                                     },
-                                    function(data, status) {
+                                    function() {
                                         $scope.no_results = true;
                                         EventBusService.publish('badSearch', $scope.searchTerm);
                                         EventBusService.publish('toggleLoadingSpinner', false);

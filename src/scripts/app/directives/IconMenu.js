@@ -8,7 +8,7 @@ angular.module('IconMenu', [])
             controller: ['$scope', 'EventBusService', function($scope, EventBusService) {
                 $scope.isActiveButton = function(id) {
                     return $scope.activeButton === id;
-                }
+                };
                 $scope.toggleDetails = function($event, value) {
                     $scope.activeButton = angular.element($event.target).attr('id');
                     EventBusService.publish('toggleDetails', value);
