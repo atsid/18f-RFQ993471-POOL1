@@ -1,4 +1,4 @@
-This README is for developers wanting to get the project running.
+This README is for developers wanting to get the project running. Note: cloning the repo for the first time may take a bit. We uploaded all of our user research videos, so there is a large amount of content to download.
 
 # Getting Started
 
