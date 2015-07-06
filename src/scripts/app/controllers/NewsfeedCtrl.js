@@ -36,7 +36,7 @@ angular.module('NewsfeedCtrl', [])
         EventBusService.subscribe($scope, 'toggleNewsfeed', $scope.toggleNewsfeed);
 
         EventBusService.subscribe($scope, 'updateHeadlines', function(headlineData) {
-            var headlines = headlineData.forEach(function(datum) {
+            headlineData.forEach(function(datum) {
                 var results = datum.data.results,
                     exampleResult = results[0];
 

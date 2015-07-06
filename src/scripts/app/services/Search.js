@@ -1,6 +1,6 @@
 angular.module('Search', [])
-    .factory('SearchService', ['$http', '$q', 'EventBusService',
-        function SearchServiceFactory($http, $q, EventBusService) {
+    .factory('SearchService', ['$http', '$q',
+        function SearchServiceFactory($http, $q) {
             'use strict';
 
             // TODO: Angular 1.4+ will allow specifying your own paramSerializer on $http,
@@ -9,15 +9,10 @@ angular.module('Search', [])
             var apiKey = 'MzPnC5U3ET5CKXrmWrfBxh7YSIhSmZVw2Ao2upAq',
                 baseUrl = 'https://api.fda.gov/';
 
-            var locationCache = {};
-
             function massageData(data, term, type) {
                 var filteredResults,
-                    numRecordsToLocate,
-                    numRecordsLocated,
                     exampleRecord,
-                    exampleKeys,
-                    manufacturer;
+                    exampleKeys;
 
                 if (!data || !data.results) {
                     // TODO: do something
@@ -87,8 +82,6 @@ angular.module('Search', [])
                 var type = options.type,
                     term = options.term,
                     limit = options.limit,
-                    skip = options.skip, // TODO: not surrently used
-                    count = options.count, // should be the whole search field
                     fromDate = options.fromDate,
                     toDate = options.toDate;
 
@@ -104,7 +97,7 @@ angular.module('Search', [])
                         break;
                     case 'label':
                         fieldPrefix = 'openfda.';
-                        dateField = 'effective_time:'
+                        dateField = 'effective_time:';
                         break;
                     case 'enforcement':
                         fieldPrefix = 'openfda.';
@@ -177,8 +170,6 @@ angular.module('Search', [])
                 var fullUrl, search;
                 var type = options.type,
                     limit = options.limit,
-                    skip = options.skip,
-                    city = options.city,
                     state = options.state;
 
                 if (type !== 'enforcement') {
