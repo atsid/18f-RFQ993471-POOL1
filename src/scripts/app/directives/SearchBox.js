@@ -39,7 +39,7 @@ angular.module('SearchBox', ['Search'])
                         if (isMobileSearch) {
                             // hide the mobile keyboard when search is submitted so that user can
                             // see what happened
-                            el.find('input:focus').blur();
+                            $('input').blur();
                         }
 
                         // This RegExp could be simplified. It checks for zip codes in the following

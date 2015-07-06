@@ -5,7 +5,7 @@
                 <p>Search the MedWatch database to find information about drug recalls, reports of adverse reactions to medications, or changes to medication labels.</p>
                 <form ng-submit="submitSearch($event)" novalidate>
                     <div class="input-group">
-                        <input type="text" ng-model="searchTerm" class="form-control tooltip-bottom-right" placeholder="Enter Drug Name"></input>
+                        <input type="search" ng-model="searchTerm" class="form-control tooltip-bottom-right" placeholder="Enter Drug Name"></input>
                         <span class="tooltip-body" ng-if="no_results" ng-cloak>There are no results for "{{fixedSearchTerm}}". We suggest using the generic name or active ingredient.</span>
                         <span class="input-group-btn">
                             <button class="btn btn-primary" type="submit" title="Search" value="Search"><span>Search MedWatch</span></button>
