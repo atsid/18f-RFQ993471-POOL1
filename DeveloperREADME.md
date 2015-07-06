@@ -25,14 +25,14 @@ You can run the app right out of the cloned codebase, with `npm start`. This wil
 ## Live Reload
 
 If you prefer a live-reload environment during development, use `gulp watch`.
-This will automatically open your browser to http://localhost:8000/18f-RFQ993471-POOL1, and watch for file changes to automatically refresh itself.
+This will serve up the static content at http://localhost:8000/18f-RFQ993471-POOL1, *and* watch for file changes to automatically refresh itself.
 
-The difference between `npm start` and `gulp watch` is so you have a live-reload option if you don't mind a little system load.
+The only difference between `npm start` and `gulp watch` is so you have a live-reload option if you don't mind a little bit of CPU load.
 
 ## Other Servers
 
 If you'd rather use a separate server such as Apache, copy the app folder into the server directory after install, and everything should load up.
-For example, if your Apache DocumentRoot is /Users/USERNAME/apache and you've cloned into a folder called "18f", copy the 18f directory into there and then navigate to http://localhost/18f.
+For example, if your Apache DocumentRoot is /Users/USERNAME/apache and you've cloned into a folder called "18f-RFQ993471-POOL1", copy the 18f-RFQ993471-POOL1 directory into there and then navigate to http://localhost/18f-RFQ993471-POOL1.
 
 To make this a little cleaner, you can run `gulp build` to get only what you need in the `dist` folder and copy those contents to your server directly.
 This will avoid a lot of unnecessary file copying from places like node_modules.
@@ -56,10 +56,6 @@ To deploy the app to public GitHub Pages, run `gulp deploy`.
 
 This runs the `gulp build` step, then pushes the content of the 'dist' folder to `gh-pages` branch for publication.
 
-If you need to remove the content, run `gulp undeploy` to push a dummy file to the gh-pages site.
-(You could delete the branch completely, but then you need to manually recreate it later).
-
-
 # Reference
 
 Gulp task listing:
@@ -70,6 +66,7 @@ Gulp task listing:
 * `gulp serve-dist` - starts the static server, pointed at output directory
 * `gulp clean` - deletes the `dist` directory
 * `gulp less` - builds .less files into .css
+* `gulp minify-js` - minifies and concatenates app *.js files
 * `gulp site` - copies static non-built site files to output directory
 * `gulp build` - copies only relevant content to `dist` directory
 * `gulp ghpages` - pushes contents of `dist` directory to gh-pages branch
