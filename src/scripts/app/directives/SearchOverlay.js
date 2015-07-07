@@ -13,6 +13,7 @@ angular.module('SearchOverlay', ['Search', 'EventBus'])
                         $scope.fixedSearchTerm = $scope.searchTerm.slice(); // updates only on submit
 
                         EventBusService.publish('toggleLoadingSpinner', true);
+                        EventBusService.publish('initialSearch', $scope.fixedSearchTerm);
 
                         var el = angular.element($event.target);
                         var searchObj = {

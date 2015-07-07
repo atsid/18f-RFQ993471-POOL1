@@ -11,6 +11,13 @@ angular.module('SearchBox', ['Search'])
 
                     var geocoder = new google.maps.Geocoder();
 
+                    // For setting the search text in the text box on initial search
+                    EventBusService.subscribe($scope, 'initialSearch', function(term) {
+                        if (term) {
+                            $scope.searchTerm = term;
+                        }
+                    });
+
                     $scope.submitSearch = function($event) {
                         var searchObj = {}, fromDate, toDate, datesAreInvalid = false;
                         var el = angular.element($event.target),
